@@ -2,13 +2,31 @@
 import { ScenarioType, ScenarioConfig, Catalyst, TickerDefinition } from './types';
 
 export const TICKERS: Record<string, TickerDefinition> = {
+  ITT: {
+    ticker: 'ITT', name: 'ITT Inc.', sector: 'Diversified Industrials', themeColor: '#0d2137',
+    currentPrice: 202.09, shares0: 97.9, rev25: 3900, fcfMargin25: 0.142, taxRate: 0.21,
+    cash: 600, debt: 4800, beta: 1.20, costDebt: 0.045, unitLabel: 'Flow Solutions', unit25: 1.3,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'SPX Integration & TAM',
+    rsRating: 82, aiImpact: 'TAILWIND',
+    strategicNarrative: "Strategically transformative SPX FLOW acquisition positions ITT as a global top-3 flow solutions provider. Strong exposure to energy transition (cryogenic pumps) and industrial AI (predictive maintenance). High margin aftermarket mix (43%) provides structural downside protection and margin upside.",
+    deepDive: []
+  },
   ANET: {
     ticker: 'ANET', name: 'Arista Networks', sector: 'Cloud Networking', themeColor: '#6366f1',
     currentPrice: 141.59, shares0: 1259.3, rev25: 9006, fcfMargin25: 0.45, taxRate: 0.21,
     cash: 10110, debt: 0, beta: 1.44, costDebt: 0.045, unitLabel: 'Cloud/AI Ports', unit25: 12.5,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'AI Backend & Campus Pivot',
-    rsRating: 94, aiImpact: 'TAILWIND',
-    strategicNarrative: "Arista is the pure-play backbone of the AI cluster. While valuation is rich, the RS of 94 confirms it’s the institutional vehicle of choice for networking. AI is a massive structural tailwind as LLMs shift from compute-bound to network-bound. Don't fight the tape here; momentum and fundamentals are perfectly aligned.",
+    rsRating: 79, aiImpact: 'TAILWIND',
+    strategicNarrative: "Arista is the pure-play backbone of the AI cluster. While valuation is rich, the RS of 79 reflects recent consolidation after the vertical run. AI remains a massive structural tailwind as LLMs shift from compute-bound to network-bound. Long-term institutional support is strong despite the short-term technical breather.",
+    deepDive: []
+  },
+  CRDO: {
+    ticker: 'CRDO', name: 'Credo Technology', sector: 'AI Connectivity', themeColor: '#d4af37',
+    currentPrice: 115.27, shares0: 190.0, rev25: 437, fcfMargin25: 0.22, taxRate: 0.08,
+    cash: 813.6, debt: 22, beta: 2.58, costDebt: 0.05, unitLabel: 'AEC Shipments', unit25: 1.2,
+    modelType: 'DCF_ADVANCED', enhancementLabel: '1.6T DSP & Retimer Ramp',
+    rsRating: 86, aiImpact: 'TAILWIND',
+    strategicNarrative: "CRDO sits at the critical intersection of AI infrastructure. Every GPU cluster requires high-speed, low-power connectivity. RS 86 reflects institutional accumulation ahead of the 800G to 1.6T migration. While customer concentration is a risk, the design-win stickiness and 67%+ gross margins create a formidable semiconductor moat.",
     deepDive: []
   },
   ASTS: {
@@ -43,8 +61,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 78.45, shares0: 2110, rev25: 43500, fcfMargin25: 0.11, taxRate: 0.21,
     cash: 5800, debt: 9500, beta: 1.35, costDebt: 0.065, unitLabel: 'Consumers', unit25: 155,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'AV Platform Expansion',
-    rsRating: 78, aiImpact: 'TAILWIND',
-    strategicNarrative: "AI (via AVs) is the ultimate margin unlock. RS 78 suggests the market is pricing the autonomous transition as a margin feature. While slightly off highs, institutional support remains solid as the platform proves its 'platform-as-a-service' AV potential.",
+    rsRating: 16, aiImpact: 'TAILWIND',
+    strategicNarrative: "Broken technicals. RS 16 signals that institutions have aggressively rotated out of UBER as the AV promise meets regulatory and execution friction. While the 'platform-as-a-service' AV potential is theoretically huge, the tape suggests big money is parked elsewhere for now. Heavy distribution phase.",
     deepDive: []
   },
   NFLX: {
@@ -52,8 +70,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 76.87, shares0: 4222.0, rev25: 45180, fcfMargin25: 0.209, taxRate: 0.137,
     cash: 8500, debt: 14000, beta: 1.10, costDebt: 0.052, unitLabel: 'Subscribers', unit25: 325,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Ad-Tier Scaling',
-    rsRating: 88, aiImpact: 'TAILWIND',
-    strategicNarrative: "The definitive winner of the streaming wars. RS 88 confirms heavy accumulation. AI is an efficiency tool for production, but the real story is pricing power and ad-tier scaling. Institutions are treating this as a core 'growth utility'.",
+    rsRating: 11, aiImpact: 'TAILWIND',
+    strategicNarrative: "Severe relative weakness. RS 11 indicates Netflix has lost its 'Growth Utility' crown in the eyes of institutional desk traders. Despite strong margins, the tape shows massive distribution as the market fears pricing power saturation and competitive ad-tier pressure. Avoid until a bottom is formed.",
     deepDive: []
   },
   CEG: {
@@ -61,8 +79,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 288.43, shares0: 312.3, rev25: 25200, fcfMargin25: 0.097, taxRate: 0.255,
     cash: 4500, debt: 19900, beta: 1.83, costDebt: 0.0525, unitLabel: 'GW Capacity', unit25: 55,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Nuclear AI PPA',
-    rsRating: 97, aiImpact: 'TAILWIND',
-    strategicNarrative: "Software is infinite, but power is finite. RS 97 reflects a massive scarcity premium for carbon-free, 24/7 baseload power. Institutions are chasing the 'Nuclear AI' trade with conviction. Momentum is extreme and backed by unprecedented contract visibility.",
+    rsRating: 23, aiImpact: 'TAILWIND',
+    strategicNarrative: "The tape is currently broken. RS 23 reflects a massive institutional rotation away from the 'Nuclear AI' trade as valuation reach peaked and regulatory delays weighed on sentiment. While the fundamental scarcity of carbon-free baseload power remains a decade-long tailwind, the stock is currently in deep distribution. Wait for a technical turn.",
     deepDive: []
   },
   DE: {
@@ -70,8 +88,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 602.92, shares0: 271.1, rev25: 45684, fcfMargin25: 0.10, taxRate: 0.22,
     cash: 5200, debt: 65953, beta: 0.78, costDebt: 0.0497, unitLabel: 'Machines', unit25: 1.0,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Software & Autonomy',
-    rsRating: 42, aiImpact: 'TAILWIND',
-    strategicNarrative: "Deere is an AI software leader trapped in a cyclical body. RS 42 reflects the current Ag recession. While fundamentals point to a software-led re-rating in 2027, the technicals show the stock is currently out of favor. A 'wait for a turn' candidate.",
+    rsRating: 82, aiImpact: 'TAILWIND',
+    strategicNarrative: "A powerful momentum shift. RS 82 confirms that Deere has successfully decoupled from the cyclical Ag recession narrative. Institutions are accumulating based on the software-led re-rating and autonomous rollout. The tape is increasingly constructive for a long-term breakout.",
     deepDive: []
   },
   PANW: {
@@ -97,8 +115,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 54.55, shares0: 200.0, rev25: 1281, fcfMargin25: 0.155, taxRate: 0.20,
     cash: 1600, debt: 1100, beta: 1.25, unitLabel: 'ARR', unit25: 1350,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Agentic AI Cloud',
-    rsRating: 85, aiImpact: 'TAILWIND',
-    strategicNarrative: "Cyber resilience is the AI era's insurance. RS 85 is strong for a recent IPO. Big money sees Rubrik as the 'secure vault' for the LLM training data. Momentum is building as ARR growth exceeds expectations.",
+    rsRating: 12, aiImpact: 'TAILWIND',
+    strategicNarrative: "Complete institutional rejection. RS 12 signals that the market has abandoned the Rubrik story despite its 'Agent Cloud' potential. Cyber resilience is critical, but the technicals suggest the stock is a falling knife. Accumulation is non-existent.",
     deepDive: []
   },
   FTNT: {
@@ -106,8 +124,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 85.56, shares0: 743.6, rev25: 6800, fcfMargin25: 0.325, taxRate: 0.18,
     cash: 4600, debt: 995, beta: 1.05, costDebt: 0.048, unitLabel: 'SASE ARR', unit25: 1.28,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'ASIC Advantage',
-    rsRating: 58, aiImpact: 'NEUTRAL',
-    strategicNarrative: "Middle of the pack. RS 58 shows the stock is pacing the market but not leading. Their ASIC hardware advantage is real, but cloud-native SASE competition remains fierce. A solid fundamental story without technical 'oomph'.",
+    rsRating: 27, aiImpact: 'NEUTRAL',
+    strategicNarrative: "Losing the competitive tape. RS 27 reflects the stock's failure to capture any meaningful institutional interest relative to SASE peers. Their ASIC advantage is ignored as the market favors software-centric cloud winners. In a clear distribution trend.",
     deepDive: []
   },
   DUOL: {
@@ -124,8 +142,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 1344.74, shares0: 23.72, rev25: 1991, fcfMargin25: 0.37, taxRate: 0.22,
     cash: 218, debt: 3200, beta: 1.03, costDebt: 0.055, unitLabel: 'Scores', unit25: 600,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Platform pricing power',
-    rsRating: 89, aiImpact: 'NEUTRAL',
-    strategicNarrative: "A pricing power monster. RS 89 shows it's a leader in the financials/analytics space. AI enhances their platform, but the score monopoly is the bedrock. Expensive, but institutions are still buying the breakout.",
+    rsRating: 16, aiImpact: 'NEUTRAL',
+    strategicNarrative: "Pricing power bubble bursting. RS 16 reflects the end of the score monopoly's safe-haven status. Big money is exiting as alternatives and regulatory headwinds for credit analytics gain momentum. A core distribution candidate.",
     deepDive: []
   },
   TLN: {
@@ -133,8 +151,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 376.70, shares0: 45.96, rev25: 2430, fcfMargin25: 0.20, taxRate: 0.21,
     cash: 650, debt: 5800, beta: 0.85, costDebt: 0.07, unitLabel: 'Capacity', unit25: 13,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Data Center Co-location',
-    rsRating: 98, aiImpact: 'TAILWIND',
-    strategicNarrative: "Peak momentum. RS 98 makes it the strongest stock in our universe. It is the blueprint for the 'AI Power' trade. While the math is aggressive, the tape confirms that electrons are currently the most valuable asset in tech.",
+    rsRating: 83, aiImpact: 'TAILWIND',
+    strategicNarrative: "Strong but cooling. RS 83 shows Talen remains a top-tier institutional vehicle, though it's taking a breather after its parabolic phase. The co-location story is still the blueprint for the AI power trade, but velocity has normalized. Accumulate on dips.",
     deepDive: []
   },
   AGCO: {
@@ -142,8 +160,8 @@ export const TICKERS: Record<string, TickerDefinition> = {
     currentPrice: 140.49, shares0: 74.6, rev25: 11662, fcfMargin25: 0.10, taxRate: 0.23,
     cash: 884, debt: 2800, beta: 1.16, costDebt: 0.06, unitLabel: 'Units', unit25: 120,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Trimble JV Scaling',
-    rsRating: 18, aiImpact: 'TAILWIND',
-    strategicNarrative: "Complete technical neglect. RS 18 means it's in the bottom quintile of performance. While the Trimble JV is a great long-term AI play, you're catching a falling knife here. Value is present, but buyers are nowhere to be found.",
+    rsRating: 88, aiImpact: 'TAILWIND',
+    strategicNarrative: "Total trend reversal. RS 88 confirms a massive institutional rotation into AGCO as the 'Trimble JV' scaling story captures investor imagination. After months of neglect, the stock is now a momentum leader in the industrial space. Heavy accumulation detected.",
     deepDive: []
   },
   SPGI: {
@@ -176,10 +194,41 @@ export const TICKERS: Record<string, TickerDefinition> = {
 };
 
 export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
+  ITT: {
+    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.04, 0.04, 0.03, 0.03, 0.03], fcfMargin: [0.115, 0.12, 0.12, 0.125, 0.125], exitMultiple: 13, desc: "Integration friction and cyclical automotive headwind.", drivers: { ebitdaProxy: 0.18 } },
+    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.07, 0.06, 0.055, 0.05, 0.045], fcfMargin: [0.115, 0.125, 0.135, 0.14, 0.145], exitMultiple: 15, desc: "Successful SPX FLOW synergy capture.", drivers: { bbRate: 0.005, maOptVal: 1500, ebitdaProxy: 0.20, revPrem: [0, 0.02, 0.02, 0.015, 0.015] } },
+    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.09, 0.08, 0.07, 0.065, 0.06], fcfMargin: [0.12, 0.135, 0.15, 0.16, 0.165], exitMultiple: 18, desc: "Energy transition supercycle acceleration.", drivers: { bbRate: 0.012, maOptVal: 3000, ebitdaProxy: 0.22, revPrem: [0.01, 0.03, 0.03, 0.02, 0.02], fcfUplift: [0.005, 0.01, 0.015, 0.015, 0.02] } }
+  },
   ANET: {
     [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.12, 0.10, 0.08, 0.07], fcfMargin: [0.37, 0.37, 0.37, 0.37, 0.37], exitMultiple: 20, desc: "AI spending fatigue.", drivers: { ebitdaProxy: 0.45 } },
     [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.25, 0.20, 0.18, 0.15, 0.13], fcfMargin: [0.40, 0.41, 0.41, 0.42, 0.42], exitMultiple: 30, desc: "Steady cloud dominance.", drivers: { bbRate: 0.006, maOptVal: 3000, ebitdaProxy: 0.52 } },
     [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.28, 0.25, 0.22, 0.20, 0.18], fcfMargin: [0.42, 0.43, 0.44, 0.45, 0.45], exitMultiple: 35, desc: "AI networking supercycle.", drivers: { bbRate: 0.01, maOptVal: 6000, ebitdaProxy: 0.52 } }
+  },
+  CRDO: {
+    [ScenarioType.BEAR]: { 
+      label: "Bear", color: "#ef4444", bg: "bg-red-900", 
+      revGrowth: [2.0, 0.45, 0.25, 0.15, 0.10], 
+      fcfMargin: [0.28, 0.30, 0.30, 0.32, 0.32], 
+      exitMultiple: 18, termGrowth: 0.025, waccAdj: 0.03,
+      desc: "Hyperscaler capex digestion cycle.",
+      drivers: { maOptVal: 0, ebitdaProxy: 0.38 }
+    },
+    [ScenarioType.BASE]: { 
+      label: "Base", color: "#3b82f6", bg: "bg-blue-900", 
+      revGrowth: [2.0, 0.65, 0.40, 0.30, 0.22], 
+      fcfMargin: [0.30, 0.35, 0.36, 0.36, 0.36], 
+      exitMultiple: 25, termGrowth: 0.035, waccAdj: 0.01,
+      desc: "800G transition and طراحی-win leadership.",
+      drivers: { bbRate: 0.005, maOptVal: 500, revPrem: [0.08, 0.08, 0.08, 0.08, 0.08], fcfUplift: [0.03, 0.03, 0.03, 0.03, 0.03], ebitdaProxy: 0.46 }
+    },
+    [ScenarioType.BULL]: { 
+      label: "Bull", color: "#d4af37", bg: "bg-yellow-900", 
+      revGrowth: [2.0, 0.80, 0.55, 0.40, 0.30], 
+      fcfMargin: [0.35, 0.42, 0.45, 0.48, 0.50], 
+      exitMultiple: 30, termGrowth: 0.045, waccAdj: -0.01,
+      desc: "Total AI connectivity dominance and 1.6T ramp.",
+      drivers: { bbRate: 0.01, maOptVal: 2000, revPrem: [0.15, 0.15, 0.15, 0.15, 0.15], fcfUplift: [0.05, 0.05, 0.05, 0.05, 0.05], ebitdaProxy: 0.50 }
+    }
   },
   ASTS: {
     [ScenarioType.BEAR]: { 
@@ -220,7 +269,7 @@ export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
   UBER: {
     [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.05, 0.04, 0.03, 0.03, 0.03], fcfMargin: [0.05, 0.06, 0.07, 0.07, 0.08], exitMultiple: 12, desc: "Legal risks.", drivers: { ebitdaProxy: 0.15 } },
     [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.15, 0.14, 0.12, 0.11, 0.10], fcfMargin: [0.11, 0.13, 0.15, 0.17, 0.19], exitMultiple: 18, desc: "Steady FCF growth.", drivers: { bbRate: 0.025, maOptVal: 2000, ebitdaProxy: 0.22 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.20, 0.18, 0.16, 0.15, 0.14], fcfMargin: [0.15, 0.18, 0.22, 0.26, 0.30], exitMultiple: 25, desc: "AV Network dominance.", drivers: { bbRate: 0.05, maOptVal: 20000, ebitdaProxy: 0.35 } }
+    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.20, 0.18, 0.16, 0.15, 0.14], fcfMargin: [0.15, 0.18, 0.22, 0.26, 0.30], exitMultiple: 25, desc: "AV Network dominance.", drivers: { bbRate: 0.025, maOptVal: 20000, ebitdaProxy: 0.35 } }
   },
   NFLX: {
     [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.06, 0.05, 0.04, 0.04, 0.04], fcfMargin: [0.18, 0.19, 0.20, 0.20, 0.20], exitMultiple: 15, desc: "Content inflation.", drivers: { ebitdaProxy: 0.25 } },
@@ -295,7 +344,9 @@ export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
 };
 
 export const TICKER_CATALYSTS: Record<string, Catalyst[]> = {
+  ITT: [{ yr: 2026, events: ["SPX FLOW synergy realization", "$80M cost savings hurdle"], risk: "MEDIUM", color: "text-blue-400" }],
   ANET: [{ yr: 2026, events: ["800G transition peak"], risk: "LOW", color: "text-indigo-400" }],
+  CRDO: [{ yr: 2026, events: ["1.6T DSP full production"], risk: "MEDIUM", color: "text-yellow-400" }],
   ASTS: [{ yr: 2026, events: ["Block 2 Constellation Completion"], risk: "HIGH", color: "text-sky-400" }],
   VST: [{ yr: 2026, events: ["New nuclear co-location PPA"], risk: "MEDIUM", color: "text-yellow-400" }],
   KKR: [{ yr: 2026, events: ["Arctos deal finalization"], risk: "LOW", color: "text-purple-400" }],

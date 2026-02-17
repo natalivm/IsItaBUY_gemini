@@ -18,7 +18,9 @@ interface StockRow {
 }
 
 const STOCKS: StockRow[] = [
+  { ticker: 'ITT', fairPriceRange: '$180 - $265', active: true },
   { ticker: 'ANET', fairPriceRange: '$150 - $290', active: true },
+  { ticker: 'CRDO', fairPriceRange: '$100 - $280', active: true },
   { ticker: 'ASTS', fairPriceRange: '$30 - $210', active: true },
   { ticker: 'VST', fairPriceRange: '$120 - $250', active: true },
   { ticker: 'KKR', fairPriceRange: '$120 - $240', active: true },
@@ -95,7 +97,6 @@ const App: React.FC = () => {
             onClick={() => setActiveTicker('market-indicators')}
             className="z-20 group relative px-8 py-4 bg-slate-900/80 border border-slate-700 rounded-2xl flex items-center gap-4 transition-all hover:bg-slate-800 hover:border-slate-500 hover:scale-105 shadow-2xl"
           >
-            {/* Swapped colors: Risk Off = Green, Risk On = Red */}
             <div className={`w-3 h-3 rounded-full ${isRiskOn ? 'bg-red-500 shadow-[0_0_15px_#ef4444]' : 'bg-green-500 shadow-[0_0_15px_#22c55e]'} animate-pulse`}></div>
             <div className="flex flex-col items-start text-left">
               <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Current Market Regime</span>
