@@ -54,6 +54,10 @@ export interface TickerDefinition {
   unit25: number;
   modelType: ValuationModelType;
   enhancementLabel?: string;
+  // Market Intelligence
+  rsRating: number;
+  aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
+  strategicNarrative: string;
   // Financial specifics
   dilutedShares?: number;
   opMargin25?: number;

@@ -8,6 +8,42 @@ import {
 import { TICKERS, CONFIGS } from '../constants';
 
 /**
+ * Standardized Rating Logic based on User Requirements:
+ * - Uplift > $30 from current spot -> STRONG BUY
+ * - Downside > 4% from current spot -> AVOID
+ * - Otherwise -> HOLD
+ */
+export const getInstitutionalRating = (target: number, spot: number) => {
+  const uplift = target - spot;
+  const downsideRatio = target / spot;
+
+  if (uplift > 30) {
+    return { 
+      label: 'STRONG BUY', 
+      status: 'undervalued' as const, 
+      color: 'text-green-500', 
+      dot: 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]' 
+    };
+  }
+  
+  if (downsideRatio < 0.96) {
+    return { 
+      label: 'AVOID', 
+      status: 'overvalued' as const, 
+      color: 'text-red-500', 
+      dot: 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]' 
+    };
+  }
+
+  return { 
+    label: 'HOLD', 
+    status: 'fair price' as const, 
+    color: 'text-blue-400', 
+    dot: 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]' 
+  };
+};
+
+/**
  * Shared logic for WACC calculation following institutional CAPM standards
  */
 const calculateWacc = (t: TickerDefinition, sc: ScenarioConfig) => {

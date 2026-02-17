@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { ScenarioType, ProjectionData } from '../types';
-// Fix: Imported TICKERS to dynamically resolve company names in AI context
 import { TICKERS } from '../constants';
 
 interface Props {
@@ -31,28 +30,35 @@ const AnalystChat: React.FC<Props> = ({ scenario, projection }) => {
     setLoading(true);
 
     try {
-      // Fix: Ensure initialization uses a named parameter for apiKey from process.env.API_KEY
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      // Fix: Use dynamic company name from constants for the AI prompt
-      const tickerName = TICKERS[projection.ticker]?.name || projection.ticker;
+      const ticker = TICKERS[projection.ticker];
+      const tickerName = ticker?.name || projection.ticker;
       
+      const peString = projection.config.peMultiple 
+        ? `${projection.config.peMultiple[4]}x (P/E)` 
+        : `${projection.config.exitMultiple}x (Exit Multiple)`;
+
       const prompt = `
-        You are a Senior Equity Analyst at an institutional research firm specializing in TMT (Technology, Media, and Telecom).
+        You are a Senior Equity Analyst at an institutional research firm specializing in ${ticker?.sector || 'TMT'}.
         Current Context: Analyzing ${tickerName} (${projection.ticker}) 5-year projections.
         Selected Scenario: ${scenario.toUpperCase()}
         Scenario Assumptions: ${projection.config.desc}
-        Financial Data (2030E):
-        - Target Price: $${projection.priceEnhanced[4].toFixed(2)}
-        - Revenue: $${(projection.revs[4]/1000).toFixed(1)}B
-        - EPS: $${projection.eps[4].toFixed(2)}
-        - P/E Multiple: ${projection.config.peMultiple[4]}x
         
-        Answer the following user question based on these projections. Keep your response professional, data-driven, and concise (under 150 words). Focus on risk/reward and valuation logic.
+        Market Context:
+        - RS (Relative Strength) Rating: ${ticker?.rsRating}/99
+        - AI Impact Sentiment: ${ticker?.aiImpact}
+        - Firm's Internal Strategic View: "${ticker?.strategicNarrative}"
+        
+        Financial Data (2030E):
+        - Target Price: $${projection.pricePerShare?.toFixed(2)}
+        - Revenue: $${(projection.revs[4]/1000).toFixed(1)}B
+        - Multiples: ${peString}
+        
+        Answer the following user question based on these projections. Keep your response professional, data-driven, and concise (under 150 words). Address the tension between the quantitative model and the market sentiment (RS rating) where relevant.
         
         Question: ${userMessage}
       `;
 
-      // Fix: Use gemini-3-pro-preview for complex reasoning tasks and access the .text property
       const response = await ai.models.generateContent({
         model: 'gemini-3-pro-preview',
         contents: prompt
@@ -60,7 +66,6 @@ const AnalystChat: React.FC<Props> = ({ scenario, projection }) => {
 
       setMessages(prev => [...prev, { role: 'assistant', content: response.text || "I'm sorry, I couldn't process that request." }]);
     } catch (err) {
-      // Fix: Graceful error handling for API failures
       setMessages(prev => [...prev, { role: 'assistant', content: "Connection to analytics service lost. Please try again shortly." }]);
     } finally {
       setLoading(false);
@@ -74,7 +79,6 @@ const AnalystChat: React.FC<Props> = ({ scenario, projection }) => {
           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
           <span className="text-[10px] font-black text-white uppercase tracking-widest">AI Investment Analyst</span>
         </div>
-        {/* Fix: Display the active ticker in the assistant header */}
         <span className="text-[10px] text-slate-500 font-mono">{projection.ticker} ANALYTICS ASSISTANT</span>
       </div>
       

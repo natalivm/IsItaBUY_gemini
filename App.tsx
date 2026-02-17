@@ -1,32 +1,40 @@
 
 import React, { useState, useMemo } from 'react';
 import { ScenarioType } from './types';
-import { calculateProjection } from './services/projectionService';
+import { calculateProjection, getInstitutionalRating } from './services/projectionService';
 import { TICKERS } from './constants';
 import ScenarioSelector from './components/ScenarioSelector';
 import ProjectionChart from './components/ProjectionChart';
 import AnalystChat from './components/AnalystChat';
 import ScenarioMetricsCard from './components/ScenarioMetricsCard';
+import MarketIndicatorsView from './components/MarketIndicatorsView';
 
-type ViewType = 'home' | string;
+type ViewType = 'home' | 'market-indicators' | string;
 
 interface StockRow {
   ticker: string;
-  buy: 'YES' | 'Maybe' | 'No';
-  value: 'undervalued' | 'fair price' | 'overvalued';
-  fairPrice: string;
+  fairPriceRange: string;
   active?: boolean;
 }
 
 const STOCKS: StockRow[] = [
-  { ticker: 'NFLX', buy: 'YES', value: 'undervalued', fairPrice: '$890 - $1350', active: true },
-  { ticker: 'UBER', buy: 'YES', value: 'undervalued', fairPrice: '$115 - $190', active: true },
-  { ticker: 'FTNT', buy: 'YES', value: 'undervalued', fairPrice: '$105 - $135', active: true },
-  { ticker: 'DUOL', buy: 'YES', value: 'undervalued', fairPrice: '$340 - $450', active: true },
-  { ticker: 'FICO', buy: 'YES', value: 'undervalued', fairPrice: '$1650 - $2200', active: true },
-  { ticker: 'TLN', buy: 'Maybe', value: 'fair price', fairPrice: '$380 - $650', active: true },
-  { ticker: 'AGCO', buy: 'Maybe', value: 'fair price', fairPrice: '$155 - $215', active: true },
-  { ticker: 'DE', buy: 'No', value: 'overvalued', fairPrice: '$520 - $750', active: true },
+  { ticker: 'ANET', fairPriceRange: '$150 - $290', active: true },
+  { ticker: 'KKR', fairPriceRange: '$120 - $240', active: true },
+  { ticker: 'CEG', fairPriceRange: '$210 - $430', active: true },
+  { ticker: 'SPGI', fairPriceRange: '$410 - $620', active: true },
+  { ticker: 'GXO', fairPriceRange: '$55 - $110', active: true },
+  { ticker: 'SMWB', fairPriceRange: '$6 - $15', active: true },
+  { ticker: 'PINS', fairPriceRange: '$15 - $35', active: true },
+  { ticker: 'RBRK', fairPriceRange: '$40 - $90', active: true },
+  { ticker: 'PANW', fairPriceRange: '$140 - $260', active: true },
+  { ticker: 'UBER', fairPriceRange: '$65 - $150', active: true },
+  { ticker: 'FTNT', fairPriceRange: '$75 - $140', active: true },
+  { ticker: 'DUOL', fairPriceRange: '$220 - $480', active: true },
+  { ticker: 'FICO', fairPriceRange: '$1200 - $2500', active: true },
+  { ticker: 'TLN', fairPriceRange: '$280 - $650', active: true },
+  { ticker: 'AGCO', fairPriceRange: '$110 - $230', active: true },
+  { ticker: 'NFLX', fairPriceRange: '$60 - $140', active: true },
+  { ticker: 'DE', fairPriceRange: '$430 - $750', active: true },
 ];
 
 const App: React.FC = () => {
@@ -34,7 +42,7 @@ const App: React.FC = () => {
   const [scenario, setScenario] = useState<ScenarioType>(ScenarioType.BASE);
   const [showEnhancements, setShowEnhancements] = useState(true);
 
-  const tickerDef = activeTicker !== 'home' ? TICKERS[activeTicker] : null;
+  const tickerDef = activeTicker !== 'home' && activeTicker !== 'market-indicators' ? TICKERS[activeTicker] : null;
 
   const allProjections = useMemo(() => {
     if (!tickerDef) return null;
@@ -46,6 +54,14 @@ const App: React.FC = () => {
   }, [activeTicker, showEnhancements]);
 
   const currentProjection = allProjections ? allProjections[scenario] : null;
+
+  const universeData = useMemo(() => {
+    return STOCKS.map(s => {
+      const proj = calculateProjection(s.ticker, ScenarioType.BASE, true);
+      const rating = getInstitutionalRating(proj.pricePerShare!, TICKERS[s.ticker].currentPrice);
+      return { ...s, ...rating };
+    });
+  }, []);
 
   const investmentConclusion = useMemo(() => {
     if (!allProjections || !tickerDef) return null;
@@ -60,30 +76,51 @@ const App: React.FC = () => {
   }, [allProjections, tickerDef]);
 
   if (activeTicker === 'home') {
+    // Determine overall market risk status for the button
+    // Based on HTML: 1 Risk Off, 6 Neutral, 2 Risk On. 
+    // VIX 20.82 is borderline Risk Off / Elevated.
+    const isRiskOn = false; 
+
     return (
       <div className="min-h-screen bg-[#0a1128] flex font-sans overflow-hidden">
-        <div className="w-1/2 h-screen sticky top-0 bg-[#0a1128] flex items-center justify-center p-12 lg:p-24 overflow-hidden border-r border-slate-800/30">
+        <div className="w-1/2 h-screen sticky top-0 bg-[#0a1128] flex flex-col items-center justify-center p-12 lg:p-24 overflow-hidden border-r border-slate-800/30">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#ff007f_0%,transparent_60%)]"></div>
           </div>
-          <div className="z-10 w-full text-center text-7xl lg:text-9xl font-black text-[#ff007f] tracking-tighter leading-[0.8] animate-pulse uppercase">
+          <div className="z-10 w-full text-center text-7xl lg:text-9xl font-black text-[#ff007f] tracking-tighter leading-[0.8] animate-pulse uppercase mb-12">
             IS IT<br />A<br />BUY?
           </div>
+          
+          <button 
+            onClick={() => setActiveTicker('market-indicators')}
+            className="z-20 group relative px-8 py-4 bg-slate-900/80 border border-slate-700 rounded-2xl flex items-center gap-4 transition-all hover:bg-slate-800 hover:border-slate-500 hover:scale-105 shadow-2xl"
+          >
+            <div className={`w-3 h-3 rounded-full ${isRiskOn ? 'bg-green-500 shadow-[0_0_15px_#22c55e]' : 'bg-red-500 shadow-[0_0_15px_#ef4444]'} animate-pulse`}></div>
+            <div className="flex flex-col items-start">
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Current Market Regime</span>
+              <span className={`text-xl font-black uppercase tracking-tight ${isRiskOn ? 'text-green-500' : 'text-red-500'}`}>
+                {isRiskOn ? 'Risk On' : 'Risk Off'}
+              </span>
+            </div>
+            <div className="ml-4 text-slate-600 group-hover:text-white transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </div>
+          </button>
         </div>
         <div className="w-1/2 h-screen bg-[#0d1630] overflow-y-auto px-12 pt-20 pb-24 space-y-0 scrollbar-hide">
           <div className="text-amber-500 font-black text-[10px] tracking-[0.3em] uppercase mb-12">Alpha Research Group // High Conviction List</div>
           <div className="space-y-1">
-            {STOCKS.map((stock) => (
-              <button key={stock.ticker} onClick={() => setActiveTicker(stock.ticker)} className="w-full flex items-center justify-between py-6 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5">
+            {universeData.map((stock) => (
+              <button key={stock.ticker} onClick={() => setActiveTicker(stock.ticker)} className="w-full flex items-center justify-between py-6 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left">
                 <div className="flex items-center gap-6">
                   <span className="text-5xl lg:text-6xl font-black text-slate-500 group-hover:text-white transition-colors tracking-tighter leading-none">{stock.ticker}</span>
                 </div>
                 <div className="flex items-center gap-8 lg:gap-16">
                   <div className="flex flex-col items-end leading-none gap-1">
-                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Fair Value</span>
-                    <span className="text-lg font-bold text-slate-300 mono">{stock.fairPrice}</span>
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{stock.label}</span>
+                    <span className="text-lg font-bold text-slate-300 mono">{stock.fairPriceRange}</span>
                   </div>
-                  <div className={`w-3 h-3 rounded-full ${stock.value === 'undervalued' ? 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]' : stock.value === 'fair price' ? 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]' : 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]'}`}></div>
+                  <div className={`w-3 h-3 rounded-full ${stock.dot}`}></div>
                 </div>
               </button>
             ))}
@@ -93,20 +130,17 @@ const App: React.FC = () => {
     );
   }
 
+  if (activeTicker === 'market-indicators') {
+    return <MarketIndicatorsView onClose={() => setActiveTicker('home')} />;
+  }
+
   if (!tickerDef || !currentProjection || !investmentConclusion) return null;
 
   const usd = (n: number) => "$" + n.toFixed(2);
   const pct = (n: number) => (n * 100).toFixed(1) + "%";
 
-  const stockMeta = STOCKS.find(s => s.ticker === tickerDef.ticker);
+  const activeStockData = universeData.find(s => s.ticker === tickerDef.ticker);
   
-  const getRatingLabel = () => {
-    if (!stockMeta) return 'UNDER REVIEW';
-    if (stockMeta.buy === 'YES') return 'STRONG BUY';
-    if (stockMeta.buy === 'Maybe') return 'HOLD';
-    return 'AVOID';
-  };
-
   return (
     <div className="min-h-screen bg-[#0a1128] text-slate-100 selection:bg-slate-700/50 font-sans relative overflow-x-hidden">
       <div className="absolute top-0 right-0 w-[50vw] h-[50vh] opacity-20 pointer-events-none" style={{ background: `radial-gradient(circle_at_80%_20%, ${tickerDef.themeColor} 0%, transparent 70%)` }}></div>
@@ -124,7 +158,7 @@ const App: React.FC = () => {
           <div className="flex gap-4">
             {[
               { label: 'Spot', value: usd(tickerDef.currentPrice) },
-              { label: 'Rating', value: getRatingLabel() },
+              { label: 'Rating', value: activeStockData?.label || 'HOLD' },
               { label: 'Fair Value', value: usd(currentProjection.pricePerShare!) }
             ].map((m, i) => (
               <div key={i} className="px-5 py-2 bg-[#0d1630] border border-slate-800 rounded-lg flex items-center gap-3">
@@ -137,21 +171,51 @@ const App: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-3 space-y-10">
-            <div className="p-8 rounded-2xl border-l-[6px] bg-[#0d1630]/80 shadow-2xl" style={{ borderLeftColor: tickerDef.themeColor }}>
-              <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Quant Narrative</h3>
-              <p className="text-xl text-white font-bold leading-tight mb-6">{currentProjection.config.desc}</p>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                  <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Entry CAGR</div>
-                  <div className="text-2xl font-black text-white">{pct(currentProjection.cagrs[4]/100)}</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-8 rounded-2xl border-l-[6px] bg-[#0d1630]/80 shadow-2xl" style={{ borderLeftColor: tickerDef.themeColor }}>
+                <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Quant Narrative</h3>
+                <p className="text-xl text-white font-bold leading-tight mb-6">{currentProjection.config.desc}</p>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Entry CAGR</div>
+                    <div className="text-2xl font-black text-white">{pct(currentProjection.cagrs[4]/100)}</div>
+                  </div>
+                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Target</div>
+                    <div className="text-2xl font-black text-white">{usd(currentProjection.pricePerShare!)}</div>
+                  </div>
+                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">WACC</div>
+                    <div className="text-2xl font-black text-white">{currentProjection.w ? pct(currentProjection.w) : 'N/A'}</div>
+                  </div>
                 </div>
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                  <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Target</div>
-                  <div className="text-2xl font-black text-white">{usd(currentProjection.pricePerShare!)}</div>
+              </div>
+
+              <div className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4">
+                  <div className={`text-[10px] font-black px-2 py-1 rounded border ${tickerDef.aiImpact === 'TAILWIND' ? 'border-emerald-500 text-emerald-400 bg-emerald-500/10' : 'border-amber-500 text-amber-400 bg-amber-500/10'}`}>
+                    AI {tickerDef.aiImpact.replace('_', ' ')}
+                  </div>
                 </div>
-                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                  <div className="text-[10px] font-black text-slate-500 uppercase mb-1">WACC</div>
-                  <div className="text-2xl font-black text-white">{currentProjection.w ? pct(currentProjection.w) : 'N/A'}</div>
+                <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] mb-4">Alpha Strategic View</h3>
+                <p className="text-sm text-slate-300 font-medium leading-relaxed mb-6 italic">
+                  "{tickerDef.strategicNarrative}"
+                </p>
+                <div className="flex items-center gap-6">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase mb-1">RS Rating</span>
+                    <div className="flex items-end gap-1">
+                      <span className={`text-4xl font-black ${tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-amber-500' : 'text-red-500'}`}>{tickerDef.rsRating}</span>
+                      <span className="text-xs text-slate-600 font-bold mb-1.5">/ 99</span>
+                    </div>
+                  </div>
+                  <div className="h-10 w-px bg-slate-800"></div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase mb-1">Institutional Bias</span>
+                    <span className={`text-xs font-bold uppercase tracking-widest ${tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 30 ? 'text-amber-500' : 'text-red-600'}`}>
+                      {tickerDef.rsRating > 80 ? 'Heavy Accumulation' : tickerDef.rsRating > 30 ? 'Neutral / Mixed' : 'Heavy Distribution'}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -175,17 +239,14 @@ const App: React.FC = () => {
               <ScenarioMetricsCard 
                 data={allProjections!.bear} 
                 currentPrice={tickerDef.currentPrice} 
-                overallRating={getRatingLabel()}
               />
               <ScenarioMetricsCard 
                 data={allProjections!.base} 
                 currentPrice={tickerDef.currentPrice} 
-                overallRating={getRatingLabel()}
               />
               <ScenarioMetricsCard 
                 data={allProjections!.bull} 
                 currentPrice={tickerDef.currentPrice} 
-                overallRating={getRatingLabel()}
               />
             </div>
           </div>
