@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { ScenarioType } from './types';
 import { calculateProjection } from './services/projectionService';
@@ -18,13 +19,14 @@ interface StockRow {
 }
 
 const STOCKS: StockRow[] = [
-  { ticker: 'NFLX', buy: 'YES', value: 'undervalued', fairPrice: '$112-155', active: true },
-  { ticker: 'UBER', buy: 'YES', value: 'undervalued', fairPrice: '$85-185', active: true },
-  { ticker: 'DUOL', buy: 'YES', value: 'undervalued', fairPrice: '$165-210', active: true },
-  { ticker: 'FICO', buy: 'YES', value: 'undervalued', fairPrice: '$1500-1800', active: true },
-  { ticker: 'TLN', buy: 'No', value: 'overvalued', fairPrice: '$341-547', active: true },
-  { ticker: 'AGCO', buy: 'YES', value: 'undervalued', fairPrice: '$145-185', active: true },
-  { ticker: 'DE', buy: 'Maybe', value: 'overvalued', fairPrice: '$435-495', active: true },
+  { ticker: 'NFLX', buy: 'YES', value: 'undervalued', fairPrice: '$890 - $1350', active: true },
+  { ticker: 'UBER', buy: 'YES', value: 'undervalued', fairPrice: '$115 - $190', active: true },
+  { ticker: 'FTNT', buy: 'YES', value: 'undervalued', fairPrice: '$105 - $135', active: true },
+  { ticker: 'DUOL', buy: 'YES', value: 'undervalued', fairPrice: '$340 - $450', active: true },
+  { ticker: 'FICO', buy: 'YES', value: 'undervalued', fairPrice: '$1650 - $2200', active: true },
+  { ticker: 'TLN', buy: 'Maybe', value: 'fair price', fairPrice: '$380 - $650', active: true },
+  { ticker: 'AGCO', buy: 'Maybe', value: 'fair price', fairPrice: '$155 - $215', active: true },
+  { ticker: 'DE', buy: 'No', value: 'overvalued', fairPrice: '$520 - $750', active: true },
 ];
 
 const App: React.FC = () => {
@@ -81,7 +83,7 @@ const App: React.FC = () => {
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Fair Value</span>
                     <span className="text-lg font-bold text-slate-300 mono">{stock.fairPrice}</span>
                   </div>
-                  <div className={`w-3 h-3 rounded-full ${stock.value === 'undervalued' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]' : stock.value === 'fair price' ? 'bg-blue-500' : 'bg-red-500'}`}></div>
+                  <div className={`w-3 h-3 rounded-full ${stock.value === 'undervalued' ? 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]' : stock.value === 'fair price' ? 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]' : 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]'}`}></div>
                 </div>
               </button>
             ))}
