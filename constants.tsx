@@ -11,6 +11,24 @@ export const TICKERS: Record<string, TickerDefinition> = {
     strategicNarrative: "Arista is the pure-play backbone of the AI cluster. While valuation is rich, the RS of 94 confirms it’s the institutional vehicle of choice for networking. AI is a massive structural tailwind as LLMs shift from compute-bound to network-bound. Don't fight the tape here; momentum and fundamentals are perfectly aligned.",
     deepDive: []
   },
+  ASTS: {
+    ticker: 'ASTS', name: 'AST SpaceMobile', sector: 'Space Technology', themeColor: '#38bdf8',
+    currentPrice: 82.49, shares0: 284.37, rev25: 18.5, fcfMargin25: 0.15, taxRate: 0.21,
+    cash: 3200, debt: 1700, beta: 1.46, costDebt: 0.035, unitLabel: 'Satellites In Orbit', unit25: 5,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Block 2 Constellation Ramp',
+    rsRating: 97, aiImpact: 'TAILWIND',
+    strategicNarrative: "ASTS is a high-conviction, asymmetric category-defining bet. Building the only space-based cellular broadband network for standard smartphones. 50+ MNO partnerships covering 3B+ subscribers and $1B+ in contracted revenue. RS 97 confirms institutional accumulation. While valuation is speculative vs current revenue, the 'Space-to-Phone' moat is deep and validated by MNO commitments.",
+    deepDive: []
+  },
+  VST: {
+    ticker: 'VST', name: 'Vistra Corp', sector: 'Utilities / Power', themeColor: '#facc15',
+    currentPrice: 171.00, shares0: 339.0, rev25: 19600, fcfMargin25: 0.168, taxRate: 0.21,
+    cash: 620, debt: 17500, beta: 1.43, costDebt: 0.056, unitLabel: 'Nuclear Capacity (GW)', unit25: 6.5,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Nuclear AI PPA Expansion',
+    rsRating: 32, aiImpact: 'TAILWIND',
+    strategicNarrative: "Vistra represents a rare combination of deep value and secular AI growth. RS 32 reflects a ~25% correction from highs, creating a contrarian entry opportunity. 20-year Meta PPA de-risks nuclear cash flows. Institutional model indicates meaningful fair value gap as the market underestimates long-term FCF conversion and capital return capacity.",
+    deepDive: []
+  },
   KKR: {
     ticker: 'KKR', name: 'KKR & Co. Inc.', sector: 'Alternative Asset Mgmt', themeColor: '#7c3aed',
     currentPrice: 101.73, shares0: 891.4, rev25: 4500, fcfMargin25: 0.85, taxRate: 0.21,
@@ -105,7 +123,7 @@ export const TICKERS: Record<string, TickerDefinition> = {
     ticker: 'FICO', name: 'Fair Isaac Corp', sector: 'Analytics', themeColor: '#2979ff',
     currentPrice: 1344.74, shares0: 23.72, rev25: 1991, fcfMargin25: 0.37, taxRate: 0.22,
     cash: 218, debt: 3200, beta: 1.03, costDebt: 0.055, unitLabel: 'Scores', unit25: 600,
-    modelType: 'DCF_ADVANCED', enhancementLabel: 'Platform Pricing Power',
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Platform pricing power',
     rsRating: 89, aiImpact: 'NEUTRAL',
     strategicNarrative: "A pricing power monster. RS 89 shows it's a leader in the financials/analytics space. AI enhances their platform, but the score monopoly is the bedrock. Expensive, but institutions are still buying the breakout.",
     deepDive: []
@@ -162,6 +180,37 @@ export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
     [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.12, 0.10, 0.08, 0.07], fcfMargin: [0.37, 0.37, 0.37, 0.37, 0.37], exitMultiple: 20, desc: "AI spending fatigue.", drivers: { ebitdaProxy: 0.45 } },
     [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.25, 0.20, 0.18, 0.15, 0.13], fcfMargin: [0.40, 0.41, 0.41, 0.42, 0.42], exitMultiple: 30, desc: "Steady cloud dominance.", drivers: { bbRate: 0.006, maOptVal: 3000, ebitdaProxy: 0.52 } },
     [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.28, 0.25, 0.22, 0.20, 0.18], fcfMargin: [0.42, 0.43, 0.44, 0.45, 0.45], exitMultiple: 35, desc: "AI networking supercycle.", drivers: { bbRate: 0.01, maOptVal: 6000, ebitdaProxy: 0.52 } }
+  },
+  ASTS: {
+    [ScenarioType.BEAR]: { 
+      label: "Bear", color: "#ef4444", bg: "bg-red-900", 
+      revGrowth: [3.86, 2.0, 1.2, 0.3, 0.1], 
+      fcfMargin: [-0.6, -0.2, 0.05, 0.15, 0.22], 
+      exitMultiple: 10, termGrowth: 0.02, waccAdj: 0.04,
+      desc: "Execution delays and funding friction.",
+      drivers: { maOptVal: 0, ebitdaProxy: 0.38 }
+    },
+    [ScenarioType.BASE]: { 
+      label: "Base", color: "#3b82f6", bg: "bg-blue-900", 
+      revGrowth: [6.57, 4.5, 1.8, 0.6, 0.3], 
+      fcfMargin: [-0.4, -0.05, 0.20, 0.30, 0.35], 
+      exitMultiple: 14, termGrowth: 0.03, waccAdj: 0.02,
+      desc: "Moderate execution with global wholesale ramp.",
+      drivers: { bbRate: 0, maOptVal: 800, revPrem: [0.15, 0.15, 0.15, 0.15, 0.15], fcfUplift: [0.05, 0.05, 0.05, 0.05, 0.05], ebitdaProxy: 0.50 }
+    },
+    [ScenarioType.BULL]: { 
+      label: "Bull", color: "#38bdf8", bg: "bg-sky-900", 
+      revGrowth: [8.73, 7.5, 2.2, 1.0, 0.5], 
+      fcfMargin: [-0.2, 0.10, 0.25, 0.35, 0.40], 
+      exitMultiple: 18, termGrowth: 0.04, waccAdj: 0.005,
+      desc: "Full execution and rapid TAM expansion.",
+      drivers: { bbRate: 0, maOptVal: 1500, revPrem: [0.25, 0.25, 0.25, 0.25, 0.25], fcfUplift: [0.10, 0.10, 0.10, 0.10, 0.10], ebitdaProxy: 0.58 }
+    }
+  },
+  VST: {
+    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.08, 0.06, 0.05, 0.04, 0.04], fcfMargin: [0.14, 0.14, 0.14, 0.14, 0.14], exitMultiple: 8, termGrowth: 0.015, waccAdj: 0.015, desc: "AI demand cools, regulatory scrutiny on deals.", drivers: { ebitdaProxy: 0.25 } },
+    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.173, 0.109, 0.059, 0.056, 0.05], fcfMargin: [0.187, 0.188, 0.189, 0.189, 0.189], exitMultiple: 11, termGrowth: 0.025, desc: "Standard GS-style DCF alignment.", drivers: { bbRate: 0.02, maOptVal: 0, ebitdaProxy: 0.301 } },
+    [ScenarioType.BULL]: { label: "Bull", color: "#facc15", bg: "bg-yellow-900", revGrowth: [0.25, 0.143, 0.107, 0.129, 0.12], fcfMargin: [0.188, 0.196, 0.20, 0.20, 0.20], exitMultiple: 13, termGrowth: 0.03, desc: "Enhanced model: M&A + TAM + Platform effects.", drivers: { bbRate: 0.035, maOptVal: 1000, revPrem: [0.02, 0.03, 0.03, 0.03, 0.03], fcfUplift: [0.01, 0.01, 0.01, 0.01, 0.01], ebitdaProxy: 0.291 } }
   },
   KKR: {
     [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.10, 0.08, 0.06, 0.05], fcfMargin: [0.75, 0.75, 0.75, 0.75, 0.75], exitMultiple: 12, termGrowth: 0.015, waccAdj: 0.01, desc: "Delayed monetizations.", drivers: { ebitdaProxy: 0.70 } },
@@ -247,6 +296,8 @@ export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
 
 export const TICKER_CATALYSTS: Record<string, Catalyst[]> = {
   ANET: [{ yr: 2026, events: ["800G transition peak"], risk: "LOW", color: "text-indigo-400" }],
+  ASTS: [{ yr: 2026, events: ["Block 2 Constellation Completion"], risk: "HIGH", color: "text-sky-400" }],
+  VST: [{ yr: 2026, events: ["New nuclear co-location PPA"], risk: "MEDIUM", color: "text-yellow-400" }],
   KKR: [{ yr: 2026, events: ["Arctos deal finalization"], risk: "LOW", color: "text-purple-400" }],
   CEG: [{ yr: 2027, events: ["Crane nuclear restart"], risk: "MEDIUM", color: "text-blue-400" }],
   DE: [{ yr: 2026, events: ["Autonomy retrofit launch"], risk: "MEDIUM", color: "text-green-400" }],

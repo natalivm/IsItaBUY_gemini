@@ -59,16 +59,17 @@ const MarketIndicatorsView: React.FC<{ onClose: () => void }> = ({ onClose }) =>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           <div className="bg-[#1a1d2e] border border-slate-800 p-6 rounded-2xl text-center">
-            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Risk On</div>
-            <div className="text-3xl font-black text-green-500">2</div>
+            {/* Swapped colors here too: Risk Off = Green, Risk On = Red */}
+            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Risk Off</div>
+            <div className="text-3xl font-black text-green-500">1</div>
           </div>
           <div className="bg-[#1a1d2e] border border-slate-800 p-6 rounded-2xl text-center">
             <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Neutral</div>
             <div className="text-3xl font-black text-amber-500">6</div>
           </div>
           <div className="bg-[#1a1d2e] border border-slate-800 p-6 rounded-2xl text-center">
-            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Risk Off</div>
-            <div className="text-3xl font-black text-red-500">1</div>
+            <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Risk On</div>
+            <div className="text-3xl font-black text-red-500">2</div>
           </div>
           <div className="bg-[#1a1d2e] border border-slate-800 p-6 rounded-2xl text-center">
             <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Overall</div>
@@ -99,8 +100,8 @@ const MarketIndicatorsView: React.FC<{ onClose: () => void }> = ({ onClose }) =>
                     <td className="px-6 py-5 text-center align-middle text-[11px] text-slate-500 leading-tight max-w-[140px]">{ind.target}</td>
                     <td className="px-6 py-5 text-center align-middle">
                       <span className={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border ${
-                        ind.signal === 'Risk On' ? 'border-green-500 text-green-500 bg-green-500/10' :
-                        ind.signal === 'Risk Off' ? 'border-red-500 text-red-500 bg-red-500/10' :
+                        ind.signal === 'Risk Off' ? 'border-green-500 text-green-500 bg-green-500/10' :
+                        ind.signal === 'Risk On' ? 'border-red-500 text-red-500 bg-red-500/10' :
                         'border-amber-500 text-amber-500 bg-amber-500/10'
                       }`}>
                         {ind.signal}
