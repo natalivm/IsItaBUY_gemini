@@ -1,7 +1,43 @@
 
-import { ScenarioType, ScenarioConfig, Catalyst, TickerDefinition } from './types';
+import { ScenarioType, ScenarioConfig, TickerDefinition } from './types';
 
 export const TICKERS: Record<string, TickerDefinition> = {
+  SPOT: {
+    ticker: 'SPOT', name: 'Spotify Technology S.A.', sector: 'Interactive Media / Audio', themeColor: '#C5A572',
+    currentPrice: 469.88, shares0: 206, rev25: 19800, fcfMargin25: 0.174, taxRate: 0.17,
+    cash: 9500, debt: 3360, beta: 1.35, costDebt: 0.042, unitLabel: 'Premium Subs (M)', unit25: 290,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Audio TAM & M&A Option',
+    rsRating: 12, aiImpact: 'DISRUPTION_RISK',
+    strategicNarrative: "Spotify faces an existential 'synthetic content' risk. LLM-generated music could saturate the catalog, potentially diluting human artist value and complicating royalty negotiations. The market (RS 12) is weighing this disruption against record gross margins and a superior personalization engine.",
+    deepDive: []
+  },
+  DASH: {
+    ticker: 'DASH', name: 'DoorDash, Inc.', sector: 'Internet / Consumer Logistics', themeColor: '#ff3008',
+    currentPrice: 162.70, shares0: 425, rev25: 13500, fcfMargin25: 0.055, taxRate: 0.15,
+    cash: 3200, debt: 1100, beta: 1.60, costDebt: 0.048, unitLabel: 'Monthly Active Users (M)', unit25: 37,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Ads & Segment Expansion',
+    rsRating: 15, aiImpact: 'TAILWIND',
+    strategicNarrative: "DoorDash is executing well operationally — FCF inflected positive in 2025. However, at $162.70 with an RS Rating of 15, the stock is in a heavy distribution phase. The market is weighing massive growth against near-term multiple compression and gig-economy regulatory risks.",
+    deepDive: []
+  },
+  EME: {
+    ticker: 'EME', name: 'EMCOR Group, Inc.', sector: 'Facilities Services', themeColor: '#22d3ee',
+    currentPrice: 801.80, shares0: 44.7, rev25: 17200, fcfMargin25: 0.058, taxRate: 0.245,
+    cash: 650, debt: 800, beta: 1.08, costDebt: 0.052, unitLabel: 'Backlog ($B)', unit25: 9.5,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'M&A + TAM + Buybacks',
+    rsRating: 92, aiImpact: 'TAILWIND',
+    strategicNarrative: "EMCOR is a primary beneficiary of the physical AI infrastructure wave. Hyperscaler data center buildouts require the specialized electrical and mechanical MEP expertise EME dominates. With a $9.5B+ backlog and a fortress balance sheet, it is perfectly positioned to compound through the AI infrastructure cycle.",
+    deepDive: []
+  },
+  MRVL: {
+    ticker: 'MRVL', name: 'Marvell Technology', sector: 'Semiconductors', themeColor: '#22d3ee',
+    currentPrice: 79.90, shares0: 833, rev25: 5800, fcfMargin25: 0.28, taxRate: 0.15,
+    cash: 1000, debt: 5100, beta: 2.29, costDebt: 0.055, unitLabel: 'Custom AI Projects', unit25: 12,
+    modelType: 'DCF_ADVANCED', enhancementLabel: 'Custom AI & M&A',
+    rsRating: 28, aiImpact: 'TAILWIND',
+    strategicNarrative: "Marvell is a top-3 partner for hyperscaler custom AI silicon (XPUs). While fundamental earnings power is surging (+42% FY26E growth), the RS of 28 signals institutional distribution and technical headwinds. The bull case rests on dominant share in AI networking and successful 2nm/3nm tape-outs.",
+    deepDive: []
+  },
   SOFI: {
     ticker: 'SOFI', name: 'SoFi Technologies', sector: 'FinTech / Digital Banking', themeColor: '#3b82f6',
     currentPrice: 19.43, shares0: 1321, rev25: 3580, fcfMargin25: 0.165, taxRate: 0.15,
@@ -17,7 +53,7 @@ export const TICKERS: Record<string, TickerDefinition> = {
     cash: 200, debt: 3950, beta: 1.49, costDebt: 0.072, unitLabel: 'Loan Portfolio', unit25: 3.5,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'Grasshopper Bank & Buybacks',
     rsRating: 88, aiImpact: 'TAILWIND',
-    strategicNarrative: "Enova is an AI-native lending leader pivoting to a bank holding company model via Grasshopper Bank. This transition secures a lower cost of funds and a regulatory moat. Combined with a massive share buyback program (10%+ of float retired) and superior ROE, the stock represents a significant valuation disconnect from bank-chartered peers.",
+    strategicNarrative: "Enova is at an inflection point. The Grasshopper Bank deal transforms it from a non-bank lender with regulatory overhang into a bank holding company with a national charter, deposit funding, and a regulatory moat. Combined with aggressive buybacks (10% of float retired) and AI-native underwriting, the stock's 9.5x forward P/E is significantly discounted vs peers.",
     deepDive: []
   },
   WWD: {
@@ -157,11 +193,11 @@ export const TICKERS: Record<string, TickerDefinition> = {
   },
   DUOL: {
     ticker: 'DUOL', name: 'Duolingo', sector: 'EdTech', themeColor: '#58cc02',
-    currentPrice: 285.12, shares0: 46.23, rev25: 748, fcfMargin25: 0.368, taxRate: 0.21,
+    currentPrice: 112.00, shares0: 46.23, rev25: 748, fcfMargin25: 0.368, taxRate: 0.21,
     cash: 850, debt: 0, beta: 1.25, unitLabel: 'DAUs', unit25: 35,
     modelType: 'DCF_ADVANCED', enhancementLabel: 'AI Subject Expansion',
-    rsRating: 4, aiImpact: 'TAILWIND',
-    strategicNarrative: "Technical wreck. RS 4 is a devastating indictment of current sentiment despite a brilliant 'AI as tutor' fundamental story. The tape is shouting that something is wrong—either growth is hitting a wall or disruption is closer than models suggest. Stay away until the trend changes.",
+    rsRating: 4, aiImpact: 'DISRUPTION_RISK',
+    strategicNarrative: "Severe technical rejection. RS 4 indicates the market views LLMs as an existential threat to specialized language apps. While Duolingo's gamification is sticky, the tape is pricing in a future where personalized AI tutors are ubiquitous. Current spot of $112 reflects high uncertainty despite strong unit economics.",
     deepDive: []
   },
   FICO: {
@@ -220,185 +256,75 @@ export const TICKERS: Record<string, TickerDefinition> = {
   }
 };
 
-export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {
-  SOFI: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.25, 0.20, 0.15, 0.10, 0.08], fcfMargin: [0.12, 0.13, 0.14, 0.14, 0.15], exitMultiple: 10, termGrowth: 0.025, desc: "Credit cycle hit and NIM compression.", drivers: { ebitdaProxy: 0.32 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.30, 0.28, 0.23, 0.18, 0.14], fcfMargin: [0.16, 0.18, 0.20, 0.22, 0.23], exitMultiple: 14, termGrowth: 0.035, desc: "Steady margin expansion and guidance achievement.", drivers: { bbRate: 0, maOptVal: 250, ebitdaProxy: 0.38, revPrem: [0, 0, 0.015, 0.015, 0.015], fcfUplift: [0, 0.01, 0.01, 0.01, 0.01] } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.33, 0.33, 0.28, 0.23, 0.18], fcfMargin: [0.20, 0.22, 0.24, 0.26, 0.28], exitMultiple: 18, termGrowth: 0.04, desc: "S&P 500 inclusion and platform re-rating.", drivers: { bbRate: 0.01, maOptVal: 500, ebitdaProxy: 0.42, revPrem: [0.01, 0.02, 0.03, 0.03, 0.03], fcfUplift: [0.01, 0.02, 0.025, 0.03, 0.03] } }
-  },
-  ENVA: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.10, 0.08, 0.06, 0.04, 0.03], fcfMargin: [0.08, 0.08, 0.082, 0.085, 0.088], exitMultiple: 8, desc: "Credit deterioration and regulatory friction.", drivers: { ebitdaProxy: 0.14 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.16, 0.14, 0.12, 0.10, 0.08], fcfMargin: [0.09, 0.093, 0.096, 0.10, 0.103], exitMultiple: 11, desc: "Successful bank charter transition and organic expansion.", drivers: { bbRate: 0.02, maOptVal: 200, ebitdaProxy: 0.17, revPrem: [0, 0.01, 0.01, 0.01, 0.01] } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.20, 0.18, 0.16, 0.14, 0.12], fcfMargin: [0.10, 0.105, 0.11, 0.115, 0.12], exitMultiple: 14, desc: "Grasshopper Bank super-accretion and 50-state dominance.", drivers: { bbRate: 0.04, maOptVal: 500, ebitdaProxy: 0.20, revPrem: [0.01, 0.02, 0.03, 0.04, 0.04], fcfUplift: [0, 0.015, 0.02, 0.025, 0.025] } }
-  },
-  WWD: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.10, 0.07, 0.05, 0.04, 0.03], fcfMargin: [0.08, 0.08, 0.082, 0.085, 0.088], exitMultiple: 14, desc: "Multiple compression and growth deceleration.", drivers: { ebitdaProxy: 0.16 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.14, 0.11, 0.09, 0.08, 0.07], fcfMargin: [0.09, 0.093, 0.096, 0.10, 0.103], exitMultiple: 18, desc: "Steady synergy capture and commercial cycle tailwinds.", drivers: { bbRate: 0.01, maOptVal: 2500, ebitdaProxy: 0.19, revPrem: [0.01, 0.015, 0.015, 0.01, 0.01] } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.17, 0.14, 0.12, 0.11, 0.10], fcfMargin: [0.10, 0.105, 0.11, 0.115, 0.12], exitMultiple: 22, desc: "Aggressive TAM expansion into data centers and eVTOL.", drivers: { bbRate: 0.02, maOptVal: 6000, ebitdaProxy: 0.22, revPrem: [0.02, 0.03, 0.03, 0.02, 0.02], fcfUplift: [0.01, 0.015, 0.02, 0.02, 0.025] } }
-  },
-  ITT: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.04, 0.04, 0.03, 0.03, 0.03], fcfMargin: [0.115, 0.12, 0.12, 0.125, 0.125], exitMultiple: 13, desc: "Integration friction and cyclical automotive headwind.", drivers: { ebitdaProxy: 0.18 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.07, 0.06, 0.055, 0.05, 0.045], fcfMargin: [0.115, 0.125, 0.135, 0.14, 0.145], exitMultiple: 15, desc: "Successful SPX FLOW synergy capture.", drivers: { bbRate: 0.005, maOptVal: 1500, ebitdaProxy: 0.20, revPrem: [0, 0.02, 0.02, 0.015, 0.015] } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.09, 0.08, 0.07, 0.065, 0.06], fcfMargin: [0.12, 0.135, 0.15, 0.16, 0.165], exitMultiple: 18, desc: "Energy transition supercycle acceleration.", drivers: { bbRate: 0.012, maOptVal: 3000, ebitdaProxy: 0.22, revPrem: [0.01, 0.03, 0.03, 0.02, 0.02], fcfUplift: [0.005, 0.01, 0.015, 0.015, 0.02] } }
-  },
-  ANET: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.12, 0.10, 0.08, 0.07], fcfMargin: [0.37, 0.37, 0.37, 0.37, 0.37], exitMultiple: 20, desc: "AI spending fatigue.", drivers: { ebitdaProxy: 0.45 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.25, 0.20, 0.18, 0.15, 0.13], fcfMargin: [0.40, 0.41, 0.41, 0.42, 0.42], exitMultiple: 30, desc: "Steady cloud dominance.", drivers: { bbRate: 0.006, maOptVal: 3000, ebitdaProxy: 0.52 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.28, 0.25, 0.22, 0.20, 0.18], fcfMargin: [0.42, 0.43, 0.44, 0.45, 0.45], exitMultiple: 35, desc: "AI networking supercycle.", drivers: { bbRate: 0.01, maOptVal: 6000, ebitdaProxy: 0.52 } }
-  },
-  CRDO: {
-    [ScenarioType.BEAR]: { 
-      label: "Bear", color: "#ef4444", bg: "bg-red-900", 
-      revGrowth: [2.0, 0.45, 0.25, 0.15, 0.10], 
-      fcfMargin: [0.28, 0.30, 0.30, 0.32, 0.32], 
-      exitMultiple: 18, termGrowth: 0.025, waccAdj: 0.03,
-      desc: "Hyperscaler capex digestion cycle.",
-      drivers: { maOptVal: 0, ebitdaProxy: 0.38 }
-    },
-    [ScenarioType.BASE]: { 
-      label: "Base", color: "#3b82f6", bg: "bg-blue-900", 
-      revGrowth: [2.0, 0.65, 0.40, 0.30, 0.22], 
-      fcfMargin: [0.30, 0.35, 0.36, 0.36, 0.36], 
-      exitMultiple: 25, termGrowth: 0.035, waccAdj: 0.01,
-      desc: "800G transition and طراحی-win leadership.",
-      drivers: { bbRate: 0.005, maOptVal: 500, revPrem: [0.08, 0.08, 0.08, 0.08, 0.08], fcfUplift: [0.03, 0.03, 0.03, 0.03, 0.03], ebitdaProxy: 0.46 }
-    },
-    [ScenarioType.BULL]: { 
-      label: "Bull", color: "#d4af37", bg: "bg-yellow-900", 
-      revGrowth: [2.0, 0.80, 0.55, 0.40, 0.30], 
-      fcfMargin: [0.35, 0.42, 0.45, 0.48, 0.50], 
-      exitMultiple: 30, termGrowth: 0.045, waccAdj: -0.01,
-      desc: "Total AI connectivity dominance and 1.6T ramp.",
-      drivers: { bbRate: 0.01, maOptVal: 2000, revPrem: [0.15, 0.15, 0.15, 0.15, 0.15], fcfUplift: [0.05, 0.05, 0.05, 0.05, 0.05], ebitdaProxy: 0.50 }
-    }
-  },
-  ASTS: {
-    [ScenarioType.BEAR]: { 
-      label: "Bear", color: "#ef4444", bg: "bg-red-900", 
-      revGrowth: [3.86, 2.0, 1.2, 0.3, 0.1], 
-      fcfMargin: [-0.6, -0.2, 0.05, 0.15, 0.22], 
-      exitMultiple: 10, termGrowth: 0.02, waccAdj: 0.04,
-      desc: "Execution delays and funding friction.",
-      drivers: { maOptVal: 0, ebitdaProxy: 0.38 }
-    },
-    [ScenarioType.BASE]: { 
-      label: "Base", color: "#3b82f6", bg: "bg-blue-900", 
-      revGrowth: [6.57, 4.5, 1.8, 0.6, 0.3], 
-      fcfMargin: [-0.4, -0.05, 0.20, 0.30, 0.35], 
-      exitMultiple: 14, termGrowth: 0.03, waccAdj: 0.02,
-      desc: "Moderate execution with global wholesale ramp.",
-      drivers: { bbRate: 0, maOptVal: 800, revPrem: [0.15, 0.15, 0.15, 0.15, 0.15], fcfUplift: [0.05, 0.05, 0.05, 0.05, 0.05], ebitdaProxy: 0.50 }
-    },
-    [ScenarioType.BULL]: { 
-      label: "Bull", color: "#38bdf8", bg: "bg-sky-900", 
-      revGrowth: [8.73, 7.5, 2.2, 1.0, 0.5], 
-      fcfMargin: [-0.2, 0.10, 0.25, 0.35, 0.40], 
-      exitMultiple: 18, termGrowth: 0.04, waccAdj: 0.005,
-      desc: "Full execution and rapid TAM expansion.",
-      drivers: { bbRate: 0, maOptVal: 1500, revPrem: [0.25, 0.25, 0.25, 0.25, 0.25], fcfUplift: [0.10, 0.10, 0.10, 0.10, 0.10], ebitdaProxy: 0.58 }
-    }
-  },
-  VST: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.08, 0.06, 0.05, 0.04, 0.04], fcfMargin: [0.14, 0.14, 0.14, 0.14, 0.14], exitMultiple: 8, termGrowth: 0.015, waccAdj: 0.015, desc: "AI demand cools, regulatory scrutiny on deals.", drivers: { ebitdaProxy: 0.25 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.173, 0.109, 0.059, 0.056, 0.05], fcfMargin: [0.187, 0.188, 0.189, 0.189, 0.189], exitMultiple: 11, termGrowth: 0.025, desc: "Standard GS-style DCF alignment.", drivers: { bbRate: 0.02, maOptVal: 0, ebitdaProxy: 0.301 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#facc15", bg: "bg-yellow-900", revGrowth: [0.25, 0.143, 0.107, 0.129, 0.12], fcfMargin: [0.188, 0.196, 0.20, 0.20, 0.20], exitMultiple: 13, termGrowth: 0.03, desc: "Enhanced model: M&A + TAM + Platform effects.", drivers: { bbRate: 0.035, maOptVal: 1000, revPrem: [0.02, 0.03, 0.03, 0.03, 0.03], fcfUplift: [0.01, 0.01, 0.01, 0.01, 0.01], ebitdaProxy: 0.291 } }
-  },
-  KKR: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.10, 0.08, 0.06, 0.05], fcfMargin: [0.75, 0.75, 0.75, 0.75, 0.75], exitMultiple: 12, termGrowth: 0.015, waccAdj: 0.01, desc: "Delayed monetizations.", drivers: { ebitdaProxy: 0.70 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.35, 0.21, 0.18, 0.15, 0.12], fcfMargin: [0.85, 0.85, 0.85, 0.85, 0.85], exitMultiple: 18, termGrowth: 0.03, waccAdj: 0, desc: "Management guidance achieved.", drivers: { bbRate: 0.012, maOptVal: 2000, ebitdaProxy: 0.80 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#7c3aed", bg: "bg-purple-900", revGrowth: [0.40, 0.25, 0.22, 0.18, 0.15], fcfMargin: [0.88, 0.90, 0.92, 0.92, 0.92], exitMultiple: 24, termGrowth: 0.035, waccAdj: -0.01, desc: "TAM flywheel breakout.", drivers: { bbRate: 0.025, maOptVal: 7500, revPrem: [0.05, 0.045, 0.04, 0.035, 0.03], fcfUplift: [0.01, 0.02, 0.03, 0.04, 0.05], ebitdaProxy: 0.90 } }
-  },
-  UBER: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.05, 0.04, 0.03, 0.03, 0.03], fcfMargin: [0.05, 0.06, 0.07, 0.07, 0.08], exitMultiple: 12, desc: "Legal risks.", drivers: { ebitdaProxy: 0.15 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.15, 0.14, 0.12, 0.11, 0.10], fcfMargin: [0.11, 0.13, 0.15, 0.17, 0.19], exitMultiple: 18, desc: "Steady FCF growth.", drivers: { bbRate: 0.025, maOptVal: 2000, ebitdaProxy: 0.22 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.20, 0.18, 0.16, 0.15, 0.14], fcfMargin: [0.15, 0.18, 0.22, 0.26, 0.30], exitMultiple: 25, desc: "AV Network dominance.", drivers: { bbRate: 0.025, maOptVal: 20000, ebitdaProxy: 0.35 } }
-  },
-  NFLX: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.06, 0.05, 0.04, 0.04, 0.04], fcfMargin: [0.18, 0.19, 0.20, 0.20, 0.20], exitMultiple: 15, desc: "Content inflation.", drivers: { ebitdaProxy: 0.25 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.13, 0.12, 0.11, 0.10, 0.09], fcfMargin: [0.22, 0.24, 0.25, 0.26, 0.27], exitMultiple: 22, desc: "Ad-tier success.", drivers: { bbRate: 0.01, maOptVal: 5000, ebitdaProxy: 0.35 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#ff007f", bg: "bg-pink-900", revGrowth: [0.15, 0.14, 0.13, 0.12, 0.12], fcfMargin: [0.25, 0.28, 0.30, 0.32, 0.33], exitMultiple: 28, desc: "Platform dominance.", drivers: { bbRate: 0.02, maOptVal: 15000, ebitdaProxy: 0.42 } }
-  },
-  CEG: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.15, 0.02, 0.02, 0.01, 0.01], fcfMargin: [0.05, 0.06, 0.06, 0.07, 0.07], exitMultiple: 8, desc: "Policy headwinds.", drivers: { ebitdaProxy: 0.20 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.34, 0.05, 0.04, 0.04, 0.03], fcfMargin: [0.10, 0.12, 0.13, 0.14, 0.14], exitMultiple: 12, desc: "Stable AI PPA trajectory.", drivers: { bbRate: 0.01, maOptVal: 8000, ebitdaProxy: 0.30 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.40, 0.10, 0.10, 0.08, 0.08], fcfMargin: [0.12, 0.15, 0.18, 0.20, 0.22], exitMultiple: 15, desc: "Nuclear supercycle.", drivers: { bbRate: 0.03, maOptVal: 25000, ebitdaProxy: 0.35 } }
-  },
-  DE: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [-0.08, 0.01, 0.02, 0.02, 0.02], fcfMargin: [0.08, 0.08, 0.09, 0.09, 0.09], exitMultiple: 9, desc: "Prolonged Ag slump.", drivers: { ebitdaProxy: 0.18 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [-0.02, 0.04, 0.06, 0.05, 0.05], fcfMargin: [0.10, 0.11, 0.11, 0.12, 0.12], exitMultiple: 11, desc: "Gradual recovery cycle.", drivers: { bbRate: 0.035, maOptVal: 0, ebitdaProxy: 0.22 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.05, 0.10, 0.12, 0.10, 0.08], fcfMargin: [0.12, 0.14, 0.16, 0.18, 0.20], exitMultiple: 15, desc: "Autonomy breakout.", drivers: { bbRate: 0.05, maOptVal: 5000, ebitdaProxy: 0.30 } }
-  },
-  PANW: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.06, 0.05, 0.04, 0.04, 0.03], fcfMargin: [0.32, 0.32, 0.32, 0.33, 0.33], exitMultiple: 20, desc: "Slower consolidation.", drivers: { ebitdaProxy: 0.40 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.14, 0.13, 0.12, 0.11, 0.10], fcfMargin: [0.38, 0.38, 0.39, 0.39, 0.40], exitMultiple: 30, desc: "SOC platform leadership.", drivers: { bbRate: 0.005, maOptVal: 3000, ebitdaProxy: 0.50 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#ff007f", bg: "bg-pink-900", revGrowth: [0.18, 0.16, 0.15, 0.14, 0.13], fcfMargin: [0.40, 0.42, 0.44, 0.45, 0.46], exitMultiple: 35, desc: "Total cyber dominance.", drivers: { bbRate: 0.015, maOptVal: 10000, ebitdaProxy: 0.58 } }
-  },
-  PINS: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.05, 0.04, 0.04, 0.04, 0.04], fcfMargin: [0.25, 0.25, 0.25, 0.25, 0.25], exitMultiple: 10, desc: "Ad market soft.", drivers: { ebitdaProxy: 0.25 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.12, 0.14, 0.15, 0.14, 0.12], fcfMargin: [0.29, 0.30, 0.31, 0.32, 0.33], exitMultiple: 15, desc: "Visual search commerce growth.", drivers: { bbRate: 0.02, maOptVal: 2000, ebitdaProxy: 0.35 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#22c55e", bg: "bg-green-900", revGrowth: [0.18, 0.20, 0.22, 0.20, 0.18], fcfMargin: [0.32, 0.35, 0.38, 0.40, 0.42], exitMultiple: 20, desc: "Commerce flywheel peak.", drivers: { bbRate: 0.05, maOptVal: 8000, ebitdaProxy: 0.45 } }
-  },
-  RBRK: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.12, 0.10, 0.08, 0.06, 0.05], fcfMargin: [0.10, 0.11, 0.12, 0.13, 0.13], exitMultiple: 15, desc: "Crowded market.", drivers: { ebitdaProxy: 0.25 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.28, 0.24, 0.22, 0.20, 0.18], fcfMargin: [0.18, 0.21, 0.24, 0.27, 0.30], exitMultiple: 25, desc: "Cyber resilience ramp.", drivers: { bbRate: 0, maOptVal: 2000, ebitdaProxy: 0.38 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#22d3ee", bg: "bg-cyan-900", revGrowth: [0.38, 0.35, 0.32, 0.30, 0.28], fcfMargin: [0.22, 0.28, 0.32, 0.35, 0.38], exitMultiple: 35, desc: "Agent Cloud breakout.", drivers: { bbRate: 0, maOptVal: 10000, ebitdaProxy: 0.50 } }
-  },
-  FTNT: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.06, 0.05, 0.05, 0.04, 0.04], fcfMargin: [0.30, 0.30, 0.30, 0.30, 0.30], exitMultiple: 18, desc: "Hardware fatigue.", drivers: { ebitdaProxy: 0.35 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.12, 0.13, 0.12, 0.11, 0.10], fcfMargin: [0.33, 0.34, 0.35, 0.35, 0.36], exitMultiple: 25, desc: "Unified SASE transition.", drivers: { bbRate: 0.024, maOptVal: 4000, ebitdaProxy: 0.42 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#06b6d4", bg: "bg-cyan-900", revGrowth: [0.16, 0.18, 0.18, 0.16, 0.15], fcfMargin: [0.35, 0.38, 0.40, 0.40, 0.40], exitMultiple: 32, desc: "ASIC platform dominance.", drivers: { bbRate: 0.04, maOptVal: 10000, ebitdaProxy: 0.50 } }
-  },
-  DUOL: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.18, 0.15, 0.12, 0.10, 0.08], fcfMargin: [0.28, 0.28, 0.30, 0.30, 0.30], exitMultiple: 20, desc: "App fatigue.", drivers: { ebitdaProxy: 0.35 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.35, 0.30, 0.28, 0.25, 0.22], fcfMargin: [0.36, 0.38, 0.40, 0.42, 0.44], exitMultiple: 30, desc: "High-margin English scale.", drivers: { bbRate: 0.015, maOptVal: 2000, ebitdaProxy: 0.48 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#22c55e", bg: "bg-green-900", revGrowth: [0.45, 0.40, 0.35, 0.30, 0.25], fcfMargin: [0.40, 0.45, 0.50, 0.52, 0.55], exitMultiple: 40, desc: "Multi-subject dominance.", drivers: { bbRate: 0.03, maOptVal: 5000, ebitdaProxy: 0.60 } }
-  },
-  FICO: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.05, 0.04, 0.04, 0.03, 0.03], fcfMargin: [0.32, 0.33, 0.34, 0.34, 0.35], exitMultiple: 20, desc: "Price caps.", drivers: { ebitdaProxy: 0.40 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.12, 0.14, 0.15, 0.14, 0.12], fcfMargin: [0.37, 0.40, 0.42, 0.45, 0.48], exitMultiple: 30, desc: "Score pricing power.", drivers: { bbRate: 0.035, maOptVal: 5000, ebitdaProxy: 0.55 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#2979ff", bg: "bg-blue-900", revGrowth: [0.16, 0.18, 0.20, 0.20, 0.18], fcfMargin: [0.40, 0.45, 0.50, 0.55, 0.60], exitMultiple: 40, desc: "Platform analytics breakout.", drivers: { bbRate: 0.05, maOptVal: 15000, ebitdaProxy: 0.65 } }
-  },
-  TLN: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.01, 0.01, 0.01, 0.01, 0.01], fcfMargin: [0.15, 0.15, 0.15, 0.16, 0.16], exitMultiple: 8, desc: "FERC rejection.", drivers: { ebitdaProxy: 0.25 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.06, 0.08, 0.12, 0.10, 0.08], fcfMargin: [0.20, 0.25, 0.30, 0.35, 0.40], exitMultiple: 12, desc: "Co-location PPA success.", drivers: { bbRate: 0.02, maOptVal: 6000, ebitdaProxy: 0.45 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#22c55e", bg: "bg-green-900", revGrowth: [0.12, 0.18, 0.22, 0.20, 0.18], fcfMargin: [0.25, 0.35, 0.45, 0.50, 0.55], exitMultiple: 18, desc: "Energy-as-a-Service premium.", drivers: { bbRate: 0.05, maOptVal: 20000, ebitdaProxy: 0.60 } }
-  },
-  AGCO: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [-0.08, 0.01, 0.01, 0.02, 0.02], fcfMargin: [0.06, 0.07, 0.07, 0.08, 0.08], exitMultiple: 7, desc: "Cyclical trough.", drivers: { ebitdaProxy: 0.12 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.02, 0.06, 0.08, 0.07, 0.05], fcfMargin: [0.10, 0.12, 0.13, 0.14, 0.15], exitMultiple: 10, desc: "Retrofit tech ramp.", drivers: { bbRate: 0.02, maOptVal: 1500, ebitdaProxy: 0.18 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#00d4aa", bg: "bg-green-900", revGrowth: [0.08, 0.12, 0.15, 0.12, 0.10], fcfMargin: [0.12, 0.15, 0.18, 0.20, 0.22], exitMultiple: 14, desc: "Trimble JV synergy peak.", drivers: { bbRate: 0.04, maOptVal: 5000, ebitdaProxy: 0.25 } }
-  },
-  SPGI: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.04, 0.04, 0.03, 0.03, 0.03], fcfMargin: [0.32, 0.33, 0.34, 0.35, 0.35], exitMultiple: 18, desc: "Regulatory caps on ratings.", drivers: { ebitdaProxy: 0.45 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.09, 0.09, 0.08, 0.08, 0.07], fcfMargin: [0.38, 0.40, 0.42, 0.43, 0.44], exitMultiple: 22, desc: "With Intelligence synergies + steady buybacks.", drivers: { bbRate: 0.035, maOptVal: 21000, ebitdaProxy: 0.55 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#c5a44e", bg: "bg-amber-900", revGrowth: [0.12, 0.14, 0.14, 0.12, 0.10], fcfMargin: [0.42, 0.45, 0.48, 0.50, 0.52], exitMultiple: 30, desc: "Private markets TAM explosion.", drivers: { bbRate: 0.05, maOptVal: 45000, ebitdaProxy: 0.65 } }
-  },
-  SMWB: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.12, 0.10, 0.09, 0.08, 0.07], fcfMargin: [0.08, 0.09, 0.10, 0.11, 0.12], exitMultiple: 2.5, desc: "SMB churn accelerates.", drivers: { ebitdaProxy: 0.15 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.15, 0.16, 0.15, 0.14, 0.13], fcfMargin: [0.10, 0.12, 0.14, 0.16, 0.18], exitMultiple: 3.5, desc: "Steady enterprise expansion.", drivers: { revPrem: [0.12, 0.096, 0.072, 0.048, 0.024], fcfUplift: [0.012, 0.024, 0.036, 0.048, 0.06], maOptVal: 45, ebitdaProxy: 0.22 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#22c55e", bg: "bg-green-900", revGrowth: [0.18, 0.20, 0.18, 0.16, 0.15], fcfMargin: [0.11, 0.14, 0.17, 0.20, 0.22], exitMultiple: 5.0, desc: "AI data monetization inflection.", drivers: { revPrem: [0.15, 0.12, 0.09, 0.06, 0.03], fcfUplift: [0.02, 0.04, 0.06, 0.08, 0.10], maOptVal: 85, ebitdaProxy: 0.28 } }
-  },
-  GXO: {
-    [ScenarioType.BEAR]: { label: "Bear", color: "#ef4444", bg: "bg-red-900", revGrowth: [0.03, 0.03, 0.02, 0.02, 0.02], fcfMargin: [0.03, 0.03, 0.031, 0.032, 0.033], exitMultiple: 7.0, desc: "Outsourcing stall.", drivers: { ebitdaProxy: 0.06 } },
-    [ScenarioType.BASE]: { label: "Base", color: "#3b82f6", bg: "bg-blue-900", revGrowth: [0.05, 0.05, 0.045, 0.04, 0.035], fcfMargin: [0.035, 0.036, 0.037, 0.038, 0.04], exitMultiple: 10.0, desc: "Secular outsourcing tailwind.", drivers: { revPrem: [0.017, 0.017, 0.017, 0.017, 0.017], fcfUplift: [0.007, 0.007, 0.007, 0.007, 0.007], maOptVal: 1800, bbRate: 0.01, ebitdaProxy: 0.08 } },
-    [ScenarioType.BULL]: { label: "Bull", color: "#10b981", bg: "bg-green-900", revGrowth: [0.07, 0.07, 0.06, 0.055, 0.05], fcfMargin: [0.04, 0.045, 0.05, 0.055, 0.06], exitMultiple: 13.0, desc: "GXO IQ platform breakout.", drivers: { revPrem: [0.025, 0.025, 0.025, 0.025, 0.025], fcfUplift: [0.012, 0.012, 0.012, 0.012, 0.012], maOptVal: 3500, bbRate: 0.025, ebitdaProxy: 0.10 } }
-  }
-};
+/**
+ * Global configurations for Bear, Base, and Bull scenarios for all tickers.
+ */
+export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {};
 
-export const TICKER_CATALYSTS: Record<string, Catalyst[]> = {
-  SOFI: [{ yr: 2026, events: ["S&P 500 inclusion eligibility", "Crypto/Stablecoin revenue materialization"], risk: "MEDIUM", color: "text-blue-400" }],
-  ENVA: [{ yr: 2026, events: ["Grasshopper Bank final regulatory approval", "Integration of deposit-funded models"], risk: "MEDIUM", color: "text-blue-400" }],
-  WWD: [{ yr: 2026, events: ["Safran Electromechanical integration", "Spartanburg facility ramp"], risk: "LOW", color: "text-blue-400" }],
-  ITT: [{ yr: 2026, events: ["SPX FLOW synergy realization", "$80M cost savings hurdle"], risk: "MEDIUM", color: "text-blue-400" }],
-  ANET: [{ yr: 2026, events: ["800G transition peak"], risk: "LOW", color: "text-indigo-400" }],
-  CRDO: [{ yr: 2026, events: ["1.6T DSP full production"], risk: "MEDIUM", color: "text-yellow-400" }],
-  ASTS: [{ yr: 2026, events: ["Block 2 Constellation Completion"], risk: "HIGH", color: "text-sky-400" }],
-  VST: [{ yr: 2026, events: ["New nuclear co-location PPA"], risk: "MEDIUM", color: "text-yellow-400" }],
-  KKR: [{ yr: 2026, events: ["Arctos deal finalization"], risk: "LOW", color: "text-purple-400" }],
-  CEG: [{ yr: 2027, events: ["Crane nuclear restart"], risk: "MEDIUM", color: "text-blue-400" }],
-  DE: [{ yr: 2026, events: ["Autonomy retrofit launch"], risk: "MEDIUM", color: "text-green-400" }],
-  AGCO: [{ yr: 2026, events: ["PTx Trimble JV full scale"], risk: "LOW", color: "text-emerald-400" }],
-  SPGI: [{ yr: 2026, events: ["With Intelligence integration peak"], risk: "LOW", color: "text-amber-400" }],
-  SMWB: [{ yr: 2026, events: ["Search Monitor full integration"], risk: "LOW", color: "text-blue-400" }],
-  GXO: [{ yr: 2026, events: ["Wincanton synergy realization"], risk: "LOW", color: "text-green-400" }]
-};
+// Helper to generate dynamic configs for all defined tickers
+Object.keys(TICKERS).forEach(tickerId => {
+  const t = TICKERS[tickerId];
+  
+  const isENVA = tickerId === 'ENVA';
+  const isMRVL = tickerId === 'MRVL';
+  const isEME = tickerId === 'EME';
+  const isDASH = tickerId === 'DASH';
+  const isSPOT = tickerId === 'SPOT';
+  
+  CONFIGS[tickerId] = {
+    [ScenarioType.BEAR]: {
+      label: 'CONSERVATIVE',
+      color: '#ef4444',
+      bg: 'bg-red-500/10',
+      revGrowth: isENVA ? [0.10, 0.08, 0.06, 0.04, 0.03] : (isMRVL ? [0.05, -0.10, 0.05, 0.08, 0.10] : (isEME ? [0.08, 0.07, 0.06, 0.05, 0.04] : (isDASH ? [0.165, 0.126, 0.112, 0.098, 0.084] : (isSPOT ? [0.12, 0.10, 0.08, 0.06, 0.04] : [0.06, 0.05, 0.05, 0.04, 0.04])))),
+      fcfMargin: isEME ? Array(5).fill(0.045) : (isDASH ? [0.06, 0.078, 0.093, 0.105, 0.116] : (isSPOT ? Array(5).fill(0.15) : Array(5).fill(t.fcfMargin25 * 0.85))),
+      termGrowth: isENVA ? 0.02 : (isMRVL ? 0.025 : (isEME ? 0.025 : (isDASH ? 0.025 : (isSPOT ? 0.02 : 0.015)))),
+      exitMultiple: isENVA ? 8 : (isMRVL ? 22 : (isEME ? 14 : (isDASH ? 20 : (isSPOT ? 14 : 12)))),
+      waccAdj: isDASH ? 0.015 : 0.01,
+      desc: isENVA ? 'Credit cycle headwinds and regulatory friction slowing originations.' : 'Economic headwinds leading to multiple compression and slower growth.',
+      thesis: 'Growth stalls below inflation as competitive pressures erode margins.',
+      drivers: {
+        revPrem: [0, 0, 0, 0, 0],
+        fcfUplift: [0, 0, 0, 0, 0],
+        bbRate: 0.005,
+        ebitdaProxy: 0.15
+      }
+    },
+    [ScenarioType.BASE]: {
+      label: 'NEUTRAL',
+      color: '#3b82f6',
+      bg: 'bg-blue-500/10',
+      revGrowth: isENVA ? [0.16, 0.14, 0.12, 0.10, 0.08] : (isMRVL ? [0.42, 0.22, 0.20, 0.15, 0.12] : (isEME ? [0.14, 0.13, 0.11, 0.09, 0.07] : (isDASH ? [0.22, 0.18, 0.16, 0.14, 0.12] : (isSPOT ? [0.16, 0.15, 0.14, 0.13, 0.12] : [0.12, 0.11, 0.10, 0.09, 0.08])))),
+      fcfMargin: isMRVL ? [0.28, 0.29, 0.30, 0.31, 0.32] : (isEME ? Array(5).fill(0.058) : (isDASH ? [0.08, 0.105, 0.125, 0.14, 0.155] : Array(5).fill(t.fcfMargin25))),
+      termGrowth: isENVA ? 0.03 : (isMRVL ? 0.035 : (isEME ? 0.03 : (isDASH ? 0.035 : (isSPOT ? 0.025 : 0.025)))),
+      exitMultiple: isENVA ? 11 : (isMRVL ? 30 : (isEME ? 17 : (isDASH ? 28 : (isSPOT ? 17 : 16)))),
+      desc: isENVA ? 'Steady execution on core lending products with moderate Grasshopper synergies.' : 'Market alignment with standard institutional growth expectations.',
+      thesis: 'Steady execution on the strategic roadmap with moderate efficiency gains.',
+      drivers: {
+        revPrem: [0.01, 0.01, 0.01, 0.01, 0.01],
+        fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
+        bbRate: 0.015,
+        ebitdaProxy: 0.22
+      }
+    },
+    [ScenarioType.BULL]: {
+      label: 'AGGRESSIVE',
+      color: '#ff007f',
+      bg: 'bg-pink-500/10',
+      revGrowth: isENVA ? [0.20, 0.18, 0.16, 0.14, 0.12] : (isMRVL ? [0.45, 0.28, 0.24, 0.20, 0.18] : (isEME ? [0.18, 0.17, 0.15, 0.13, 0.10] : (isDASH ? [0.264, 0.216, 0.192, 0.168, 0.144] : (isSPOT ? [0.19, 0.18, 0.17, 0.16, 0.15] : [0.18, 0.17, 0.16, 0.15, 0.14])))),
+      fcfMargin: isMRVL ? [0.30, 0.315, 0.33, 0.345, 0.36] : (isEME ? Array(5).fill(0.072) : (isDASH ? [0.10, 0.131, 0.156, 0.175, 0.194] : (isSPOT ? Array(5).fill(t.fcfMargin25 * 1.15) : Array(5).fill(t.fcfMargin25 * 1.3)))),
+      termGrowth: isENVA ? 0.04 : (isMRVL ? 0.045 : (isEME ? 0.035 : (isDASH ? 0.045 : (isSPOT ? 0.03 : 0.035)))),
+      exitMultiple: isENVA ? 14 : (isMRVL ? 35 : (isEME ? 20 : (isDASH ? 32 : (isSPOT ? 19 : 22)))),
+      waccAdj: isDASH ? -0.01 : -0.005,
+      desc: isENVA ? 'Explosive growth via bank charter TAM expansion and high-margin BaaS scaling.' : 'Category-defining growth powered by AI tailwinds and operating leverage.',
+      thesis: 'Dominant market share capture and best-in-class FCF conversion.',
+      drivers: {
+        revPrem: isENVA ? [0.03, 0.04, 0.05, 0.05, 0.05] : (isMRVL ? [0.07, 0.05, 0.04, 0.02, 0.02] : (isEME ? [0.02, 0.02, 0.02, 0.02, 0.02] : (isDASH ? [0.02, 0.02, 0.02, 0.02, 0.02] : [0.03, 0.04, 0.05, 0.05, 0.05]))),
+        fcfUplift: isENVA ? [0.02, 0.02, 0.03, 0.03, 0.04] : (isMRVL ? [0.01, 0.015, 0.02, 0.025, 0.035] : (isEME ? [0.01, 0.01, 0.01, 0.01, 0.01] : (isDASH ? [0.01, 0.015, 0.02, 0.025, 0.03] : [0.02, 0.02, 0.03, 0.03, 0.04]))),
+        bbRate: isMRVL ? 0.025 : (isEME ? 0.02 : (isDASH ? 0.015 : 0.04)),
+        ebitdaProxy: 0.35,
+        maOptVal: isENVA ? (t.currentPrice * t.shares0 * 0.15) : (isMRVL ? (t.currentPrice * t.shares0 * 0.08) : (isEME ? (t.currentPrice * t.shares0 * 0.12) : (isDASH ? (t.currentPrice * t.shares0 * 0.08) : (t.currentPrice * t.shares0 * 0.1))))
+      }
+    }
+  };
+});

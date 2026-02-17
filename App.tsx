@@ -18,6 +18,10 @@ interface StockRow {
 }
 
 const STOCKS: StockRow[] = [
+  { ticker: 'SPOT', fairPriceRange: '$380 - $610', active: true },
+  { ticker: 'DASH', fairPriceRange: '$120 - $215', active: true },
+  { ticker: 'EME', fairPriceRange: '$780 - $1150', active: true },
+  { ticker: 'MRVL', fairPriceRange: '$85 - $140', active: true },
   { ticker: 'SOFI', fairPriceRange: '$18 - $42', active: true },
   { ticker: 'ENVA', fairPriceRange: '$120 - $210', active: true },
   { ticker: 'WWD', fairPriceRange: '$350 - $490', active: true },
@@ -83,7 +87,6 @@ const App: React.FC = () => {
   }, [allProjections, tickerDef]);
 
   if (activeTicker === 'home') {
-    // Current Market Status: Risk Off (Based on Feb 13-17 Data)
     const isRiskOn = false; 
 
     return (
@@ -176,50 +179,58 @@ const App: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-3 space-y-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-8 rounded-2xl border-l-[6px] bg-[#0d1630]/80 shadow-2xl" style={{ borderLeftColor: tickerDef.themeColor }}>
-                <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4">Quant Narrative</h3>
-                <p className="text-xl text-white font-bold leading-tight mb-6">{currentProjection.config.desc}</p>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Entry CAGR</div>
-                    <div className="text-2xl font-black text-white">{pct(currentProjection.cagrs[4]/100)}</div>
-                  </div>
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">Target</div>
-                    <div className="text-2xl font-black text-white">{usd(currentProjection.pricePerShare!)}</div>
-                  </div>
-                  <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                    <div className="text-[10px] font-black text-slate-500 uppercase mb-1">WACC</div>
-                    <div className="text-2xl font-black text-white">{currentProjection.w ? pct(currentProjection.w) : 'N/A'}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-4">
-                  <div className={`text-[10px] font-black px-2 py-1 rounded border ${tickerDef.aiImpact === 'TAILWIND' ? 'border-emerald-500 text-emerald-400 bg-emerald-500/10' : 'border-amber-500 text-amber-400 bg-amber-500/10'}`}>
-                    AI {tickerDef.aiImpact.replace('_', ' ')}
-                  </div>
-                </div>
-                <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] mb-4">Alpha Strategic View</h3>
-                <p className="text-sm text-slate-300 font-medium leading-relaxed mb-6 italic">
-                  "{tickerDef.strategicNarrative}"
-                </p>
-                <div className="flex items-center gap-6">
+            
+            {/* Unified Investment Thesis & Strategic View */}
+            <div className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden group">
+              <div className="flex flex-col gap-8">
+                {/* Metrics Row */}
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-black text-slate-500 uppercase mb-1">RS Rating</span>
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Entry CAGR</span>
+                    <span className="text-3xl font-black text-white">{pct(currentProjection.cagrs[4]/100)}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Target</span>
+                    <span className="text-3xl font-black text-white" style={{ color: tickerDef.themeColor }}>{usd(currentProjection.pricePerShare!)}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">WACC</span>
+                    <span className="text-3xl font-black text-white">{currentProjection.w ? pct(currentProjection.w) : 'N/A'}</span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">RS Rating</span>
                     <div className="flex items-end gap-1">
-                      <span className={`text-4xl font-black ${tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-amber-500' : 'text-red-500'}`}>{tickerDef.rsRating}</span>
-                      <span className="text-xs text-slate-600 font-bold mb-1.5">/ 99</span>
+                      <span className={`text-3xl font-black ${tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-amber-500' : 'text-red-500'}`}>{tickerDef.rsRating}</span>
+                      <span className="text-[10px] text-slate-600 font-bold mb-1.5">/99</span>
                     </div>
                   </div>
-                  <div className="h-10 w-px bg-slate-800"></div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-black text-slate-500 uppercase mb-1">Institutional Bias</span>
-                    <span className={`text-xs font-bold uppercase tracking-widest ${tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 30 ? 'text-amber-500' : 'text-red-600'}`}>
-                      {tickerDef.rsRating > 80 ? 'Heavy Accumulation' : tickerDef.rsRating > 30 ? 'Neutral / Mixed' : 'Heavy Distribution'}
-                    </span>
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">AI Context</span>
+                    <div className={`text-[10px] font-black px-2 py-1 rounded border inline-block text-center whitespace-nowrap ${tickerDef.aiImpact === 'TAILWIND' ? 'border-emerald-500 text-emerald-400 bg-emerald-500/10' : 'border-amber-500 text-amber-400 bg-amber-500/10'}`}>
+                      {tickerDef.aiImpact.replace('_', ' ')}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="h-px bg-slate-800/50 w-full"></div>
+
+                {/* Narrative Grid (Text Under Numbers) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                  <div className="space-y-4">
+                    <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em]">Quant Narrative</h3>
+                    <p className="text-lg text-white font-bold leading-snug">{currentProjection.config.desc}</p>
+                  </div>
+                  <div className="space-y-4 border-l border-slate-800/50 pl-10 md:block hidden">
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Alpha Strategic View</h3>
+                    <p className="text-sm text-slate-300 font-medium leading-relaxed italic">
+                      "{tickerDef.strategicNarrative}"
+                    </p>
+                  </div>
+                  <div className="space-y-4 md:hidden">
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Alpha Strategic View</h3>
+                    <p className="text-sm text-slate-300 font-medium leading-relaxed italic">
+                      "{tickerDef.strategicNarrative}"
+                    </p>
                   </div>
                 </div>
               </div>
