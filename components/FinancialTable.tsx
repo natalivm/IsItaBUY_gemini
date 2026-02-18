@@ -1,16 +1,15 @@
 
 import React from 'react';
-import { ProjectionData } from '../types';
+import { ProjectionData, TickerDefinition } from '../types';
 import { formatVal } from '../services/projectionService';
-import { TICKERS } from '../constants';
 
 interface Props {
   data: ProjectionData;
+  tickerDef: TickerDefinition;
 }
 
-const FinancialTable: React.FC<Props> = ({ data }) => {
-  const { ticker, config, years, revs, ebit, netIncome, fcf, shares, eps, priceEnhanced, cagrs } = data;
-  const tDef = TICKERS[ticker];
+const FinancialTable: React.FC<Props> = ({ data, tickerDef }) => {
+  const { config, years, revs, ebit, netIncome, fcf, shares, eps, priceEnhanced, cagrs } = data;
 
   const Cell = ({ children, header = false, align = 'right', highlight = false, color = '', border = true }: any) => (
     <td className={`
@@ -57,9 +56,9 @@ const FinancialTable: React.FC<Props> = ({ data }) => {
             <SectionHeader title="Top Line Metrics" />
             <tr>
               <Cell align="left">Revenue (USD B)</Cell>
-              <Cell>{formatVal(tDef.rev25)}</Cell>
+              <Cell>{formatVal(tickerDef.rev25)}</Cell>
               {revs.map((r, i) => <Cell key={i}>{formatVal(r)}</Cell>)}
-              <Cell highlight>{cagr5y(revs[4], tDef.rev25)}</Cell>
+              <Cell highlight>{cagr5y(revs[4], tickerDef.rev25)}</Cell>
             </tr>
             <tr>
               <Cell align="left">Growth YoY (%)</Cell>
@@ -78,23 +77,22 @@ const FinancialTable: React.FC<Props> = ({ data }) => {
 
             <SectionHeader title="Operational Efficiency" />
             <tr>
-              {/* Fix: Replaced 'opMargin' with 'fcfMargin' as it is the property available on ScenarioConfig and TickerDefinition types */}
               <Cell align="left">FCF Margin</Cell>
-              <Cell>{(tDef.fcfMargin25 * 100).toFixed(1)}%</Cell>
+              <Cell>{(tickerDef.fcfMargin25 * 100).toFixed(1)}%</Cell>
               {config.fcfMargin.map((m, i) => <Cell key={i}>{(m * 100).toFixed(1)}%</Cell>)}
-              <Cell color="#3b82f6">+{(config.fcfMargin[4] - tDef.fcfMargin25).toFixed(3)}</Cell>
+              <Cell color="#3b82f6">+{(config.fcfMargin[4] - tickerDef.fcfMargin25).toFixed(3)}</Cell>
             </tr>
             <tr>
               <Cell align="left">Free Cash Flow</Cell>
-              <Cell>{formatVal(tDef.rev25 * 0.15)}</Cell>
+              <Cell>{formatVal(tickerDef.rev25 * 0.15)}</Cell>
               {fcf.map((f, i) => <Cell key={i}>{formatVal(f)}</Cell>)}
-              <Cell>{cagr5y(fcf[4], tDef.rev25 * 0.15)}</Cell>
+              <Cell>{cagr5y(fcf[4], tickerDef.rev25 * 0.15)}</Cell>
             </tr>
 
             <SectionHeader title="Alpha Valuation" color="text-amber-500" />
             <tr className="bg-[#ff007f]/5">
               <Cell align="left" highlight border={false}>Target Price (USD)</Cell>
-              <Cell highlight border={false}>${tDef.currentPrice.toFixed(2)}</Cell>
+              <Cell highlight border={false}>${tickerDef.currentPrice.toFixed(2)}</Cell>
               {priceEnhanced.map((p, i) => (
                 <Cell key={i} highlight border={false} color="#ff007f" className="text-sm font-black">${p.toFixed(2)}</Cell>
               ))}

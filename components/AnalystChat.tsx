@@ -1,15 +1,15 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
-import { ScenarioType, ProjectionData } from '../types';
-import { TICKERS } from '../constants';
+import { ScenarioType, ProjectionData, TickerDefinition } from '../types';
 
 interface Props {
   scenario: ScenarioType;
   projection: ProjectionData;
+  tickerDef: TickerDefinition;
 }
 
-const AnalystChat: React.FC<Props> = ({ scenario, projection }) => {
+const AnalystChat: React.FC<Props> = ({ scenario, projection, tickerDef }) => {
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string}[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,23 +31,23 @@ const AnalystChat: React.FC<Props> = ({ scenario, projection }) => {
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const ticker = TICKERS[projection.ticker];
-      const tickerName = ticker?.name || projection.ticker;
+      const tickerName = tickerDef?.name || projection.ticker;
       
       const peString = projection.config.peMultiple 
         ? `${projection.config.peMultiple[4]}x (P/E)` 
         : `${projection.config.exitMultiple}x (Exit Multiple)`;
 
       const prompt = `
-        You are a Senior Equity Analyst at an institutional research firm specializing in ${ticker?.sector || 'TMT'}.
+        You are a Senior Equity Analyst at an institutional research firm specializing in ${tickerDef?.sector || 'TMT'}.
         Current Context: Analyzing ${tickerName} (${projection.ticker}) 5-year projections.
         Selected Scenario: ${scenario.toUpperCase()}
         Scenario Assumptions: ${projection.config.desc}
         
         Market Context:
-        - RS (Relative Strength) Rating: ${ticker?.rsRating}/99
-        - AI Impact Sentiment: ${ticker?.aiImpact}
-        - Firm's Internal Strategic View: "${ticker?.strategicNarrative}"
+        - Current Spot Price: $${tickerDef.currentPrice.toFixed(2)}
+        - RS (Relative Strength) Rating: ${tickerDef?.rsRating}/99
+        - AI Impact Sentiment: ${tickerDef?.aiImpact}
+        - Firm's Internal Strategic View: "${tickerDef?.strategicNarrative}"
         
         Financial Data (2030E):
         - Target Price: $${projection.pricePerShare?.toFixed(2)}

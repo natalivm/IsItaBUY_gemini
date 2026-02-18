@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { ScenarioType } from './types';
+import { ScenarioType, TickerDefinition } from './types';
 import { calculateProjection, getInstitutionalRating } from './services/projectionService';
 import { TICKERS } from './constants';
 import ScenarioSelector from './components/ScenarioSelector';
@@ -8,6 +8,7 @@ import ProjectionChart from './components/ProjectionChart';
 import AnalystChat from './components/AnalystChat';
 import ScenarioMetricsCard from './components/ScenarioMetricsCard';
 import MarketIndicatorsView from './components/MarketIndicatorsView';
+import { GoogleGenAI, Type } from '@google/genai';
 
 type ViewType = 'home' | 'market-indicators' | string;
 
@@ -20,59 +21,111 @@ interface StockRow {
 const STOCKS: StockRow[] = [
   { ticker: 'SPOT', fairPriceRange: '$380 - $610', active: true },
   { ticker: 'DASH', fairPriceRange: '$120 - $215', active: true },
-  { ticker: 'EME', fairPriceRange: '$780 - $1150', active: true },
-  { ticker: 'MRVL', fairPriceRange: '$85 - $140', active: true },
-  { ticker: 'SOFI', fairPriceRange: '$18 - $42', active: true },
-  { ticker: 'ENVA', fairPriceRange: '$120 - $210', active: true },
-  { ticker: 'WWD', fairPriceRange: '$350 - $490', active: true },
-  { ticker: 'ITT', fairPriceRange: '$180 - $265', active: true },
-  { ticker: 'ANET', fairPriceRange: '$150 - $290', active: true },
+  { ticker: 'EME', fairPriceRange: '$780 - $1050', active: true },
+  { ticker: 'MRVL', fairPriceRange: '$85 - $135', active: true },
+  { ticker: 'SOFI', fairPriceRange: '$18 - $38', active: true },
+  { ticker: 'ENVA', fairPriceRange: '$120 - $185', active: true },
+  { ticker: 'WWD', fairPriceRange: '$350 - $480', active: true },
+  { ticker: 'ITT', fairPriceRange: '$180 - $255', active: true },
+  { ticker: 'ANET', fairPriceRange: '$150 - $280', active: true },
   { ticker: 'CRDO', fairPriceRange: '$100 - $280', active: true },
   { ticker: 'ASTS', fairPriceRange: '$30 - $210', active: true },
-  { ticker: 'VST', fairPriceRange: '$120 - $250', active: true },
-  { ticker: 'KKR', fairPriceRange: '$120 - $240', active: true },
-  { ticker: 'CEG', fairPriceRange: '$210 - $430', active: true },
-  { ticker: 'SPGI', fairPriceRange: '$410 - $620', active: true },
+  { ticker: 'VST', fairPriceRange: '$120 - $240', active: true },
+  { ticker: 'KKR', fairPriceRange: '$110 - $220', active: true },
+  { ticker: 'CEG', fairPriceRange: '$210 - $410', active: true },
+  { ticker: 'SPGI', fairPriceRange: '$410 - $590', active: true },
   { ticker: 'GXO', fairPriceRange: '$55 - $110', active: true },
-  { ticker: 'SMWB', fairPriceRange: '$6 - $15', active: true },
-  { ticker: 'PINS', fairPriceRange: '$15 - $35', active: true },
-  { ticker: 'RBRK', fairPriceRange: '$40 - $90', active: true },
-  { ticker: 'PANW', fairPriceRange: '$140 - $260', active: true },
-  { ticker: 'UBER', fairPriceRange: '$65 - $150', active: true },
-  { ticker: 'FTNT', fairPriceRange: '$75 - $140', active: true },
-  { ticker: 'DUOL', fairPriceRange: '$220 - $480', active: true },
-  { ticker: 'FICO', fairPriceRange: '$1200 - $2500', active: true },
-  { ticker: 'TLN', fairPriceRange: '$280 - $650', active: true },
-  { ticker: 'AGCO', fairPriceRange: '$110 - $230', active: true },
-  { ticker: 'NFLX', fairPriceRange: '$60 - $140', active: true },
-  { ticker: 'DE', fairPriceRange: '$430 - $750', active: true },
+  { ticker: 'SMWB', fairPriceRange: '$6 - $12', active: true },
+  { ticker: 'PINS', fairPriceRange: '$15 - $32', active: true },
+  { ticker: 'RBRK', fairPriceRange: '$40 - $85', active: true },
+  { ticker: 'PANW', fairPriceRange: '$140 - $250', active: true },
+  { ticker: 'UBER', fairPriceRange: '$65 - $140', active: true },
+  { ticker: 'FTNT', fairPriceRange: '$75 - $135', active: true },
+  { ticker: 'DUOL', fairPriceRange: '$220 - $460', active: true },
+  { ticker: 'FICO', fairPriceRange: '$1150 - $1780', active: true },
+  { ticker: 'TLN', fairPriceRange: '$280 - $610', active: true },
+  { ticker: 'AGCO', fairPriceRange: '$110 - $220', active: true },
+  { ticker: 'NFLX', fairPriceRange: '$60 - $135', active: true },
+  { ticker: 'DE', fairPriceRange: '$430 - $720', active: true },
 ];
 
 const App: React.FC = () => {
   const [activeTicker, setActiveTicker] = useState<ViewType>('home');
   const [scenario, setScenario] = useState<ScenarioType>(ScenarioType.BASE);
   const [showEnhancements, setShowEnhancements] = useState(true);
+  const [liveTickers, setLiveTickers] = useState<Record<string, TickerDefinition>>(TICKERS);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [groundingSources, setGroundingSources] = useState<any[]>([]);
 
-  const tickerDef = activeTicker !== 'home' && activeTicker !== 'market-indicators' ? TICKERS[activeTicker] : null;
+  const tickerDef = activeTicker !== 'home' && activeTicker !== 'market-indicators' ? liveTickers[activeTicker] : null;
+
+  const handleRefreshPrices = async () => {
+    if (isRefreshing) return;
+    setIsRefreshing(true);
+    setGroundingSources([]);
+
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const tickersToUpdate = Object.keys(liveTickers).join(', ');
+      
+      const response = await ai.models.generateContent({
+        model: 'gemini-3-pro-preview',
+        contents: `Fetch current real-time market prices from Yahoo Finance or similar for the following tickers: ${tickersToUpdate}. 
+        Return ONLY a JSON object where the key is the ticker and the value is the current numeric price.`,
+        config: {
+          tools: [{ googleSearch: {} }],
+          responseMimeType: 'application/json',
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: Object.keys(liveTickers).reduce((acc, ticker) => {
+              acc[ticker] = { type: Type.NUMBER };
+              return acc;
+            }, {} as any)
+          }
+        }
+      });
+
+      const updatedPrices = JSON.parse(response.text || '{}');
+      
+      // Extract grounding sources as required by rules
+      if (response.candidates?.[0]?.groundingMetadata?.groundingChunks) {
+        setGroundingSources(response.candidates[0].groundingMetadata.groundingChunks);
+      }
+
+      setLiveTickers(prev => {
+        const next = { ...prev };
+        Object.keys(updatedPrices).forEach(ticker => {
+          if (next[ticker]) {
+            next[ticker] = { ...next[ticker], currentPrice: updatedPrices[ticker] };
+          }
+        });
+        return next;
+      });
+    } catch (err) {
+      console.error("Price refresh failed:", err);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const allProjections = useMemo(() => {
     if (!tickerDef) return null;
     return {
-      [ScenarioType.BEAR]: calculateProjection(activeTicker, ScenarioType.BEAR, showEnhancements),
-      [ScenarioType.BASE]: calculateProjection(activeTicker, ScenarioType.BASE, showEnhancements),
-      [ScenarioType.BULL]: calculateProjection(activeTicker, ScenarioType.BULL, showEnhancements),
+      [ScenarioType.BEAR]: calculateProjection(activeTicker, ScenarioType.BEAR, liveTickers, showEnhancements),
+      [ScenarioType.BASE]: calculateProjection(activeTicker, ScenarioType.BASE, liveTickers, showEnhancements),
+      [ScenarioType.BULL]: calculateProjection(activeTicker, ScenarioType.BULL, liveTickers, showEnhancements),
     };
-  }, [activeTicker, showEnhancements]);
+  }, [activeTicker, liveTickers, showEnhancements]);
 
   const currentProjection = allProjections ? allProjections[scenario] : null;
 
   const universeData = useMemo(() => {
     return STOCKS.map(s => {
-      const proj = calculateProjection(s.ticker, ScenarioType.BASE, true);
-      const rating = getInstitutionalRating(proj.pricePerShare!, TICKERS[s.ticker].currentPrice);
+      const proj = calculateProjection(s.ticker, ScenarioType.BASE, liveTickers, true);
+      const rating = getInstitutionalRating(proj.pricePerShare!, liveTickers[s.ticker].currentPrice);
       return { ...s, ...rating };
     });
-  }, []);
+  }, [liveTickers]);
 
   const investmentConclusion = useMemo(() => {
     if (!allProjections || !tickerDef) return null;
@@ -99,25 +152,51 @@ const App: React.FC = () => {
             IS IT<br />A<br />BUY?
           </div>
           
-          <button 
-            onClick={() => setActiveTicker('market-indicators')}
-            className="z-20 group relative px-8 py-4 bg-slate-900/80 border border-slate-700 rounded-2xl flex items-center gap-4 transition-all hover:bg-slate-800 hover:border-slate-500 hover:scale-105 shadow-2xl"
-          >
-            <div className={`w-3 h-3 rounded-full ${isRiskOn ? 'bg-red-500 shadow-[0_0_15px_#ef4444]' : 'bg-green-500 shadow-[0_0_15px_#22c55e]'} animate-pulse`}></div>
-            <div className="flex flex-col items-start text-left">
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Current Market Regime</span>
-              <span className={`text-xl font-black uppercase tracking-tight ${isRiskOn ? 'text-red-500' : 'text-green-500'}`}>
-                {isRiskOn ? 'Risk On' : 'Risk Off'}
-              </span>
-            </div>
-            <div className="ml-4 text-slate-600 group-hover:text-white transition-colors">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-            </div>
-          </button>
+          <div className="flex flex-col gap-4 z-20">
+            <button 
+              onClick={() => setActiveTicker('market-indicators')}
+              className="group relative px-8 py-4 bg-slate-900/80 border border-slate-700 rounded-2xl flex items-center gap-4 transition-all hover:bg-slate-800 hover:border-slate-500 hover:scale-105 shadow-2xl"
+            >
+              <div className={`w-3 h-3 rounded-full ${isRiskOn ? 'bg-red-500 shadow-[0_0_15px_#ef4444]' : 'bg-green-500 shadow-[0_0_15px_#22c55e]'} animate-pulse`}></div>
+              <div className="flex flex-col items-start text-left">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Current Market Regime</span>
+                <span className={`text-xl font-black uppercase tracking-tight ${isRiskOn ? 'text-red-500' : 'text-green-500'}`}>
+                  {isRiskOn ? 'Risk On' : 'Risk Off'}
+                </span>
+              </div>
+              <div className="ml-4 text-slate-600 group-hover:text-white transition-colors">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+              </div>
+            </button>
+
+            <button 
+              onClick={handleRefreshPrices}
+              disabled={isRefreshing}
+              className={`group relative px-8 py-4 bg-amber-500/10 border ${isRefreshing ? 'border-amber-500/50 cursor-not-allowed opacity-50' : 'border-amber-500/50 hover:border-amber-400'} rounded-2xl flex items-center gap-4 transition-all hover:scale-105 shadow-2xl`}
+            >
+              <div className={`w-3 h-3 rounded-full bg-amber-500 shadow-[0_0_15px_#fbbf24] ${isRefreshing ? 'animate-ping' : 'animate-pulse'}`}></div>
+              <div className="flex flex-col items-start text-left">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-300 transition-colors">Real-Time Data Bridge</span>
+                <span className={`text-xl font-black uppercase tracking-tight text-amber-500`}>
+                  {isRefreshing ? 'Syncing...' : 'Refresh Live Feed'}
+                </span>
+              </div>
+            </button>
+          </div>
         </div>
+        
         <div className="w-1/2 h-screen bg-[#0d1630] overflow-y-auto px-12 pt-20 pb-24 space-y-0 scrollbar-hide">
-          <div className="text-amber-500 font-black text-[10px] tracking-[0.3em] uppercase mb-12">Alpha Research Group // High Conviction List</div>
-          <div className="space-y-1">
+          <div className="flex justify-between items-center mb-12">
+            <div className="text-amber-500 font-black text-[10px] tracking-[0.3em] uppercase">Alpha Research Group // High Conviction List</div>
+            {groundingSources.length > 0 && (
+              <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                Verified Sources Active
+              </div>
+            )}
+          </div>
+          
+          <div className="space-y-1 mb-12">
             {universeData.map((stock) => (
               <button key={stock.ticker} onClick={() => setActiveTicker(stock.ticker)} className="w-full flex items-center justify-between py-6 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left">
                 <div className="flex items-center gap-6">
@@ -127,12 +206,28 @@ const App: React.FC = () => {
                   <div className="flex flex-col items-end leading-none gap-1">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{stock.label}</span>
                     <span className="text-lg font-bold text-slate-300 mono">{stock.fairPriceRange}</span>
+                    <span className="text-[10px] font-black text-blue-400 mono">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
                   </div>
                   <div className={`w-3 h-3 rounded-full ${stock.dot}`}></div>
                 </div>
               </button>
             ))}
           </div>
+
+          {groundingSources.length > 0 && (
+            <div className="p-6 bg-blue-500/5 border border-blue-500/20 rounded-2xl">
+              <h4 className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-4">Intelligence Sources (Real-time Grounding)</h4>
+              <div className="space-y-2">
+                {groundingSources.map((source, idx) => (
+                  source.web && (
+                    <a key={idx} href={source.web.uri} target="_blank" rel="noopener noreferrer" className="block text-[11px] text-slate-500 hover:text-blue-400 transition-colors truncate mono">
+                      • {source.web.title || source.web.uri}
+                    </a>
+                  )
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -179,11 +274,8 @@ const App: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-3 space-y-10">
-            
-            {/* Unified Investment Thesis & Strategic View */}
             <div className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden group">
               <div className="flex flex-col gap-8">
-                {/* Metrics Row */}
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
                   <div className="flex flex-col">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Entry CAGR</span>
@@ -214,7 +306,6 @@ const App: React.FC = () => {
 
                 <div className="h-px bg-slate-800/50 w-full"></div>
 
-                {/* Narrative Grid (Text Under Numbers) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-4">
                     <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em]">Quant Narrative</h3>
@@ -248,7 +339,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-[#0d1630]/40 overflow-hidden shadow-inner">
-              <ProjectionChart currentScenario={scenario} allProjections={allProjections as any} />
+              <ProjectionChart currentScenario={scenario} allProjections={allProjections as any} tickerDef={tickerDef} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
@@ -281,7 +372,7 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-            <AnalystChat scenario={scenario} projection={currentProjection} />
+            <AnalystChat scenario={scenario} projection={currentProjection} tickerDef={tickerDef} />
           </div>
         </div>
 

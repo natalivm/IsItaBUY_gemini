@@ -10,18 +10,17 @@ import {
   ResponsiveContainer, 
   ReferenceLine 
 } from 'recharts';
-import { ScenarioType, ProjectionData } from '../types';
-import { TICKERS } from '../constants';
+import { ScenarioType, ProjectionData, TickerDefinition } from '../types';
 
 interface Props {
   currentScenario: ScenarioType;
   allProjections: Record<ScenarioType, ProjectionData>;
+  tickerDef: TickerDefinition;
 }
 
-const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) => {
-  const ticker = allProjections[currentScenario].ticker;
-  const currentPrice = TICKERS[ticker].currentPrice;
-  const [selectedIndex, setSelectedIndex] = useState(4); // Default to 2030E
+const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections, tickerDef }) => {
+  const currentPrice = tickerDef.currentPrice;
+  const [selectedIndex, setSelectedIndex] = useState(4); 
 
   const years = [2026, 2027, 2028, 2029, 2030];
   const chartData = years.map((year, i) => ({
@@ -36,7 +35,6 @@ const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) =
 
   return (
     <div className="flex flex-col">
-      {/* Header & Year Selector */}
       <div className="p-8 border-b border-slate-800/50 bg-[#0d1630]/20">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
           <div>
@@ -61,7 +59,6 @@ const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) =
           </div>
         </div>
 
-        {/* Selected Year Data Display */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { label: 'CONSERVATIVE', value: selectedData.bear, color: '#ef4444' },
@@ -85,7 +82,6 @@ const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) =
         </div>
       </div>
 
-      {/* Interactive Chart */}
       <div className="p-8 h-[340px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart 
@@ -125,7 +121,6 @@ const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) =
               tickFormatter={(val) => `$${val}`}
               tick={{ fontWeight: 800 }}
             />
-            {/* Horizontal Current Price Line */}
             <ReferenceLine 
               y={currentPrice} 
               stroke="#fbbf24" 
@@ -133,7 +128,6 @@ const ProjectionChart: React.FC<Props> = ({ currentScenario, allProjections }) =
               strokeWidth={2}
               label={{ value: 'SPOT', position: 'right', fill: '#fbbf24', fontSize: 10, fontWeight: 900 }} 
             />
-            {/* Vertical Marker for Selected Year */}
             <ReferenceLine 
               x={years[selectedIndex]} 
               stroke="rgba(255,255,255,0.1)" 

@@ -271,16 +271,17 @@ Object.keys(TICKERS).forEach(tickerId => {
   const isDASH = tickerId === 'DASH';
   const isSPOT = tickerId === 'SPOT';
   const isDE = tickerId === 'DE';
+  const isFICO = tickerId === 'FICO';
   
   CONFIGS[tickerId] = {
     [ScenarioType.BEAR]: {
       label: 'CONSERVATIVE',
       color: '#ef4444',
       bg: 'bg-red-500/10',
-      revGrowth: isENVA ? [0.10, 0.08, 0.06, 0.04, 0.03] : (isMRVL ? [0.05, -0.10, 0.05, 0.08, 0.10] : (isEME ? [0.08, 0.07, 0.06, 0.05, 0.04] : (isDASH ? [0.165, 0.126, 0.112, 0.098, 0.084] : (isSPOT ? [0.12, 0.10, 0.08, 0.06, 0.04] : [0.06, 0.05, 0.05, 0.04, 0.04])))),
+      revGrowth: isENVA ? [0.10, 0.08, 0.06, 0.04, 0.03] : (isMRVL ? [0.05, -0.10, 0.05, 0.08, 0.10] : (isEME ? [0.08, 0.07, 0.06, 0.05, 0.04] : (isDASH ? [0.165, 0.126, 0.112, 0.098, 0.084] : (isSPOT ? [0.12, 0.10, 0.08, 0.06, 0.04] : (isFICO ? [0.05, 0.04, 0.04, 0.03, 0.03] : [0.06, 0.05, 0.05, 0.04, 0.04]))))),
       fcfMargin: isEME ? Array(5).fill(0.045) : (isDASH ? [0.06, 0.078, 0.093, 0.105, 0.116] : (isSPOT ? Array(5).fill(0.15) : Array(5).fill(t.fcfMargin25 * 0.85))),
       termGrowth: isENVA ? 0.02 : (isMRVL ? 0.025 : (isEME ? 0.025 : (isDASH ? 0.025 : (isSPOT ? 0.02 : 0.015)))),
-      exitMultiple: isENVA ? 8 : (isMRVL ? 22 : (isEME ? 14 : (isDASH ? 20 : (isSPOT ? 14 : 12)))),
+      exitMultiple: isENVA ? 8 : (isMRVL ? 22 : (isEME ? 14 : (isDASH ? 20 : (isSPOT ? 14 : (isFICO ? 24 : 12))))),
       waccAdj: isDASH ? 0.015 : 0.01,
       desc: isENVA ? 'Credit cycle headwinds and regulatory friction slowing originations.' : 'Economic headwinds leading to multiple compression and slower growth.',
       thesis: 'Growth stalls below inflation as competitive pressures erode margins.',
@@ -295,10 +296,10 @@ Object.keys(TICKERS).forEach(tickerId => {
       label: 'NEUTRAL',
       color: '#3b82f6',
       bg: 'bg-blue-500/10',
-      revGrowth: isENVA ? [0.16, 0.14, 0.12, 0.10, 0.08] : (isMRVL ? [0.42, 0.22, 0.20, 0.15, 0.12] : (isEME ? [0.14, 0.13, 0.11, 0.09, 0.07] : (isDASH ? [0.22, 0.18, 0.16, 0.14, 0.12] : (isSPOT ? [0.16, 0.15, 0.14, 0.13, 0.12] : [0.12, 0.11, 0.10, 0.09, 0.08])))),
+      revGrowth: isENVA ? [0.16, 0.14, 0.12, 0.10, 0.08] : (isMRVL ? [0.42, 0.22, 0.20, 0.15, 0.12] : (isEME ? [0.14, 0.13, 0.11, 0.09, 0.07] : (isDASH ? [0.22, 0.18, 0.16, 0.14, 0.12] : (isSPOT ? [0.16, 0.15, 0.14, 0.13, 0.12] : (isFICO ? [0.08, 0.08, 0.07, 0.07, 0.06] : [0.12, 0.11, 0.10, 0.09, 0.08]))))),
       fcfMargin: isMRVL ? [0.28, 0.29, 0.30, 0.31, 0.32] : (isEME ? Array(5).fill(0.058) : (isDASH ? [0.08, 0.105, 0.125, 0.14, 0.155] : Array(5).fill(t.fcfMargin25))),
       termGrowth: isENVA ? 0.03 : (isMRVL ? 0.035 : (isEME ? 0.03 : (isDASH ? 0.035 : (isSPOT ? 0.025 : 0.025)))),
-      exitMultiple: isENVA ? 11 : (isMRVL ? 30 : (isEME ? 17 : (isDASH ? 28 : (isSPOT ? 17 : 16)))),
+      exitMultiple: isENVA ? 11 : (isMRVL ? 30 : (isEME ? 17 : (isDASH ? 28 : (isSPOT ? 17 : (isFICO ? 28 : 16))))),
       desc: isENVA ? 'Steady execution on core lending products with moderate Grasshopper synergies.' : 'Market alignment with standard institutional growth expectations.',
       thesis: 'Steady execution on the strategic roadmap with moderate efficiency gains.',
       drivers: {
@@ -312,21 +313,17 @@ Object.keys(TICKERS).forEach(tickerId => {
       label: 'AGGRESSIVE',
       color: '#ff007f',
       bg: 'bg-pink-500/10',
-      // Bull growth spreads moderated for ENVA and DE to avoid 2x valuation decoupling.
-      revGrowth: isENVA ? [0.18, 0.16, 0.14, 0.12, 0.10] : (isMRVL ? [0.44, 0.25, 0.22, 0.18, 0.15] : (isEME ? [0.15, 0.14, 0.12, 0.10, 0.08] : (isDASH ? [0.25, 0.20, 0.18, 0.16, 0.14] : (isSPOT ? [0.19, 0.18, 0.17, 0.16, 0.15] : (isDE ? [0.14, 0.13, 0.12, 0.11, 0.10] : [0.16, 0.15, 0.14, 0.13, 0.12]))))),
-      // FCF Margin uplift moderated to 1.08x-1.15x to reflect realistic operating leverage for industrials (DE, EME) and financials (ENVA).
-      fcfMargin: isMRVL ? [0.30, 0.315, 0.33, 0.345, 0.36] : (isEME ? Array(5).fill(0.062) : (isDASH ? [0.09, 0.12, 0.14, 0.15, 0.17] : (isSPOT ? Array(5).fill(t.fcfMargin25 * 1.1) : (isENVA || isDE ? Array(5).fill(t.fcfMargin25 * 1.08) : Array(5).fill(t.fcfMargin25 * 1.15))))),
+      revGrowth: isENVA ? [0.18, 0.16, 0.14, 0.12, 0.10] : (isMRVL ? [0.44, 0.25, 0.22, 0.18, 0.15] : (isEME ? [0.15, 0.14, 0.12, 0.10, 0.08] : (isDASH ? [0.25, 0.20, 0.18, 0.16, 0.14] : (isSPOT ? [0.19, 0.18, 0.17, 0.16, 0.15] : (isDE ? [0.14, 0.13, 0.12, 0.11, 0.10] : (isFICO ? [0.11, 0.10, 0.09, 0.08, 0.08] : [0.16, 0.15, 0.14, 0.13, 0.12])))))),
+      fcfMargin: isMRVL ? [0.30, 0.315, 0.33, 0.345, 0.36] : (isEME ? Array(5).fill(0.062) : (isDASH ? [0.09, 0.12, 0.14, 0.15, 0.17] : (isSPOT ? Array(5).fill(t.fcfMargin25 * 1.1) : (isFICO ? Array(5).fill(t.fcfMargin25 * 1.05) : (isENVA || isDE ? Array(5).fill(t.fcfMargin25 * 1.08) : Array(5).fill(t.fcfMargin25 * 1.15)))))),
       termGrowth: isENVA ? 0.035 : (isMRVL ? 0.04 : (isEME ? 0.035 : (isDASH ? 0.04 : (isSPOT ? 0.03 : 0.03)))),
-      // Exit multiples constrained for industrial/financial profiles (DE, ENVA) to prevent unrealistic path.
-      exitMultiple: isENVA ? 12 : (isMRVL ? 34 : (isEME ? 18 : (isDASH ? 32 : (isSPOT ? 19 : (isDE ? 17.5 : 19))))),
+      exitMultiple: isENVA ? 12 : (isMRVL ? 34 : (isEME ? 18 : (isDASH ? 32 : (isSPOT ? 19 : (isDE ? 17.5 : (isFICO ? 32 : 19)))))),
       waccAdj: isDASH ? -0.01 : -0.005,
       desc: isENVA ? 'Explosive growth via bank charter TAM expansion and high-margin BaaS scaling.' : 'Category-defining growth powered by AI tailwinds and operating leverage.',
       thesis: 'Dominant market share capture and best-in-class FCF conversion.',
       drivers: {
         revPrem: isENVA ? [0.01, 0.01, 0.01, 0.01, 0.01] : (isMRVL ? [0.03, 0.02, 0.01, 0.01, 0.01] : (isEME ? [0.01, 0.01, 0.01, 0.01, 0.01] : (isDASH ? [0.01, 0.01, 0.01, 0.01, 0.01] : [0.015, 0.02, 0.02, 0.02, 0.02]))),
         fcfUplift: isENVA ? [0.005, 0.005, 0.01, 0.01, 0.01] : (isMRVL ? [0.005, 0.01, 0.01, 0.015, 0.02] : (isEME ? [0.005, 0.005, 0.005, 0.005, 0.005] : (isDASH ? [0.005, 0.005, 0.01, 0.01, 0.01] : [0.01, 0.01, 0.01, 0.015, 0.015]))),
-        // Buyback rates moderated for DE and ENVA.
-        bbRate: isMRVL ? 0.02 : (isEME ? 0.01 : (isDASH ? 0.01 : (isDE || isENVA ? 0.02 : 0.03))),
+        bbRate: isMRVL ? 0.02 : (isEME ? 0.01 : (isDASH ? 0.01 : (isDE || isENVA || isFICO ? 0.02 : 0.03))),
         ebitdaProxy: 0.35,
         maOptVal: isENVA ? (t.currentPrice * t.shares0 * 0.05) : (isMRVL ? (t.currentPrice * t.shares0 * 0.05) : (isEME ? (t.currentPrice * t.shares0 * 0.06) : (isDASH ? (t.currentPrice * t.shares0 * 0.05) : (t.currentPrice * t.shares0 * 0.07))))
       }
