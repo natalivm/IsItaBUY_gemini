@@ -12,6 +12,7 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import { cn } from './utils';
+import { fetchLivePrices } from './services/yahooFinanceService';
 
 type ViewType = 'home' | string;
 
@@ -33,9 +34,25 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+
+    // Fetch live prices from Yahoo Finance and update ONLY currentPrice.
+    // rsRating, strategicNarrative, and all other fields are preserved
+    // exactly as defined in the stock data files.
+    const tickerIds = Object.keys(TICKERS);
+    fetchLivePrices(tickerIds).then(livePrices => {
+      if (Object.keys(livePrices).length === 0) return;
+      setLiveTickers(prev => {
+        const updated = { ...prev };
+        for (const id of tickerIds) {
+          if (typeof livePrices[id] === 'number') {
+            updated[id] = { ...updated[id], currentPrice: livePrices[id] };
+          }
+        }
+        return updated;
+      });
+    });
+
     return () => clearTimeout(timer);
   }, []);
 
