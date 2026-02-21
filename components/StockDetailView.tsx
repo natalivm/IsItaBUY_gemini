@@ -137,9 +137,9 @@ const StockDetailView: React.FC<Props> = ({
 
             {/* Scenario cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-10">
-              <ScenarioMetricsCard data={allProjections.bear} currentPrice={tickerDef.currentPrice} />
-              <ScenarioMetricsCard data={allProjections.base} currentPrice={tickerDef.currentPrice} />
-              <ScenarioMetricsCard data={allProjections.bull} currentPrice={tickerDef.currentPrice} />
+              <ScenarioMetricsCard data={allProjections.bear} currentPrice={tickerDef.currentPrice} modelType={tickerDef.modelType} />
+              <ScenarioMetricsCard data={allProjections.base} currentPrice={tickerDef.currentPrice} modelType={tickerDef.modelType} />
+              <ScenarioMetricsCard data={allProjections.bull} currentPrice={tickerDef.currentPrice} modelType={tickerDef.modelType} />
             </div>
           </div>
 

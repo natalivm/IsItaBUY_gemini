@@ -18,7 +18,8 @@ export const WWD: StockDefinition = {
   costDebt: 0.052,
   unitLabel: 'Actuation Systems',
   unit25: 1.0,
-  modelType: 'DCF_ADVANCED',
+  modelType: 'EPS_PE',
+  baseEps: 8.4,         // FY26 mid-guide EPS
   enhancementLabel: 'Aero Aftermarket + Industrial Margin Expansion',
   rsRating: 95,
   aiImpact: 'TAILWIND',
@@ -31,20 +32,33 @@ export const WWD: StockDefinition = {
     "pull-forward) unlikely to repeat. At ~47x fwd P/E the stock is priced for near-perfect execution — " +
     "great business, expensive entry. Prob-weighted 15%+ CAGR from current levels: ~30%.",
   scenarios: {
+    // EPS_PE model: epsCagr and exitPE are the primary valuation drivers.
+    // revGrowth and fcfMargin are kept for display/yield calculations.
+    epsCagr: {
+      [ScenarioType.BEAR]: 7,
+      [ScenarioType.BASE]: 12,
+      [ScenarioType.BULL]: 18,
+    },
+    exitPE: {
+      [ScenarioType.BEAR]: 22,
+      [ScenarioType.BASE]: 30,
+      [ScenarioType.BULL]: 40,
+    },
+    prob: {
+      [ScenarioType.BEAR]: 25,
+      [ScenarioType.BASE]: 50,
+      [ScenarioType.BULL]: 25,
+    },
     revGrowth: {
-      // Bear: 7% EPS CAGR analog — growth decelerates sharply post Q1 tailwinds
+      // Revenue growth paths still used for FCF/yield display
       [ScenarioType.BEAR]: [0.07, 0.06, 0.05, 0.05, 0.04],
-      // Base: 12% EPS CAGR — front-loaded to Q1 FY26 guide (14%), then step-down
       [ScenarioType.BASE]: [0.14, 0.12, 0.11, 0.10, 0.09],
-      // Bull: 18% EPS CAGR — sustained above-guide execution + aero supercycle continuation
       [ScenarioType.BULL]: [0.18, 0.17, 0.15, 0.14, 0.12],
     },
     fcfMargin: {
-      // Bear: FCF constrained throughout; inventory + capex headwinds persist
+      // FCF constrained near-term; normalises over horizon
       [ScenarioType.BEAR]: [0.07, 0.07, 0.075, 0.075, 0.08],
-      // Base: Gradual improvement as inventory normalizes late FY26 / FY27
       [ScenarioType.BASE]: [0.08, 0.085, 0.09, 0.095, 0.10],
-      // Bull: Strong FCF conversion as capex cycle peaks and working capital unwinds
       [ScenarioType.BULL]: [0.09, 0.095, 0.10, 0.11, 0.12],
     },
     termGrowth: {
@@ -53,9 +67,10 @@ export const WWD: StockDefinition = {
       [ScenarioType.BULL]: 0.03,
     },
     exitMultiple: {
-      [ScenarioType.BEAR]: 12,   // P/E reversion toward 22x implies significant FCF multiple compression
-      [ScenarioType.BASE]: 17,   // Quality industrial compounder deserves mild premium at scale
-      [ScenarioType.BULL]: 22,   // Sustained aero supercycle + FCF improvement supports premium exit
+      // Not primary for EPS_PE; kept for interface compatibility
+      [ScenarioType.BEAR]: 12,
+      [ScenarioType.BASE]: 17,
+      [ScenarioType.BULL]: 22,
     },
     waccAdj: {
       [ScenarioType.BEAR]: 0.01,
@@ -64,17 +79,17 @@ export const WWD: StockDefinition = {
     },
     desc: {
       [ScenarioType.BEAR]:
-        'Q1 tailwinds (spare LRUs, China pull-forward) fade; revenue growth decelerates to mid-single digits. ' +
-        'FCF remains constrained by capex and inventory. Multiple compresses toward 22x earnings (~$185), ' +
-        'representing a ~53% drawdown from current levels.',
+        'Q1 tailwinds (spare LRUs, China pull-forward) fade; EPS CAGR decelerates to 7%. ' +
+        'P/E compresses to 22x as market treats WWD as a cyclical rather than a compounder. ' +
+        'At $8.40 base EPS → FY31 EPS ~$11.78 × 22x = ~$259 target.',
       [ScenarioType.BASE]:
-        'FY26 guide delivers at mid-point ($8.40 EPS). Revenue growth steps down from 14% toward 9–10% ' +
-        'by FY30. FCF conversion improves modestly as inventory normalizes in late FY26/FY27. ' +
-        'P/E settles in 28–32x range — years of modest but positive returns from current price.',
+        'FY26 guide delivers at mid-point ($8.40 EPS). 12% EPS CAGR sustained via margin ' +
+        'leverage + pricing power. P/E settles to 30x as FCF conversion gradually improves. ' +
+        'FY31 EPS ~$14.80 × 30x = ~$444 target — modest upside from current levels.',
       [ScenarioType.BULL]:
-        'Aero supercycle extends; aftermarket strength + industrial margin leverage drive sustained 15–18% ' +
-        'EPS CAGR. FCF conversion improves structurally (capex cycle peaks, working capital unwinds). ' +
-        'Market assigns quality premium on demonstrated FCF improvement — 15%+ CAGR achievable.',
+        'Aero supercycle extends; aftermarket strength + industrial margin leverage drive 18% ' +
+        'EPS CAGR. Market rewards demonstrated execution with 40x P/E. ' +
+        'FY31 EPS ~$19.22 × 40x = ~$769 target — 15%+ CAGR achievable.',
     },
     drivers: {
       [ScenarioType.BEAR]: {
@@ -86,7 +101,7 @@ export const WWD: StockDefinition = {
       [ScenarioType.BASE]: {
         revPrem: [0.01, 0.01, 0.01, 0.01, 0.01],
         fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
-        bbRate: 0.02,        // ~$650–700M returns plan / ~$23B market cap run-rate
+        bbRate: 0.02,
         ebitdaProxy: 0.22,
       },
       [ScenarioType.BULL]: {
@@ -94,7 +109,7 @@ export const WWD: StockDefinition = {
         fcfUplift: [0.01, 0.01, 0.015, 0.015, 0.02],
         bbRate: 0.03,
         ebitdaProxy: 0.35,
-        maOptVal: 393 * 58.5 * 0.07,  // 7% optionality on ~$23B market cap
+        maOptVal: 393 * 58.5 * 0.07,
       },
     },
   },

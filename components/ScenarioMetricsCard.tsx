@@ -1,16 +1,18 @@
 
 import React from 'react';
-import { ProjectionData } from '../types';
+import { ProjectionData, ValuationModelType } from '../types';
 import { getInstitutionalRating } from '../services/projectionService';
 
 interface Props {
   data: ProjectionData;
   currentPrice: number;
+  modelType?: ValuationModelType;
 }
 
-const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice }) => {
-  const { config, pricePerShare, mosPrice, w, mosUpside } = data;
-  
+const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice, modelType }) => {
+  const { config, pricePerShare, mosPrice, w } = data;
+  const isEpsPe = modelType === 'EPS_PE';
+
   // Use the standardized institutional rating logic for this specific scenario path
   const rating = getInstitutionalRating(pricePerShare!, currentPrice);
 
@@ -25,21 +27,36 @@ const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice }) => {
 
       <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-8">
         <div className="flex flex-col">
-          <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">DCF Value:</span>
+          <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{isEpsPe ? 'EPS×PE Value:' : 'DCF Value:'}</span>
           <span className="text-base font-black text-white">${pricePerShare?.toFixed(2)}</span>
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">MoS (25%):</span>
           <span className="text-base font-black text-slate-300">${mosPrice?.toFixed(2)}</span>
         </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">WACC:</span>
-          <span className="text-base font-black text-slate-300">{(w! * 100).toFixed(1)}%</span>
-        </div>
-        <div className="flex flex-col">
-          <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Terminal g:</span>
-          <span className="text-base font-black text-slate-300">{(config.termGrowth! * 100).toFixed(1)}%</span>
-        </div>
+        {isEpsPe ? (
+          <>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">EPS CAGR:</span>
+              <span className="text-base font-black text-slate-300">{config.epsCagr}%</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Exit P/E:</span>
+              <span className="text-base font-black text-slate-300">{config.exitPE}x</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">WACC:</span>
+              <span className="text-base font-black text-slate-300">{(w! * 100).toFixed(1)}%</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Terminal g:</span>
+              <span className="text-base font-black text-slate-300">{(config.termGrowth! * 100).toFixed(1)}%</span>
+            </div>
+          </>
+        )}
       </div>
 
       <div className={`pt-4 border-t border-slate-800/50 text-base font-black uppercase tracking-wider ${rating.color}`}>

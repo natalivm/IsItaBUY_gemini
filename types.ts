@@ -5,7 +5,7 @@ export enum ScenarioType {
   BULL = 'bull'
 }
 
-export type ValuationModelType = 'DCF_ADVANCED';
+export type ValuationModelType = 'DCF_ADVANCED' | 'EPS_PE';
 
 export interface ScenarioConfig {
   label: string;
@@ -19,6 +19,10 @@ export interface ScenarioConfig {
   desc: string;
   thesis?: string;
   drivers?: Record<string, number | number[]>;
+  // EPS_PE model fields
+  epsCagr?: number;
+  exitPE?: number;
+  prob?: number;
 }
 
 export interface StockScenarioParams {
@@ -30,6 +34,10 @@ export interface StockScenarioParams {
   desc: Record<ScenarioType, string>;
   thesis?: Record<ScenarioType, string>;
   drivers: Record<ScenarioType, Record<string, number | number[]>>;
+  // EPS_PE model fields
+  epsCagr?: Record<ScenarioType, number>;
+  exitPE?: Record<ScenarioType, number>;
+  prob?: Record<ScenarioType, number>;
 }
 
 export interface StockDefinition extends TickerDefinition {
@@ -60,6 +68,8 @@ export interface TickerDefinition {
   debt?: number;
   beta?: number;
   costDebt?: number;
+  // EPS_PE model fields
+  baseEps?: number;
 }
 
 export interface ProjectionData {

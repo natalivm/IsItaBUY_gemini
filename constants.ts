@@ -26,7 +26,10 @@ Object.keys(ALL_STOCKS).forEach(tickerId => {
       waccAdj: s.waccAdj?.[ScenarioType.BEAR],
       desc: s.desc[ScenarioType.BEAR],
       thesis: s.thesis?.[ScenarioType.BEAR],
-      drivers: s.drivers[ScenarioType.BEAR]
+      drivers: s.drivers[ScenarioType.BEAR],
+      epsCagr: s.epsCagr?.[ScenarioType.BEAR],
+      exitPE: s.exitPE?.[ScenarioType.BEAR],
+      prob: s.prob?.[ScenarioType.BEAR],
     },
     [ScenarioType.BASE]: {
       label: 'NEUTRAL',
@@ -39,7 +42,10 @@ Object.keys(ALL_STOCKS).forEach(tickerId => {
       waccAdj: s.waccAdj?.[ScenarioType.BASE],
       desc: s.desc[ScenarioType.BASE],
       thesis: s.thesis?.[ScenarioType.BASE],
-      drivers: s.drivers[ScenarioType.BASE]
+      drivers: s.drivers[ScenarioType.BASE],
+      epsCagr: s.epsCagr?.[ScenarioType.BASE],
+      exitPE: s.exitPE?.[ScenarioType.BASE],
+      prob: s.prob?.[ScenarioType.BASE],
     },
     [ScenarioType.BULL]: {
       label: 'AGGRESSIVE',
@@ -52,7 +58,10 @@ Object.keys(ALL_STOCKS).forEach(tickerId => {
       waccAdj: s.waccAdj?.[ScenarioType.BULL],
       desc: s.desc[ScenarioType.BULL],
       thesis: s.thesis?.[ScenarioType.BULL],
-      drivers: s.drivers[ScenarioType.BULL]
+      drivers: s.drivers[ScenarioType.BULL],
+      epsCagr: s.epsCagr?.[ScenarioType.BULL],
+      exitPE: s.exitPE?.[ScenarioType.BULL],
+      prob: s.prob?.[ScenarioType.BULL],
     }
   };
 });

@@ -127,8 +127,93 @@ const calculateDCF = (t: TickerDefinition, sc: ScenarioConfig, showEnhancements:
   };
 };
 
+/**
+ * EPS × P/E valuation model.
+ * Better suited for companies where FCF is temporarily depressed
+ * (heavy capex cycle, working-capital build) but earnings power is clear.
+ *
+ * Projects EPS forward at a scenario-specific CAGR, then applies an exit P/E
+ * to derive a target price. Buyback-driven share reduction is modelled via
+ * the same `bbRate` driver used in DCF_ADVANCED.
+ */
+const calculateEPS_PE = (t: TickerDefinition, sc: ScenarioConfig, showEnhancements: boolean): ProjectionData => {
+  const horizon = 5;
+  const years = ["2026E", "2027E", "2028E", "2029E", "2030E"];
+  const baseEps = t.baseEps!;
+  const epsCagrRate = (sc.epsCagr || 0) / 100;
+  const exitPE = sc.exitPE || 25;
+
+  const buybackRate = (showEnhancements && (sc.drivers?.bbRate as number)) || 0;
+
+  let currentShares = t.shares0;
+  let currentRev = t.rev25;
+
+  const epsArr: number[] = [];
+  const revs: number[] = [];
+  const fcfs: number[] = [];
+  const shareHistory: number[] = [];
+  const priceArr: number[] = [];
+
+  for (let i = 0; i < horizon; i++) {
+    // EPS compounds from base
+    const yearEps = baseEps * Math.pow(1 + epsCagrRate, i + 1);
+    epsArr.push(yearEps);
+
+    // Revenue still grows (use revGrowth if provided, else derive from EPS CAGR)
+    currentRev *= (1 + (sc.revGrowth[i] || epsCagrRate));
+    revs.push(currentRev);
+
+    // FCF estimated from margins (for display/yield calcs)
+    fcfs.push(currentRev * (sc.fcfMargin[i] || 0.08));
+
+    // Share reduction from buybacks
+    if (buybackRate > 0) currentShares *= (1 - buybackRate);
+    shareHistory.push(currentShares);
+
+    // Implied price trajectory: current-year EPS × a blended P/E that
+    // transitions linearly from the current forward P/E toward the exit P/E
+    const currentFwdPE = t.currentPrice / baseEps;
+    const blendPE = currentFwdPE + ((exitPE - currentFwdPE) * (i + 1) / horizon);
+    priceArr.push(yearEps * blendPE);
+  }
+
+  // Terminal target: year-5 EPS × exit P/E
+  const terminalEps = epsArr[horizon - 1];
+  const pricePerShare = terminalEps * exitPE;
+
+  const cagrValue = (Math.pow(pricePerShare / t.currentPrice, 1 / horizon) - 1) * 100;
+  const cumReturnValue = (pricePerShare / t.currentPrice - 1) * 100;
+
+  // WACC still computed for display consistency
+  const w = calculateWacc(t, sc);
+
+  return {
+    ticker: t.ticker,
+    years,
+    revs,
+    shares: shareHistory,
+    w,
+    pricePerShare,
+    ebit: revs.map(r => r * 0.25),
+    netIncome: epsArr.map((e, i) => e * shareHistory[i]),
+    fcf: fcfs,
+    eps: epsArr,
+    price: priceArr,
+    priceEnhanced: priceArr,
+    cagrs: Array(horizon).fill(cagrValue),
+    cumReturns: Array(horizon).fill(cumReturnValue),
+    fcfYield: fcfs.map((f, i) => (f / shareHistory[i]) / (pricePerShare * 0.8) * 100),
+    config: sc,
+    mosPrice: pricePerShare * 0.75,
+    mosUpside: (pricePerShare * 0.75 / t.currentPrice - 1)
+  };
+};
+
 export const calculateProjection = (tickerId: string, type: ScenarioType, tickers: Record<string, TickerDefinition>, showEnhancements = true): ProjectionData => {
   const t = tickers[tickerId];
   const sc = CONFIGS[tickerId][type];
+  if (t.modelType === 'EPS_PE') {
+    return calculateEPS_PE(t, sc, showEnhancements);
+  }
   return calculateDCF(t, sc, showEnhancements);
 };
