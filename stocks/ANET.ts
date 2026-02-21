@@ -5,8 +5,8 @@ export const ANET: StockDefinition = {
   name: 'Arista Networks',
   sector: 'Cloud Networking',
   themeColor: '#6366f1',
-  currentPrice: 100,
-  fairPriceRange: '$150 - $280',
+  currentPrice: 132,
+  fairPriceRange: '$100',
   active: true,
   shares0: 1259.3,
   rev25: 9006,
@@ -73,7 +73,7 @@ export const ANET: StockDefinition = {
         fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
         bbRate: 0.03,
         ebitdaProxy: 0.35,
-        maOptVal: 100 * 1259.3 * 0.07
+        maOptVal: 132 * 1259.3 * 0.07
       }
     }
   }
