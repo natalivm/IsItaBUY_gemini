@@ -5,7 +5,6 @@ export const EME: StockDefinition = {
   name: 'EMCOR Group, Inc.',
   sector: 'Facilities Services',
   themeColor: '#22d3ee',
-  currentPrice: 801.80,
   fairPriceRange: '$780 - $1050',
   active: true,
   shares0: 44.7,

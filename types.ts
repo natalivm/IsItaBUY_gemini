@@ -32,7 +32,9 @@ export interface StockScenarioParams {
   drivers: Record<ScenarioType, Record<string, number | number[]>>;
 }
 
-export interface StockDefinition extends TickerDefinition {
+/** What stock files export — currentPrice is NOT included (lives in prices.ts) */
+export interface StockDefinition extends Omit<TickerDefinition, 'currentPrice'> {
+  currentPrice?: number; // optional override; normally supplied by prices.ts
   scenarios: StockScenarioParams;
 }
 
@@ -41,7 +43,7 @@ export interface TickerDefinition {
   name: string;
   sector: string;
   themeColor: string;
-  currentPrice: number;
+  currentPrice: number; // required at runtime — merged from prices.ts
   basePrice?: number;
   fairPriceRange?: string;
   active?: boolean;

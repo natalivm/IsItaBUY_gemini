@@ -1,4 +1,5 @@
 import { StockDefinition, ScenarioType, StockScenarioParams } from '../types';
+import { PRICES } from './prices';
 
 /**
  * Shorthand for creating a stock definition with less boilerplate.
@@ -7,7 +8,7 @@ import { StockDefinition, ScenarioType, StockScenarioParams } from '../types';
  *   export const TICKER = createStock({ ticker: 'TICKER', ... });
  *
  * Benefits:
- * - `drivers` defaults are auto-generated if omitted
+ * - `drivers` defaults are auto-generated if omitted (uses price from prices.ts for maOptVal)
  * - `waccAdj` defaults to standard [+1%, 0%, -0.5%] if omitted
  * - `modelType` defaults to 'DCF_ADVANCED'
  * - `active` defaults to true
@@ -29,9 +30,10 @@ const DEFAULT_WACC_ADJ: Record<ScenarioType, number> = {
 };
 
 function defaultDrivers(
-  currentPrice: number,
+  ticker: string,
   shares0: number,
 ): StockScenarioParams['drivers'] {
+  const price = PRICES[ticker] ?? 0;
   return {
     [ScenarioType.BEAR]: {
       revPrem: [0, 0, 0, 0, 0],
@@ -50,7 +52,7 @@ function defaultDrivers(
       fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
       bbRate: 0.02,
       ebitdaProxy: 0.35,
-      maOptVal: currentPrice * shares0 * 0.07,
+      maOptVal: price * shares0 * 0.07,
     },
   };
 }
@@ -63,7 +65,7 @@ export function createStock(input: StockInput): StockDefinition {
     scenarios: {
       ...input.scenarios,
       waccAdj: input.scenarios.waccAdj ?? DEFAULT_WACC_ADJ,
-      drivers: input.scenarios.drivers ?? defaultDrivers(input.currentPrice, input.shares0),
+      drivers: input.scenarios.drivers ?? defaultDrivers(input.ticker, input.shares0),
     },
   };
 }

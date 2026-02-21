@@ -14,7 +14,8 @@ export const CONFIGS: Record<string, Record<ScenarioType, ScenarioConfig>> = {};
 for (const [tickerId, stock] of Object.entries(ALL_STOCKS)) {
   const s = stock.scenarios;
 
-  TICKERS[tickerId] = { ...stock, basePrice: stock.currentPrice };
+  // currentPrice is guaranteed at runtime (merged from prices.ts in stocks/index.ts)
+  TICKERS[tickerId] = { ...stock, currentPrice: stock.currentPrice!, basePrice: stock.currentPrice };
 
   CONFIGS[tickerId] = Object.fromEntries(
     Object.values(ScenarioType).map(sc => [

@@ -5,7 +5,6 @@ export const CRDO: StockDefinition = {
   name: 'Credo Technology',
   sector: 'AI Connectivity',
   themeColor: '#d4af37',
-  currentPrice: 115.27,
   fairPriceRange: '$100 - $280',
   active: true,
   shares0: 190.0,

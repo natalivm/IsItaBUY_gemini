@@ -5,7 +5,6 @@ export const RBRK: StockDefinition = {
   name: 'Rubrik',
   sector: 'Data Security',
   themeColor: '#22d3ee',
-  currentPrice: 54.55,
   fairPriceRange: '$40 - $85',
   active: true,
   shares0: 200.0,

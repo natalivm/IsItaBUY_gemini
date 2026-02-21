@@ -5,7 +5,6 @@ export const PINS: StockDefinition = {
   name: 'Pinterest',
   sector: 'Social Commerce',
   themeColor: '#e60023',
-  currentPrice: 15.42,
   fairPriceRange: '$15 - $32',
   active: true,
   shares0: 676.0,
