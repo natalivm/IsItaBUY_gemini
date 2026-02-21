@@ -5,12 +5,12 @@ export const DE: StockDefinition = {
   name: 'Deere & Company',
   sector: 'Machinery',
   themeColor: '#10b981',
-  currentPrice: 663.50,
-  fairPriceRange: '$430 - $720',
+  currentPrice: 663,
+  fairPriceRange: '$370 - $775',
   active: true,
-  shares0: 271.1,
-  rev25: 45684,
-  fcfMargin25: 0.10,
+  shares0: 270.0,
+  rev25: 38900,
+  fcfMargin25: 0.155,
   taxRate: 0.22,
   cash: 5200,
   debt: 65953,
@@ -20,19 +20,19 @@ export const DE: StockDefinition = {
   unit25: 1.0,
   modelType: 'DCF_ADVANCED',
   enhancementLabel: 'Software & Autonomy',
-  rsRating: 82,
+  rsRating: 87,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "A powerful momentum shift. RS 82 confirms that Deere has successfully decoupled from the cyclical Ag recession narrative. Institutions are accumulating based on the software-led re-rating and autonomous rollout. The tape is increasingly constructive for a long-term breakout.",
+  strategicNarrative: "High-quality cyclical growth with real moat (precision ag, switching costs, #1 brand). RS 87 confirms strong institutional momentum. However, P/E ~35x on declining EPS (FY25: 18.50, FY26E: 17.83) is expensive for a cyclical. EBIT margin at ~15.5% vs peak >20%. Only ~20-25% probability of 15%+ CAGR from current price. This is a bet on agro-cycle recovery and tech transformation, not a structural compounder entry.",
   scenarios: {
     revGrowth: {
-      [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],
-      [ScenarioType.BASE]: [0.12, 0.11, 0.10, 0.09, 0.08],
-      [ScenarioType.BULL]: [0.14, 0.13, 0.12, 0.11, 0.10]
+      [ScenarioType.BEAR]: [0.03, 0.04, 0.04, 0.03, 0.03],
+      [ScenarioType.BASE]: [0.06, 0.09, 0.08, 0.07, 0.07],
+      [ScenarioType.BULL]: [0.08, 0.11, 0.10, 0.09, 0.09]
     },
     fcfMargin: {
-      [ScenarioType.BEAR]: [0.085, 0.085, 0.085, 0.085, 0.085],
-      [ScenarioType.BASE]: [0.10, 0.10, 0.10, 0.10, 0.10],
-      [ScenarioType.BULL]: [0.108, 0.108, 0.108, 0.108, 0.108]
+      [ScenarioType.BEAR]: [0.12, 0.11, 0.10, 0.10, 0.10],
+      [ScenarioType.BASE]: [0.155, 0.15, 0.15, 0.15, 0.15],
+      [ScenarioType.BULL]: [0.16, 0.17, 0.18, 0.18, 0.18]
     },
     termGrowth: {
       [ScenarioType.BEAR]: 0.015,
@@ -50,9 +50,9 @@ export const DE: StockDefinition = {
       [ScenarioType.BULL]: -0.005
     },
     desc: {
-      [ScenarioType.BEAR]: 'Economic headwinds leading to multiple compression and slower growth.',
-      [ScenarioType.BASE]: 'Market alignment with standard institutional growth expectations.',
-      [ScenarioType.BULL]: 'Category-defining growth powered by AI tailwinds and operating leverage.'
+      [ScenarioType.BEAR]: 'Agro downcycle with commodity price weakness, P/E compression to historical lows (~18x), and margin squeeze.',
+      [ScenarioType.BASE]: 'Moderate agro recovery with consensus revenue growth (~7-9% CAGR), stable FCF margins near 15%.',
+      [ScenarioType.BULL]: 'Strong agro supercycle return with precision ag monetization driving margin expansion and P/E re-rating.'
     },
     drivers: {
       [ScenarioType.BEAR]: {
@@ -71,8 +71,8 @@ export const DE: StockDefinition = {
         revPrem: [0.015, 0.02, 0.02, 0.02, 0.02],
         fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
         bbRate: 0.02,
-        ebitdaProxy: 0.35,
-        maOptVal: 602.92 * 271.1 * 0.07
+        ebitdaProxy: 0.28,
+        maOptVal: 663 * 270.0 * 0.07
       }
     }
   }
