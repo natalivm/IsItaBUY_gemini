@@ -6,12 +6,12 @@ export const ANET: StockDefinition = {
   sector: 'Cloud Networking',
   themeColor: '#6366f1',
   currentPrice: 136.10,
-  fairPriceRange: '$150 - $280',
+  fairPriceRange: '$110 - $270',
   active: true,
-  shares0: 1259.3,
+  shares0: 1275,
   rev25: 9006,
-  fcfMargin25: 0.45,
-  taxRate: 0.21,
+  fcfMargin25: 0.47,
+  taxRate: 0.215,
   cash: 10110,
   debt: 0,
   beta: 1.44,
@@ -20,29 +20,29 @@ export const ANET: StockDefinition = {
   unit25: 12.5,
   modelType: 'DCF_ADVANCED',
   enhancementLabel: 'AI Backend & Campus Pivot',
-  rsRating: 79,
+  rsRating: 80,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Arista is the pure-play backbone of the AI cluster. While valuation is rich, the RS of 79 reflects recent consolidation after the vertical run. AI remains a massive structural tailwind as LLMs shift from compute-bound to network-bound. Long-term institutional support is strong despite the short-term technical breather.",
+  strategicNarrative: "Arista is the pure-play backbone of the AI cluster with an EOS moat and hyperscaler lock-in. FY26 guided at $11.25B (+25% YoY) with AI networking at $3.25B. Quality is undeniable — 47% FCF margin, zero debt, strong campus diversification. The key risk is valuation: at ~49x trailing P/E, even base-case EPS growth gets offset by P/E compression to 30x, leaving 3-year returns essentially flat. Need bull-case execution or sustained premium multiple for meaningful returns.",
   scenarios: {
     revGrowth: {
-      [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],
-      [ScenarioType.BASE]: [0.12, 0.11, 0.10, 0.09, 0.08],
-      [ScenarioType.BULL]: [0.16, 0.15, 0.14, 0.13, 0.12]
+      [ScenarioType.BEAR]: [0.25, 0.10, 0.095, 0.09, 0.085],
+      [ScenarioType.BASE]: [0.25, 0.18, 0.1725, 0.165, 0.1575],
+      [ScenarioType.BULL]: [0.25, 0.22, 0.215, 0.21, 0.205]
     },
     fcfMargin: {
-      [ScenarioType.BEAR]: [0.3825, 0.3825, 0.3825, 0.3825, 0.3825],
-      [ScenarioType.BASE]: [0.45, 0.45, 0.45, 0.45, 0.45],
-      [ScenarioType.BULL]: [0.5175, 0.5175, 0.5175, 0.5175, 0.5175]
+      [ScenarioType.BEAR]: [0.46, 0.455, 0.45, 0.445, 0.44],
+      [ScenarioType.BASE]: [0.46, 0.4625, 0.465, 0.4675, 0.47],
+      [ScenarioType.BULL]: [0.46, 0.465, 0.47, 0.475, 0.48]
     },
     termGrowth: {
-      [ScenarioType.BEAR]: 0.015,
-      [ScenarioType.BASE]: 0.025,
-      [ScenarioType.BULL]: 0.03
+      [ScenarioType.BEAR]: 0.02,
+      [ScenarioType.BASE]: 0.03,
+      [ScenarioType.BULL]: 0.035
     },
     exitMultiple: {
-      [ScenarioType.BEAR]: 12,
-      [ScenarioType.BASE]: 16,
-      [ScenarioType.BULL]: 19
+      [ScenarioType.BEAR]: 18,
+      [ScenarioType.BASE]: 22,
+      [ScenarioType.BULL]: 25
     },
     waccAdj: {
       [ScenarioType.BEAR]: 0.01,
@@ -50,29 +50,29 @@ export const ANET: StockDefinition = {
       [ScenarioType.BULL]: -0.005
     },
     desc: {
-      [ScenarioType.BEAR]: 'Economic headwinds leading to multiple compression and slower growth.',
-      [ScenarioType.BASE]: 'Market alignment with standard institutional growth expectations.',
-      [ScenarioType.BULL]: 'Category-defining growth powered by AI tailwinds and operating leverage.'
+      [ScenarioType.BEAR]: 'Growth halves, memory/silicon squeeze margins, acceptance deferrals shift revenue. AI capex normalises. Market re-rates to 25x P/E.',
+      [ScenarioType.BASE]: 'AI networking stays production-scale. Revenue decelerates naturally (law of large numbers). Margins stabilise/recover. P/E compresses from ~49x to 30x.',
+      [ScenarioType.BULL]: 'AI supercycle extends. Scale-up/ESUN production in 2027, 1.6T ramps. New 10% customers. Margins recover as software/CloudVision scales.'
     },
     drivers: {
       [ScenarioType.BEAR]: {
         revPrem: [0, 0, 0, 0, 0],
         fcfUplift: [0, 0, 0, 0, 0],
         bbRate: 0.005,
-        ebitdaProxy: 0.15
+        ebitdaProxy: 0.48
       },
       [ScenarioType.BASE]: {
-        revPrem: [0.01, 0.01, 0.01, 0.01, 0.01],
-        fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
-        bbRate: 0.015,
-        ebitdaProxy: 0.22
+        revPrem: [0.005, 0.005, 0.005, 0.005, 0.005],
+        fcfUplift: [0.005, 0.005, 0.005, 0.005, 0.005],
+        bbRate: 0.01,
+        ebitdaProxy: 0.50
       },
       [ScenarioType.BULL]: {
-        revPrem: [0.015, 0.02, 0.02, 0.02, 0.02],
-        fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
-        bbRate: 0.03,
-        ebitdaProxy: 0.35,
-        maOptVal: 141.59 * 1259.3 * 0.07
+        revPrem: [0.01, 0.015, 0.015, 0.015, 0.015],
+        fcfUplift: [0.01, 0.01, 0.01, 0.01, 0.01],
+        bbRate: 0.015,
+        ebitdaProxy: 0.52,
+        maOptVal: 136.10 * 1275 * 0.07
       }
     }
   }
