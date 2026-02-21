@@ -25,12 +25,34 @@ const InvestmentVerdict: React.FC<Props> = ({
 }) => {
   const tc = tickerDef.themeColor;
   const { momentumUpside, timeToTarget, probAcceleration } = metrics;
+  const rs = tickerDef.rsRating;
+  const isLowRS = rs < 40;
 
-  const defaultNarrative = activeStockData?.label === 'STRONG BUY'
-    ? `Our DCF model assigns ${tickerDef.ticker} a STRONG BUY rating. The base-case target of ${usd(allProjections.base.pricePerShare!)} implies ${momentumUpside.toFixed(1)}% upside from spot, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} supports a compelling risk/reward. With a ${pctFmt(investmentConclusion.cagr / 100)} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`
-    : activeStockData?.label === 'AVOID'
-    ? `Our DCF model flags ${tickerDef.ticker} as AVOID. The base-case target of ${usd(allProjections.base.pricePerShare!)} shows limited upside from the current spot of ${usd(tickerDef.currentPrice)}, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} does not justify entry risk at this price. Risk/reward is unfavorable — consider waiting for a better entry or allocating capital elsewhere.`
-    : `Our DCF model rates ${tickerDef.ticker} as a HOLD. The base-case target of ${usd(allProjections.base.pricePerShare!)} offers moderate upside from ${usd(tickerDef.currentPrice)}, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} suggests fair valuation. Existing holders may stay the course, while new entrants should wait for a more attractive entry point or a catalyst to shift the risk/reward in their favor.`;
+  const buildNarrative = () => {
+    const baseTarget = usd(allProjections.base.pricePerShare!);
+    const pwBlended = usd(investmentConclusion.pwAvg);
+    const spot = usd(tickerDef.currentPrice);
+    const cagr = pctFmt(investmentConclusion.cagr / 100);
+
+    if (activeStockData?.label === 'STRONG BUY') {
+      if (isLowRS) {
+        return `Our model assigns ${tickerDef.ticker} a STRONG BUY on fundamentals — the base-case target of ${baseTarget} implies ${momentumUpside.toFixed(1)}% upside, and the probability-weighted value of ${pwBlended} supports compelling long-term risk/reward. However, RS ${rs} signals a sustained downtrend and weak institutional momentum. This fundamental/technical divergence suggests phased accumulation rather than a full position: consider building in 3–4 tranches, scaling in as RS recovers above 40–50 to confirm institutional re-engagement. The ${cagr} probability-weighted CAGR rewards patience, but catching a falling knife at full size is unnecessary when you can let price action confirm the thesis.`;
+      }
+      return `Our model assigns ${tickerDef.ticker} a STRONG BUY rating. The base-case target of ${baseTarget} implies ${momentumUpside.toFixed(1)}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports a compelling risk/reward. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`;
+    }
+
+    if (activeStockData?.label === 'AVOID') {
+      return `Our model flags ${tickerDef.ticker} as AVOID. The base-case target of ${baseTarget} shows limited upside from the current spot of ${spot}, and the probability-weighted blended value of ${pwBlended} does not justify entry risk at this price. Risk/reward is unfavorable — consider waiting for a better entry or allocating capital elsewhere.`;
+    }
+
+    if (isLowRS) {
+      return `Our model rates ${tickerDef.ticker} as a HOLD. The base-case target of ${baseTarget} offers moderate upside from ${spot}, but RS ${rs} indicates technical weakness that may delay convergence to fair value. The probability-weighted value of ${pwBlended} suggests reasonable long-term potential, but momentum headwinds warrant caution. Wait for RS to stabilize above 40 before adding, or use weakness to dollar-cost-average into a starter position.`;
+    }
+
+    return `Our model rates ${tickerDef.ticker} as a HOLD. The base-case target of ${baseTarget} offers moderate upside from ${spot}, and the probability-weighted blended value of ${pwBlended} suggests fair valuation. Existing holders may stay the course, while new entrants should wait for a more attractive entry point or a catalyst to shift the risk/reward in their favor.`;
+  };
+
+  const defaultNarrative = buildNarrative();
 
   const defaultMetrics = [
     {
