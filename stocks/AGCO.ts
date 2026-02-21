@@ -5,7 +5,7 @@ export const AGCO: StockDefinition = {
   name: 'AGCO Corp',
   sector: 'Agriculture',
   themeColor: '#00d4aa',
-  currentPrice: 140.49,
+  currentPrice: 138.52,
   fairPriceRange: '$110 - $220',
   active: true,
   shares0: 74.6,

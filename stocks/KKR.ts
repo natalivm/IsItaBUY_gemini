@@ -5,7 +5,7 @@ export const KKR: StockDefinition = {
   name: 'KKR & Co. Inc.',
   sector: 'Alternative Asset Mgmt',
   themeColor: '#7c3aed',
-  currentPrice: 101.73,
+  currentPrice: 101.18,
   fairPriceRange: '$110 - $220',
   active: true,
   shares0: 891.4,

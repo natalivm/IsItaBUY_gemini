@@ -5,7 +5,7 @@ export const SMWB: StockDefinition = {
   name: 'Similarweb Ltd.',
   sector: 'Web Analytics',
   themeColor: '#3b82f6',
-  currentPrice: 3.98,
+  currentPrice: 2.80,
   fairPriceRange: '$6 - $12',
   active: true,
   shares0: 83.5,

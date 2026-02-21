@@ -5,7 +5,7 @@ export const CEG: StockDefinition = {
   name: 'Constellation Energy',
   sector: 'Power',
   themeColor: '#3b82f6',
-  currentPrice: 295,
+  currentPrice: 294.84,
   fairPriceRange: '$240 - $510',
   active: true,
   shares0: 358,

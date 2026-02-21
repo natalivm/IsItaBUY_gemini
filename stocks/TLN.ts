@@ -5,7 +5,7 @@ export const TLN: StockDefinition = {
   name: 'Talen Energy',
   sector: 'Power',
   themeColor: '#3b82f6',
-  currentPrice: 381.8,
+  currentPrice: 383.00,
   fairPriceRange: '$280 - $610',
   active: true,
   shares0: 45.96,

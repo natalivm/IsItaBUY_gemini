@@ -5,7 +5,7 @@ export const UBER: StockDefinition = {
   name: 'Uber Technologies',
   sector: 'Mobility',
   themeColor: '#22c55e',
-  currentPrice: 78.45,
+  currentPrice: 73.86,
   fairPriceRange: '$65 - $140',
   active: true,
   shares0: 2110,
