@@ -187,11 +187,23 @@ const App: React.FC = () => {
 
   if (!tickerDef || !allProjections || !currentProjection || !investmentConclusion) return null;
 
-  if (activeTicker === 'TLN') {
-    return <TLNModel onBack={() => setActiveTicker('home')} />;
-  }
-
   const activeStockData = universeData.find(s => s.ticker === tickerDef.ticker);
+
+  if (activeTicker === 'TLN') {
+    return (
+      <AnimatePresence mode="wait">
+        <TLNModel
+          key="TLN"
+          tickerDef={tickerDef}
+          currentProjection={currentProjection}
+          allProjections={allProjections}
+          investmentConclusion={investmentConclusion}
+          activeStockData={activeStockData}
+          onBack={() => setActiveTicker('home')}
+        />
+      </AnimatePresence>
+    );
+  }
 
   if (activeTicker === 'SPOT') {
     return (
