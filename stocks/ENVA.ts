@@ -21,7 +21,7 @@ export const ENVA: StockDefinition = {
   unit25: 4.9,          // Q4'25 portfolio $4.9B — record high (+23% YoY); was stale at 3.5
   modelType: 'DCF_ADVANCED',
   enhancementLabel: 'Grasshopper Bank & Buybacks',
-  rsRating: 88,
+  rsRating: 87,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Enova is at an inflection point post Q4'25 earnings: adj EPS +33% YoY ($3.46), originations +32% ($2.3B), portfolio +23% ($4.9B record). The Grasshopper Bank deal ($125–$220M annual synergies, >25% EPS accretion, closing 2H 2026) transforms it from a non-bank lender into a bank holding company with a national charter and deposit funding. Management guides ≥20% EPS growth in 2026 (ex-Grasshopper). SMB now 68% of portfolio at 4.6% NCO vs 16% consumer — quality mix shift intact. CoF declining (8.3% vs 8.6% prior quarter). Buyback authorization: $106M remaining. At ~9x forward P/E, the market is not pricing the Grasshopper optionality or the structural improvement in credit quality.",
   deepDive: [],
