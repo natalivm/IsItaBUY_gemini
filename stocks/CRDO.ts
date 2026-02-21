@@ -25,9 +25,12 @@ export const CRDO: StockDefinition = {
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Post Q2 FY26 — $268M revenue (+272% YoY, +20% QoQ), 67.7% GM (beat), 46.3% op margin. " +
-    "Cash $813.6M. Prob-weighted 5yr target $193 → ~9% CAGR at $124 entry, below 15% hurdle. " +
-    "Not a bubble, not a bargain — high-quality cyclical AI infrastructure bet priced for continued execution. " +
-    "Position becomes compelling at ≤$96–100 where prob-weighted return crosses 15%. " +
+    "Cash $813.6M. Prob-weighted 5yr target ~$200 → ~10% CAGR at $124 entry, below 15% hurdle. " +
+    "Conference update: mgmt frames AI build-out as decade+ megatrend; 12–36mo customer visibility (often binding) de-risks FY26–FY27. " +
+    "ZeroFlap reliability = core moat (no redundancy on GPU→first-switch link). CPO skepticism + microLED (~1/3 power) strengthens AEC longevity. " +
+    "Weaver/OmniConnect: $1,000+ content per GPU if adopted — significant Bull optionality, not yet in revenue. " +
+    "Bull prob nudged 30→35% on binding visibility + Weaver economics + CPO counter-narrative; Bear 20→18%. " +
+    "Position becomes compelling at ≤$97–100 where prob-weighted return crosses 15%. " +
     "Key risk: customer concentration (top 4 = 93%), ATM dilution, P/E compression before earnings catch up. " +
     "RS 88 means fast de-rate if sequential growth disappoints — mgmt pre-guided mid-SD QoQ for FY27.",
   scenarios: {
@@ -44,9 +47,9 @@ export const CRDO: StockDefinition = {
       [ScenarioType.BULL]: 30,
     },
     prob: {
-      [ScenarioType.BEAR]: 20,
-      [ScenarioType.BASE]: 50,
-      [ScenarioType.BULL]: 30,
+      [ScenarioType.BEAR]: 18,
+      [ScenarioType.BASE]: 47,
+      [ScenarioType.BULL]: 35,
     },
     revGrowth: {
       // Revenue growth paths for display (massive YoY growth in FY26, then decelerating)
@@ -78,17 +81,21 @@ export const CRDO: StockDefinition = {
     },
     desc: {
       [ScenarioType.BEAR]:
-        'AI capex cools. Concentrated customer pauses (top 4 = 93% rev). Multiple compresses first — ' +
-        'then estimate cuts follow. High beta on downside. EPS CAGR 10%, exit P/E 18x. ' +
+        'AI capex cools after binding 12–36mo visibility expires. Concentrated customer pauses (top 4 = 93% rev). ' +
+        'Multiple compresses first — then estimate cuts follow. High beta on downside. ' +
+        'Binding visibility delays pain but doesn\'t prevent it. EPS CAGR 10%, exit P/E 18x. ' +
         'FY31E EPS ~$5.02 × 18x = $90 target. CAGR from $124 ≈ −6.1%.',
       [ScenarioType.BASE]:
-        'Core grows, new pillars slow to ramp. Good business, no magic. OpEx keeps pace. ' +
-        'GM normalizes to 63–65%. EPS CAGR 18%, exit P/E 25x. FY31E EPS ~$7.14 × 25x = $178 target. ' +
+        'Core grows, new pillars slow to ramp. 12–36mo binding visibility supports FY26–FY27, but new logos slow. ' +
+        'GM normalizes to 63–65% as mgmt guided. CPO threat fades but microLED/ALC timeline unclear. ' +
+        'EPS CAGR 18%, exit P/E 25x. FY31E EPS ~$7.14 × 25x = $178 target. ' +
         'CAGR from $124 ≈ 7.6%. Hurdle missed, not a disaster.',
       [ScenarioType.BULL]:
-        'AEC+IC core holds. Zero-Flap optics gains FY27 traction. ALC/Weaver visible FY28. ' +
-        'AI capex extends 4–5 yrs. Execution premium maintained. EPS CAGR 25%, exit P/E 30x. ' +
-        'FY31E EPS ~$9.52 × 30x = $286 target. CAGR from $124 ≈ 18.2%.',
+        'AEC+IC core holds; ZeroFlap reliability = sticky moat (GPU→first-switch link, no redundancy). ' +
+        'Zero-Flap optics gains FY27 traction. Weaver/OmniConnect ramps FY28 at $1,000+ content per GPU — ' +
+        'transforms revenue scale. CPO skepticism validated; microLED bridge extends AEC relevance. ' +
+        'AI capex = decade+ megatrend per mgmt. 12–36mo binding visibility de-risks near-term. ' +
+        'EPS CAGR 25%, exit P/E 30x. FY31E EPS ~$9.52 × 30x = $286 target. CAGR from $124 ≈ 18.2%.',
     },
     drivers: {
       [ScenarioType.BEAR]: {
