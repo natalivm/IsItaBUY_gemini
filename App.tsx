@@ -1,12 +1,10 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { Suspense, useState, useMemo, useEffect } from 'react';
 import { ScenarioType, TickerDefinition } from './types';
 import { calculateProjection, getInstitutionalRating } from './services/projectionService';
 import { TICKERS } from './constants';
 import StockDetailView from './components/StockDetailView';
-
-import SpotModel from './components/SpotModel';
-import SMCIModel from './components/SMCIModel';
+import { CUSTOM_MODELS } from './components/customModels';
 
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from './utils';
@@ -189,47 +187,22 @@ const App: React.FC = () => {
 
   const activeStockData = universeData.find(s => s.ticker === tickerDef.ticker);
 
-  if (activeTicker === 'SPOT') {
-    return (
-      <AnimatePresence mode="wait">
-        <SpotModel
-          tickerDef={tickerDef}
-          currentProjection={currentProjection}
-          allProjections={allProjections}
-          investmentConclusion={investmentConclusion}
-          activeStockData={activeStockData}
-          onBack={() => setActiveTicker('home')}
-        />
-      </AnimatePresence>
-    );
-  }
-
-  if (activeTicker === 'SMCI') {
-    return (
-      <AnimatePresence mode="wait">
-        <SMCIModel
-          tickerDef={tickerDef}
-          currentProjection={currentProjection}
-          allProjections={allProjections}
-          investmentConclusion={investmentConclusion}
-          activeStockData={activeStockData}
-          onBack={() => setActiveTicker('home')}
-        />
-      </AnimatePresence>
-    );
-  }
+  const CustomModel = CUSTOM_MODELS[activeTicker];
+  const DetailComponent = CustomModel || StockDetailView;
+  const detailProps = {
+    tickerDef,
+    currentProjection,
+    allProjections,
+    investmentConclusion,
+    activeStockData,
+    onBack: () => setActiveTicker('home'),
+  };
 
   return (
     <AnimatePresence mode="wait">
-      <StockDetailView
-        key={tickerDef.ticker}
-        tickerDef={tickerDef}
-        currentProjection={currentProjection}
-        allProjections={allProjections}
-        investmentConclusion={investmentConclusion}
-        activeStockData={activeStockData}
-        onBack={() => setActiveTicker('home')}
-      />
+      <Suspense fallback={<div className="min-h-screen bg-[#0a1128]" />}>
+        <DetailComponent key={tickerDef.ticker} {...detailProps} />
+      </Suspense>
     </AnimatePresence>
   );
 };
