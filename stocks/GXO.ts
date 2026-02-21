@@ -23,7 +23,6 @@ export const GXO: StockDefinition = {
   rsRating: 91,
   aiImpact: 'TAILWIND',
   strategicNarrative: "The leader in 'Physical AI'. RS 91 reflects a massive technical breakout as the market identifies GXO as the prime beneficiary of warehouse robotics. This is where big money is hiding in the industrial sector. Strong fundamentals and strong tape.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

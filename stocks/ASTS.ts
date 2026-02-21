@@ -23,7 +23,6 @@ export const ASTS: StockDefinition = {
   rsRating: 97,
   aiImpact: 'TAILWIND',
   strategicNarrative: "ASTS is a high-conviction, asymmetric category-defining bet. Building the only space-based cellular broadband network for standard smartphones. 50+ MNO partnerships covering 3B+ subscribers. Revenue trajectory from $60M (2025) to $4.8B+ (2029E) hinges on satellite deployment execution — 12 sats today scaling to 168 by 2029E at $22M/sat CapEx. Key 2026 gates: 45+ sats for continuous coverage, service revenue mix shift above 30%, and gross margins inflecting toward 35%+. Margin trajectory targets 74% GM at scale as service revenue dominates hardware. 3% annual dilution is the cost of capital-intensive buildout. Bull case catalysts include government/DoD contracts, spectrum monetization, and ARPU upside from broadband-tier pricing. While valuation is speculative vs current revenue, the space-to-phone moat is deep and validated by MNO commitments.",
-  deepDive: [],
   scenarios: {
     // Revenue growth derived from base projections: $60M → $250M → $900M → $2.4B → $4.8B → $7.2B
     revGrowth: {

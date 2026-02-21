@@ -22,7 +22,6 @@ export const DUOL: StockDefinition = {
   rsRating: 4,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative: "Severe technical rejection. RS 4 indicates the market views LLMs as an existential threat to specialized language apps. While Duolingo's gamification is sticky, the tape is pricing in a future where personalized AI tutors are ubiquitous. Current spot of $112 reflects high uncertainty despite strong unit economics.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

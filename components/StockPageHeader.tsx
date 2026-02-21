@@ -1,0 +1,84 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { TrendingUp, ShieldCheck, Zap, ArrowLeft } from 'lucide-react';
+import { TickerDefinition, ProjectionData } from '../types';
+import { cn } from '../utils';
+import { usd } from '../services/stockMetrics';
+
+interface Props {
+  tickerDef: TickerDefinition;
+  currentProjection: ProjectionData;
+  activeStockData: { label: string; color?: string } | undefined;
+  onBack: () => void;
+  modelLabel?: string;
+  children?: React.ReactNode;
+}
+
+const StockPageHeader: React.FC<Props> = ({
+  tickerDef,
+  currentProjection,
+  activeStockData,
+  onBack,
+  modelLabel,
+  children,
+}) => {
+  const tc = tickerDef.themeColor;
+
+  return (
+    <>
+      <motion.button
+        whileHover={{ x: -5 }}
+        onClick={onBack}
+        className="mb-12 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.25em] transition-all px-6 py-3 bg-[#1e293b]/50 hover:bg-[#1e293b] rounded-full border border-slate-700"
+        style={{ color: tc }}
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Return to Universe
+      </motion.button>
+
+      <header className="mb-12 border-b-2 pb-8" style={{ borderColor: tc }}>
+        <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4 flex items-center gap-3">
+          <span className="w-12 h-[2px] bg-amber-500/50" />
+          {tickerDef.name.toUpperCase()} {modelLabel || tickerDef.modelType.replace('_', ' ')}
+        </div>
+
+        <div className="flex items-center justify-between flex-wrap gap-6">
+          <div className="flex items-end gap-4 flex-wrap">
+            <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none">
+              {tickerDef.ticker}
+            </h1>
+            <span className={cn(
+              "text-base font-black border rounded px-2 py-1 mb-1 flex-shrink-0",
+              tickerDef.rsRating >= 80 ? 'text-green-400 border-green-700' :
+              tickerDef.rsRating >= 40 ? 'text-white border-slate-600' :
+              'text-red-400 border-red-800'
+            )}>RS {tickerDef.rsRating}</span>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              { label: 'SPOT', value: usd(tickerDef.currentPrice), icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+              { label: 'RATING', value: activeStockData?.label || 'HOLD', icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
+              { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+            ].map((m, i) => (
+              <div
+                key={i}
+                className="px-5 py-3 bg-[#0d1630] rounded-xl flex items-center gap-3 border"
+                style={{ borderColor: `${tc}40` }}
+              >
+                {m.icon}
+                <div className="flex flex-col">
+                  <span className="text-amber-500 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
+                  <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {children}
+      </header>
+    </>
+  );
+};
+
+export default StockPageHeader;

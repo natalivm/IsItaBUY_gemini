@@ -23,7 +23,6 @@ export const EME: StockDefinition = {
   rsRating: 92,
   aiImpact: 'TAILWIND',
   strategicNarrative: "EMCOR is a primary beneficiary of the physical AI infrastructure wave. Hyperscaler data center buildouts require the specialized electrical and mechanical MEP expertise EME dominates. With a $9.5B+ backlog and a fortress balance sheet, it is perfectly positioned to compound through the AI infrastructure cycle.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.08, 0.07, 0.06, 0.05, 0.04],

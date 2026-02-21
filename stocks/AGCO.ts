@@ -23,7 +23,6 @@ export const AGCO: StockDefinition = {
   rsRating: 88,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Total trend reversal. RS 88 confirms a massive institutional rotation into AGCO as the 'Trimble JV' scaling story captures investor imagination. After months of neglect, the stock is now a momentum leader in the industrial space. Heavy accumulation detected.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

@@ -30,57 +30,6 @@ export const WWD: StockDefinition = {
     "inventory build and rising capex (Spartanburg + automation); Q1 tailwinds (spare LRUs, China " +
     "pull-forward) unlikely to repeat. At ~47x fwd P/E the stock is priced for near-perfect execution — " +
     "great business, expensive entry. Prob-weighted 15%+ CAGR from current levels: ~30%.",
-  deepDive: [
-    {
-      title: 'FY26 Q1 Earnings Snapshot',
-      id: 'q1-snapshot',
-      content:
-        'Q1 FY26 delivered 29% YoY sales growth — the strongest quarter in recent memory. ' +
-        'Aerospace segment margin hit 23.4% (+420 bps), near the top of full-year guidance range. ' +
-        'Industrial margin expanded +410 bps YoY. Price contributed ~8% at the Woodward level in Q1 ' +
-        '(full-year guide revised to ~7%, up from ~5%). EPS Q1 run-rate implies high-end of FY26 guide.',
-      metrics: [
-        { label: 'Q1 Sales Growth YoY', value: '+29%', color: '#22c55e' },
-        { label: 'Aero Margin Q1', value: '23.4%', color: '#22c55e' },
-        { label: 'Industrial Margin Expansion', value: '+410 bps', color: '#22c55e' },
-        { label: 'Q1 Price Contribution', value: '~8%', color: '#3b82f6' },
-        { label: 'RS Rating', value: '95', color: '#f59e0b' },
-      ],
-    },
-    {
-      title: 'FY26 Full-Year Guidance',
-      id: 'fy26-guidance',
-      content:
-        'Management raised revenue growth guidance to 14–18% (from ~12–15%). EPS range $8.20–$8.60 ' +
-        '(mid $8.40). FCF guidance held at $300–350M — not raised despite earnings beat — reflecting ' +
-        'deliberate inventory build and increasing capex. Full-year price now guided at ~7% (up from ~5%). ' +
-        'Shareholder returns plan: $650–700M (dividends + buybacks) over the year.',
-      metrics: [
-        { label: 'EPS Guide (mid)', value: '$8.40', color: '#f59e0b' },
-        { label: 'Sales Growth Guide', value: '14–18%', color: '#f59e0b' },
-        { label: 'Aero Margin Guide', value: '22–23%', color: '#3b82f6' },
-        { label: 'FCF Guide', value: '$300–350M', color: '#f59e0b' },
-        { label: 'Shareholder Returns', value: '$650–700M', color: '#22c55e' },
-      ],
-    },
-    {
-      title: 'Key Risks & Watchpoints',
-      id: 'risks',
-      content:
-        'Multiple compression is the primary risk: stock trades ~47x fwd EPS vs historical low of ~22x ' +
-        '(implied $185 at 22x × $8.40). FCF conversion is weak — inventory/capex consuming cash in FY26 ' +
-        'with improvement flagged for late 2026/early 2027. Q1 tailwinds (spare LRU demand, China pull-forward) ' +
-        'will not repeat at the same magnitude. OEM mix increases later in the cycle tend to temper margin rate. ' +
-        'Capacity constrained — growth is ship-ability, not demand creation.',
-      metrics: [
-        { label: 'Fwd P/E', value: '~47x', color: '#ef4444' },
-        { label: 'Bear Drawdown (22x PE)', value: '~−53%', color: '#ef4444' },
-        { label: 'Current FCF Yield', value: '~1.4%', color: '#f59e0b' },
-        { label: 'China Rev Exiting', value: '~$60M', color: '#8b5cf6' },
-        { label: 'China Wind-Down Costs', value: '$20–25M', color: '#8b5cf6' },
-      ],
-    },
-  ],
   scenarios: {
     revGrowth: {
       // Bear: 7% EPS CAGR analog — growth decelerates sharply post Q1 tailwinds

@@ -23,7 +23,6 @@ export const AVGO: StockDefinition = {
   rsRating: 76,
   aiImpact: 'TAILWIND',
   strategicNarrative: "The debate has moved from 'will growth happen?' to 'how much multiple for 22.8% EPS CAGR at $1.6T scale?' $73B AI backlog provides 18-month visibility. Q1 AI revenue +100% YoY. VMware adds $20B+ in sticky recurring software. Street numbers are now order-book validated — the biggest risk is exit multiple, not execution.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.18, 0.12, 0.08, 0.06, 0.04],

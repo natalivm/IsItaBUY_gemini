@@ -22,69 +22,7 @@ export const MNST: StockDefinition = {
   enhancementLabel: 'Int\'l Expansion & Zero Sugar',
   rsRating: 84,
   aiImpact: 'NEUTRAL',
-  opMargin25: 0.315,
   strategicNarrative: "Monster is a rare, high-quality structural compounder with 56% gross margins, 31.5% EBIT margins, and 21.5% FCF margins. International diversification (APAC $33B retail value, 158 countries, 925M cases), strengthening Coke relationship, zero-sugar tailwinds, and foodservice expansion (70% vs 98% penetration gap) all reduce structural risk. However, at 41x forward P/E on a 12-13% EPS grower, you're paying compounder prices without compounder-grade growth. The debate is purely about entry valuation — business quality is not in question. Risk/reward becomes materially better on a pullback to the high $70s or low $70s.",
-  deepDive: [
-    {
-      title: 'International Diversification',
-      id: 'intl',
-      content: 'APAC = $33B retail value. 158 countries, 925M cases. No longer a US-only story. Concentrate model enables higher margins in emerging markets. Africa: 2/3 of category now affordable. Predator to Monster brand ladder working.',
-      metrics: [
-        { label: 'Countries', value: '158', color: '#22c55e' },
-        { label: 'APAC TAM', value: '$33B', color: '#3b82f6' },
-        { label: 'Global Cases', value: '925M', color: '#a78bfa' }
-      ]
-    },
-    {
-      title: 'US Market Share',
-      id: 'us-share',
-      content: 'C-store: Monster +10.7% $, +6.7% units. Portfolio outperforming category. 55% of zero sugar buyers. 31% of new-to-category consumers went Monster. US share improving in key channel.',
-      metrics: [
-        { label: 'C-Store $ Growth', value: '+10.7%', color: '#22c55e' },
-        { label: 'C-Store Unit Growth', value: '+6.7%', color: '#3b82f6' },
-        { label: 'Zero Sugar Share', value: '55%', color: '#a78bfa' }
-      ]
-    },
-    {
-      title: 'Margin Resilience',
-      id: 'margins',
-      content: 'Concentrate economics offset international mix drag. Zero sugar = lower sweetener cost. EBIT stable at 31-32%. Gross margin at 56% reflects strong pricing power and brand strength. FCF margin of 21.5% demonstrates efficient capital allocation.',
-      metrics: [
-        { label: 'Gross Margin', value: '56%', color: '#22c55e' },
-        { label: 'EBIT Margin', value: '31.5%', color: '#3b82f6' },
-        { label: 'FCF Margin', value: '21.5%', color: '#a78bfa' }
-      ]
-    },
-    {
-      title: 'TAM Expansion',
-      id: 'tam',
-      content: 'Energy drinks at 70% penetration vs 98% for soft drinks — structural runway remains. Foodservice channel (30M Coke outlets) is incremental, not cannibalization. Women and better-for-me segments expanding the addressable market.',
-      metrics: [
-        { label: 'Energy Penetration', value: '70%', color: '#eab308' },
-        { label: 'Soft Drink Penetration', value: '98%', color: '#22c55e' },
-        { label: 'Coke Outlets', value: '30M', color: '#3b82f6' }
-      ]
-    },
-    {
-      title: 'Coke Relationship',
-      id: 'coke',
-      content: 'Explicit executive alignment. Unified campus strategy. Bottler integration. De-risks key structural dependency. Relationship described as strongest in years, providing distribution leverage and operational synergies.',
-      metrics: [
-        { label: 'Confidence', value: 'High', color: '#22c55e' },
-        { label: 'Integration', value: 'Deepening', color: '#3b82f6' }
-      ]
-    },
-    {
-      title: 'Key Risk: Valuation',
-      id: 'valuation-risk',
-      content: '41x P/E on a 12% EPS grower — still expensive. No new acceleration narrative emerged. 15%+ return still requires aggressive assumptions. Multiple compression remains primary risk. At historical low of 25x P/E, downside is ~40% on current EPS.',
-      metrics: [
-        { label: 'Forward P/E', value: '41x', color: '#ef4444' },
-        { label: 'EPS CAGR', value: '12-13%', color: '#eab308' },
-        { label: 'P(15%+ CAGR)', value: '35-40%', color: '#f97316' }
-      ]
-    }
-  ],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.07, 0.07, 0.06, 0.06, 0.05],

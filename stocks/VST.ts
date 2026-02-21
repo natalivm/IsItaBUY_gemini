@@ -23,7 +23,6 @@ export const VST: StockDefinition = {
   rsRating: 32,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Vistra represents a rare combination of deep value and secular AI growth. RS 32 reflects a ~25% correction from highs, creating a contrarian entry opportunity. 20-year Meta PPA de-risks nuclear cash flows. Institutional model indicates meaningful fair value gap as the market underestimates long-term FCF conversion and capital return capacity.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

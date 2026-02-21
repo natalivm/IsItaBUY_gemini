@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 export enum ScenarioType {
   BEAR = 'bear',
   BASE = 'base',
@@ -21,13 +19,6 @@ export interface ScenarioConfig {
   desc: string;
   thesis?: string;
   drivers?: Record<string, number | number[]>;
-}
-
-export interface DeepDiveSection {
-  title: string;
-  id: string;
-  content: string | React.ReactNode;
-  metrics?: { label: string; value: string; color?: string }[];
 }
 
 export interface StockScenarioParams {
@@ -51,7 +42,7 @@ export interface TickerDefinition {
   sector: string;
   themeColor: string;
   currentPrice: number;
-  basePrice?: number; // Anchor price for evaluation model (WACC, etc)
+  basePrice?: number;
   fairPriceRange?: string;
   active?: boolean;
   shares0: number;
@@ -62,18 +53,13 @@ export interface TickerDefinition {
   unit25: number;
   modelType: ValuationModelType;
   enhancementLabel?: string;
-  // Market Intelligence
   rsRating: number;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
   strategicNarrative: string;
-  // Financial specifics
-  dilutedShares?: number;
-  opMargin25?: number;
   cash?: number;
   debt?: number;
   beta?: number;
   costDebt?: number;
-  deepDive: DeepDiveSection[];
 }
 
 export interface ProjectionData {
@@ -95,11 +81,4 @@ export interface ProjectionData {
   pricePerShare?: number;
   mosPrice?: number;
   mosUpside?: number;
-}
-
-export interface Catalyst {
-  yr: number;
-  events: string[];
-  risk: 'HIGH' | 'MEDIUM' | 'LOW';
-  color: string;
 }
