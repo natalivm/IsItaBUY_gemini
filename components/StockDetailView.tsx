@@ -238,7 +238,7 @@ const StockDetailView: React.FC<Props> = ({
 
                 <div className="h-px bg-slate-800/50 w-full" />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="space-y-6">
                   <div className="space-y-4">
                     {/* amber heading — consistent */}
                     <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] flex items-center gap-2">
@@ -247,7 +247,8 @@ const StockDetailView: React.FC<Props> = ({
                     </h3>
                     <p className="text-lg text-white font-bold leading-snug">{currentProjection.config.desc}</p>
                   </div>
-                  <div className="space-y-4 border-l border-slate-800/50 pl-10 md:block hidden">
+                  <div className="h-px bg-slate-800/50 w-full" />
+                  <div className="space-y-4">
                     <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] flex items-center gap-2">
                       <LayoutDashboard className="w-3 h-3" />
                       Alpha Strategic View
