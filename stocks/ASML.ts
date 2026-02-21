@@ -9,8 +9,8 @@ export const ASML: StockDefinition = {
   fairPriceRange: '$1,800 - $4,270',
   active: true,
   shares0: 384,             // ~$565B mkt cap / $1,470
-  rev25: 35000,              // FY25 ~€33B ≈ $35B; Q4 €11.6B (+7.9% QoQ); CAGR 3yr ~15%
-  fcfMargin25: 0.28,         // Normalized; TTM FCF ~$14B/$35B ≈ 40% but extremely lumpy (Q4 alone $13.1B)
+  rev25: 34400,              // FY25 actual: €32.7B (≈$34.4B), GM 52.8%
+  fcfMargin25: 0.32,         // FY25 actual FCF €11B / €32.7B ≈ 34%; Q4 alone €10.9B — extremely lumpy
   taxRate: 0.15,             // Netherlands innovation box effective rate ~15%
   cash: 6000,
   debt: 5000,
@@ -19,52 +19,55 @@ export const ASML: StockDefinition = {
   unitLabel: 'EUV Systems',
   unit25: 85,                // Approximate annual EUV system shipments
   modelType: 'EPS_PE',
-  baseEps: 45.21,            // 2027E normalized EPS (2026E $35.14 still in cyclical ramp; trailing 2025 only $8.77)
-  enhancementLabel: 'EUV Monopoly + High-NA Transition',
+  baseEps: 45.21,            // 2027E fwd EPS; FY25 actual EPS €24.73; 2026E ~$35.14 (still in cyclical ramp)
+  enhancementLabel: 'EUV Monopoly + High-NA Qualification + €12B Buyback',
   rsRating: 96,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Type B cyclical growth with the deepest structural moat in semiconductors: EUV monopoly. " +
-    "Tech barrier to entry 10+ years; clients TSMC/Samsung/Intel have zero alternatives. High-NA EUV further cements dominance. " +
-    "Exceptional margins for capital equipment: gross 52-53%, operating ~35%, net ~30%. " +
-    "Trailing EPS $8.77 (2025 cyclically depressed, trailing P/E ~168x distorted). " +
-    "Forward EPS: 2026E $35.14 (fwd P/E ~42x), 2027E $45.21 (fwd P/E ~33x). Historical P/E range 25x–55x. " +
-    "Normalized EPS CAGR ~25-30% (cyclical recovery 2024-2027: $6.39→$45.21). Revenue CAGR 3yr ~15%. " +
-    "FCF highly volatile (capex cycle driven): TTM ~$14B, yield ~2.5%, but Q4 2025 alone was $13.1B — lumpy. " +
-    "RS 96 = top 4% relative strength, strong momentum leader. " +
-    "Buybacks not the main EPS driver — growth from revenue + margin leverage + EUV mix. " +
-    "Stress test: P/E to 25x on 2027E EPS → $1,125 (−23%). Revenue growth halved → CAGR drops to 5-7%. " +
-    "At $1,470 / 42x fwd P/E — margin of safety is limited. Best entry: cyclical dip or P/E <30x. " +
-    "Probability of 15%+ CAGR: ~50-60% (conditional on normal semi capex cycle). " +
-    "Key risks: TSMC/Intel capex pause, geopolitics (China export controls), AI overproduction. " +
-    "This is the highest-quality company in a cyclical industry. Fundamentals = top tier. Valuation = not cheap. Cycle = decides everything.",
+    "Post FY25 earnings call: Type B+ cyclical growth — structural trend dominates, but delivery/FCF are cyclical. " +
+    "FY25 actuals: net sales €32.7B, GM 52.8%, FCF €11B (Q4 alone €10.9B — lumpy cash-in), EPS €24.73. " +
+    "Q4: sales €9.7B, GM 52.2%, bookings €13.2B (EUV €7.4B / non-EUV €5.8B), backlog ~€38.8B. " +
+    "2026 guidance: €34–39B sales (+4% to +19% YoY), GM 51–53%. Wide corridor = fab readiness dependent. " +
+    "China share 2026: ~20% (in line with backlog). Geopolitical risk real but manageable at this level. " +
+    "Moat deepening: Low-NA EUV productivity roadmap (NXE:3800E), High-NA qualification (Intel accepted EXE:5200B for HVM), " +
+    "multi-beam inspection for 3D structures. Moat is structural AND expanding. " +
+    "2026 GM headwinds: more dry DUV (lower margin), less immersion (supply constraints), EUV 3600 mix, some High-NA ramp pressure. " +
+    "CFO: 2027 EUV mix 'significantly better' (less 3600, more new-gen) → margin recovery expected. " +
+    "Revenue drivers: AI → 4nm→3nm→2nm ramp (more EUV layers), DRAM HBM/DDR tight through 2026+ (single EUV replacing multi-pattern DUV), " +
+    "metrology/inspection 'grow significantly', installed base 'another year of growth' + upgrades (fastest way to add capacity). " +
+    "Shareholder return: €8.5B in 2025 (dividends + buybacks), Q4 buyback €1.7B. " +
+    "New buyback: up to €12B by 31.12.2028, intent to cancel most shares → real EPS tailwind (+1-2% CAGR bonus). " +
+    "At $1,470 / ~42x fwd P/E (2026E) — margin of safety limited. Best entry on cyclical dips or P/E <30x. " +
+    "Probability of 15%+ CAGR: ~55-65% (improved post-call: record bookings, €38.8B backlog, AI demand confirmed sustainable). " +
+    "Key risks: fab readiness delays (customer-controlled), 2026 mix/margin headwinds, geopolitics/China, AI capex deceleration. " +
+    "Highest-quality company in a cyclical industry. Fundamentals = top tier. Valuation = not cheap. Cycle = decides everything.",
   scenarios: {
     epsCagr: {
-      [ScenarioType.BEAR]: 10,      // semi capex downturn, slower AI ramp
-      [ScenarioType.BASE]: 18,      // normal cycle + EUV dominance + High-NA ramp
-      [ScenarioType.BULL]: 22,      // AI capex supercycle + full High-NA adoption
+      [ScenarioType.BEAR]: 10,      // capex pause, fab delays, weaker memory wave
+      [ScenarioType.BASE]: 18,      // normal cycle + EUV dominance + High-NA ramp + buyback bonus
+      [ScenarioType.BULL]: 22,      // AI supercycle + full High-NA insertion + DRAM EUV intensity
     },
     exitPE: {
-      [ScenarioType.BEAR]: 25,      // historical low zone for ASML
-      [ScenarioType.BASE]: 30,      // normal range, no multiple gift
-      [ScenarioType.BULL]: 35,      // premium sustained on proven execution
+      [ScenarioType.BEAR]: 25,      // historical low zone; mean-reversion scenario
+      [ScenarioType.BASE]: 30,      // normal range for proven monopoly, no multiple gift
+      [ScenarioType.BULL]: 35,      // premium sustained on execution proof + AI secular thesis
     },
     prob: {
-      [ScenarioType.BEAR]: 35,      // high starting P/E + cycle risk + geopolitics
-      [ScenarioType.BASE]: 40,      // normal semi cycle continuation
-      [ScenarioType.BULL]: 25,      // AI supercycle materializes fully
+      [ScenarioType.BEAR]: 30,      // reduced: record bookings + €38.8B backlog reduce near-term risk
+      [ScenarioType.BASE]: 40,      // normal semi cycle + confirmed AI/datacenter demand
+      [ScenarioType.BULL]: 30,      // increased: AI capex confirmed sustainable, High-NA qualified at Intel
     },
     revGrowth: {
-      // Revenue CAGR historically ~15%; driven by EUV shipments + High-NA + AI demand
-      [ScenarioType.BEAR]: [0.07, 0.06, 0.06, 0.05, 0.05],
-      [ScenarioType.BASE]: [0.15, 0.14, 0.13, 0.12, 0.12],
-      [ScenarioType.BULL]: [0.20, 0.18, 0.17, 0.16, 0.15],
+      // 2026 guide: €34-39B (+4% to +19%); AI/EUV layers/DRAM/installed base are drivers
+      [ScenarioType.BEAR]: [0.05, 0.05, 0.05, 0.04, 0.04],
+      [ScenarioType.BASE]: [0.12, 0.13, 0.13, 0.12, 0.12],
+      [ScenarioType.BULL]: [0.19, 0.17, 0.16, 0.15, 0.15],
     },
     fcfMargin: {
-      // Normalized ~25-30%; actual TTM ~40% is peak (lumpy: prepayments + delivery timing)
-      [ScenarioType.BEAR]: [0.20, 0.20, 0.20, 0.20, 0.20],
-      [ScenarioType.BASE]: [0.26, 0.27, 0.28, 0.29, 0.30],
-      [ScenarioType.BULL]: [0.28, 0.30, 0.32, 0.34, 0.35],
+      // FY25 actual 34% but Q4=99% of annual FCF; 2026 margin dips on mix then recovers 2027+
+      [ScenarioType.BEAR]: [0.20, 0.20, 0.22, 0.22, 0.22],
+      [ScenarioType.BASE]: [0.26, 0.28, 0.30, 0.31, 0.32],
+      [ScenarioType.BULL]: [0.28, 0.30, 0.33, 0.35, 0.36],
     },
     termGrowth: {
       [ScenarioType.BEAR]: 0.02,
@@ -84,17 +87,20 @@ export const ASML: StockDefinition = {
     },
     desc: {
       [ScenarioType.BEAR]:
-        'Semi capex cycle pauses (TSMC/Intel delays), geopolitical headwinds, AI capex moderation. ' +
+        'Capex pause at TSMC/Intel, fab readiness delays persist, AI capex moderates. ' +
+        'Margin pressure from dry DUV / EUV 3600 mix does not resolve by 2027. ' +
         'EPS CAGR 10%, exit P/E compresses to 25x (historical floor). ' +
-        'FY32E EPS ~$72.8 × 25x = $1,820 target. CAGR ~4%. Limited upside from current valuation.',
+        'FY32E EPS ~$72.8 × 25x = $1,820. CAGR ~4%. Dead money at current valuation.',
       [ScenarioType.BASE]:
-        'Normal semi cycle: continued EUV dominance, High-NA ramp underway, steady AI server demand. ' +
-        'EPS CAGR 18%, exit P/E 30x (fair for proven monopoly). ' +
-        'FY32E EPS ~$103 × 30x = $3,090 target. CAGR ~16%. Solid return if cycle cooperates.',
+        'Normal semi cycle: AI/datacenter demand sustains, EUV dominance continues, High-NA ramps. ' +
+        'Installed base + upgrades grow steadily. 2026 margin dip recovers 2027+ as mix improves. ' +
+        'Buybacks add +1-2% EPS CAGR tailwind (€12B program through 2028). ' +
+        'EPS CAGR 18%, exit P/E 30x. FY32E EPS ~$103 × 30x = $3,090. CAGR ~16%.',
       [ScenarioType.BULL]:
-        'AI capex supercycle: massive advanced node buildout, High-NA fully adopted, peer consolidation. ' +
-        'EPS CAGR 22%, exit P/E 35x on sustained growth proof. ' +
-        'FY32E EPS ~$122 × 35x = $4,270 target. CAGR ~24%. Requires strong macro + AI thesis intact.',
+        'AI capex supercycle: massive advanced node buildout (2nm/A14), High-NA fully adopted post-Intel qualification. ' +
+        'DRAM EUV intensity accelerates (HBM/DDR tight, single EUV replaces multi-pattern DUV). ' +
+        'Metrology/inspection grows significantly. €12B buyback accelerates EPS. ' +
+        'EPS CAGR 22%, exit P/E 35x. FY32E EPS ~$122 × 35x = $4,270. CAGR ~24%.',
     },
     drivers: {
       [ScenarioType.BEAR]: {
@@ -106,13 +112,13 @@ export const ASML: StockDefinition = {
       [ScenarioType.BASE]: {
         revPrem: [0.01, 0.01, 0.01, 0.01, 0.01],
         fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
-        bbRate: 0.015,
+        bbRate: 0.02,               // €12B program through 2028 ≈ ~1.5-2% annual
         ebitdaProxy: 0.45,
       },
       [ScenarioType.BULL]: {
         revPrem: [0.02, 0.02, 0.02, 0.02, 0.02],
         fcfUplift: [0.01, 0.015, 0.015, 0.02, 0.02],
-        bbRate: 0.02,
+        bbRate: 0.025,              // accelerated buyback
         ebitdaProxy: 0.55,
         maOptVal: 1470 * 384 * 0.05,   // High-NA EUV optionality
       },
