@@ -89,34 +89,38 @@ const StockDetailView: React.FC<Props> = ({
 
         <header className="mb-12 border-b-2 pb-8" style={{ borderColor: tc }}>
           {/* ── consistent amber label ── */}
-          <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
+          <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-4 flex items-center gap-3">
             <span className="w-12 h-[2px] bg-amber-500/50" />
             {tickerDef.name.toUpperCase()} {tickerDef.modelType.replace('_', ' ')}
           </div>
-          <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
-            {tickerDef.ticker}
-          </h1>
 
-          {/* Key metric chips — icons amber (consistent), border themed */}
-          <div className="flex flex-wrap gap-4">
-            {[
-              { label: 'Spot',       value: usd(tickerDef.currentPrice),          icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
-              { label: 'Rating',     value: activeStockData?.label || 'HOLD',      icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
-              { label: 'Fair Value', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' }
-            ].map((m, i) => (
-              <div
-                key={i}
-                className="px-5 py-2 bg-[#0d1630] rounded-lg flex items-center gap-3 border"
-                style={{ borderColor: `${tc}40` }}
-              >
-                {m.icon}
-                <div className="flex flex-col">
-                  {/* amber label — consistent */}
-                  <span className="text-amber-500 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
-                  <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+          {/* ── Horizontal row: ticker LEFT, metric chips RIGHT ── */}
+          <div className="flex items-center justify-between flex-wrap gap-6">
+            <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none">
+              {tickerDef.ticker}
+            </h1>
+
+            {/* Key metric chips — icons amber (consistent), border themed */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: 'SPOT',       value: usd(tickerDef.currentPrice),          icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+                { label: 'RATING',     value: activeStockData?.label || 'HOLD',      icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
+                { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' }
+              ].map((m, i) => (
+                <div
+                  key={i}
+                  className="px-5 py-3 bg-[#0d1630] rounded-xl flex items-center gap-3 border"
+                  style={{ borderColor: `${tc}40` }}
+                >
+                  {m.icon}
+                  <div className="flex flex-col">
+                    {/* amber label — consistent */}
+                    <span className="text-amber-500 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
+                    <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </header>
 
