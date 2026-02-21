@@ -96,9 +96,17 @@ const StockDetailView: React.FC<Props> = ({
 
           {/* ── Horizontal row: ticker LEFT, metric chips RIGHT ── */}
           <div className="flex items-center justify-between flex-wrap gap-6">
-            <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none">
-              {tickerDef.ticker}
-            </h1>
+            <div className="flex items-end gap-4 flex-wrap">
+              <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none">
+                {tickerDef.ticker}
+              </h1>
+              <span className={cn(
+                "text-base font-black border rounded px-2 py-1 mb-1 flex-shrink-0",
+                tickerDef.rsRating >= 80 ? 'text-green-400 border-green-700' :
+                tickerDef.rsRating >= 40 ? 'text-white border-slate-600' :
+                'text-red-400 border-red-800'
+              )}>RS {tickerDef.rsRating}</span>
+            </div>
 
             {/* Key metric chips — icons amber (consistent), border themed */}
             <div className="flex flex-wrap gap-3">
@@ -223,7 +231,7 @@ const StockDetailView: React.FC<Props> = ({
                       {/* RS rating colors — consistent across all pages */}
                       <span className={cn(
                         "text-3xl font-black",
-                        tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-amber-500' : 'text-red-500'
+                        tickerDef.rsRating >= 80 ? 'text-green-500' : tickerDef.rsRating >= 40 ? 'text-white' : 'text-red-500'
                       )}>{tickerDef.rsRating}</span>
                       <span className="text-[10px] text-slate-600 font-bold mb-1.5">/99</span>
                     </div>

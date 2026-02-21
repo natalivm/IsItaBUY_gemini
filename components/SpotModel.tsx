@@ -406,8 +406,8 @@ export default function SpotModel({
                     <div className="flex items-end gap-1">
                       <span className={cn(
                         "text-3xl font-black",
-                        tickerDef.rsRating > 80 ? "text-green-500"
-                        : tickerDef.rsRating > 50 ? "text-amber-500"
+                        tickerDef.rsRating >= 80 ? "text-green-500"
+                        : tickerDef.rsRating >= 40 ? "text-white"
                         : "text-red-500"
                       )}>
                         {tickerDef.rsRating}
