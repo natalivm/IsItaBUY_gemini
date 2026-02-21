@@ -104,6 +104,9 @@ const GRASSHOPPER = {
   timelineYears: 2,           // Ramp to full run-rate post-close
   closingExpected: "2H 2026", // NOT included in 2026 EPS guidance
   epsAccretionPct: 25,        // >25% EPS accretion when fully realized
+  // Percentage ramp applied to core EPS (derived from >25% guide + 2-yr ramp)
+  rampYr1: 0.10,              // Year 1 post-close (2027): +10% to core EPS
+  rampYr2Plus: 0.25,          // Year 2+ post-close (2028+): +25% to core EPS (full run-rate)
 };
 
 // ============================================================
@@ -251,12 +254,20 @@ export default function ENVAModel() {
     const bullEpsG = epsGrowth + 5, baseEpsG = epsGrowth, bearEpsG = Math.max(epsGrowth - 10, 0);
     const bullPE = exitPE + 2, basePE = exitPE, bearPE = Math.max(exitPE - 2, 5);
 
+    // epsPath: compound core EPS for `yr` years, then apply GH ramp as a
+    // percentage multiplier on the terminal core EPS (not additive dollars).
+    // Ramp: yr=1 (2027) → ×1.10 ; yr≥2 (2028+) → ×1.25
+    // Validated against analyst model:
+    //   Base 15% yr=4: 15.5×1.15⁴=27.11 → ×1.25=33.89 → ×9=$305 → ~16% CAGR ✓
+    //   Bull 20% yr=4: 15.5×1.20⁴=32.13 → ×1.25=40.17 → ×11=$442 → ~25% CAGR ✓
+    //   Bear 5%  yr=4: 15.5×1.05⁴=18.85 → ×1.25=23.56 → ×7=$165 → ~2.6% CAGR ✓
     function epsPath(g: number, yr: number, includeGH: boolean) {
       let eps = FORWARD_EPS_2026;
       for (let i = 1; i <= yr; i++) {
         eps *= (1 + g / 100);
-        if (includeGH && grasshopperOn && i === 2) eps += ghAccretion * 0.4;
-        if (includeGH && grasshopperOn && i >= 3) eps += ghAccretion * 0.15;
+      }
+      if (includeGH && grasshopperOn && yr >= 1) {
+        eps *= yr === 1 ? (1 + GRASSHOPPER.rampYr1) : (1 + GRASSHOPPER.rampYr2Plus);
       }
       return eps;
     }
@@ -414,13 +425,11 @@ export default function ENVAModel() {
                     { label: "2026E", eps: FORWARD_EPS_2026, isActual: true },
                     { label: "2027E", eps: FORWARD_EPS_2027, isActual: true },
                     ...Array.from({ length: Math.max(years - 1, 0) }, (_, i) => {
-                      let eps = FORWARD_EPS_2026;
-                      const yr = i + 2; // starts at year 2 from 2026 = 2028
-                      for (let j = 1; j <= yr; j++) {
-                        eps *= (1 + epsGrowth / 100);
-                        if (grasshopperOn && j === 2) eps += ghAccretion * 0.4;
-                        if (grasshopperOn && j >= 3) eps += ghAccretion * 0.15;
-                      }
+                      const yr = i + 2; // starts at yr=2 from 2026 = 2028
+                      let coreEps = FORWARD_EPS_2026;
+                      for (let j = 1; j <= yr; j++) coreEps *= (1 + epsGrowth / 100);
+                      // yr>=2 → full GH ramp (×1.25); consistent with epsPath
+                      const eps = grasshopperOn ? coreEps * (1 + GRASSHOPPER.rampYr2Plus) : coreEps;
                       return { label: String(2026 + yr), eps, isActual: false };
                     }),
                   ].map(({ label, eps, isActual }, idx) => {
@@ -543,8 +552,84 @@ export default function ENVAModel() {
               </div>
             </div>
 
+            {/* ── Two-layer 5-year model: Core vs Core+GH ── */}
             <div style={{ marginTop: 20, background: C.card, border: `1px solid ${C.cardBorder}`, borderRadius: 10, padding: 20, boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: C.blue, marginBottom: 16, textTransform: "uppercase" }}>Synergy Sensitivity</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: C.blue, marginBottom: 4, textTransform: "uppercase" }}>Two-Layer 5Y Model · Core vs Core + Grasshopper</div>
+              <div style={{ fontSize: 10, color: C.textMid, marginBottom: 14, fontFamily: "var(--mono)" }}>
+                Ramp: 2026 0% · 2027 +{(GRASSHOPPER.rampYr1 * 100).toFixed(0)}% to core · 2028+ +{(GRASSHOPPER.rampYr2Plus * 100).toFixed(0)}% to core · CAGR from ${CURRENT_PRICE}
+              </div>
+              <div style={{ overflowX: "auto" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 11, fontFamily: "var(--mono)" }}>
+                  <thead>
+                    <tr style={{ background: "#f8fafc" }}>
+                      <th style={{ padding: "8px 10px", textAlign: "left", fontSize: 10, color: C.textMid, borderBottom: `2px solid ${C.cardBorder}`, fontWeight: 600 }}>Scenario</th>
+                      {["2027", "2028", "2029", "2030"].map(y => (
+                        <th key={y} colSpan={2} style={{ padding: "8px 6px", textAlign: "center", fontSize: 10, color: C.textMid, borderBottom: `2px solid ${C.cardBorder}`, fontWeight: 600 }}>{y}</th>
+                      ))}
+                      <th colSpan={2} style={{ padding: "8px 6px", textAlign: "center", fontSize: 10, color: C.blue, borderBottom: `2px solid ${C.cardBorder}`, fontWeight: 700 }}>Exit / CAGR</th>
+                    </tr>
+                    <tr style={{ background: "#f8fafc" }}>
+                      <th style={{ padding: "4px 10px", borderBottom: `1px solid ${C.cardBorder}` }} />
+                      {["2027", "2028", "2029", "2030"].map(y => (["Core", "+GH"].map(lbl => (
+                        <th key={y + lbl} style={{ padding: "4px 6px", textAlign: "center", fontSize: 9, color: lbl === "+GH" ? C.green : C.textMid, borderBottom: `1px solid ${C.cardBorder}`, fontWeight: 600 }}>{lbl}</th>
+                      ))))}
+                      {["Core", "+GH"].map(lbl => (
+                        <th key={"exit" + lbl} style={{ padding: "4px 6px", textAlign: "center", fontSize: 9, color: lbl === "+GH" ? C.green : C.textMid, borderBottom: `1px solid ${C.cardBorder}`, fontWeight: 600 }}>{lbl}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { label: "🔴 Bear", g: 5,  pe: 7,  color: C.red  },
+                      { label: "🔵 Base", g: 15, pe: 9,  color: C.blue },
+                      { label: "🟢 Bull", g: 20, pe: 11, color: C.green },
+                    ].map(({ label, g, pe, color }) => {
+                      const years4 = [1, 2, 3, 4];
+                      return (
+                        <tr key={label} style={{ borderBottom: `1px solid ${C.cardBorder}` }}>
+                          <td style={{ padding: "10px 10px", fontWeight: 700, color, fontSize: 11 }}>{label}<br /><span style={{ fontSize: 9, color: C.textLight, fontWeight: 400 }}>{g}% · {pe}x</span></td>
+                          {years4.map(yr => {
+                            let core = FORWARD_EPS_2026;
+                            for (let j = 1; j <= yr; j++) core *= (1 + g / 100);
+                            const gh = core * (yr === 1 ? (1 + GRASSHOPPER.rampYr1) : (1 + GRASSHOPPER.rampYr2Plus));
+                            return [
+                              <td key={"c" + yr} style={{ padding: "10px 6px", textAlign: "center", color: C.text }}>${core.toFixed(1)}</td>,
+                              <td key={"g" + yr} style={{ padding: "10px 6px", textAlign: "center", color: C.green, fontWeight: 600 }}>${gh.toFixed(1)}</td>,
+                            ];
+                          })}
+                          {(() => {
+                            let core4 = FORWARD_EPS_2026;
+                            for (let j = 1; j <= 4; j++) core4 *= (1 + g / 100);
+                            const gh4 = core4 * (1 + GRASSHOPPER.rampYr2Plus);
+                            const corePrice = core4 * pe, ghPrice = gh4 * pe;
+                            const coreCagr = cagr(CURRENT_PRICE, corePrice, 5);
+                            const ghCagr = cagr(CURRENT_PRICE, ghPrice, 5);
+                            return [
+                              <td key="cp" style={{ padding: "10px 6px", textAlign: "center", color: coreCagr >= 15 ? C.green : coreCagr >= 0 ? C.text : C.red, fontWeight: 600 }}>
+                                ${corePrice.toFixed(0)}<br /><span style={{ fontSize: 9 }}>{pct(coreCagr)}</span>
+                              </td>,
+                              <td key="gp" style={{ padding: "10px 6px", textAlign: "center", background: C.greenBg, color: ghCagr >= 15 ? C.green : C.text, fontWeight: 700 }}>
+                                ${ghPrice.toFixed(0)}<br /><span style={{ fontSize: 9 }}>{pct(ghCagr)}</span>
+                              </td>,
+                            ];
+                          })()}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <div style={{ marginTop: 14, background: C.greenBg, border: `1px solid ${C.greenBorder}`, borderRadius: 8, padding: 12, fontSize: 11, color: C.textMid, lineHeight: 1.6 }}>
+                <strong style={{ color: C.green }}>Key insight:</strong> Without Grasshopper, Base case delivers ~11% CAGR — below 15% hurdle.
+                With Grasshopper, Base case delivers ~16% CAGR at the same 9x exit multiple.
+                The deal is what converts a "decent but sub-hurdle" cyclical into a "15%+ compounder" — without requiring any multiple expansion.
+                <br /><strong style={{ color: C.amber }}>Risk:</strong> Regulatory delay or deal failure removes this layer entirely. OCC/Fed approval timeline is the key gating factor.
+              </div>
+            </div>
+
+            {/* ── Dollar synergy sensitivity (kept for cross-check) ── */}
+            <div style={{ marginTop: 16, background: C.card, border: `1px solid ${C.cardBorder}`, borderRadius: 10, padding: 20, boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: C.textMid, marginBottom: 12, textTransform: "uppercase" }}>Synergy Dollar Cross-Check</div>
               <Slider label="Annual Synergy" value={grasshopperSyn} onChange={setGrasshopperSyn} min={80} max={280} step={10} unit="M" color={C.green} note={`Mgmt $${GRASSHOPPER.synLow}–$${GRASSHOPPER.synHigh}M`} />
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
                 <Metric label="EPS Accretion" value={"$" + (grasshopperSyn / SHARES_OUT).toFixed(2)} sub="per share annually" accent />
