@@ -5,8 +5,8 @@ export const FTNT: StockDefinition = {
   name: 'Fortinet',
   sector: 'Cybersecurity',
   themeColor: '#06b6d4',
-  currentPrice: 85.56,
-  fairPriceRange: '$75 - $135',
+  currentPrice: 80,
+  fairPriceRange: '$70 - $105',
   active: true,
   shares0: 743.6,
   rev25: 6800,
@@ -22,7 +22,7 @@ export const FTNT: StockDefinition = {
   enhancementLabel: 'ASIC Advantage',
   rsRating: 27,
   aiImpact: 'NEUTRAL',
-  strategicNarrative: "Losing the competitive tape. RS 27 reflects the stock's failure to capture any meaningful institutional interest relative to SASE peers. Their ASIC advantage is ignored as the market favors software-centric cloud winners. In a clear distribution trend.",
+  strategicNarrative: "Fairly valued at current levels. FTNT's ASIC-driven SASE platform offers solid fundamentals, but the stock's RS 27 signals limited near-term institutional momentum. Upside exists if SASE adoption accelerates, but multiple expansion requires proof of sustained competitive gains vs cloud-native peers. Hold for existing positions; wait for a better entry point.",
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],
@@ -40,9 +40,9 @@ export const FTNT: StockDefinition = {
       [ScenarioType.BULL]: 0.03
     },
     exitMultiple: {
-      [ScenarioType.BEAR]: 12,
-      [ScenarioType.BASE]: 16,
-      [ScenarioType.BULL]: 19
+      [ScenarioType.BEAR]: 15,
+      [ScenarioType.BASE]: 28,
+      [ScenarioType.BULL]: 35
     },
     waccAdj: {
       [ScenarioType.BEAR]: 0.01,
@@ -59,20 +59,20 @@ export const FTNT: StockDefinition = {
         revPrem: [0, 0, 0, 0, 0],
         fcfUplift: [0, 0, 0, 0, 0],
         bbRate: 0.005,
-        ebitdaProxy: 0.15
+        ebitdaProxy: 0.18
       },
       [ScenarioType.BASE]: {
         revPrem: [0.01, 0.01, 0.01, 0.01, 0.01],
         fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
         bbRate: 0.015,
-        ebitdaProxy: 0.22
+        ebitdaProxy: 0.26
       },
       [ScenarioType.BULL]: {
         revPrem: [0.015, 0.02, 0.02, 0.02, 0.02],
         fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
         bbRate: 0.03,
-        ebitdaProxy: 0.35,
-        maOptVal: 85.56 * 743.6 * 0.07
+        ebitdaProxy: 0.38,
+        maOptVal: 80 * 743.6 * 0.07
       }
     }
   }
