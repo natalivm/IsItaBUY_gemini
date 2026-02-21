@@ -23,7 +23,6 @@ export const ANET: StockDefinition = {
   rsRating: 79,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Arista is the pure-play backbone of the AI cluster. While valuation is rich, the RS of 79 reflects recent consolidation after the vertical run. AI remains a massive structural tailwind as LLMs shift from compute-bound to network-bound. Long-term institutional support is strong despite the short-term technical breather.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

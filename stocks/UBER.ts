@@ -23,7 +23,6 @@ export const UBER: StockDefinition = {
   rsRating: 16,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Broken technicals. RS 16 signals that institutions have aggressively rotated out of UBER as the AV promise meets regulatory and execution friction. While the 'platform-as-a-service' AV potential is theoretically huge, the tape suggests big money is parked elsewhere for now. Heavy distribution phase.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

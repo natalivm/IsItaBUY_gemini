@@ -23,7 +23,6 @@ export const KKR: StockDefinition = {
   rsRating: 16,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Massively mispriced institutional giant. At $102, the market is pricing KKR below its core base DCF value, ignoring 'free' optionality in the private wealth channel and insurance integration. Technicals (RS 16) are broken, but fundamental fair value exceeds $160 in base cases. Accumulate during distribution.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

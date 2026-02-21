@@ -1,16 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { motion } from "motion/react";
-import {
-  ArrowLeft,
-  Info,
-  LayoutDashboard,
-  ShieldCheck,
-  TrendingUp,
-  Zap,
-  Target,
-  Rocket,
-  Activity,
-} from "lucide-react";
+import { ArrowLeft, TrendingUp, ShieldCheck, Zap } from "lucide-react";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -24,6 +14,8 @@ import {
   ReferenceLine,
 } from "recharts";
 import { TickerDefinition, ProjectionData, ScenarioType } from "../types";
+import { computeStockMetrics, usd } from "../services/stockMetrics";
+import InvestmentVerdict from "./InvestmentVerdict";
 import { cn } from "../utils";
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -222,22 +214,10 @@ export default function SMCIModel({
   const targetPrice15 = currentPrice * Math.pow(1.15, years);
   const neededEps15at14 = targetPrice15 / 14;
 
-  // ── Template metric calculations (mirrors StockDetailView) ────────────────
-  const baseTarget = allProjections.base.pricePerShare!;
-  const bullTarget = allProjections.bull.pricePerShare!;
-  const momentumUpside = (baseTarget / tickerDef.currentPrice - 1) * 100;
-  const baseCagr = currentProjection.cagrs[4];
-  const acceleratedCagr = baseCagr * 1.5;
-  const timeToTarget =
-    acceleratedCagr > 0
-      ? Math.log(baseTarget / tickerDef.currentPrice) / Math.log(1 + acceleratedCagr / 100)
-      : 5;
-  const upsideScore = Math.min(40, Math.abs(momentumUpside) * 0.4);
-  const rsScore = tickerDef.rsRating * 0.3;
-  const aiScore = tickerDef.aiImpact === "TAILWIND" ? 20 : tickerDef.aiImpact === "NEUTRAL" ? 10 : 5;
-  const probAcceleration = Math.round(Math.min(95, Math.max(10, upsideScore + rsScore + aiScore)));
-
-  const usd = (n: number) => "$" + n.toFixed(2);
+  const metrics = useMemo(
+    () => computeStockMetrics(tickerDef, currentProjection, allProjections),
+    [tickerDef, currentProjection, allProjections]
+  );
 
   // ── Scenario Block ────────────────────────────────────────────────────────
   const ScenarioBlock = ({ s, label, color, icon }: { s: any; label: string; color: string; icon: string }) => (
@@ -636,80 +616,20 @@ export default function SMCIModel({
           </div>
         </motion.div>
 
-        {/* Investment Verdict (template standard) */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: tc }} />
-          <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 flex items-center gap-3" style={{ color: tc }}>
-            <span className="w-8 h-[2px]" style={{ background: `${tc}80` }} />
-            Investment Verdict
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center">
-            <div className="flex flex-col gap-2 shrink-0">
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Is it a Buy?</span>
-              <div className={cn(
-                "text-6xl lg:text-7xl font-black tracking-tighter leading-none",
-                activeStockData?.label === "STRONG BUY" ? "text-green-400"
-                : activeStockData?.label === "AVOID" ? "text-red-400"
-                : "text-blue-400"
-              )}>
-                {activeStockData?.label === "STRONG BUY" ? "YES"
-                 : activeStockData?.label === "AVOID" ? "NO"
-                 : "HOLD"}
-              </div>
-              <div className={cn(
-                "text-[10px] font-black uppercase tracking-widest mt-1",
-                activeStockData?.label === "STRONG BUY" ? "text-green-500/70"
-                : activeStockData?.label === "AVOID" ? "text-red-500/70"
-                : "text-blue-500/70"
-              )}>
-                {activeStockData?.label || "HOLD"}
-              </div>
-            </div>
-
-            <div className="w-px h-20 bg-slate-800 hidden lg:block" />
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">PW Blended Target</span>
-                <span className="text-2xl font-black" style={{ color: tc }}>{usd(investmentConclusion.pwAvg)}</span>
-                <span className="text-[10px] text-slate-600">vs {usd(tickerDef.currentPrice)} spot</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">5Y CAGR</span>
-                <span className="text-2xl font-black text-white">{(investmentConclusion.cagr).toFixed(1)}%</span>
-                <span className="text-[10px] text-slate-600">probability-weighted</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Weighted Target</span>
-                <span className="text-2xl font-black font-mono" style={{ color: scenarios.weightedCagr >= 0.15 ? "#22c55e" : scenarios.weightedCagr >= 0 ? "#eab308" : "#ef4444" }}>
-                  ${fmt(scenarios.weightedPrice, 0)}
-                </span>
-                <span className="text-[10px] text-slate-600">custom model</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Custom CAGR</span>
-                <span className="text-2xl font-black font-mono" style={{ color: scenarios.weightedCagr >= 0.15 ? "#22c55e" : scenarios.weightedCagr >= 0 ? "#eab308" : "#ef4444" }}>
-                  {scenarios.weightedCagr >= 0 ? "+" : ""}{pct(scenarios.weightedCagr)}
-                </span>
-                <span className="text-[10px] text-slate-600">earnings model</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-slate-800/80">
-            <p className="text-sm text-slate-300 leading-relaxed">
-              SMCI is a controlled cyclical bet on the AI infrastructure buildout. Revenue growth is strong at ~$40B FY26E, but gross margins at 6.4% and 63% single-client concentration limit the quality story.
-              The base case (~$55&ndash;65 in {years} years) requires margin recovery to 6% and moderate multiple expansion. The bull case needs 7.5%+ operating margins, DCBBS contribution, and real client diversification.
-              At ${fmt(currentPrice, 2)}, the stock is pricing in margin pressure. Upside requires execution on quality, not just volume.
-            </p>
-          </div>
-        </motion.div>
+        <InvestmentVerdict
+          tickerDef={tickerDef}
+          allProjections={allProjections}
+          investmentConclusion={investmentConclusion}
+          activeStockData={activeStockData}
+          metrics={metrics}
+          narrativeOverride={`SMCI is a controlled cyclical bet on the AI infrastructure buildout. Revenue growth is strong at ~$40B FY26E, but gross margins at 6.4% and 63% single-client concentration limit the quality story. The base case (~$55–65 in ${years} years) requires margin recovery to 6% and moderate multiple expansion. The bull case needs 7.5%+ operating margins, DCBBS contribution, and real client diversification. At $${fmt(currentPrice, 2)}, the stock is pricing in margin pressure. Upside requires execution on quality, not just volume.`}
+          extraMetrics={[
+            { label: 'PW Blended Target', value: <span className="text-2xl font-black" style={{ color: tc }}>{usd(investmentConclusion.pwAvg)}</span>, subtext: `vs ${usd(tickerDef.currentPrice)} spot` },
+            { label: '5Y CAGR', value: <span className="text-2xl font-black text-white">{(investmentConclusion.cagr).toFixed(1)}%</span>, subtext: 'probability-weighted' },
+            { label: 'Weighted Target', value: <span className="text-2xl font-black font-mono" style={{ color: scenarios.weightedCagr >= 0.15 ? "#22c55e" : scenarios.weightedCagr >= 0 ? "#eab308" : "#ef4444" }}>${fmt(scenarios.weightedPrice, 0)}</span>, subtext: 'custom model' },
+            { label: 'Custom CAGR', value: <span className="text-2xl font-black font-mono" style={{ color: scenarios.weightedCagr >= 0.15 ? "#22c55e" : scenarios.weightedCagr >= 0 ? "#eab308" : "#ef4444" }}>{scenarios.weightedCagr >= 0 ? "+" : ""}{pct(scenarios.weightedCagr)}</span>, subtext: 'earnings model' },
+          ]}
+        />
 
       </div>
     </motion.div>

@@ -22,7 +22,6 @@ export const RBRK: StockDefinition = {
   rsRating: 12,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Complete institutional rejection. RS 12 signals that the market has abandoned the Rubrik story despite its 'Agent Cloud' potential. Cyber resilience is critical, but the technicals suggest the stock is a falling knife. Accumulation is non-existent.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

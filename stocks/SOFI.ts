@@ -23,7 +23,6 @@ export const SOFI: StockDefinition = {
   rsRating: 29,
   aiImpact: 'TAILWIND',
   strategicNarrative: "A leading fintech pivoting to a digital banking powerhouse. Despite recent dilution and weak relative strength (RS 29), its 30% revenue growth and improving capital-light mix (44% fee-based) present an asymmetric entry point. Bank charter and deposit growth ($37.5B) provide structural funding advantages over neobank peers.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

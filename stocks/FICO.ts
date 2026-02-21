@@ -23,7 +23,6 @@ export const FICO: StockDefinition = {
   rsRating: 17,
   aiImpact: 'NEUTRAL',
   strategicNarrative: "Structural compounder with cyclical tailwind. Q1 FY26 delivered best Scores quarter on record (+29% to $305M), Platform ARR +33%, NRR 122%, ACV bookings +36%, and mortgage revenue +60% — broad-based beat validating the platform transition. RS 17 reflects technical weakness amid broader market rotation, but fundamental/technical divergence creates asymmetric entry for conviction holders. 15%+ CAGR achievable even with P/E compression to 28–30x. Key risks: mortgage cycle reversal, regulatory changes, pricing pressure.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.10, 0.09, 0.08, 0.07, 0.06],

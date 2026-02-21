@@ -23,7 +23,6 @@ export const MRVL: StockDefinition = {
   rsRating: 28,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Marvell is a top-3 partner for hyperscaler custom AI silicon (XPUs). While fundamental earnings power is surging (+42% FY26E growth), the RS of 28 signals institutional distribution and technical headwinds. The bull case rests on dominant share in AI networking and successful 2nm/3nm tape-outs.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.05, -0.10, 0.05, 0.08, 0.10],

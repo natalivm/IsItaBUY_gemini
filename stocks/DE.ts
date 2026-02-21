@@ -23,7 +23,6 @@ export const DE: StockDefinition = {
   rsRating: 82,
   aiImpact: 'TAILWIND',
   strategicNarrative: "A powerful momentum shift. RS 82 confirms that Deere has successfully decoupled from the cyclical Ag recession narrative. Institutions are accumulating based on the software-led re-rating and autonomous rollout. The tape is increasingly constructive for a long-term breakout.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

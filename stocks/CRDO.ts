@@ -23,7 +23,6 @@ export const CRDO: StockDefinition = {
   rsRating: 86,
   aiImpact: 'TAILWIND',
   strategicNarrative: "CRDO sits at the critical intersection of AI infrastructure. Every GPU cluster requires high-speed, low-power connectivity. RS 86 reflects institutional accumulation ahead of the 800G to 1.6T migration. While customer concentration is a risk, the design-win stickiness and 67%+ gross margins create a formidable semiconductor moat.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

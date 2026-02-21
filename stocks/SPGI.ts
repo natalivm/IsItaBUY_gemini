@@ -23,7 +23,6 @@ export const SPGI: StockDefinition = {
   rsRating: 16,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative: "A 'Show Me' story with no momentum. RS 16 tells you institutions are selling. They see the DCF value but are terrified of AI disrupting financial data extraction. It's cheap, but it's likely a laggard for the foreseeable future.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

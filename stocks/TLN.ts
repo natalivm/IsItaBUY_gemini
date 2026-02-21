@@ -23,7 +23,6 @@ export const TLN: StockDefinition = {
   rsRating: 83,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Strong but cooling. RS 83 shows Talen remains a top-tier institutional vehicle, though it's taking a breather after its parabolic phase. The co-location story is still the blueprint for the AI power trade, but velocity has normalized. Accumulate on dips.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

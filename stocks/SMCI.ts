@@ -23,7 +23,6 @@ export const SMCI: StockDefinition = {
   rsRating: 28,
   aiImpact: 'TAILWIND',
   strategicNarrative: "SMCI is a high-volume, low-margin AI server assembler riding the GPU infrastructure wave. Revenue is hypergrowth (~$40B FY26E) but gross margins sit at 6.4% with 63% single-client concentration. The bull case requires margin recovery to 8%+ and client diversification. Post-earnings verdict: revenue story strong, quality story weak. This is a controlled cyclical bet, not a compounder.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.07, 0.07, 0.07, 0.07, 0.07],

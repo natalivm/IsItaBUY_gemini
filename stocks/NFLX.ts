@@ -23,7 +23,6 @@ export const NFLX: StockDefinition = {
   rsRating: 11,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Severe relative weakness. RS 11 indicates Netflix has lost its 'Growth Utility' crown in the eyes of institutional desk traders. Despite strong margins, the tape shows massive distribution as the market fears pricing power saturation and competitive ad-tier pressure. Avoid until a bottom is formed.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

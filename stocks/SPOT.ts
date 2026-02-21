@@ -23,7 +23,6 @@ export const SPOT: StockDefinition = {
   rsRating: 14,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative: "Spotify is transitioning into a genuine FCF compounder. Post-Q4'25, FCF CAGR ~20% is consensus with margin expansion from ~17% to ~23% by 2030. At P/FCF ~35x, the stock prices in continued excellence. The key debate: does SPOT deserve ≥28x FCF at maturity (vs Netflix 20-25x)? No longer a hope story — real cash generation, but premium valuation leaves limited margin of safety.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.10, 0.10, 0.09, 0.07, 0.07],

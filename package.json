@@ -1,5 +1,5 @@
 {
-  "name": "nflx-alpha:-investment-insights",
+  "name": "isitabuy-gemini",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,6 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@google/genai": "^1.41.0",
     "@tailwindcss/vite": "^4.2.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.575.0",

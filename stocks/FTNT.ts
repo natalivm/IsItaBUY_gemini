@@ -23,7 +23,6 @@ export const FTNT: StockDefinition = {
   rsRating: 27,
   aiImpact: 'NEUTRAL',
   strategicNarrative: "Losing the competitive tape. RS 27 reflects the stock's failure to capture any meaningful institutional interest relative to SASE peers. Their ASIC advantage is ignored as the market favors software-centric cloud winners. In a clear distribution trend.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.06, 0.05, 0.05, 0.04, 0.04],

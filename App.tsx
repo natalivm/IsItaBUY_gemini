@@ -3,7 +3,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { ScenarioType, TickerDefinition } from './types';
 import { calculateProjection, getInstitutionalRating } from './services/projectionService';
 import { TICKERS } from './constants';
-import ScenarioMetricsCard from './components/ScenarioMetricsCard';
 import StockDetailView from './components/StockDetailView';
 
 import SpotModel from './components/SpotModel';
@@ -47,7 +46,7 @@ const App: React.FC = () => {
   const currentProjection = allProjections ? allProjections[ScenarioType.BASE] : null;
 
   const universeData = useMemo(() => {
-    return Object.values(liveTickers).map(t => {
+    return Object.values(liveTickers).map((t: TickerDefinition) => {
       const proj = calculateProjection(t.ticker, ScenarioType.BASE, liveTickers, true);
       const rating = getInstitutionalRating(proj.pricePerShare!, t.currentPrice);
       return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact };
@@ -194,7 +193,6 @@ const App: React.FC = () => {
     return (
       <AnimatePresence mode="wait">
         <SpotModel
-          key="SPOT"
           tickerDef={tickerDef}
           currentProjection={currentProjection}
           allProjections={allProjections}
@@ -210,7 +208,6 @@ const App: React.FC = () => {
     return (
       <AnimatePresence mode="wait">
         <SMCIModel
-          key="SMCI"
           tickerDef={tickerDef}
           currentProjection={currentProjection}
           allProjections={allProjections}

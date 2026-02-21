@@ -23,7 +23,6 @@ export const DASH: StockDefinition = {
   rsRating: 15,
   aiImpact: 'TAILWIND',
   strategicNarrative: "DoorDash is executing well operationally — FCF inflected positive in 2025. However, at $162.70 with an RS Rating of 15, the stock is in a heavy distribution phase. The market is weighing massive growth against near-term multiple compression and gig-economy regulatory risks.",
-  deepDive: [],
   scenarios: {
     revGrowth: {
       [ScenarioType.BEAR]: [0.165, 0.126, 0.112, 0.098, 0.084],
