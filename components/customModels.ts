@@ -1,4 +1,4 @@
-import React, { lazy, ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 import { TickerDefinition, ProjectionData, ScenarioType } from '../types';
 
 /** Props every custom model page receives (same as StockDetailView) */
@@ -21,5 +21,4 @@ export interface CustomModelProps {
  * That's it — App.tsx picks it up automatically.
  */
 export const CUSTOM_MODELS: Record<string, React.LazyExoticComponent<ComponentType<CustomModelProps>>> = {
-  SMCI: lazy(() => import('./SMCIModel')),
 };
