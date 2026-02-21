@@ -21,7 +21,7 @@ interface Props {
   currentProjection: ProjectionData;
   allProjections: Record<ScenarioType, ProjectionData>;
   investmentConclusion: { pwAvg: number; cagr: number };
-  activeStockData: { label: string } | undefined;
+  activeStockData: { label: string; color?: string } | undefined;
   onBack: () => void;
 }
 
@@ -94,15 +94,15 @@ const StockDetailView: React.FC<Props> = ({
             {tickerDef.name.toUpperCase()} {tickerDef.modelType.replace('_', ' ')}
           </div>
           <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
-            {tickerDef.ticker} <span style={{ color: tc }}>2030</span>
+            {tickerDef.ticker}
           </h1>
 
           {/* Key metric chips — icons amber (consistent), border themed */}
           <div className="flex flex-wrap gap-4">
             {[
-              { label: 'Spot',       value: usd(tickerDef.currentPrice),        icon: <TrendingUp className="w-4 h-4 text-amber-500" /> },
-              { label: 'Rating',     value: activeStockData?.label || 'HOLD',    icon: <ShieldCheck className="w-4 h-4 text-amber-500" /> },
-              { label: 'Fair Value', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" /> }
+              { label: 'Spot',       value: usd(tickerDef.currentPrice),          icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+              { label: 'Rating',     value: activeStockData?.label || 'HOLD',      icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
+              { label: 'Fair Value', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' }
             ].map((m, i) => (
               <div
                 key={i}
@@ -113,7 +113,7 @@ const StockDetailView: React.FC<Props> = ({
                 <div className="flex flex-col">
                   {/* amber label — consistent */}
                   <span className="text-amber-500 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
-                  <span className="text-white text-lg font-bold leading-none">{m.value}</span>
+                  <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
                 </div>
               </div>
             ))}

@@ -170,13 +170,11 @@ const App: React.FC = () => {
                   <div className="flex items-center gap-4">
                     <span className="text-3xl lg:text-4xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter leading-none">{stock.ticker}</span>
                   </div>
-                  <div className="flex items-center gap-4 lg:gap-8">
-                    <div className="flex flex-col items-end leading-none gap-1">
-                      <span className={cn("text-[10px] font-black uppercase tracking-widest", stock.color)}>{stock.label}</span>
-                      <span className="text-sm font-bold text-white mono">{stock.fairPriceRange}</span>
-                      <span className="text-[10px] font-black text-blue-400 mono">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
-                    </div>
-                    <div className={cn("w-3 h-3 rounded-full", stock.dot)}></div>
+                  <div className="flex items-center gap-3 lg:gap-5 ml-auto">
+                    <span className={cn("text-[10px] font-black uppercase tracking-widest", stock.color)}>{stock.label}</span>
+                    <span className="text-sm font-bold text-white mono">{stock.fairPriceRange}</span>
+                    <span className="text-[10px] font-black text-blue-400 mono">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
+                    <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
                   </div>
                 </motion.button>
                 );

@@ -30,7 +30,7 @@ const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice }) => {
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">MoS (25%):</span>
-          <span className="text-base font-black text-yellow-500">${mosPrice?.toFixed(2)}</span>
+          <span className="text-base font-black text-slate-300">${mosPrice?.toFixed(2)}</span>
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">WACC:</span>
