@@ -8,16 +8,16 @@ export const DASH: StockDefinition = {
   currentPrice: 179.60,
   fairPriceRange: '$120 - $215',
   active: true,
-  shares0: 416,
+  shares0: 430,
   rev25: 13700,
-  fcfMargin25: 0.038,
+  fcfMargin25: 0.131,
   taxRate: 0.18,
-  cash: 3200,
-  debt: 1100,
+  cash: 4400,
+  debt: 2700,
   beta: 1.60,
   costDebt: 0.048,
   unitLabel: 'Monthly Active Users (M)',
-  unit25: 37,
+  unit25: 56,
   modelType: 'DCF_ADVANCED',
   enhancementLabel: 'Ads & Segment Expansion',
   rsRating: 17,
@@ -72,7 +72,7 @@ export const DASH: StockDefinition = {
         fcfUplift: [0.005, 0.005, 0.01, 0.01, 0.01],
         bbRate: 0.01,
         ebitdaProxy: 0.25,
-        maOptVal: 179.60 * 416 * 0.05
+        maOptVal: 179.60 * 430 * 0.05
       }
     }
   }
