@@ -25,9 +25,14 @@ const FY26_REV_GUIDE    = 15;      // FY2026 revenue growth guide +15%
 // ============================================================
 const RS_SCORE           = 87;     // Relative strength (IBD-style); ENVA.ts rsRating
 const NET_MARGIN         = 11;     // ~11% adj net margin (EPS $11.52 / rev $3.2B)
+const EBIT_MARGIN_LOW    = 22;     // EBIT margin low % (TIKR) — op leverage expanding
+const EBIT_MARGIN_HIGH   = 24;     // EBIT margin high %
+const ROE_LOW            = 25;     // ROE low % — leverage-amplified; high L/E ratio
+const ROE_HIGH           = 28;     // ROE high %
 const SMB_PORTFOLIO_PCT  = 68;     // SMB share of loan portfolio
 const CONS_PORTFOLIO_PCT = 32;     // Consumer share of loan portfolio
 const LEVERAGE_RATIO     = 17.5;   // Debt/equity ~17–18x (normal for non-bank lender)
+const EPS_CAGR_3YR       = 30;     // Historical 3Y EPS CAGR (2 consecutive yrs >30%)
 
 // ============================================================
 // Q4 FY2025 EARNINGS DATA
@@ -325,7 +330,11 @@ export default function ENVAModel() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16, marginBottom: 24 }}>
           <Metric label="Price" value={dollar(CURRENT_PRICE)} accent />
           <Metric label="Mkt Cap" value={"$" + MARKET_CAP + "B"} />
+          {/* Trailing P/E on actual FY25 EPS — computed, not hardcoded */}
+          <Metric label="Trail P/E '25" value={(CURRENT_PRICE / TRAILING_EPS_2025).toFixed(1) + "x"} sub="on '25A actual" />
+          {/* FWD P/E on 2026E and 2027E — shows cheapness progression */}
           <Metric label="FWD P/E '26" value={(CURRENT_PRICE / FORWARD_EPS_2026).toFixed(1) + "x"} accent />
+          <Metric label="FWD P/E '27" value={(CURRENT_PRICE / FORWARD_EPS_2027).toFixed(1) + "x"} sub="on '27E" accent />
           {/* TRAILING_EPS_2025 — FY25 actuals anchor */}
           <Metric label="EPS '25A" value={dollar(TRAILING_EPS_2025)} sub={`FY25 +${FY25.epsGrowth}% YoY`} />
           {/* FORWARD_EPS_2026 — primary forward anchor */}
@@ -485,6 +494,8 @@ export default function ENVAModel() {
                 <Metric small label="O&T" value={"~" + Q4.otPct + "%"} sub="stable" />
                 <Metric small label="G&A" value={Q4.gaLow + "–" + Q4.gaHigh + "%"} sub="ex one-time" />
                 <Metric small label="NR Margin" value={Q4.nrm + "%"} sub="top of range" accent />
+                {/* EBIT_MARGIN_LOW/HIGH — from TIKR, not previously shown */}
+                <Metric small label="EBIT Margin" value={`${EBIT_MARGIN_LOW}–${EBIT_MARGIN_HIGH}%`} sub="op leverage" accent />
               </div>
               <div style={{ marginTop: 10, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                 <div style={{ fontSize: 11, color: C.textMid, lineHeight: 1.6 }}>
@@ -664,9 +675,10 @@ export default function ENVAModel() {
                 <Metric label="Net Income" value={"$" + model.revenue.impliedNI.toFixed(2) + "B"} accent />
               </div>
               <div style={{ marginTop: 14, background: C.blueLight, border: "1px solid #bfdbfe", borderRadius: 8, padding: 14, fontSize: 11, color: C.textMid, lineHeight: 1.6 }}>
-                {/* Q1_26 constants for Q1 guidance */}
+                {/* Q1_26 constants for Q1 guidance; ROE_LOW/HIGH and EPS_CAGR_3YR from TIKR */}
                 <strong style={{ color: C.blue }}>Drivers:</strong> SMB scaling (+{Q4.smbRevYoY}%) = {SMB_PORTFOLIO_PCT}% portfolio, origination leverage, geographic expansion.
                 <strong style={{ color: C.blue }}> Q1'26:</strong> Marketing {Q1_26.marketingGuide}%, NRM {Q1_26.nrmLow}–{Q1_26.nrmHigh}% seasonal. OpEx stable → leverage continues.
+                <br /><strong style={{ color: C.blue }}>Financial engineering:</strong> High leverage (~{LEVERAGE_RATIO}x) amplifies ROE to {ROE_LOW}–{ROE_HIGH}% despite {NET_MARGIN}% net margin. 3Y EPS CAGR {EPS_CAGR_3YR}%+ driven by credit scaling + op leverage, not buybacks.
                 {grasshopperOn && <><br /><strong style={{ color: C.green }}>Grasshopper:</strong> Not in revenue — impacts via funding cost + charter expansion.</>}
               </div>
             </div>
