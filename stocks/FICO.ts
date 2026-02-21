@@ -10,7 +10,7 @@ export const FICO: StockDefinition = {
   active: true,
   shares0: 23.72,
   rev25: 1990,
-  fcfMargin25: 0.507,
+  fcfMargin25: 0.371,
   taxRate: 0.22,
   cash: 218,
   debt: 3200,
@@ -30,9 +30,9 @@ export const FICO: StockDefinition = {
       [ScenarioType.BULL]: [0.18, 0.17, 0.16, 0.14, 0.13]
     },
     fcfMargin: {
-      [ScenarioType.BEAR]: [0.43, 0.43, 0.43, 0.43, 0.43],
-      [ScenarioType.BASE]: [0.507, 0.507, 0.507, 0.507, 0.507],
-      [ScenarioType.BULL]: [0.53, 0.53, 0.53, 0.53, 0.53]
+      [ScenarioType.BEAR]: [0.33, 0.33, 0.33, 0.33, 0.33],
+      [ScenarioType.BASE]: [0.37, 0.37, 0.38, 0.38, 0.38],
+      [ScenarioType.BULL]: [0.38, 0.39, 0.40, 0.40, 0.40]
     },
     termGrowth: {
       [ScenarioType.BEAR]: 0.015,
@@ -51,7 +51,7 @@ export const FICO: StockDefinition = {
     },
     desc: {
       [ScenarioType.BEAR]: 'Mortgage cycle reversal and regulatory headwinds slow growth; multiple compresses to 25x as cyclical tailwind fades.',
-      [ScenarioType.BASE]: 'Platform ARR and Scores pricing sustain ~15% revenue growth; FCF margin holds above 50% with modest buyback support.',
+      [ScenarioType.BASE]: 'Platform ARR and Scores pricing sustain ~15% revenue growth; FCF margin holds near 37-38% with modest buyback support.',
       [ScenarioType.BULL]: 'Mortgage boom, platform NRR expansion, and AI-driven demand for decisioning analytics drive 18%+ growth with multiple re-rating to 32x.'
     },
     drivers: {
@@ -72,7 +72,7 @@ export const FICO: StockDefinition = {
         fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
         bbRate: 0.02,
         ebitdaProxy: 0.35,
-        maOptVal: 1341 * 23.72 * 0.07
+        maOptVal: 1350.45 * 23.72 * 0.07
       }
     }
   }
