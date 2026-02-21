@@ -6,7 +6,7 @@ export const PANW: StockDefinition = {
   sector: 'Cybersecurity',
   themeColor: '#00a3e0',
   // Price ~$149 post Q2 FY2026 earnings sell-off (reported Feb 17, 2026)
-  currentPrice: 149.0,
+  currentPrice: 148.70,
   // Analyst avg price target ~$213–224; maintaining discount for RS/momentum risk
   fairPriceRange: '$160 - $225',
   active: true,

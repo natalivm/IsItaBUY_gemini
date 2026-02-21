@@ -5,7 +5,7 @@ export const FICO: StockDefinition = {
   name: 'Fair Isaac Corp',
   sector: 'Analytics',
   themeColor: '#2979ff',
-  currentPrice: 1341,
+  currentPrice: 1350.45,
   fairPriceRange: '$1,270 - $1,900',
   active: true,
   shares0: 23.72,

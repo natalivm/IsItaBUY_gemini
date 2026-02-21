@@ -5,7 +5,7 @@ export const CLS: StockDefinition = {
   name: 'Celestica Inc.',
   sector: 'EMS',
   themeColor: '#f97316',
-  currentPrice: 284.84,
+  currentPrice: 279.07,
   fairPriceRange: '$150 - $180',
   active: true,
   shares0: 117.9,

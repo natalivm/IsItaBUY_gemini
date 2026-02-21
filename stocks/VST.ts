@@ -5,7 +5,7 @@ export const VST: StockDefinition = {
   name: 'Vistra Corp',
   sector: 'Utilities / Power',
   themeColor: '#facc15',
-  currentPrice: 171.00,
+  currentPrice: 172.50,
   fairPriceRange: '$120 - $240',
   active: true,
   shares0: 339.0,

@@ -5,7 +5,7 @@ export const AVGO: StockDefinition = {
   name: 'Broadcom Inc.',
   sector: 'Semiconductors / Enterprise Software',
   themeColor: '#7c4dff',
-  currentPrice: 335,
+  currentPrice: 332.70,
   fairPriceRange: '$330 - $540',
   active: true,
   shares0: 4700,        // ~4.7B diluted shares (post 10:1 split, July 2024)

@@ -5,7 +5,7 @@ export const NFLX: StockDefinition = {
   name: 'Netflix',
   sector: 'Entertainment',
   themeColor: '#ff007f',
-  currentPrice: 76.87,
+  currentPrice: 78.67,
   fairPriceRange: '$60 - $135',
   active: true,
   shares0: 4222.0,

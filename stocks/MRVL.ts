@@ -5,7 +5,7 @@ export const MRVL: StockDefinition = {
   name: 'Marvell Technology',
   sector: 'Semiconductors',
   themeColor: '#22d3ee',
-  currentPrice: 79.90,
+  currentPrice: 79.44,
   fairPriceRange: '$85 - $135',
   active: true,
   shares0: 833,

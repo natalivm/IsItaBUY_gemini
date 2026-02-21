@@ -5,7 +5,7 @@ export const MNST: StockDefinition = {
   name: 'Monster Beverage Corp',
   sector: 'Consumer Staples / Beverages',
   themeColor: '#22c55e',
-  currentPrice: 83.6,
+  currentPrice: 82.01,
   fairPriceRange: '$60 - $100',
   active: true,
   shares0: 967,

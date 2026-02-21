@@ -5,7 +5,7 @@ export const ITT: StockDefinition = {
   name: 'ITT Inc.',
   sector: 'Diversified Industrials',
   themeColor: '#3b82f6',
-  currentPrice: 202.09,
+  currentPrice: 200.19,
   fairPriceRange: '$180 - $255',
   active: true,
   shares0: 97.9,

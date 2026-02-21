@@ -5,7 +5,7 @@ export const WWD: StockDefinition = {
   name: 'Woodward, Inc.',
   sector: 'Aerospace & Defense',
   themeColor: '#3b82f6',
-  currentPrice: 393,
+  currentPrice: 390.92,
   fairPriceRange: '$290 – $420',
   active: true,
   shares0: 58.5,
