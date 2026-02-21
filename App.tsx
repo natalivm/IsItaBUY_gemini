@@ -5,8 +5,6 @@ import { calculateProjection, getInstitutionalRating } from './services/projecti
 import { TICKERS } from './constants';
 import ScenarioMetricsCard from './components/ScenarioMetricsCard';
 import StockDetailView from './components/StockDetailView';
-import TLNModel from './components/TLNModel';
-import SpotModel from './components/SpotModel';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from './utils';
 
@@ -181,27 +179,7 @@ const App: React.FC = () => {
 
   if (!tickerDef || !allProjections || !currentProjection || !investmentConclusion) return null;
 
-  if (activeTicker === 'TLN') {
-    return <TLNModel onBack={() => setActiveTicker('home')} />;
-  }
-
   const activeStockData = universeData.find(s => s.ticker === tickerDef.ticker);
-
-  if (activeTicker === 'SPOT') {
-    return (
-      <AnimatePresence mode="wait">
-        <SpotModel
-          key="SPOT"
-          tickerDef={tickerDef}
-          currentProjection={currentProjection}
-          allProjections={allProjections}
-          investmentConclusion={investmentConclusion}
-          activeStockData={activeStockData}
-          onBack={() => setActiveTicker('home')}
-        />
-      </AnimatePresence>
-    );
-  }
 
   return (
     <AnimatePresence mode="wait">
