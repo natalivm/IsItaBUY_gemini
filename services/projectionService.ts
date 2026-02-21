@@ -102,21 +102,25 @@ const Processors = {
     const equityVal = sumPVFCF + pvTV - netDebt + maOptionality;
     const pricePerShare = equityVal / shareHistory[4];
 
+    const priceTrajectory = shareHistory.map((_, i) => pricePerShare * (0.85 + 0.03 * i));
+    const cagrValue = (Math.pow(pricePerShare / t.currentPrice, 1 / 5) - 1) * 100;
+    const cumReturnValue = (pricePerShare / t.currentPrice - 1) * 100;
+
     return {
       ticker: t.ticker,
-      years, 
-      revs, 
-      shares: shareHistory, 
-      w, 
+      years,
+      revs,
+      shares: shareHistory,
+      w,
       pricePerShare,
-      ebit: revs.map(r => r * 0.25), 
+      ebit: revs.map(r => r * 0.25),
       netIncome: revs.map(r => r * 0.18),
       fcf: fcfs,
       eps: fcfs.map((f, i) => (f * 1.1) / shareHistory[i]),
-      price: shareHistory.map((_, i) => pricePerShare * (0.85 + 0.03 * i)),
-      priceEnhanced: shareHistory.map((_, i) => pricePerShare * (0.85 + 0.03 * i)),
-      cagrs: shareHistory.map(() => (Math.pow(pricePerShare / t.currentPrice, 1/5) - 1) * 100),
-      cumReturns: shareHistory.map(() => (pricePerShare / t.currentPrice - 1) * 100),
+      price: priceTrajectory,
+      priceEnhanced: priceTrajectory,
+      cagrs: Array(5).fill(cagrValue),
+      cumReturns: Array(5).fill(cumReturnValue),
       fcfYield: fcfs.map((f, i) => (f / shareHistory[i]) / (pricePerShare * 0.8) * 100),
       config: sc,
       mosPrice: pricePerShare * 0.75,

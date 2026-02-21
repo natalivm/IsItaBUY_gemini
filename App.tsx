@@ -35,7 +35,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -51,7 +51,7 @@ const App: React.FC = () => {
       [ScenarioType.BASE]: calculateProjection(activeTicker, ScenarioType.BASE, liveTickers, showEnhancements),
       [ScenarioType.BULL]: calculateProjection(activeTicker, ScenarioType.BULL, liveTickers, showEnhancements),
     };
-  }, [activeTicker, liveTickers, showEnhancements]);
+  }, [activeTicker, liveTickers]);
 
   const currentProjection = allProjections ? allProjections[scenario] : null;
 
@@ -112,17 +112,17 @@ const App: React.FC = () => {
                   key={stock.ticker} 
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: idx * 0.03 }}
+                  transition={{ delay: idx * 0.02 }}
                   onClick={() => setActiveTicker(stock.ticker)} 
                   className="w-full flex items-center justify-between py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left"
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-3xl lg:text-4xl font-black text-slate-500 group-hover:text-white transition-colors tracking-tighter leading-none">{stock.ticker}</span>
+                    <span className="text-3xl lg:text-4xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter leading-none">{stock.ticker}</span>
                   </div>
                   <div className="flex items-center gap-4 lg:gap-8">
                     <div className="flex flex-col items-end leading-none gap-1">
-                      <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{stock.label}</span>
-                      <span className="text-sm font-bold text-slate-300 mono">{stock.fairPriceRange}</span>
+                      <span className={cn("text-[10px] font-black uppercase tracking-widest", stock.color)}>{stock.label}</span>
+                      <span className="text-sm font-bold text-white mono">{stock.fairPriceRange}</span>
                       <span className="text-[10px] font-black text-blue-400 mono">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
                     </div>
                     <div className={cn("w-3 h-3 rounded-full", stock.dot)}></div>
