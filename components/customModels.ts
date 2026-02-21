@@ -21,6 +21,5 @@ export interface CustomModelProps {
  * That's it — App.tsx picks it up automatically.
  */
 export const CUSTOM_MODELS: Record<string, React.LazyExoticComponent<ComponentType<CustomModelProps>>> = {
-  SPOT: lazy(() => import('./SpotModel')),
   SMCI: lazy(() => import('./SMCIModel')),
 };
