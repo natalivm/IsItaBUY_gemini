@@ -88,35 +88,34 @@ const StockDetailView: React.FC<Props> = ({
         </motion.button>
 
         <header className="mb-12 border-b-2 pb-8" style={{ borderColor: tc }}>
-          {/* ── consistent amber label ── */}
-          <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
-            <span className="w-12 h-[2px] bg-amber-500/50" />
+          <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-6 flex items-center gap-3">
+            <span className="w-12 h-[2px] bg-slate-400/40" />
             {tickerDef.name.toUpperCase()} {tickerDef.modelType.replace('_', ' ')}
           </div>
-          <h1 className="text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
-            {tickerDef.ticker}
-          </h1>
-
-          {/* Key metric chips — icons amber (consistent), border themed */}
-          <div className="flex flex-wrap gap-4">
-            {[
-              { label: 'Spot',       value: usd(tickerDef.currentPrice),          icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
-              { label: 'Rating',     value: activeStockData?.label || 'HOLD',      icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
-              { label: 'Fair Value', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' }
-            ].map((m, i) => (
-              <div
-                key={i}
-                className="px-5 py-2 bg-[#0d1630] rounded-lg flex items-center gap-3 border"
-                style={{ borderColor: `${tc}40` }}
-              >
-                {m.icon}
-                <div className="flex flex-col">
-                  {/* amber label — consistent */}
-                  <span className="text-amber-500 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
-                  <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+          <div className="flex items-center gap-8 flex-wrap">
+            <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter flex-shrink-0">
+              {tickerDef.ticker}
+            </h1>
+            {/* Key metric chips — horizontal alongside ticker */}
+            <div className="flex flex-wrap gap-4">
+              {[
+                { label: 'Spot',       value: usd(tickerDef.currentPrice),          icon: <TrendingUp className="w-4 h-4 text-slate-400" />, valueClass: 'text-white' },
+                { label: 'Rating',     value: activeStockData?.label || 'HOLD',      icon: <ShieldCheck className="w-4 h-4 text-slate-400" />, valueClass: activeStockData?.color || 'text-blue-400' },
+                { label: 'Fair Value', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-slate-400" />, valueClass: 'text-white' }
+              ].map((m, i) => (
+                <div
+                  key={i}
+                  className="px-5 py-2 bg-[#0d1630] rounded-lg flex items-center gap-3 border"
+                  style={{ borderColor: `${tc}40` }}
+                >
+                  {m.icon}
+                  <div className="flex flex-col">
+                    <span className="text-slate-400 font-black text-[10px] uppercase tracking-widest leading-none mb-1">{m.label}</span>
+                    <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </header>
 
@@ -136,7 +135,7 @@ const StockDetailView: React.FC<Props> = ({
             </div>
             <div className="text-3xl font-black text-white">{usd(baseTarget)}</div>
             <div className="text-xs text-slate-500 mt-3 flex items-center gap-1.5">
-              Bull Target: <span className="text-amber-500 font-bold">{usd(bullTarget)}</span>
+              Bull Target: <span className="text-slate-300 font-bold">{usd(bullTarget)}</span>
             </div>
           </motion.div>
 
@@ -219,7 +218,7 @@ const StockDetailView: React.FC<Props> = ({
                       {/* RS rating colors — consistent across all pages */}
                       <span className={cn(
                         "text-3xl font-black",
-                        tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-amber-500' : 'text-red-500'
+                        tickerDef.rsRating > 80 ? 'text-green-500' : tickerDef.rsRating > 50 ? 'text-white' : 'text-red-500'
                       )}>{tickerDef.rsRating}</span>
                       <span className="text-[10px] text-slate-600 font-bold mb-1.5">/99</span>
                     </div>
@@ -229,7 +228,7 @@ const StockDetailView: React.FC<Props> = ({
                     {/* AI context badge colors — consistent across all pages */}
                     <div className={cn(
                       "text-[10px] font-black px-2 py-1 rounded border inline-block text-center whitespace-nowrap",
-                      tickerDef.aiImpact === 'TAILWIND' ? 'border-emerald-500 text-emerald-400 bg-emerald-500/10' : 'border-amber-500 text-amber-400 bg-amber-500/10'
+                      tickerDef.aiImpact === 'TAILWIND' ? 'border-emerald-500 text-emerald-400 bg-emerald-500/10' : 'border-slate-500 text-slate-400 bg-slate-500/10'
                     )}>
                       {tickerDef.aiImpact.replace('_', ' ')}
                     </div>
@@ -241,7 +240,7 @@ const StockDetailView: React.FC<Props> = ({
                 <div className="space-y-6">
                   <div className="space-y-4">
                     {/* amber heading — consistent */}
-                    <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] flex items-center gap-2">
+                    <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] flex items-center gap-2">
                       <Info className="w-3 h-3" />
                       Quant Narrative
                     </h3>
@@ -287,7 +286,7 @@ const StockDetailView: React.FC<Props> = ({
               <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: tc }} />
 
               {/* amber label — consistent */}
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 mb-8 mt-1">Model Verdict</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-8 mt-1">Model Verdict</h3>
               <div className="space-y-6">
                 <div className="flex flex-col gap-1 border-b border-slate-800 pb-4">
                   <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">5Y Prob-Weighted CAGR</span>
