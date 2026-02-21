@@ -7,6 +7,7 @@ import ScenarioMetricsCard from './components/ScenarioMetricsCard';
 import StockDetailView from './components/StockDetailView';
 import TLNModel from './components/TLNModel';
 import SpotModel from './components/SpotModel';
+import SMCIModel from './components/SMCIModel';
 
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from './utils';
@@ -210,6 +211,22 @@ const App: React.FC = () => {
       <AnimatePresence mode="wait">
         <SpotModel
           key="SPOT"
+          tickerDef={tickerDef}
+          currentProjection={currentProjection}
+          allProjections={allProjections}
+          investmentConclusion={investmentConclusion}
+          activeStockData={activeStockData}
+          onBack={() => setActiveTicker('home')}
+        />
+      </AnimatePresence>
+    );
+  }
+
+  if (activeTicker === 'SMCI') {
+    return (
+      <AnimatePresence mode="wait">
+        <SMCIModel
+          key="SMCI"
           tickerDef={tickerDef}
           currentProjection={currentProjection}
           allProjections={allProjections}
