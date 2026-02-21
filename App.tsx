@@ -6,7 +6,7 @@ import { TICKERS } from './constants';
 import ScenarioMetricsCard from './components/ScenarioMetricsCard';
 import StockDetailView from './components/StockDetailView';
 
-import SpotModel from './components/SpotModel';
+
 import SMCIModel from './components/SMCIModel';
 
 import { motion, AnimatePresence } from 'motion/react';
@@ -189,22 +189,6 @@ const App: React.FC = () => {
   if (!tickerDef || !allProjections || !currentProjection || !investmentConclusion) return null;
 
   const activeStockData = universeData.find(s => s.ticker === tickerDef.ticker);
-
-  if (activeTicker === 'SPOT') {
-    return (
-      <AnimatePresence mode="wait">
-        <SpotModel
-          key="SPOT"
-          tickerDef={tickerDef}
-          currentProjection={currentProjection}
-          allProjections={allProjections}
-          investmentConclusion={investmentConclusion}
-          activeStockData={activeStockData}
-          onBack={() => setActiveTicker('home')}
-        />
-      </AnimatePresence>
-    );
-  }
 
   if (activeTicker === 'SMCI') {
     return (
