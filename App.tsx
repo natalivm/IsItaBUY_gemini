@@ -94,7 +94,7 @@ const App: React.FC = () => {
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#ff007f_0%,transparent_60%)]"></div>
             </div>
-            <div className="z-10 w-full text-center text-7xl lg:text-9xl font-black text-[#ff007f] tracking-tighter leading-[0.8] animate-pulse uppercase">
+            <div className="z-10 w-full text-center text-[9rem] lg:text-[16rem] font-black text-[#ff007f] tracking-tighter leading-[0.8] animate-pulse uppercase">
               IS IT<br />A<br />BUY?
             </div>
           </motion.div>
@@ -117,7 +117,7 @@ const App: React.FC = () => {
                       key={tag}
                       onClick={() => setActiveTagFilter(isActive ? null : tag)}
                       className={cn(
-                        "flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-black uppercase tracking-widest transition-all duration-200",
+                        "flex items-center gap-2 px-4 py-2.5 rounded-full border text-[20px] font-black uppercase tracking-widest transition-all duration-200",
                         isActive
                           ? `${activeBorder} ${activeBg} ${color}`
                           : "border-slate-700/60 text-slate-500 hover:border-slate-500 hover:text-slate-400"
@@ -126,7 +126,7 @@ const App: React.FC = () => {
                       <span className={cn("w-1.5 h-1.5 rounded-full flex-shrink-0", isActive ? dot : 'bg-slate-600')}></span>
                       {label}
                       <span className={cn(
-                        "font-mono text-[9px] px-1.5 py-0.5 rounded",
+                        "font-mono text-[18px] px-2.5 py-1 rounded",
                         isActive ? `${activeBg} ${color}` : 'bg-slate-800 text-slate-500'
                       )}>
                         {count}
@@ -137,9 +137,9 @@ const App: React.FC = () => {
                 {activeTagFilter && (
                   <button
                     onClick={() => setActiveTagFilter(null)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700/60 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-slate-300 hover:border-slate-500 transition-all duration-200"
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-slate-700/60 text-[20px] font-black uppercase tracking-widest text-slate-500 hover:text-slate-300 hover:border-slate-500 transition-all duration-200"
                   >
-                    <span className="text-[10px]">✕</span> CLEAR
+                    <span className="text-[20px]">✕</span> CLEAR
                   </button>
                 )}
               </div>
@@ -157,16 +157,16 @@ const App: React.FC = () => {
                   transition={{ delay: idx * 0.02 }}
                   onClick={() => setActiveTicker(stock.ticker)}
                   className={cn(
-                    "w-full flex items-center gap-4 py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left",
+                    "w-full flex items-center gap-6 py-6 px-6 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left",
                     isTagMatch ? "bg-white/[0.03]" : ""
                   )}
                 >
-                  <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
-                  <span className="text-2xl lg:text-3xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter w-28 flex-shrink-0">{stock.ticker}</span>
-                  <span className="text-base font-bold text-blue-400 mono w-24 flex-shrink-0">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
-                  <span className={cn("text-xs font-black uppercase tracking-widest w-28 flex-shrink-0", stock.color)}>{stock.label}</span>
-                  <span className="text-sm font-bold text-slate-300 mono border border-slate-600 rounded px-1.5 py-0.5 flex-shrink-0">RS {liveTickers[stock.ticker].rsRating}</span>
-                  <span className="text-sm font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
+                  <div className={cn("w-5 h-5 rounded-full flex-shrink-0", stock.dot)}></div>
+                  <span className="text-5xl lg:text-6xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter w-56 flex-shrink-0">{stock.ticker}</span>
+                  <span className="text-[32px] font-bold text-blue-400 mono w-48 flex-shrink-0">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
+                  <span className={cn("text-2xl font-black uppercase tracking-widest w-56 flex-shrink-0", stock.color)}>{stock.label}</span>
+                  <span className="text-[28px] font-bold text-slate-300 mono border border-slate-600 rounded px-3 py-1 flex-shrink-0">RS {liveTickers[stock.ticker].rsRating}</span>
+                  <span className="text-[28px] font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
                 </motion.button>
                 );
               })}
