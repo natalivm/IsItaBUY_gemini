@@ -8,12 +8,12 @@ export const APH: StockDefinition = {
   currentPrice: 147.7,
   fairPriceRange: '$77 - $290',
   active: true,
-  shares0: 1360,           // 1.36B shares
+  shares0: 1278,           // FY25 diluted WA ~1.278B (net income $4.27B / GAAP diluted EPS $3.34)
   rev25: 23100,             // FY25 revenue $23.1B
   fcfMargin25: 0.19,        // FY25 FCF $4.4B / Rev $23.1B ≈ 19%
   taxRate: 0.255,           // 25.5% adj tax rate
-  cash: 3000,               // Estimated cash ~$3B
-  debt: 7100,               // Net debt $4.1B → estimated gross debt ~$7.1B
+  cash: 4000,               // Post-CCS cash ~$4B (pre-CCS $11.4B less $10.5B acquisition + $3.1B term loans)
+  debt: 18700,              // Post-CCS debt ~$18.7B (pre-CCS $15.5B + $3.1B term loans); net debt ~$14.7B
   beta: 1.25,
   costDebt: 0.055,
   unitLabel: 'Orders ($B)',
@@ -26,7 +26,7 @@ export const APH: StockDefinition = {
   strategicNarrative:
     "Post FY2025 — Revenue $23.1B (+38% organic), adj EPS $3.34 (+77%), FCF $4.4B, adj op margin 26.2%. " +
     "IT Datacom (AI) now 36% of revenue. Q4 book-to-bill 1.31x, FY25 orders $25.4B. " +
-    "CCS acquisition adds ~$4.1B revenue and ~$0.15 EPS in 2026. Net debt $4.1B, leverage ~1.8x pro forma. " +
+    "CCS acquisition adds ~$4.1B revenue and ~$0.15 EPS in 2026. Post-CCS net debt ~$14.7B, leverage ~1.8x pro forma. " +
     "Trailing P/E 44.2x — premium justified only if AI-driven EPS growth sustains 15%+ CAGR. " +
     "Key risk: multiple compression from 44x to historical trough ~22x would mean ~50% haircut. " +
     "Quality anchors: diversified end-markets, 1.31x book-to-bill, +52% dividend raise, strong RS 91.",
@@ -106,7 +106,7 @@ export const APH: StockDefinition = {
         fcfUplift: [0.01, 0.01, 0.01, 0.015, 0.015],
         bbRate: 0.015,
         ebitdaProxy: 0.28,
-        maOptVal: 147.7 * 1360 * 0.07,
+        maOptVal: 147.7 * 1278 * 0.07,
       },
     },
   },
