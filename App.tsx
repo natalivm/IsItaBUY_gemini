@@ -40,9 +40,10 @@ const GROUP_META: Record<StockGroup, { label: string; accent: string; border: st
 };
 
 const TAG_DEFS = [
-  { tag: 'STRONG BUY', label: 'STRONG BUY', color: 'text-green-400', activeBorder: 'border-green-500', activeBg: 'bg-green-500/10', dot: 'bg-green-500' },
-  { tag: 'HOLD',       label: 'HOLD',        color: 'text-blue-400',  activeBorder: 'border-blue-500',  activeBg: 'bg-blue-500/10',  dot: 'bg-blue-500'  },
-  { tag: 'AVOID',      label: 'AVOID',       color: 'text-red-400',   activeBorder: 'border-red-500',   activeBg: 'bg-red-500/10',   dot: 'bg-red-500'   },
+  { tag: 'STRONG BUY', label: 'STRONG BUY', color: 'text-green-400',   activeBorder: 'border-green-500',   activeBg: 'bg-green-500/10',   dot: 'bg-green-500'   },
+  { tag: 'BUY',        label: 'BUY',         color: 'text-emerald-400', activeBorder: 'border-emerald-400', activeBg: 'bg-emerald-400/10', dot: 'bg-emerald-400' },
+  { tag: 'HOLD',       label: 'HOLD',        color: 'text-blue-400',    activeBorder: 'border-blue-500',    activeBg: 'bg-blue-500/10',    dot: 'bg-blue-500'    },
+  { tag: 'AVOID',      label: 'AVOID',       color: 'text-red-400',     activeBorder: 'border-red-500',     activeBg: 'bg-red-500/10',     dot: 'bg-red-500'     },
   { tag: 'TAILWIND',         label: 'AI TAILWIND', color: 'text-emerald-400', activeBorder: 'border-emerald-500', activeBg: 'bg-emerald-500/10', dot: 'bg-emerald-500' },
   { tag: 'DISRUPTION_RISK',  label: 'AI RISK',     color: 'text-orange-400',  activeBorder: 'border-orange-500',  activeBg: 'bg-orange-500/10',  dot: 'bg-orange-500'  },
 ] as const;
@@ -54,11 +55,11 @@ const SPLASH_DURATION_MS = 3000;
 function classifyStock(t: TickerDefinition, rating: string, rsRating: number): StockGroup {
   const marketCapM = t.currentPrice * t.shares0;
   const isLargeCap = marketCapM >= 10_000;
-  const isStrongBuy = rating === 'STRONG BUY';
+  const isBuyOrAbove = rating === 'STRONG BUY' || rating === 'BUY';
   const hasGoodMomentum = rsRating >= 70;
 
-  if (isLargeCap && isStrongBuy && hasGoodMomentum) return 'PRIME_GROWTH';
-  if (!isLargeCap && isStrongBuy && hasGoodMomentum) return 'TURBO_GROWTH';
+  if (isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'PRIME_GROWTH';
+  if (!isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'TURBO_GROWTH';
   return 'WATCH_LIST';
 }
 

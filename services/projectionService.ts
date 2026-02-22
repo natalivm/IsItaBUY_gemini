@@ -32,24 +32,34 @@ const EBITDA_MARGIN_FALLBACK_MULT = 1.5;
 // Margin of safety
 const MOS_DISCOUNT = 0.75;
 
-// Rating thresholds
-const STRONG_BUY_UPLIFT = 30;
-const AVOID_DOWNSIDE_RATIO = 0.96;
+// Rating thresholds (percentage-based)
+const STRONG_BUY_UPSIDE = 0.30;   // >30% upside
+const BUY_UPSIDE = 0.15;          // >15% upside
+const AVOID_DOWNSIDE_RATIO = 0.96; // <96% of spot = overvalued
 
 const ZERO_ARRAY: number[] = [0, 0, 0, 0, 0];
 
 // ── Rating Logic ──
 
 export const getInstitutionalRating = (target: number, spot: number) => {
-  const uplift = target - spot;
+  const upsidePct = (target - spot) / spot;
   const downsideRatio = target / spot;
 
-  if (uplift > STRONG_BUY_UPLIFT) {
+  if (upsidePct > STRONG_BUY_UPSIDE) {
     return {
       label: 'STRONG BUY',
       status: 'undervalued' as const,
       color: 'text-green-500',
       dot: 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]'
+    };
+  }
+
+  if (upsidePct > BUY_UPSIDE) {
+    return {
+      label: 'BUY',
+      status: 'undervalued' as const,
+      color: 'text-emerald-400',
+      dot: 'bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]'
     };
   }
 

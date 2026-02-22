@@ -57,6 +57,22 @@ const InvestmentVerdict: React.FC<Props> = ({
       return `Our model assigns ${ticker} a STRONG BUY rating. The base-case target of ${baseTarget} implies ${upside}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports a compelling risk/reward. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`;
     }
 
+    if (activeStockData?.label === 'BUY') {
+      if (rsVeryLow) {
+        return `Our model assigns ${ticker} a BUY rating — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} supports a favorable risk/reward profile. However, RS ${rs} reflects severe institutional distribution. The fundamental case is solid, but the technical structure needs repair. Consider a small starter position (15–20% of intended size) and scale in as RS recovers above 30–40. Patience here will be rewarded — let the base form before committing full capital.`;
+      }
+      if (rsLow) {
+        return `Our model assigns ${ticker} a BUY rating — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} presents attractive long-term risk/reward. RS ${rs} signals weak momentum, suggesting a phased entry strategy: build the position in 2–3 tranches as RS recovers above 40–50. The ${cagr} probability-weighted CAGR is compelling, but scaling in with technical confirmation reduces drawdown risk.`;
+      }
+      if (rsOverextended) {
+        return `Our model assigns ${ticker} a BUY rating — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} supports the thesis. However, RS ${rs} is in overextended territory where pullbacks are common. Consider waiting for a 5–10% pullback or consolidation to establish new positions at better risk/reward. Existing holders should maintain, but avoid adding at the current stretched level. The ${cagr} CAGR is attractive at a better entry.`;
+      }
+      if (rsStrong) {
+        return `Our model assigns ${ticker} a BUY rating. The base-case target of ${baseTarget} implies ${upside}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports favorable risk/reward. RS ${rs} confirms strong institutional accumulation — momentum aligns with fundamentals. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup supports building a position at current levels.`;
+      }
+      return `Our model assigns ${ticker} a BUY rating. The base-case target of ${baseTarget} implies ${upside}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports favorable risk/reward. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the fundamentals support building a position.`;
+    }
+
     if (activeStockData?.label === 'AVOID') {
       if (rsOverextended) {
         return `Our model flags ${ticker} as AVOID. The base-case target of ${baseTarget} shows limited upside from ${spot}, and RS ${rs} signals the stock is overextended in the top decile of momentum. This combination of stretched valuation and stretched technicals creates elevated downside risk — a pullback from these levels is likely. Avoid new positions and consider trimming existing exposure.`;
@@ -129,16 +145,19 @@ const InvestmentVerdict: React.FC<Props> = ({
           <div className={cn(
             "text-6xl lg:text-7xl font-black tracking-tighter leading-none",
             activeStockData?.label === 'STRONG BUY' ? 'text-green-400' :
+            activeStockData?.label === 'BUY' ? 'text-emerald-400' :
             activeStockData?.label === 'AVOID' ? 'text-red-400' :
             'text-blue-400'
           )}>
             {activeStockData?.label === 'STRONG BUY' ? 'YES' :
+             activeStockData?.label === 'BUY' ? 'YES' :
              activeStockData?.label === 'AVOID' ? 'NO' :
              'HOLD'}
           </div>
           <div className={cn(
             "text-[10px] font-black uppercase tracking-widest mt-1",
             activeStockData?.label === 'STRONG BUY' ? 'text-green-500/70' :
+            activeStockData?.label === 'BUY' ? 'text-emerald-500/70' :
             activeStockData?.label === 'AVOID' ? 'text-red-500/70' :
             'text-blue-500/70'
           )}>
