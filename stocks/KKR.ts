@@ -6,7 +6,7 @@ export const KKR = defineStock({
   sector: 'Alternative Asset Mgmt',
   themeColor: '#7c3aed',
   currentPrice: 100.5,
-  fairPriceRange: '$78 - $174',
+  fairPriceRange: '$100 - $186',
   shares0: 897,
   rev25: 7650,
   fcfMargin25: 0.85,
@@ -15,31 +15,32 @@ export const KKR = defineStock({
   debt: 55100,
   beta: 1.55,
   costDebt: 0.052,
-  baseEps: 6.58,
-  unitLabel: 'ANI Per Share',
-  unit25: 5.05,
+  baseEps: 6.74,
+  unitLabel: 'DE Per Share',
+  unit25: 5.57,
   modelType: 'EPS_PE',
-  enhancementLabel: 'Cycle Recovery + AUM Growth',
+  enhancementLabel: 'Cycle Recovery + Fee Growth + Insurance',
   rsRating: 16,
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Category B — cyclical growth with structural trend elements. " +
-    "KKR is an alternative asset manager: management fees are stable, but performance fees/carry are deeply cyclical. " +
-    "At $100.5, stock is adequately valued on forward earnings (P/E ~15-16x on 2026E EPS $6.58). " +
-    "Trailing GAAP EPS $2.34 reflects 2025 cyclical trough (revenue -20% YoY, EPS -15%). " +
+    "KKR is an alternative asset manager: management fees stable, performance fees/carry deeply cyclical. " +
+    "Valuation anchored on Distributable Earnings (DE): 2026E $6.74, 2027E $8.16, 2028E $9.88/share (~21% CAGR through 2028). " +
+    "At $100.5, stock trades at ~15x 2026E DE — adequately valued on forward basis. " +
+    "Dividend yield ~1% ($0.79/share 2026E), growing ~6.5%/yr — not the driver; DE growth + terminal multiple is what matters. " +
+    "Feb 2026 earnings call strengthens Base/Bull: mgmt fees +22-24% YoY, FRE margin high, " +
+    "insurance accrued income as hidden catalyst for 2027-28, monetization visibility ~$900M. " +
+    "DE-based IRR: Bear 6.6%, Base 13.8%, Bull 18.2%. Stress test (0% growth post-2028, 15x) still yields 8.8% IRR. " +
     "Soft moat: brand, institutional access, deal flow, AUM scale — no hard technological barrier. " +
-    "Growth tied to liquidity cycle, interest rate cycle, and exit environment. " +
-    "Revenue CAGR ~25% (2023-2026E); EPS growth volatile, normalized ~20-25%. " +
-    "ROE cyclical: 18% -> 11% -> 10-14%. Not smooth compounding — history is +40%, -30%, +50%, -20%. " +
-    "Probability of 15%+ CAGR: ~35-40%. Requires full cycle recovery (AUM growth + exit market normalization + carry return). " +
-    "RS 16 — weak relative strength, institutional demand absent, negative momentum. Not a market leader now. " +
-    "Stress test: P/E to 12x -> price ~$78 (-22%). Revenue growth halved -> low double-digit story at best. " +
-    "Bottom line: instrument for playing private capital recovery, not a lifetime compounder. Accumulate only with cycle conviction.",
+    "RS 16 — weak relative strength, negative momentum. Not a market leader now. " +
+    "Probability of 15%+ IRR: ~30-35%. Earnings call tilts probability toward Base/Bull but Bear doesn't disappear. " +
+    "Bottom line: instrument for playing private capital recovery. DE visibility through 2028 is strong; " +
+    "post-2028 execution and cycle are the key unknowns. Not a lifetime compounder.",
 
   revGrowth: [
-    [0.03, 0.02, 0.01, 0.00, 0.00],
-    [0.12, 0.10, 0.09, 0.08, 0.07],
-    [0.18, 0.16, 0.14, 0.12, 0.10],
+    [0.06, 0.04, 0.02, 0.00, 0.00],
+    [0.15, 0.12, 0.10, 0.09, 0.08],
+    [0.22, 0.18, 0.15, 0.12, 0.10],
   ],
   fcfMargin: [
     [0.70, 0.68, 0.65, 0.63, 0.60],
@@ -48,26 +49,28 @@ export const KKR = defineStock({
   ],
   exitMultiple: [10, 14, 18],
   desc: [
-    'Prolonged weak exit market + lower for longer rates. M&A/exits frozen, carry absent. ' +
-    'Revenue growth stalls, EPS CAGR ~5% -> 2031E EPS ~$8.4. ' +
-    'Market compresses P/E to historical minimum 12x -> target ~$100. ' +
-    'CAGR ~0% from current price. Downside to ~$78 if P/E hits 12x on trailing EPS. ' +
-    'Not bankruptcy risk — strong balance sheet — but dead money for years.',
-    'Normalized cycle: AUM growth resumes, moderate exit activity, carry partially returns. ' +
-    'Revenue CAGR ~25% (2023-2026E) normalizes to ~9%. EPS CAGR ~12% -> 2031E EPS ~$11.6. ' +
-    'Market assigns fair cyclical growth P/E of 15x -> target ~$174. ' +
-    'CAGR ~11-12% from $100.5. Adequate but not exceptional. ' +
-    'Requires no heroic assumptions — just normalization of capital markets.',
-    'Full cycle recovery: liquidity cycle turns, exit market booms, carry returns in force. ' +
-    'AUM + fee income compound strongly. EPS CAGR ~18% -> 2031E EPS ~$15. ' +
-    'Market rewards structural AUM growth + execution with 18x P/E -> target ~$270. ' +
-    'CAGR ~21-22% from $100.5. Requires: (1) AUM growth, (2) exit market normalization, (3) carry return. ' +
-    'This is a bet on cycle + execution, not a structural megatrend.',
+    'Post-2028 DE growth slows to +6%/yr. Exit market stays weak, carry remains depressed. ' +
+    'DE 2030E ~$11.10/share × 12x exit = target ~$133. Dividends add ~$4.50 cumulative. ' +
+    'IRR ~6.6%/yr from $100.5. Not catastrophic — strong balance sheet, no bankruptcy risk — ' +
+    'but significantly below cost of capital. Stress test: 0% DE growth post-2028 at 15x still gives $148 (IRR 8.8%). ' +
+    'Downside is bounded but upside is capped. Dead money scenario.',
+    'Normalized cycle: AUM growth resumes, moderate exits, carry partially returns. ' +
+    'DE path: $6.74 -> $8.16 -> $9.88 (TIKR visible), then +12%/yr post-2028. DE 2030E ~$12.39. ' +
+    'Exit multiple 15x on DE -> target ~$186. Dividends add ~$4.50 cumulative. ' +
+    'IRR ~13.8%/yr from $100.5. Solid but just under 15% threshold. ' +
+    'Feb 2026 call supports this: mgmt fees +22-24%, FRE margin high, insurance accrued income as 2027-28 catalyst. ' +
+    'No heroic assumptions — just normalization of capital markets.',
+    'Full cycle recovery + structural fee growth. Insurance integration and private wealth channel accelerate. ' +
+    'DE path: $6.74 -> $8.16 -> $9.88, then +16%/yr. DE 2030E ~$13.29. ' +
+    'Exit multiple 17x on DE -> target ~$226. Dividends add ~$4.50 cumulative. ' +
+    'IRR ~18.2%/yr from $100.5. Requires: (1) AUM growth sustained, (2) exit market normalization, ' +
+    '(3) carry return, (4) insurance accrued income materializes. ' +
+    'Earnings call visibility ($900M monetizations) supports but doesn\'t guarantee this path.',
   ],
 
-  epsCagr: [5, 12, 18],
-  exitPE: [12, 15, 18],
-  prob: [30, 45, 25],
+  epsCagr: [10, 13, 15],
+  exitPE: [12, 15, 17],
+  prob: [25, 45, 30],
 
   bbRate: [0.005, 0.01, 0.02],
   ebitdaProxy: [0.10, 0.18, 0.30],

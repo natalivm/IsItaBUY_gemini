@@ -7,6 +7,7 @@ import StockDetailView from './components/StockDetailView';
 
 import { motion, AnimatePresence } from 'motion/react';
 import { cn, rsRatingStyle } from './utils';
+import { fetchLivePrices } from './services/yahooFinanceService';
 
 // ── Types & Constants ──
 
@@ -67,6 +68,7 @@ const LoadingSplash: React.FC = () => (
   <motion.div
     key="loader"
     exit={{ opacity: 0 }}
+    transition={{ duration: 0.15 }}
     className="min-h-screen bg-[#0a1128] flex flex-col items-center justify-center p-12 lg:p-24 overflow-hidden"
   >
     <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -166,6 +168,20 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), SPLASH_DURATION_MS);
+
+    // Fetch live prices from Yahoo Finance and update ONLY currentPrice.
+    // rsRating, strategicNarrative, and all other fields are preserved
+    // exactly as defined in the stock data files.
+    const tickerIds = Object.keys(TICKERS);
+    fetchLivePrices(tickerIds).then(livePrices => {
+      if (Object.keys(livePrices).length === 0) return;
+      for (const id of tickerIds) {
+        if (typeof livePrices[id] === 'number') {
+          TICKERS[id] = { ...TICKERS[id], currentPrice: livePrices[id] };
+        }
+      }
+    });
+
     return () => clearTimeout(timer);
   }, []);
 

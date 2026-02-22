@@ -5,8 +5,8 @@ export const FTNT = defineStock({
   name: 'Fortinet',
   sector: 'Cybersecurity',
   themeColor: '#06b6d4',
-  currentPrice: 80.00,
-  fairPriceRange: '$75 - $135',
+  currentPrice: 80,
+  fairPriceRange: '$70 - $105',
   shares0: 743.6,
   rev25: 6800,
   fcfMargin25: 0.325,
@@ -20,9 +20,8 @@ export const FTNT = defineStock({
   enhancementLabel: 'ASIC Advantage',
   rsRating: 27,
   aiImpact: 'NEUTRAL',
-  strategicNarrative: "Losing the competitive tape. RS 27 reflects the stock's failure to capture any meaningful institutional interest relative to SASE peers. Their ASIC advantage is ignored as the market favors software-centric cloud winners. In a clear distribution trend.",
+  strategicNarrative: "Fairly valued at current levels. FTNT's ASIC-driven SASE platform offers solid fundamentals, but the stock's RS 27 signals limited near-term institutional momentum. Upside exists if SASE adoption accelerates, but multiple expansion requires proof of sustained competitive gains vs cloud-native peers. Hold for existing positions; wait for a better entry point.",
 
-  // ── Scenarios ──
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],
     [0.12, 0.11, 0.10, 0.09, 0.08],
@@ -33,8 +32,9 @@ export const FTNT = defineStock({
     0.325,
     0.37375,
   ],
-  exitMultiple: [12, 16, 19],
-  bullMaOptVal: 85.56 * 743.6 * 0.07,
+  exitMultiple: [15, 28, 35],
+  bullMaOptVal: 80 * 743.6 * 0.07,
+  ebitdaProxy: [0.18, 0.26, 0.38],
 
   desc: [
     'Economic headwinds leading to multiple compression and slower growth.',

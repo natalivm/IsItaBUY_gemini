@@ -7,12 +7,12 @@ export const APH = defineStock({
   themeColor: '#38bdf8',
   currentPrice: 147.7,
   fairPriceRange: '$77 - $290',
-  shares0: 1360,
+  shares0: 1278,
   rev25: 23100,
   fcfMargin25: 0.19,
   taxRate: 0.255,
-  cash: 3000,
-  debt: 7100,
+  cash: 4000,
+  debt: 18700,
   beta: 1.25,
   costDebt: 0.055,
   unitLabel: 'Orders ($B)',
@@ -25,7 +25,7 @@ export const APH = defineStock({
   strategicNarrative:
     "Post FY2025 — Revenue $23.1B (+38% organic), adj EPS $3.34 (+77%), FCF $4.4B, adj op margin 26.2%. " +
     "IT Datacom (AI) now 36% of revenue. Q4 book-to-bill 1.31x, FY25 orders $25.4B. " +
-    "CCS acquisition adds ~$4.1B revenue and ~$0.15 EPS in 2026. Net debt $4.1B, leverage ~1.8x pro forma. " +
+    "CCS acquisition adds ~$4.1B revenue and ~$0.15 EPS in 2026. Post-CCS net debt ~$14.7B, leverage ~1.8x pro forma. " +
     "Trailing P/E 44.2x — premium justified only if AI-driven EPS growth sustains 15%+ CAGR. " +
     "Key risk: multiple compression from 44x to historical trough ~22x would mean ~50% haircut. " +
     "Quality anchors: diversified end-markets, 1.31x book-to-bill, +52% dividend raise, strong RS 91.",

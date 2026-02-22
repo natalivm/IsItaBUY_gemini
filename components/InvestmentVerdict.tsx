@@ -25,12 +25,60 @@ const InvestmentVerdict: React.FC<Props> = ({
 }) => {
   const tc = tickerDef.themeColor;
   const { momentumUpside, timeToTarget, probAcceleration } = metrics;
+  const rs = tickerDef.rsRating;
 
-  const defaultNarrative = activeStockData?.label === 'STRONG BUY'
-    ? `Our DCF model assigns ${tickerDef.ticker} a STRONG BUY rating. The base-case target of ${usd(allProjections.base.pricePerShare)} implies ${momentumUpside.toFixed(1)}% upside from spot, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} supports a compelling risk/reward. With a ${pctFmt(investmentConclusion.cagr / 100)} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`
-    : activeStockData?.label === 'AVOID'
-    ? `Our DCF model flags ${tickerDef.ticker} as AVOID. The base-case target of ${usd(allProjections.base.pricePerShare)} shows limited upside from the current spot of ${usd(tickerDef.currentPrice)}, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} does not justify entry risk at this price. Risk/reward is unfavorable — consider waiting for a better entry or allocating capital elsewhere.`
-    : `Our DCF model rates ${tickerDef.ticker} as a HOLD. The base-case target of ${usd(allProjections.base.pricePerShare)} offers moderate upside from ${usd(tickerDef.currentPrice)}, and the probability-weighted blended value of ${usd(investmentConclusion.pwAvg)} suggests fair valuation. Existing holders may stay the course, while new entrants should wait for a more attractive entry point or a catalyst to shift the risk/reward in their favor.`;
+  // RS tiers: very low (<15), low (15-39), neutral (40-79), strong (80-90), overextended (>90)
+  const rsVeryLow = rs < 15;
+  const rsLow = rs >= 15 && rs < 40;
+  const rsStrong = rs >= 80 && rs <= 90;
+  const rsOverextended = rs > 90;
+
+  const buildNarrative = () => {
+    const ticker = tickerDef.ticker;
+    const baseTarget = usd(allProjections.base.pricePerShare);
+    const pwBlended = usd(investmentConclusion.pwAvg);
+    const spot = usd(tickerDef.currentPrice);
+    const cagr = pctFmt(investmentConclusion.cagr / 100);
+    const upside = momentumUpside.toFixed(1);
+
+    if (activeStockData?.label === 'STRONG BUY') {
+      if (rsVeryLow) {
+        return `Our model assigns ${ticker} a STRONG BUY on fundamentals — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} is compelling on paper. However, RS ${rs} reflects severe institutional distribution and a broken technical structure. At this level, even fundamentally sound names can take quarters to base and repair. Do not rush to build a full position — wait for RS to recover above 30 and a visible base pattern to form before committing meaningful capital. A small starter position (10–15% of intended size) is acceptable for conviction holders, with the remainder reserved for confirmation of trend reversal.`;
+      }
+      if (rsLow) {
+        return `Our model assigns ${ticker} a STRONG BUY on fundamentals — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} supports compelling long-term risk/reward. However, RS ${rs} signals a sustained downtrend and weak institutional momentum. This fundamental/technical divergence suggests phased accumulation rather than a full position: consider building in 3–4 tranches, scaling in as RS recovers above 40–50 to confirm institutional re-engagement. The ${cagr} probability-weighted CAGR rewards patience, but catching a falling knife at full size is unnecessary when you can let price action confirm the thesis.`;
+      }
+      if (rsOverextended) {
+        return `Our model assigns ${ticker} a STRONG BUY on fundamentals — the base-case target of ${baseTarget} implies ${upside}% upside, and the probability-weighted value of ${pwBlended} supports the thesis. That said, RS ${rs} indicates the stock is in the top decile of momentum — historically a zone where mean reversion risk is elevated. Consider waiting for a 10–15% pullback or consolidation before establishing new positions, or use limit orders below current levels. Existing holders should maintain positions but avoid chasing the extended move. The ${cagr} CAGR is attractive, but entry price discipline matters when momentum is stretched.`;
+      }
+      if (rsStrong) {
+        return `Our model assigns ${ticker} a STRONG BUY rating. The base-case target of ${baseTarget} implies ${upside}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports a compelling risk/reward. RS ${rs} confirms strong institutional accumulation — momentum and fundamentals are aligned. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`;
+      }
+      return `Our model assigns ${ticker} a STRONG BUY rating. The base-case target of ${baseTarget} implies ${upside}% upside from spot, and the probability-weighted blended value of ${pwBlended} supports a compelling risk/reward. With a ${cagr} probability-weighted 5-year CAGR and a ${probAcceleration}% composite acceleration score, the setup favors buyers at current levels.`;
+    }
+
+    if (activeStockData?.label === 'AVOID') {
+      if (rsOverextended) {
+        return `Our model flags ${ticker} as AVOID. The base-case target of ${baseTarget} shows limited upside from ${spot}, and RS ${rs} signals the stock is overextended in the top decile of momentum. This combination of stretched valuation and stretched technicals creates elevated downside risk — a pullback from these levels is likely. Avoid new positions and consider trimming existing exposure.`;
+      }
+      return `Our model flags ${ticker} as AVOID. The base-case target of ${baseTarget} shows limited upside from the current spot of ${spot}, and the probability-weighted blended value of ${pwBlended} does not justify entry risk at this price. Risk/reward is unfavorable — consider waiting for a better entry or allocating capital elsewhere.`;
+    }
+
+    // HOLD cases
+    if (rsVeryLow) {
+      return `Our model rates ${ticker} as a HOLD. The base-case target of ${baseTarget} offers moderate upside from ${spot}, but RS ${rs} signals severe technical damage — the stock is in deep distribution with no visible floor. The probability-weighted value of ${pwBlended} suggests long-term potential, but do not add to positions until RS recovers above 30 and a base pattern forms. Existing holders should assess conviction: if the thesis is intact, hold with a tight mental stop; otherwise, use rallies to reduce exposure.`;
+    }
+    if (rsLow) {
+      return `Our model rates ${ticker} as a HOLD. The base-case target of ${baseTarget} offers moderate upside from ${spot}, but RS ${rs} indicates technical weakness that may delay convergence to fair value. The probability-weighted value of ${pwBlended} suggests reasonable long-term potential, but momentum headwinds warrant caution. Wait for RS to stabilize above 40 before adding, or use weakness to dollar-cost-average into a starter position.`;
+    }
+    if (rsOverextended) {
+      return `Our model rates ${ticker} as a HOLD at fair value, but RS ${rs} indicates the stock is overextended — trading in the top decile of momentum where mean reversion is common. New entries at this level carry poor risk/reward: limited fundamental upside combined with elevated pullback probability. Wait for a 10–15% correction to improve the entry, or set limit orders below spot. Existing holders may hold but should avoid adding at current levels.`;
+    }
+
+    return `Our model rates ${ticker} as a HOLD. The base-case target of ${baseTarget} offers moderate upside from ${spot}, and the probability-weighted blended value of ${pwBlended} suggests fair valuation. Existing holders may stay the course, while new entrants should wait for a more attractive entry point or a catalyst to shift the risk/reward in their favor.`;
+  };
+
+  const defaultNarrative = buildNarrative();
 
   const defaultMetrics = [
     {
