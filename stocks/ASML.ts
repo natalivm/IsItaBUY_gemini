@@ -19,6 +19,7 @@ export const ASML = defineStock({
   baseEps: 45.21,
   rsRating: 96,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "ASML is the highest-quality company in semiconductors — sole EUV supplier with a structural monopoly that's deepening (High-NA, multi-beam inspection, installed base upgrades). " +
     "Record Q4 bookings €13.2B, €38.8B backlog, AI-driven advanced node demand (4nm→2nm), and €12B buyback provide multi-year visibility. " +

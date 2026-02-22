@@ -17,6 +17,7 @@ export const NFLX = defineStock({
   costDebt: 0.052,
   rsRating: 13,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Netflix is a structural compounder — scale, brand, global distribution, and a nascent ads business doubling to ~$3B in 2026 give it compounding levers few media companies possess. " +
     "2026E guide: $51B revenue (+14%), 31.5% op margin (+2pp YoY), with pricing power and ads scaling as the dual margin engines. " +
@@ -62,9 +63,9 @@ export const NFLX = defineStock({
   // Probability-weighted expected return: (0.30×20.6%) + (0.45×13%) + (0.25×1%) = 12.3%
   // Expected 5yr price: (0.30×200) + (0.45×145) + (0.25×83) = $146
   baseEps: 3.13,
-  epsCagr: [0.08, 0.15, 0.18],
+  epsCagr: [8, 15, 18],
   exitPE: [18, 23, 28],
-  prob: [0.25, 0.45, 0.30],
+  prob: [25, 45, 30],
 
   // M&A optionality: WB/HBO transaction pending but no deal parameters available.
   // Standalone valuation is base; M&A case kept as separate layer.

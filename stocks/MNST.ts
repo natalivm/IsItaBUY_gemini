@@ -17,6 +17,7 @@ export const MNST = defineStock({
   costDebt: 0.04,
   rsRating: 84,
   aiImpact: 'NEUTRAL',
+  ratingOverride: 'HOLD',
   strategicNarrative: "Monster is a rare, high-quality structural compounder with 56% gross margins, 31.5% EBIT margins, and 21.5% FCF margins. International diversification (APAC $33B retail value, 158 countries, 925M cases), strengthening Coke relationship, zero-sugar tailwinds, and foodservice expansion (70% vs 98% penetration gap) all reduce structural risk. However, at 41x forward P/E on a 12-13% EPS grower, you're paying compounder prices without compounder-grade growth. The debate is purely about entry valuation — business quality is not in question. Risk/reward becomes materially better on a pullback to the high $70s or low $70s.",
 
   revGrowth: [

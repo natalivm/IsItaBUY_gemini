@@ -19,6 +19,7 @@ export const APH = defineStock({
   baseEps: 3.34,
   rsRating: 91,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Amphenol is the premium connector play for AI infrastructure — IT Datacom now 36% of revenue, Q4 book-to-bill 1.31x, FY25 adj EPS +77%. " +
     "CCS acquisition extends the platform with ~$4.1B revenue. Quality anchors are real (diversified end-markets, 52% dividend raise, RS 91). " +

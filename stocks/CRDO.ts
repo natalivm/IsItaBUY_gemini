@@ -19,6 +19,7 @@ export const CRDO = defineStock({
   baseEps: 3.12,
   rsRating: 88,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Credo is a high-velocity AI interconnect play — $268M revenue (+272% YoY), 67.7% GM, ZeroFlap reliability as the core moat on GPU-to-switch links with no redundancy fallback. " +
     "12-36mo binding customer visibility de-risks near-term, and Weaver/OmniConnect ($1,000+ content per GPU) is significant bull optionality not yet in revenue. " +

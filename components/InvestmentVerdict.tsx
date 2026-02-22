@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { TickerDefinition, ProjectionData, ScenarioType } from '../types';
 import { StockMetrics, usd, pctFmt } from '../services/stockMetrics';
+import { getInstitutionalRating } from '../services/projectionService';
 import { cn } from '../utils';
 
 const VERDICT_DISPLAY: Record<string, { text: string; color: string; subtextColor: string }> = {
@@ -151,6 +152,9 @@ const InvestmentVerdict: React.FC<Props> = ({
           <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Is it a Buy?</span>
           {(() => {
             const v = VERDICT_DISPLAY[activeStockData?.label || 'HOLD'] || VERDICT_DISPLAY['HOLD'];
+            const quantRating = tickerDef.ratingOverride
+              ? getInstitutionalRating(allProjections.base.pricePerShare, tickerDef.currentPrice)
+              : null;
             return (
               <>
                 <div className={cn("text-6xl lg:text-7xl font-black tracking-tighter leading-none", v.color)}>
@@ -159,6 +163,11 @@ const InvestmentVerdict: React.FC<Props> = ({
                 <div className={cn("text-[10px] font-black uppercase tracking-widest mt-1", v.subtextColor)}>
                   {activeStockData?.label || 'HOLD'}
                 </div>
+                {quantRating && (
+                  <div className="text-[9px] font-medium text-slate-600 mt-1">
+                    Model: <span className={quantRating.color}>{quantRating.label}</span>
+                  </div>
+                )}
               </>
             );
           })()}

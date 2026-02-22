@@ -62,6 +62,7 @@ export interface TickerDefinition {
   rsRating: number;
   rsTrend?: RsTrend;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
+  ratingOverride?: 'STRONG BUY' | 'BUY' | 'HOLD' | 'AVOID';
   strategicNarrative: string;
   cash?: number;
   debt?: number;

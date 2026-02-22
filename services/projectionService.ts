@@ -41,42 +41,37 @@ const ZERO_ARRAY: number[] = [0, 0, 0, 0, 0];
 
 // ── Rating Logic ──
 
-export const getInstitutionalRating = (target: number, spot: number) => {
+const RATING_MAP = {
+  'STRONG BUY': { status: 'undervalued' as const, color: 'text-green-500', dot: 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]' },
+  'BUY':        { status: 'undervalued' as const, color: 'text-emerald-400', dot: 'bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]' },
+  'HOLD':       { status: 'fair price' as const, color: 'text-blue-400', dot: 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]' },
+  'AVOID':      { status: 'overvalued' as const, color: 'text-red-500', dot: 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]' },
+};
+
+export const getInstitutionalRating = (target: number, spot: number, ratingOverride?: string) => {
+  if (ratingOverride && ratingOverride in RATING_MAP) {
+    const r = RATING_MAP[ratingOverride as keyof typeof RATING_MAP];
+    return { label: ratingOverride, ...r };
+  }
+
   const upsidePct = (target - spot) / spot;
   const downsideRatio = target / spot;
 
   if (upsidePct > STRONG_BUY_UPSIDE) {
-    return {
-      label: 'STRONG BUY',
-      status: 'undervalued' as const,
-      color: 'text-green-500',
-      dot: 'bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.8)]'
-    };
+    return { label: 'STRONG BUY', ...RATING_MAP['STRONG BUY'] };
   }
 
   if (upsidePct > BUY_UPSIDE) {
-    return {
-      label: 'BUY',
-      status: 'undervalued' as const,
-      color: 'text-emerald-400',
-      dot: 'bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]'
-    };
+    return { label: 'BUY', ...RATING_MAP['BUY'] };
   }
 
   if (downsideRatio < AVOID_DOWNSIDE_RATIO) {
-    return {
-      label: 'AVOID',
-      status: 'overvalued' as const,
-      color: 'text-red-500',
-      dot: 'bg-red-500 shadow-[0_0_12px_rgba(239,68,68,0.8)]'
-    };
+    return { label: 'AVOID', ...RATING_MAP['AVOID'] };
   }
 
   return {
     label: 'HOLD',
-    status: 'fair price' as const,
-    color: 'text-blue-400',
-    dot: 'bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]'
+    ...RATING_MAP['HOLD']
   };
 };
 

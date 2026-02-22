@@ -80,6 +80,9 @@ export const TICKER = defineStock({
   strategicNarrative: 'Why this stock matters...',
   fairPriceRange: '$80 - $150',
 
+  // Alpha Strategic View — override when narrative disagrees with model
+  // ratingOverride: 'HOLD',  // 'STRONG BUY' | 'BUY' | 'HOLD' | 'AVOID'
+
   // Model type (default: 'DCF_ADVANCED')
   modelType: 'DCF_ADVANCED',  // or 'EPS_PE'
 
@@ -131,6 +134,27 @@ export const TICKER = defineStock({
 6. **RS Rating tiers**: <15 very low, 15-39 low, 40-79 neutral, 80-90 strong, >90 overextended
 7. **Investment verdicts**: STRONG BUY / BUY / HOLD / AVOID — determined by base-case upside (>30%, >15%, near fair value, overvalued)
 8. **Live prices**: Fetched from Yahoo Finance via `/api/prices` serverless proxy on page load; falls back to static `currentPrice` on failure
+9. **`prob` and `epsCagr` must be integer percentages**: Use `[25, 50, 25]` not `[0.25, 0.50, 0.25]`. The model divides by 100 internally.
+
+## Alpha Strategic View
+
+The narrative assessment in `strategicNarrative` is the **authoritative rating** and always overrides the quantitative model when they disagree.
+
+### Rules for every stock addition or update:
+
+1. **Write the `strategicNarrative` first** — it must include a clear verdict (BUY, HOLD, WAIT, AVOID) with reasoning
+2. **Compare the narrative verdict to the quantitative model output** (base-case upside thresholds: >30% STRONG BUY, >15% BUY, <96% AVOID, else HOLD)
+3. **If they disagree, set `ratingOverride`** to match the narrative assessment:
+   ```typescript
+   ratingOverride: 'HOLD',  // narrative says WAIT, model says STRONG BUY
+   ```
+4. **If they agree, omit `ratingOverride`** — let the model speak for itself
+5. **The quantitative model rating is always preserved** and shown as "Model: X" in the Investment Verdict section when an override is active, so changes in conditions can be monitored
+
+### Common mismatch patterns:
+- Model says STRONG BUY/BUY but CAGR is below 15% threshold → override to HOLD
+- Model says AVOID but narrative is bullish on structural thesis → override to BUY
+- Model says STRONG BUY but narrative flags existential risk → override to HOLD or AVOID
 
 ## Vercel Deployment
 

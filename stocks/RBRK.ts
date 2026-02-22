@@ -56,7 +56,7 @@ export const RBRK = defineStock({
     'Platform expansion (Identity net-new buyers, security modules >40% NRR) drives 15%+ CAGR even without multiple expansion. FCF inflection is the catalyst.',
   ],
 
-  prob: [0.25, 0.45, 0.30],
+  prob: [25, 45, 30],
   bbRate: [0.005, 0.01, 0.015],
   bullMaOptVal: true,
 });

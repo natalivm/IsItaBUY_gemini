@@ -23,12 +23,8 @@ export const VST = defineStock({
   rsRating: 46,
   rsTrend: 'rising',
   aiImpact: 'TAILWIND',
-  strategicNarrative:
-    "Vistra is a capital-return power play — -30% share count since 2021, ~$1.3B/yr returns, Comanche Peak 20yr PPA + 70% hedged 2027 generation reducing near-term volatility, EBITDA guided $6.8-7.6B for 2026. " +
-    "The economics remain power-cycle dependent: lower rates raise the P/E floor to 14-17x but power price normalization caps EPS growth at 8-10%. " +
-    "The problem: prob-weighted 5yr CAGR is ~8.5% at $171 — bull requires both lower rates AND tight power markets for a 20x+ re-rating. " +
-    "If nuclear AI PPAs expand and power markets stay tight, this is a 15%+ story. If power normalizes, it's mid-single-digit total return with good capital allocation. " +
-    "WAIT / HOLD — mid-cycle energy infrastructure with good buybacks but no structural moat.",
+  ratingOverride: 'HOLD',
+  strategicNarrative: "Cyclical growth (Type B) with capital-return + contracting overlay. Nov-2025 call raised visibility: 2025E Adj EBITDA $5.7–5.9B, 2026E $6.8–7.6B, 60%+ EBITDA→FCF conversion. Comanche Peak 20yr PPA + 70% hedged 2027 generation reduce near-term vol, but economics remain power-cycle dependent. Buybacks are a core EPS driver (−30% shares since 2021, ~$1.3B/yr capital return). Lower rates regime (most likely path): raises P/E floor to 14–17x and reduces downside, but power price normalization caps EPS growth at 8–10% — this is an 8% story, not 15%. Bull requires both lower rates + tight power markets for 20x+ re-rating. Prob-weighted 5yr CAGR ~8.5% at $171 — improved from 6.7% on rate outlook, still below 15% threshold. Verdict: WAIT / HOLD — mid-cycle energy infrastructure with good capital return but no structural moat.",
 
   revGrowth: [
     [0.08, 0.06, 0.05, 0.04, 0.04],

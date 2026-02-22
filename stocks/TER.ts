@@ -19,6 +19,7 @@ export const TER = defineStock({
   baseEps: 6.3,            // Forward EPS 2026E
   rsRating: 98,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Teradyne is a deeply cyclical semi-equipment business priced as a quasi-compounder at 52-55x forward P/E — bull case requires AI capex to extend 5 full years while history says otherwise. " +
     "Test complexity (3nm/2nm, chiplets, HBM) provides structural volume support, and robotics (UR/MiR) is optionality if it ever inflects. " +

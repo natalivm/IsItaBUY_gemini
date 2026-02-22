@@ -19,6 +19,7 @@ export const EME = defineStock({
   modelType: 'EPS_PE',
   rsRating: 93,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "EMCOR is a B+ quality cyclical grower with a semi-structural productivity moat — data centers now ~25% of revenue, RPO at record $12.6B (+29% YoY), and a triple execution edge (union labor flexibility, prefab/VDC/BIM investment, hyperscaler intimacy). " +
     "Revenue growth running 3x headcount growth signals real productivity leverage, and demand visibility extends to 2031 (gas turbines sold out). " +
