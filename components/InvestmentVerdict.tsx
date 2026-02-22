@@ -142,14 +142,14 @@ const InvestmentVerdict: React.FC<Props> = ({
     >
       <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: tc }} />
 
-      <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.4em] mb-8 flex items-center gap-3">
+      <div className="text-xs font-black text-amber-500 uppercase tracking-[0.4em] mb-8 flex items-center gap-3">
         <span className="w-8 h-[2px] bg-amber-500/50" />
         Investment Verdict
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center">
         <div className="flex flex-col gap-2 shrink-0">
-          <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Is it a Buy?</span>
+          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Is it a Buy?</span>
           {(() => {
             const v = VERDICT_DISPLAY[activeStockData?.label || 'HOLD'] || VERDICT_DISPLAY['HOLD'];
             const quantRating = tickerDef.ratingOverride
@@ -160,11 +160,11 @@ const InvestmentVerdict: React.FC<Props> = ({
                 <div className={cn("text-6xl lg:text-7xl font-black tracking-tighter leading-none", v.color)}>
                   {v.text}
                 </div>
-                <div className={cn("text-[10px] font-black uppercase tracking-widest mt-1", v.subtextColor)}>
+                <div className={cn("text-xs font-black uppercase tracking-widest mt-1", v.subtextColor)}>
                   {activeStockData?.label || 'HOLD'}
                 </div>
                 {quantRating && (
-                  <div className="text-[9px] font-medium text-slate-600 mt-1">
+                  <div className="text-xs font-medium text-slate-400 mt-1">
                     Model: <span className={quantRating.color}>{quantRating.label}</span>
                   </div>
                 )}
@@ -178,16 +178,16 @@ const InvestmentVerdict: React.FC<Props> = ({
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 flex-1">
           {metricsToShow.map((m, i) => (
             <div key={i} className="flex flex-col gap-1">
-              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{m.label}</span>
+              <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{m.label}</span>
               {m.value}
-              <span className="text-[10px] text-slate-600">{m.subtext}</span>
+              <span className="text-xs text-slate-400">{m.subtext}</span>
             </div>
           ))}
         </div>
       </div>
 
       <div className="mt-8 pt-8 border-t border-slate-800/80">
-        <p className="text-sm text-slate-300 leading-relaxed">
+        <p className="text-base text-slate-200 leading-relaxed">
           {narrativeOverride || defaultNarrative}
         </p>
       </div>
