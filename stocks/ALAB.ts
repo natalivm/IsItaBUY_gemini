@@ -16,7 +16,7 @@ export const ALAB = defineStock({
   modelType: 'EPS_PE',
   baseEps: 1.84,
   rsRating: 60,
-  rsTrend: 'flat',
+  rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Astera is building the connectivity control plane for AI scale-up — not GPUs, not memory, but the fabric layer between them. " +

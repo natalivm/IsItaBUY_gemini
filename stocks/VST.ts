@@ -21,6 +21,7 @@ export const VST = defineStock({
   baseEps: 8.81,
   enhancementLabel: 'Nuclear AI PPA Expansion',
   rsRating: 46,
+  rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative: "Cyclical growth (Type B) with capital-return + contracting overlay. Nov-2025 call raised visibility: 2025E Adj EBITDA $5.7–5.9B, 2026E $6.8–7.6B, 60%+ EBITDA→FCF conversion. Comanche Peak 20yr PPA + 70% hedged 2027 generation reduce near-term vol, but economics remain power-cycle dependent. Buybacks are a core EPS driver (−30% shares since 2021, ~$1.3B/yr capital return). Lower rates regime (most likely path): raises P/E floor to 14–17x and reduces downside, but power price normalization caps EPS growth at 8–10% — this is an 8% story, not 15%. Bull requires both lower rates + tight power markets for 20x+ re-rating. Prob-weighted 5yr CAGR ~8.5% at $171 — improved from 6.7% on rate outlook, still below 15% threshold. Verdict: WAIT / HOLD — mid-cycle energy infrastructure with good capital return but no structural moat.",
 
