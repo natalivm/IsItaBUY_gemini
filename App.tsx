@@ -158,6 +158,7 @@ const StockRow: React.FC<{
       rsRatingStyle(tickerDef.rsRating)
     )}>RS {tickerDef.rsRating}</span>
     <span className="text-sm font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
+    <span className="text-[11px] font-medium text-slate-500 truncate">{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
   </motion.button>
 );
 
