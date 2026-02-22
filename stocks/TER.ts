@@ -19,6 +19,7 @@ export const TER = defineStock({
   baseEps: 6.3,            // Forward EPS 2026E
   rsRating: 98,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Probability-weighted expected value analysis. At $325 (52–55x fwd P/E), TER is priced as a quasi-compounder " +
     "but history says this is a deeply cyclical semiconductor equipment business. " +

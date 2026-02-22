@@ -17,6 +17,7 @@ export const NFLX = defineStock({
   costDebt: 0.052,
   rsRating: 13,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Structural compounder (type A). RS 13: weak relative strength, no institutional momentum despite strong fundamentals. " +
     "Q4'25 call: 2026E $51B rev (+14%), 31.5% op margin (+2pp YoY, core +2.5pp ex-M&A drag), ads doubling to ~$3B. " +

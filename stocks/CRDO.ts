@@ -19,6 +19,7 @@ export const CRDO = defineStock({
   baseEps: 3.12,
   rsRating: 88,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "Post Q2 FY26 — $268M revenue (+272% YoY, +20% QoQ), 67.7% GM (beat), 46.3% op margin. " +
     "Cash $813.6M. Prob-weighted 5yr target ~$200 → ~10% CAGR at $124 entry, below 15% hurdle. " +

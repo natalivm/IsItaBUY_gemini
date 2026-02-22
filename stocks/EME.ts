@@ -19,6 +19,7 @@ export const EME = defineStock({
   modelType: 'EPS_PE',
   rsRating: 93,
   aiImpact: 'TAILWIND',
+  ratingOverride: 'HOLD',
   strategicNarrative:
     "B+ quality cyclical grower with semi-structural productivity moat. " +
     "Data centers now ~24–25% of revenue and growing — not sectoral noise but a systemic factor for consolidated revenue/margin. " +
