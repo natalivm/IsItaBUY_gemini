@@ -11,9 +11,9 @@ import { fetchLivePrices } from './services/yahooFinanceService';
 
 // ── Types & Constants ──
 
-type StockGroup = 'PRIME_GROWTH' | 'TURBO_GROWTH' | 'WATCH_LIST';
+type StockGroup = 'PRIME_GROWTH' | 'TURBO_GROWTH' | 'WATCH_LIST' | 'GRAVEYARD';
 
-const GROUP_ORDER: StockGroup[] = ['PRIME_GROWTH', 'TURBO_GROWTH', 'WATCH_LIST'];
+const GROUP_ORDER: StockGroup[] = ['PRIME_GROWTH', 'TURBO_GROWTH', 'WATCH_LIST', 'GRAVEYARD'];
 
 const GROUP_META: Record<StockGroup, { label: string; accent: string; border: string; bg: string; desc: string }> = {
   PRIME_GROWTH: {
@@ -37,6 +37,13 @@ const GROUP_META: Record<StockGroup, { label: string; accent: string; border: st
     bg: 'bg-slate-500/5',
     desc: 'Monitoring \u00b7 Criteria Not Met',
   },
+  GRAVEYARD: {
+    label: '\u2620 GRAVEYARD',
+    accent: 'text-red-800',
+    border: 'border-red-900/40',
+    bg: 'bg-red-950/10',
+    desc: 'Avoid \u00b7 Low Momentum \u00b7 Unfavorable Risk/Reward',
+  },
 };
 
 const TAG_DEFS = [
@@ -58,6 +65,9 @@ function classifyStock(t: TickerDefinition, rating: string, rsRating: number): S
   const isBuyOrAbove = rating === 'STRONG BUY' || rating === 'BUY';
   const hasGoodMomentum = rsRating >= 70;
   const hasMidRsRising = rsRating >= 40 && t.rsTrend === 'rising';
+
+  // Graveyard: AVOID rating with low relative strength
+  if (rating === 'AVOID' && rsRating < 40) return 'GRAVEYARD';
 
   if (isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'PRIME_GROWTH';
   if (!isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'TURBO_GROWTH';
@@ -139,28 +149,42 @@ const StockRow: React.FC<{
   tickerDef: TickerDefinition;
   animationIndex: number;
   onSelect: (ticker: string) => void;
-}> = ({ stock, tickerDef, animationIndex, onSelect }) => (
-  <motion.button
-    key={stock.ticker}
-    layout
-    initial={{ y: 20, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ delay: animationIndex * 0.02 }}
-    onClick={() => onSelect(stock.ticker)}
-    className="w-full flex items-center gap-4 py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left"
-  >
-    <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
-    <span className="text-2xl lg:text-3xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter w-28 flex-shrink-0">{stock.ticker}</span>
-    <span className="text-base font-bold text-blue-400 mono w-24 flex-shrink-0">${tickerDef.currentPrice.toFixed(2)}</span>
-    <span className={cn("text-xs font-black uppercase tracking-widest w-28 flex-shrink-0", stock.color)}>{stock.label}</span>
-    <span className={cn(
-      "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
-      rsRatingStyle(tickerDef.rsRating)
-    )}>RS {tickerDef.rsRating}</span>
-    <span className="text-sm font-bold text-slate-300 mono">{stock.fairPriceRange}</span>
-    <span className="text-sm font-medium text-slate-400 truncate">{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
-  </motion.button>
-);
+}> = ({ stock, tickerDef, animationIndex, onSelect }) => {
+  const isGraveyard = stock.group === 'GRAVEYARD';
+  return (
+    <motion.button
+      key={stock.ticker}
+      layout
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: animationIndex * 0.02 }}
+      onClick={() => onSelect(stock.ticker)}
+      className={cn(
+        "w-full flex items-center gap-4 py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left",
+        isGraveyard && "opacity-60"
+      )}
+    >
+      <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
+      <span className={cn(
+        "text-2xl lg:text-3xl font-black transition-colors tracking-tighter flex-shrink-0 flex items-center gap-1",
+        isGraveyard
+          ? "text-slate-600 group-hover:text-slate-500 w-32"
+          : "text-white group-hover:text-[#ff007f] w-28"
+      )}>
+        {isGraveyard && <span className="hidden group-hover:inline text-xl">{'\u2620'}</span>}
+        {stock.ticker}
+      </span>
+      <span className={cn("text-base font-bold mono w-24 flex-shrink-0", isGraveyard ? "text-blue-400/40" : "text-blue-400")}>${tickerDef.currentPrice.toFixed(2)}</span>
+      <span className={cn("text-xs font-black uppercase tracking-widest w-28 flex-shrink-0", stock.color)}>{stock.label}</span>
+      <span className={cn(
+        "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
+        rsRatingStyle(tickerDef.rsRating)
+      )}>RS {tickerDef.rsRating}</span>
+      <span className={cn("text-sm font-bold mono", isGraveyard ? "text-slate-300/40" : "text-slate-300")}>{stock.fairPriceRange}</span>
+      <span className={cn("text-sm font-medium truncate", isGraveyard ? "text-slate-400/40" : "text-slate-400")}>{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
+    </motion.button>
+  );
+};
 
 // ── Main App ──
 
@@ -237,6 +261,7 @@ const App: React.FC = () => {
       PRIME_GROWTH: [],
       TURBO_GROWTH: [],
       WATCH_LIST: [],
+      GRAVEYARD: [],
     };
     filtered.forEach(s => groups[s.group].push(s));
     return groups;
