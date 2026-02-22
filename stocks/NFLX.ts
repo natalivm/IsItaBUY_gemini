@@ -6,7 +6,7 @@ export const NFLX = defineStock({
   sector: 'Entertainment',
   themeColor: '#ff007f',
   currentPrice: 78.67,
-  fairPriceRange: '$60 - $135',
+  fairPriceRange: '$56 - $200',
   shares0: 4222.0,
   rev25: 45180,
   fcfMargin25: 0.209,
@@ -18,22 +18,60 @@ export const NFLX = defineStock({
   unitLabel: 'Subscribers',
   unit25: 325,
   enhancementLabel: 'Ad-Tier Scaling',
-  rsRating: 11,
+  rsRating: 13,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Severe relative weakness. RS 11 indicates Netflix has lost its 'Growth Utility' crown in the eyes of institutional desk traders. Despite strong margins, the tape shows massive distribution as the market fears pricing power saturation and competitive ad-tier pressure. Avoid until a bottom is formed.",
+  strategicNarrative:
+    "Structural compounder (type A). RS 13: weak relative strength, no institutional momentum despite strong fundamentals. " +
+    "Q4'25 call: 2026E $51B rev (+14%), 31.5% op margin (+2pp YoY, core +2.5pp ex-M&A drag), ads doubling to ~$3B. " +
+    "Drivers: margin discipline + ads scaling + pricing power. Moat: scale, brand, global distribution, data/personalization, ads stack. " +
+    "Risk: multiple compression, ads cyclicality, WB/HBO M&A integration unknown. " +
+    "Base DCF ≈ fair value ($353B equity vs $332B mkt cap, ~6% upside). Conservative DCF $290B (-12%). " +
+    "Probability-weighted expected return ~12-13% (Bull 30%, Base 45%, Bear 25%) — below 15% threshold. " +
+    "Verdict: WAIT — quality business at fair price, not asymmetric opportunity. Entry ~$65-70 for 15%+ expected CAGR.",
 
+  // 2026E guide: ~$51B (+14% YoY). Drivers: membership + pricing + ads.
+  // Ads ~$3B in 2026 (~6% of revenue). Content amortization +~10% YoY.
   revGrowth: [
-    [0.06, 0.05, 0.05, 0.04, 0.04],
-    [0.12, 0.11, 0.10, 0.09, 0.08],
-    [0.16, 0.15, 0.14, 0.13, 0.12],
-  ],
-  fcfMargin: [0.17765, 0.209, 0.24035],
-  exitMultiple: [12, 16, 19],
-  desc: [
-    'Economic headwinds leading to multiple compression and slower growth.',
-    'Market alignment with standard institutional growth expectations.',
-    'Category-defining growth powered by AI tailwinds and operating leverage.',
+    [0.07, 0.06, 0.05, 0.05, 0.04], // Bear: revenue growth halved from guide, ads cyclical hit
+    [0.14, 0.12, 0.10, 0.09, 0.08], // Base: 2026 guide $51B, then natural deceleration
+    [0.16, 0.15, 0.14, 0.13, 0.12], // Bull: sustained execution + ads momentum + pricing
   ],
 
-  bullMaOptVal: 76.87 * 4222.0 * 0.07,
+  // Op margin 31.5% in 2026, expanding +2pp/yr (core +2.5pp ex-M&A drag).
+  // TIKR FCF: 2026E $11.5B, 2027E $14.5B, 2028E $17B, 2029E $19.6B, 2030E $21.5B.
+  // Content cash-to-expense ratio ~1.1x (stable) supports FCF.
+  fcfMargin: [
+    [0.195, 0.200, 0.205, 0.205, 0.200], // Bear: margin plateau ~20%, no operating leverage
+    [0.225, 0.250, 0.268, 0.283, 0.288], // Base: TIKR FCF trajectory, margin expansion via ads + scale
+    [0.245, 0.275, 0.295, 0.310, 0.320], // Bull: ads ARM near parity, 35%+ op margin
+  ],
+
+  // Exit multiples (EBITDA): Bear ~P/E 18x, Base ~P/E 23x, Bull ~P/E 28x
+  exitMultiple: [14, 18, 22],
+
+  desc: [
+    'Ads cyclicality + subscription slowdown. Revenue growth ~7%, margin plateau, P/E compresses to ~18x. M&A integration risk.',
+    'Executes 2026E guide: $51B rev, 31.5% op margin. Ads scale to $3B+. 15% EPS CAGR. DCF ≈ fair value.',
+    'Structural cash compounder. Ads ARM near parity, margin +2.5pp/yr sustained. 18% EPS CAGR, premium multiple.',
+  ],
+
+  thesis: [
+    'Revenue falls to ~7% growth, ads hit by cycle, multiple to 18x. FCF CAGR ~10%. 5yr price ~$83, ~1% annual return.',
+    'Management executes guide. Revenue 10-12% post-2027, margin expands via ads + leverage. 5yr price ~$145, ~13% CAGR.',
+    'Ads ARM gap closes, 35%+ op margin sustained. Revenue 12-16%. 5yr price ~$200, ~20.6% CAGR.',
+  ],
+
+  // Terminal growth aligned with DCF analysis: conservative 2%, base 3%, bull 3.5%
+  termGrowth: [0.02, 0.03, 0.035],
+
+  // Probability-weighted expected return: (0.30×20.6%) + (0.45×13%) + (0.25×1%) = 12.3%
+  // Expected 5yr price: (0.30×200) + (0.45×145) + (0.25×83) = $146
+  baseEps: 3.13,
+  epsCagr: [0.08, 0.15, 0.18],
+  exitPE: [18, 23, 28],
+  prob: [0.25, 0.45, 0.30],
+
+  // M&A optionality: WB/HBO transaction pending but no deal parameters available.
+  // Standalone valuation is base; M&A case kept as separate layer.
+  bullMaOptVal: 78.67 * 4222.0 * 0.07,
 });
