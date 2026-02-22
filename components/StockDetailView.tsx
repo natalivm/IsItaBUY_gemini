@@ -8,7 +8,7 @@ import ScenarioMetricsCard from './ScenarioMetricsCard';
 import StockPageHeader from './StockPageHeader';
 import StockMetricCards from './StockMetricCards';
 import InvestmentVerdict from './InvestmentVerdict';
-import { cn } from '../utils';
+import { cn, rsRatingColor } from '../utils';
 
 interface Props {
   tickerDef: TickerDefinition;
@@ -39,7 +39,7 @@ const StockDetailView: React.FC<Props> = ({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="min-h-screen bg-[#0a1128] text-slate-100 selection:bg-slate-700/50 font-sans relative overflow-x-hidden"
+      className="min-h-screen bg-surface-deep text-slate-100 selection:bg-slate-700/50 font-sans relative overflow-x-hidden"
     >
       <div
         className="absolute top-0 right-0 w-[60vw] h-[60vh] opacity-25 pointer-events-none"
@@ -68,7 +68,7 @@ const StockDetailView: React.FC<Props> = ({
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden group"
+              className="p-8 rounded-2xl border border-slate-800 bg-surface-card/80 shadow-2xl relative overflow-hidden group"
               style={{ borderLeftWidth: '3px', borderLeftColor: tc }}
             >
               <div
@@ -95,7 +95,7 @@ const StockDetailView: React.FC<Props> = ({
                     <div className="flex items-end gap-1">
                       <span className={cn(
                         "text-3xl font-black",
-                        tickerDef.rsRating >= 80 ? 'text-green-500' : tickerDef.rsRating >= 40 ? 'text-white' : 'text-red-500'
+                        rsRatingColor(tickerDef.rsRating)
                       )}>{tickerDef.rsRating}</span>
                       <span className="text-[10px] text-slate-600 font-bold mb-1.5">/99</span>
                     </div>
@@ -145,7 +145,7 @@ const StockDetailView: React.FC<Props> = ({
 
           {/* Sidebar */}
           <div className="space-y-8">
-            <div className="bg-[#0d1630] border border-slate-800 rounded-2xl p-8 shadow-2xl sticky top-8 overflow-hidden">
+            <div className="bg-surface-card border border-slate-800 rounded-2xl p-8 shadow-2xl sticky top-8 overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: tc }} />
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500 mb-8 mt-1">Model Verdict</h3>
               <div className="space-y-6">

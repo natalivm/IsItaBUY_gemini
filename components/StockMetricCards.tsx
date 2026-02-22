@@ -17,7 +17,7 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
         initial={{ y: 15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="bg-[#0d1630]/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
+        className="bg-surface-card/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">
@@ -34,7 +34,7 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
         initial={{ y: 15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="bg-[#0d1630]/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
+        className="bg-surface-card/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">
@@ -53,7 +53,7 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
         initial={{ y: 15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3 }}
-        className="bg-[#0d1630]/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
+        className="bg-surface-card/80 border border-slate-800 rounded-xl p-6 shadow-xl relative overflow-hidden group hover:border-slate-700 transition-all"
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">

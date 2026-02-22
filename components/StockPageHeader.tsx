@@ -61,7 +61,7 @@ const StockPageHeader: React.FC<Props> = ({
             ].map((m, i) => (
               <div
                 key={i}
-                className="px-5 py-3 bg-[#0d1630] rounded-xl flex items-center gap-3 border"
+                className="px-5 py-3 bg-surface-card rounded-xl flex items-center gap-3 border"
                 style={{ borderColor: `${tc}40` }}
               >
                 {m.icon}
