@@ -17,7 +17,11 @@ export const ENVA = defineStock({
   costDebt: 0.083,      // Q4'25 cost of funds 8.3% (down from 8.6% prior quarter); was stale at 0.072
   rsRating: 88,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Enova is at an inflection point post Q4'25 earnings: adj EPS +33% YoY ($3.46), originations +32% ($2.3B), portfolio +23% ($4.9B record). The Grasshopper Bank deal ($125–$220M annual synergies, >25% EPS accretion, closing 2H 2026) transforms it from a non-bank lender into a bank holding company with a national charter and deposit funding. Management guides ≥20% EPS growth in 2026 (ex-Grasshopper). SMB now 68% of portfolio at 4.6% NCO vs 16% consumer — quality mix shift intact. CoF declining (8.3% vs 8.6% prior quarter). Buyback authorization: $106M remaining. At ~9x forward P/E, the market is not pricing the Grasshopper optionality or the structural improvement in credit quality.",
+  strategicNarrative:
+    "Enova is at an inflection point — the Grasshopper Bank deal ($125-$220M synergies, >25% EPS accretion, closing 2H 2026) transforms it from non-bank lender to bank holding company with national charter and deposit funding. " +
+    "Execution is strong: adj EPS +33% YoY, originations +32%, portfolio at $4.9B record, SMB now 68% at 4.6% NCO vs 16% consumer — quality mix shift intact. " +
+    "At ~9x forward P/E, the market is not pricing Grasshopper optionality or the structural credit quality improvement. " +
+    "If charter + deposit funding materialize, this re-rates from subprime lender to fintech bank. If recession hits first, charge-offs spike and the leverage works against you.",
 
   // ── Scenarios ──
   revGrowth: [

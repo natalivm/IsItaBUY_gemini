@@ -17,7 +17,11 @@ export const ASTS = defineStock({
   costDebt: 0.035,
   rsRating: 97,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "ASTS is a high-conviction, asymmetric category-defining bet. Building the only space-based cellular broadband network for standard smartphones. 50+ MNO partnerships covering 3B+ subscribers. Revenue trajectory from $60M (2025) to $4.8B+ (2029E) hinges on satellite deployment execution — 12 sats today scaling to 168 by 2029E at $22M/sat CapEx. Key 2026 gates: 45+ sats for continuous coverage, service revenue mix shift above 30%, and gross margins inflecting toward 35%+. Margin trajectory targets 74% GM at scale as service revenue dominates hardware. 3% annual dilution is the cost of capital-intensive buildout. Bull case catalysts include government/DoD contracts, spectrum monetization, and ARPU upside from broadband-tier pricing. While valuation is speculative vs current revenue, the space-to-phone moat is deep and validated by MNO commitments.",
+  strategicNarrative:
+    "AST SpaceMobile is building the only space-based cellular broadband network for standard smartphones — a category-defining asymmetric bet with 50+ MNO partnerships covering 3B+ subscribers. " +
+    "Revenue trajectory from $60M to $4.8B+ by 2029E hinges entirely on satellite deployment: 12 sats today scaling to 168 at $22M/sat. " +
+    "If 45+ sats achieve continuous coverage by YE26 and margins inflect toward 74% GM at scale, this is a space-infrastructure monopoly. " +
+    "If deployment delays or unit economics don't validate, ~3%/yr dilution erodes the thesis. RS 97 confirms conviction — but this is execution-or-bust.",
 
   revGrowth: [
     [2.50, 2.00, 1.30, 0.80, 0.40],

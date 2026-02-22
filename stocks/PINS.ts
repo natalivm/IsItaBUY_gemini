@@ -16,7 +16,12 @@ export const PINS = defineStock({
   beta: 1.58,
   rsRating: 32,
   aiImpact: 'DISRUPTION_RISK',
-  strategicNarrative: "Existential uncertainty. RS 32 signals that the market views GenAI search as a threat to Pinterest's discovery moat. Despite fundamental improvements, the technicals suggest big money is looking elsewhere for AI winners.",
+  strategicNarrative:
+    "Pinterest is a visual discovery platform with $4.2B revenue, 30% FCF margins, zero debt, and $2.5B cash — fundamentally sound despite the broken tape. " +
+    "The existential question: GenAI search (Google Lens, ChatGPT vision, Meta AI) could erode the discovery moat that makes Pinterest unique, or Pinterest's intent-rich data becomes more valuable as an AI targeting layer. " +
+    "RS 32 signals institutions have already voted — big money sees GenAI as threat, not tailwind. " +
+    "If shoppable ads + AI-driven discovery deepen the monetization moat, this is a compounder hiding in plain sight. If GenAI commoditizes visual search, the moat dissolves. " +
+    "Contrarian bet on discovery moat resilience — only for investors who believe visual intent survives the AI search revolution.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],

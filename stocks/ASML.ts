@@ -20,23 +20,11 @@ export const ASML = defineStock({
   rsRating: 96,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Post FY25 earnings call: Type B+ cyclical growth — structural trend dominates, but delivery/FCF are cyclical. " +
-    "FY25 actuals: net sales €32.7B, GM 52.8%, FCF €11B (Q4 alone €10.9B — lumpy cash-in), EPS €24.73. " +
-    "Q4: sales €9.7B, GM 52.2%, bookings €13.2B (EUV €7.4B / non-EUV €5.8B), backlog ~€38.8B. " +
-    "2026 guidance: €34–39B sales (+4% to +19% YoY), GM 51–53%. Wide corridor = fab readiness dependent. " +
-    "China share 2026: ~20% (in line with backlog). Geopolitical risk real but manageable at this level. " +
-    "Moat deepening: Low-NA EUV productivity roadmap (NXE:3800E), High-NA qualification (Intel accepted EXE:5200B for HVM), " +
-    "multi-beam inspection for 3D structures. Moat is structural AND expanding. " +
-    "2026 GM headwinds: more dry DUV (lower margin), less immersion (supply constraints), EUV 3600 mix, some High-NA ramp pressure. " +
-    "CFO: 2027 EUV mix 'significantly better' (less 3600, more new-gen) → margin recovery expected. " +
-    "Revenue drivers: AI → 4nm→3nm→2nm ramp (more EUV layers), DRAM HBM/DDR tight through 2026+ (single EUV replacing multi-pattern DUV), " +
-    "metrology/inspection 'grow significantly', installed base 'another year of growth' + upgrades (fastest way to add capacity). " +
-    "Shareholder return: €8.5B in 2025 (dividends + buybacks), Q4 buyback €1.7B. " +
-    "New buyback: up to €12B by 31.12.2028, intent to cancel most shares → real EPS tailwind (+1-2% CAGR bonus). " +
-    "At $1,470 / ~42x fwd P/E (2026E) — margin of safety limited. Best entry on cyclical dips or P/E <30x. " +
-    "Probability of 15%+ CAGR: ~55-65% (improved post-call: record bookings, €38.8B backlog, AI demand confirmed sustainable). " +
-    "Key risks: fab readiness delays (customer-controlled), 2026 mix/margin headwinds, geopolitics/China, AI capex deceleration. " +
-    "Highest-quality company in a cyclical industry. Fundamentals = top tier. Valuation = not cheap. Cycle = decides everything.",
+    "ASML is the highest-quality company in semiconductors — sole EUV supplier with a structural monopoly that's deepening (High-NA, multi-beam inspection, installed base upgrades). " +
+    "Record Q4 bookings €13.2B, €38.8B backlog, AI-driven advanced node demand (4nm→2nm), and €12B buyback provide multi-year visibility. " +
+    "The tension: at ~42x forward P/E, margin of safety is limited — 2026 mix headwinds (dry DUV, EUV 3600) create near-term noise even as 2027+ looks better. " +
+    "Fundamentals = top tier. Valuation = not cheap. Cycle = decides everything. " +
+    "55-65% probability of 15%+ CAGR — best entry on cyclical dips or P/E <30x.",
 
   epsCagr: [10, 18, 22],
   exitPE: [25, 30, 35],

@@ -17,7 +17,11 @@ export const FTNT = defineStock({
   costDebt: 0.048,
   rsRating: 27,
   aiImpact: 'NEUTRAL',
-  strategicNarrative: "Fairly valued at current levels. FTNT's ASIC-driven SASE platform offers solid fundamentals, but the stock's RS 27 signals limited near-term institutional momentum. Upside exists if SASE adoption accelerates, but multiple expansion requires proof of sustained competitive gains vs cloud-native peers. Hold for existing positions; wait for a better entry point.",
+  strategicNarrative:
+    "Fortinet owns the ASIC-driven SASE platform play in cybersecurity — proprietary silicon gives a cost/performance edge that cloud-native peers can't match, with 32.5% FCF margins and a $4.6B net cash fortress. " +
+    "The problem: RS 27 signals institutions aren't buying, and at current valuation the stock is fairly priced — upside requires proof that SASE adoption is accelerating vs cloud-native competitors. " +
+    "If firewall refresh cycle + SASE convergence drives sustained mid-teens growth, this re-rates as a cybersecurity compounder. If growth stays single-digit, the premium multiple compresses. " +
+    "Hold for existing positions; entry improves materially on a pullback or SASE inflection.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],

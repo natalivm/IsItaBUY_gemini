@@ -20,22 +20,10 @@ export const DUOL = defineStock({
   rsRating: 4,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative:
-    "Extreme contrarian setup: stock down 79% from $545 ATH, RS 4 (bottom 4%). " +
-    "Market pricing existential AI disruption: T-Mobile real-time translation (50+ languages), Apple AirPods/Meta Glasses translation, LLM tutors. " +
-    "BUT fundamentals strong: Rev +37-38% ($1.03B, first $1B year), DAU 50.5M (+36%), MAU 135.3M, paid subs 11.5M (+34%). " +
-    "Brand moat underappreciated: 53% unaided awareness (24pts ahead of #2), 56% online language market share, 90% organic user growth, 92% ROIC. " +
-    "GAAP EPS distorted: Q3'25 $5.95 includes one-time $222.7M tax DTA release ($4.82/share). Trailing P/E 14.36x is MISLEADING. " +
-    "Normalized fwd P/E on 2026E ~28–33x ($3.74–$4.00 consensus). FY2027E EPS ~$4.89–$6.38 (range wide). " +
-    "Revenue deceleration: 38% (FY25) → 24–27% (FY26E) → 20–23% (FY27E). Not 'falling off cliff' but normalizing from hyper-growth. " +
-    "AI double-edged: DUOL is AI-first (18x course creation acceleration, Video Call, Max tier → 9% of subs, bookings 2x). " +
-    "But AI also commoditizes core product. Chess already fastest-growing course — expansion beyond language is real. " +
-    "Gross margin 72.5% (down 40bps on AI costs). Adj EBITDA 29.5%. SBC massive (~$250M/yr). FCF strong: TTM $348M, EV/FCF ~12x. " +
-    "Fortress balance sheet: $1.1B cash/investments, zero debt, net cash $22/share (20% of mkt cap). " +
-    "Q4 2025 earnings Feb 26: Q4 guidance was below consensus → stock cratered 25% (record one-day drop). " +
-    "New CFO Gillian Munson's first cycle. Company prioritizing long-term user growth over near-term monetization. " +
-    "Analyst consensus Buy, avg target $270 (+142% upside). But RS 4 = institutions selling, not buying. " +
-    "At $112.90: cheap if moat holds (EV/FCF 12x, 25%+ revenue growth). Expensive if AI kills the business. " +
-    "Binary: Nokia (disrupted) vs Netflix (adapted). Probability of 15%+ CAGR: ~50–60%.",
+    "Extreme contrarian setup — stock -79% from ATH, RS 4, yet fundamentals are strong: $1B+ revenue (+37%), 50.5M DAU, 11.5M paid subs, 53% unaided brand awareness (24pts ahead of #2), EV/FCF 12x, fortress balance sheet ($1.1B cash, zero debt). " +
+    "The market is pricing existential AI disruption (real-time translation from T-Mobile/Apple/Meta, LLM tutors) — but DUOL is itself AI-first: 18x content acceleration, Video Call, Max tier growing at 2x bookings. " +
+    "The fork is binary: Nokia (disrupted, moat erodes, P/E compresses to 12x) or Netflix (AI-native adaptation, subject expansion into math/chess/test prep, 135M MAU becomes 300M+). " +
+    "50-60% probability of 15%+ CAGR — cheap if the brand moat holds, value trap if AI commoditizes the core product.",
 
   epsCagr: [3, 20, 30],
   exitPE: [12, 25, 32],

@@ -17,7 +17,11 @@ export const ITT = defineStock({
   costDebt: 0.045,
   rsRating: 82,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Strategically transformative SPX FLOW acquisition positions ITT as a global top-3 flow solutions provider. Strong exposure to energy transition (cryogenic pumps) and industrial AI (predictive maintenance). High margin aftermarket mix (43%) provides structural downside protection and margin upside.",
+  strategicNarrative:
+    "ITT is becoming a global top-3 flow solutions provider via the SPX FLOW acquisition — strong exposure to energy transition (cryogenic pumps) and industrial AI (predictive maintenance), with 43% aftermarket mix providing structural margin protection. " +
+    "The thesis is integration execution: if SPX FLOW synergies materialize and aftermarket mix expands, ITT transitions from diversified industrial to a premium-multiple flow/motion platform. " +
+    "The risk: $3.8B debt post-acquisition in a cyclical industrial at 1.35 beta — if industrial cycle turns before synergies ramp, leverage works against you. " +
+    "RS 82 confirms institutional accumulation, but the stock needs to prove the margin story post-integration.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],

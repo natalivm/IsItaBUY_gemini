@@ -18,13 +18,11 @@ export const NFLX = defineStock({
   rsRating: 13,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Structural compounder (type A). RS 13: weak relative strength, no institutional momentum despite strong fundamentals. " +
-    "Q4'25 call: 2026E $51B rev (+14%), 31.5% op margin (+2pp YoY, core +2.5pp ex-M&A drag), ads doubling to ~$3B. " +
-    "Drivers: margin discipline + ads scaling + pricing power. Moat: scale, brand, global distribution, data/personalization, ads stack. " +
-    "Risk: multiple compression, ads cyclicality, WB/HBO M&A integration unknown. " +
-    "Base DCF ≈ fair value ($353B equity vs $332B mkt cap, ~6% upside). Conservative DCF $290B (-12%). " +
-    "Probability-weighted expected return ~12-13% (Bull 30%, Base 45%, Bear 25%) — below 15% threshold. " +
-    "Verdict: WAIT — quality business at fair price, not asymmetric opportunity. Entry ~$65-70 for 15%+ expected CAGR.",
+    "Netflix is a structural compounder — scale, brand, global distribution, and a nascent ads business doubling to ~$3B in 2026 give it compounding levers few media companies possess. " +
+    "2026E guide: $51B revenue (+14%), 31.5% op margin (+2pp YoY), with pricing power and ads scaling as the dual margin engines. " +
+    "The problem: at current price, base DCF roughly equals fair value (~6% upside) and RS 13 signals no institutional momentum — quality business at fair price, not asymmetric opportunity. " +
+    "If ads ARM approaches parity and margin sustains +2.5pp/yr expansion, this is an 18%+ compounder. If ads cycle breaks or multiple compresses, returns are single-digit. " +
+    "Prob-weighted return ~12-13% — WAIT for entry at ~$65-70 where expected CAGR crosses 15%.",
 
   // 2026E guide: ~$51B (+14% YoY). Drivers: membership + pricing + ads.
   // Ads ~$3B in 2026 (~6% of revenue). Content amortization +~10% YoY.

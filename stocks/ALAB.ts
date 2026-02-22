@@ -16,27 +16,14 @@ export const ALAB = defineStock({
   modelType: 'EPS_PE',
   baseEps: 1.84,
   rsRating: 60,
-  rsTrend: 'flat',
+  rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Type B (cyclical AI growth) → potential A if scale-up switching layer consolidates. " +
-    "Post-earnings update: $6.5B Amazon warrant = strategic hyperscaler lock-in, not just a design win. " +
-    "Scorpio X (scale-up switching) is the main TAM driver — 2026 pre-ramp, 2027 volume ramp. " +
-    "UALink + NVLink Fusion = protocol-agnostic positioning; earns regardless of who wins. " +
-    "Merchant scale-up switching TAM ~$20B by 2030, optical could double. " +
-    "Moat forming: PCIe 6 first-to-volume, software-defined fabric, deep hyperscaler integration, multi-protocol optionality. " +
-    "Not commodity silicon — this is control-plane AI fabric. " +
-    "Revenue: 396→852→1345 (3Y CAGR ~85-90%), but decelerating: +37%→+27%→+8%→negative post-2028E. " +
-    "Peak-cycle earnings curve visible. Gross margin ~70-75%, EBIT margin expanding to 45-50% peak (2029E), then compression. " +
-    "Aggressive OpEx step-up = strategic investment in position, payback 18-24mo minimum. " +
-    "EPS turnaround: -0.71→-0.64→1.22 GAAP (adj ~1.84). " +
-    "Probability of 15%+ CAGR: ~35-40%, heavily dependent on AI cycle duration + exit multiple. " +
-    "RS 60 = not a market leader, momentum average, not institutional favourite. " +
-    "Execution vs Cycle vs Structural: 40/40/20 split. " +
-    "Key risks: AI capex normalization, protocol shifts (NVLink/ESUN displacement), hyperscaler internalization, " +
-    "margin compression on OpEx step-up, optical requiring larger investment than expected. " +
-    "Not buy-and-forget. Strategic AI infrastructure option on the connectivity layer between GPU, memory, and optics. " +
-    "If Scorpio X becomes standard in 2-3 hyperscalers → architectural player (type A). If not → another AI-cycle silicon story.",
+    "Astera is building the connectivity control plane for AI scale-up — not GPUs, not memory, but the fabric layer between them. " +
+    "$6.5B Amazon warrant + Scorpio X (2027 volume ramp) + protocol-agnostic positioning (UALink + NVLink Fusion) make the bull case structural, not just cyclical. " +
+    "The problem: revenue decelerating fast (85% 3Y CAGR → +8% by 2028E), margins peak 2029E then compress, and at ~53x forward P/E the market already prices the optimistic path. " +
+    "If Scorpio X becomes standard in 2–3 hyperscalers, this transitions from cycle play to architectural moat (type B → A). If not, it's another AI silicon story with a semiconductor downturn ahead. " +
+    "35–40% probability of 15%+ CAGR — a tactical bet on AI infrastructure positioning, not a compounder.",
 
   revGrowth: [
     [0.25, 0.10, 0.02, -0.08, -0.15],

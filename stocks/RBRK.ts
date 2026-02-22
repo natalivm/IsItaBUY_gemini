@@ -16,7 +16,12 @@ export const RBRK = defineStock({
   beta: 1.25,
   rsRating: 10,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Post-earnings upgrade: B-type business (cyclical growth with strong structural tailwind). Subscription ARR $1.35B (+34% YoY), NRR >120%, record FCF $77M/quarter. Platform expanding — security modules drive >40% NRR (was 32%), Identity ~$20M ARR in 3 quarters with 40% net-new customers. Cloud ARR ~87% of subscription (+53% YoY). Moat is platform-shaped: high switching costs (resilience + identity + telemetry), outcome-driven value prop (clean recovery + compliance + identity remediation), regulatory tailwind (DORA/NIS2/SEC disclosure). Not 'unique formula' — moat is in integrated execution. Stock hypersensitive to two variables: (1) ARR sustainability >20%, (2) market willingness to pay >25x FCF. Prob-weighted nominal CAGR ~14.5%, risk-adjusted ~11–12% after path risk (50% chance of early compression to ~$27). FY27 material rights headwind creates headline slowdown risk. RS 10 = no institutional momentum. Best entry likely after compression event. Bet on execution + cyber resilience structural trend; AI agents are optionality, not core thesis.",
+  strategicNarrative:
+    "Rubrik is a platform-shaped data security play — subscription ARR $1.35B (+34%), NRR >120%, record FCF, with security modules driving >40% NRR and Identity adding net-new CISO budget access. " +
+    "Moat is in integrated execution: high switching costs (resilience + identity + telemetry), regulatory tailwind (DORA/NIS2/SEC disclosure), and cloud ARR at 87% of subscription (+53% YoY). " +
+    "The problem: RS 10 signals zero institutional momentum, FY27 material-rights headwind creates headline slowdown risk, and at current price prob-weighted CAGR is ~14.5% nominal / ~11-12% risk-adjusted. " +
+    "If ARR sustains >20% and market pays >25x FCF, this is a cyber resilience compounder. If NRR normalizes and FY27 GAAP noise triggers a sell-off, there's -30-50% path risk to ~$27. " +
+    "Best entry likely after a compression event — bet on execution + structural cyber trend, not current momentum.",
 
   // Revenue growth: starts elevated (ARR +34% momentum) then decelerates
   // Bear CAGR ~12%, Base ~18%, Bull ~24%

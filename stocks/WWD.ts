@@ -20,13 +20,11 @@ export const WWD = defineStock({
   rsRating: 95,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Post FY26 Q1 — monster quarter: +29% YoY revenue, 23.4% aero segment margin (+420 bps), " +
-    "industrial margin +410 bps. FY26 guidance raised: 14–18% sales growth, EPS $8.20–$8.60 (mid $8.40), " +
-    "FCF $300–350M. RS 95 confirms elite relative strength. China on-highway wind-down ($20–25M cost, " +
-    "~$60M rev exiting) is a portfolio quality upgrade. Key watch: FCF conversion remains constrained by " +
-    "inventory build and rising capex (Spartanburg + automation); Q1 tailwinds (spare LRUs, China " +
-    "pull-forward) unlikely to repeat. At ~47x fwd P/E the stock is priced for near-perfect execution — " +
-    "great business, expensive entry. Prob-weighted 15%+ CAGR from current levels: ~30%.",
+    "Woodward is an aerospace & industrial controls compounder coming off a monster Q1 — revenue +29%, aero margin +420bps to 23.4%, FY26 guide raised to 14-18% sales growth and $8.20-$8.60 EPS. " +
+    "China on-highway wind-down ($60M revenue exiting) is actually a portfolio quality upgrade, and RS 95 confirms elite relative strength. " +
+    "The problem: at ~47x forward P/E the stock prices in near-perfect execution while Q1 tailwinds (spare LRUs, China pull-forward) are unlikely to repeat and FCF conversion is constrained by inventory build + rising capex. " +
+    "If aero supercycle extends and margin leverage compounds at 18% EPS CAGR, this justifies the premium. If growth normalizes to 7% and P/E compresses to 22x, it's -35% from here. " +
+    "~30% probability of 15%+ CAGR — great business, expensive entry.",
 
   // EPS_PE model: epsCagr and exitPE are the primary valuation drivers.
   // revGrowth and fcfMargin are kept for display/yield calculations.

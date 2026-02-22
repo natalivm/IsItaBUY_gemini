@@ -20,15 +20,11 @@ export const CRDO = defineStock({
   rsRating: 88,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Post Q2 FY26 — $268M revenue (+272% YoY, +20% QoQ), 67.7% GM (beat), 46.3% op margin. " +
-    "Cash $813.6M. Prob-weighted 5yr target ~$200 → ~10% CAGR at $124 entry, below 15% hurdle. " +
-    "Conference update: mgmt frames AI build-out as decade+ megatrend; 12–36mo customer visibility (often binding) de-risks FY26–FY27. " +
-    "ZeroFlap reliability = core moat (no redundancy on GPU→first-switch link). CPO skepticism + microLED (~1/3 power) strengthens AEC longevity. " +
-    "Weaver/OmniConnect: $1,000+ content per GPU if adopted — significant Bull optionality, not yet in revenue. " +
-    "Bull prob nudged 30→35% on binding visibility + Weaver economics + CPO counter-narrative; Bear 20→18%. " +
-    "Position becomes compelling at ≤$97–100 where prob-weighted return crosses 15%. " +
-    "Key risk: customer concentration (top 4 = 93%), ATM dilution, P/E compression before earnings catch up. " +
-    "RS 88 means fast de-rate if sequential growth disappoints — mgmt pre-guided mid-SD QoQ for FY27.",
+    "Credo is a high-velocity AI interconnect play — $268M revenue (+272% YoY), 67.7% GM, ZeroFlap reliability as the core moat on GPU-to-switch links with no redundancy fallback. " +
+    "12-36mo binding customer visibility de-risks near-term, and Weaver/OmniConnect ($1,000+ content per GPU) is significant bull optionality not yet in revenue. " +
+    "The problem: at current price, prob-weighted return is ~10% CAGR — below 15% hurdle — with 93% top-4 client concentration and RS 88 meaning fast de-rate if sequential growth disappoints. " +
+    "If AEC longevity holds (CPO skepticism + microLED bridge) and Weaver ramps, this is an AI infrastructure compounder. If customer pauses or dilution accelerates, high beta works in reverse. " +
+    "Position becomes compelling at $97-100 where prob-weighted return crosses 15%.",
 
   revGrowth: [
     [1.20, 0.20, 0.12, 0.10, 0.08],

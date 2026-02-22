@@ -17,7 +17,12 @@ export const TLN = defineStock({
   costDebt: 0.07,
   rsRating: 83,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Strong but cooling. RS 83 shows Talen remains a top-tier institutional vehicle, though it's taking a breather after its parabolic phase. The co-location story is still the blueprint for the AI power trade, but velocity has normalized. Accumulate on dips.",
+  strategicNarrative:
+    "Talen Energy pioneered the AI data center co-location model — the Susquehanna/Amazon deal became the blueprint for the nuclear-powered AI infrastructure trade. " +
+    "RS 83 shows it remains a top-tier institutional vehicle, but the parabolic phase is over and velocity has normalized. $5.8B debt is high, but co-location economics and contracted power pricing provide FCF visibility. " +
+    "The problem: at $383, the market has priced in the co-location premium — upside requires either new deals or power market tightening beyond current expectations. " +
+    "If nuclear AI PPAs expand and Talen secures additional hyperscaler contracts, this re-rates higher. If power normalizes or regulatory risk materializes, the debt load amplifies downside. " +
+    "Accumulate on dips — the thesis is intact but the easy money has been made.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],

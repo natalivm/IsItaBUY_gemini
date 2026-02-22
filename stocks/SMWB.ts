@@ -17,7 +17,11 @@ export const SMWB = defineStock({
   costDebt: 0.0,
   rsRating: 3,
   aiImpact: 'DISRUPTION_RISK',
-  strategicNarrative: "Terminal technical weakness. RS 3 signals total institutional abandonment. The existential threat to web traffic measurement in an LLM-first world is a heavy anchor. Avoid at all costs despite the low P/S ratio.",
+  strategicNarrative:
+    "Similarweb is a web analytics platform facing an existential question — does web traffic measurement remain relevant in an LLM-first world where users skip search entirely? " +
+    "RS 3 signals total institutional abandonment: this is the lowest-conviction stock in the portfolio. Revenue $286M with 8% FCF margins and zero debt, but the TAM may be structurally shrinking. " +
+    "If enterprise demand for competitive intelligence and digital market share data survives the AI transition, the low P/S is a deep value opportunity. If LLMs render web traffic analysis obsolete, this is a value trap. " +
+    "Avoid unless you have a specific thesis on why web analytics survives — the tape says institutions don't.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],

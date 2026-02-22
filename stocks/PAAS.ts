@@ -23,19 +23,11 @@ export const PAAS = defineStock({
   rsTrend: 'rising',
   aiImpact: 'NEUTRAL',
   strategicNarrative:
-    "Type B — Cyclical Growth. Not a compounder. This is a leveraged bet on silver and gold prices. " +
-    "Post earnings call: record FCF $1.2B (Q4 alone $553M), but CEO states explicitly — record results reflect leverage to metal prices, " +
-    "not structural margin expansion. Company is fully unhedged — maximum beta to metals. " +
-    "Juanicipio is a low-cost engine (low AISC, high silver grades, immediate FCF), but management confirms long-term silver grades will decline " +
-    "and base metals share will increase — typical epithermal profile. " +
-    "La Colorada Skarn restructured: Phase 1 at 10-15k tpd (vs old 50k tpd), higher grade, lower capex, better IRR — but still capex-heavy commodity project. " +
-    "Escobal optionality: +$0.8-1.3 EPS uplift if restarted, ~$2B NPV at $32 silver, but no timeline — FM 169 consultation ongoing, " +
-    "Guatemala jurisdiction risk. Escobal alone doesn't make PAAS a multi-bagger; silver $40+ does. " +
-    "Operating leverage is brutal in both directions: 10% revenue decline → 20-30% profit decline. AISC silver guidance $15.75-18.25. " +
-    "Silver production +14% growth in 2026. RS 97 confirms strong momentum but for commodity stocks RS 95+ often precedes volatile phases. " +
-    "DCF without Escobal: EV ~$18-20B vs current ~$27B — market already prices high metals + partial optionality. " +
-    "Probability of 15%+ CAGR: ~30-40% if silver strong, ~15% neutral cycle. " +
-    "This is a macro/cycle/metals momentum bet, not execution or structural moat.",
+    "PAAS is a leveraged bet on silver and gold prices — fully unhedged, maximum beta to metals, with record FCF $1.2B driven by price not structural margin expansion. " +
+    "Juanicipio is a low-cost FCF engine and Escobal restart (+$0.8-1.3 EPS, ~$2B NPV at $32 silver) is real optionality, but operating leverage is brutal both ways: 10% revenue decline means 20-30% profit decline. " +
+    "At current price, the market already prices high metals + partial Escobal optionality (EV ~$27B vs DCF ~$18-20B without Escobal). RS 97 confirms momentum, but for commodity stocks RS 95+ often precedes volatile phases. " +
+    "If silver hits $40+, this is a 2.5-3x multi-bagger. If metals correct, the unhedged exposure amplifies downside to -50%. " +
+    "30-40% probability of 15%+ CAGR — a macro/metals momentum bet, not execution or structural moat.",
 
   epsCagr: [-10, 8, 18],
   exitPE: [14, 17, 22],

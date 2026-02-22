@@ -20,13 +20,11 @@ export const TER = defineStock({
   rsRating: 98,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Probability-weighted expected value analysis. At $325 (52–55x fwd P/E), TER is priced as a quasi-compounder " +
-    "but history says this is a deeply cyclical semiconductor equipment business. " +
-    "Bull case requires AI capex cycle to extend 5 full years — possible but far from certain. " +
-    "Expected 5yr price $399 → ~4.2% CAGR, well below 15% hurdle. " +
-    "For 15%+ CAGR you need the bull scenario (30% probability) to play out. " +
-    "RS 98 confirms strong momentum, but momentum doesn't change mid-cycle economics. " +
-    "Type B — Cyclical Growth. This is a bet on AI-cycle continuation, not a structural compounder.",
+    "Teradyne is a deeply cyclical semi-equipment business priced as a quasi-compounder at 52-55x forward P/E — bull case requires AI capex to extend 5 full years while history says otherwise. " +
+    "Test complexity (3nm/2nm, chiplets, HBM) provides structural volume support, and robotics (UR/MiR) is optionality if it ever inflects. " +
+    "The problem: prob-weighted 5yr target implies only ~4.2% CAGR — well below 15% hurdle. RS 98 confirms momentum, but momentum doesn't change mid-cycle economics. " +
+    "If AI capex supercycle extends and robotics inflects, 15%+ is achievable. If cycle normalizes, P/E compresses to 20x and this is -13% from here. " +
+    "A bet on AI-cycle continuation, not a structural compounder.",
 
   // ── EPS_PE model: epsCagr and exitPE are the primary valuation drivers ──
   epsCagr: [5, 15, 20],

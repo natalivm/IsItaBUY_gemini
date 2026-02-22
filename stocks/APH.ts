@@ -20,12 +20,10 @@ export const APH = defineStock({
   rsRating: 91,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Post FY2025 — Revenue $23.1B (+38% organic), adj EPS $3.34 (+77%), FCF $4.4B, adj op margin 26.2%. " +
-    "IT Datacom (AI) now 36% of revenue. Q4 book-to-bill 1.31x, FY25 orders $25.4B. " +
-    "CCS acquisition adds ~$4.1B revenue and ~$0.15 EPS in 2026. Post-CCS net debt ~$14.7B, leverage ~1.8x pro forma. " +
-    "Trailing P/E 44.2x — premium justified only if AI-driven EPS growth sustains 15%+ CAGR. " +
-    "Key risk: multiple compression from 44x to historical trough ~22x would mean ~50% haircut. " +
-    "Quality anchors: diversified end-markets, 1.31x book-to-bill, +52% dividend raise, strong RS 91.",
+    "Amphenol is the premium connector play for AI infrastructure — IT Datacom now 36% of revenue, Q4 book-to-bill 1.31x, FY25 adj EPS +77%. " +
+    "CCS acquisition extends the platform with ~$4.1B revenue. Quality anchors are real (diversified end-markets, 52% dividend raise, RS 91). " +
+    "The problem: at 44x trailing P/E, a compression to historical 22x means ~50% haircut — premium justified only if AI-driven growth sustains 15%+ CAGR. " +
+    "Pay-up-for-quality entry, not an asymmetric one.",
 
   epsCagr: [1, 10, 18],
   exitPE: [22, 30, 38],

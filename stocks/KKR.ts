@@ -20,19 +20,11 @@ export const KKR = defineStock({
   rsRating: 16,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Category B — cyclical growth with structural trend elements. " +
-    "KKR is an alternative asset manager: management fees stable, performance fees/carry deeply cyclical. " +
-    "Valuation anchored on Distributable Earnings (DE): 2026E $6.74, 2027E $8.16, 2028E $9.88/share (~21% CAGR through 2028). " +
-    "At $100.5, stock trades at ~15x 2026E DE — adequately valued on forward basis. " +
-    "Dividend yield ~1% ($0.79/share 2026E), growing ~6.5%/yr — not the driver; DE growth + terminal multiple is what matters. " +
-    "Feb 2026 earnings call strengthens Base/Bull: mgmt fees +22-24% YoY, FRE margin high, " +
-    "insurance accrued income as hidden catalyst for 2027-28, monetization visibility ~$900M. " +
-    "DE-based IRR: Bear 6.6%, Base 13.8%, Bull 18.2%. Stress test (0% growth post-2028, 15x) still yields 8.8% IRR. " +
-    "Soft moat: brand, institutional access, deal flow, AUM scale — no hard technological barrier. " +
-    "RS 16 — weak relative strength, negative momentum. Not a market leader now. " +
-    "Probability of 15%+ IRR: ~30-35%. Earnings call tilts probability toward Base/Bull but Bear doesn't disappear. " +
-    "Bottom line: instrument for playing private capital recovery. DE visibility through 2028 is strong; " +
-    "post-2028 execution and cycle are the key unknowns. Not a lifetime compounder.",
+    "KKR is the instrument for playing private capital recovery — DE path $6.74 -> $8.16 -> $9.88 (~21% CAGR through 2028), with insurance accrued income as the hidden catalyst for 2027-28. " +
+    "At ~15x 2026E DE, the stock is adequately valued: prob-weighted IRR ~12-13%, with stress test (0% growth post-2028, 15x) still yielding 8.8%. " +
+    "The problem: RS 16 signals no institutional momentum, carry is deeply cyclical, and post-2028 execution is the key unknown — this is not a lifetime compounder. " +
+    "If exit markets normalize and insurance/private wealth channels accelerate, IRR reaches 18%+. If carry stays depressed, it's 7% dead money with a soft moat. " +
+    "30-35% probability of 15%+ CAGR — a cycle bet on capital markets recovery, not a structural compounder.",
 
   revGrowth: [
     [0.06, 0.04, 0.02, 0.00, 0.00],

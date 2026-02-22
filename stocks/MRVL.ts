@@ -17,7 +17,12 @@ export const MRVL = defineStock({
   costDebt: 0.055,
   rsRating: 48,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Type B — cyclical growth on AI capex wave. Post-Barclays (Dec 2025): mgmt frames AI as 10–15yr cycle with ups/downs, record bookings Q2→Q3→Q4 accelerating. Three engines: (1) optics/interconnect — 80–90% intra-DC traffic migration from copper, TAM from near-zero; (2) switching — $300M FY26 → $500M+ FY27, 51.2T ramp + 100T intro + scale-up UALink sampling 2H FY27; (3) custom XPU + attach (NIC+CXL) — FY27 base +20%, FY28 re-acceleration via new XPU customer + attach doubling. Moat moderate (design-win concentration). EBIT margin 29%→36%. Probability of 15%+ CAGR: ~60–65% (up from 55–60% pre-Barclays). Key risk: spending pause in FY27H2/FY28H1 hits MRVL harder than AVGO. MRVL beats AVGO only if FY28 re-accelerates + attach scales + P/E holds ≥22x.",
+  strategicNarrative:
+    "Marvell is a three-engine AI capex play — optics (80-90% copper-to-optical migration, TAM from near-zero), switching ($300M FY26 to $500M+ FY27 on 51.2T/100T ramp), and custom XPU + attach (NIC+CXL doubling in FY28). " +
+    "Record bookings accelerating Q2->Q3->Q4, management frames AI as a 10-15yr cycle, EBIT margin expanding 29% to 36%. " +
+    "The risk: a spending pause in FY27H2/FY28H1 hits MRVL harder than AVGO due to moderate moat (design-win concentration, not sole-source). " +
+    "If FY28 re-accelerates and attach scales, this beats AVGO on a 5yr basis. If capex cycle pauses, high beta works in reverse and P/E compresses to 18x. " +
+    "60-65% probability of 15%+ CAGR — the best risk/reward AI semi if the cycle extends.",
 
   revGrowth: [
     [0.20, 0.05, 0.05, 0.05, 0.05],

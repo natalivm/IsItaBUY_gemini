@@ -20,19 +20,10 @@ export const EME = defineStock({
   rsRating: 93,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "B+ quality cyclical grower with semi-structural productivity moat. " +
-    "Data centers now ~24–25% of revenue and growing — not sectoral noise but a systemic factor for consolidated revenue/margin. " +
-    "Hyperscaler demand visibility extends to 2031 (gas turbines sold out until 2031); qualitative signal, not contracted, but materially lowers short-cycle cliff risk. " +
-    "Triple execution moat: (1) labor — union recruitment/redeployment via hall, lower workforce-stuck risk; " +
-    "(2) productivity — prefab/VDC/BIM investment, CapEx CAGR 28–30% vs revenue 14–15%, rev growth ~3x headcount growth; " +
-    "(3) customer intimacy — hyperscalers directly 'want us on the journey'. " +
-    "Margin sustainability backed by structural productivity, not just hot demand; operating margin 9.1–9.4% baseline confirmed. " +
-    "Downturn playbook clear: if DC falls 50% → ~-12.5% revenue; variable labor (union) + ROI focus + 3-year payback prefab = managed downside. " +
-    "RPO at record $12.6B (+29% YoY), 80% DC-driven organic. Capital allocation balanced: reinvestment (M&A + organic) vs shareholder returns ~50/50. " +
-    "Probability-weighted expected CAGR from current price: ~6–7% at most likely 24x exit P/E. " +
-    "Probability of 15%+ CAGR: ~35–45%, requires entry not at peak multiple or DC cycle continuation to 2031. " +
-    "Good company, not cheap entry. Entry for 15% CAGR needs ~$560–665 (base/bull). " +
-    "Key risk: valuation compression — even strong EPS growth yields mediocre CAGR if P/E compresses to 18x.",
+    "EMCOR is a B+ quality cyclical grower with a semi-structural productivity moat — data centers now ~25% of revenue, RPO at record $12.6B (+29% YoY), and a triple execution edge (union labor flexibility, prefab/VDC/BIM investment, hyperscaler intimacy). " +
+    "Revenue growth running 3x headcount growth signals real productivity leverage, and demand visibility extends to 2031 (gas turbines sold out). " +
+    "The problem: at current price, prob-weighted CAGR is only ~6-7% — good company, not cheap entry. Even strong EPS growth yields mediocre returns if P/E compresses from premium to 18x industrial. " +
+    "35-45% probability of 15%+ CAGR — entry for that hurdle needs ~$560-665. Watch for DC cycle extension or multiple compression as the signal.",
 
   // ── Scenarios ──
   epsCagr: [7, 13, 17],        // bear: DC slows; base: DC normalizes; bull: DC high-teens + M&A

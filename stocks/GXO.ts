@@ -20,19 +20,11 @@ export const GXO = defineStock({
   rsRating: 91,
   aiImpact: 'TAILWIND',
   strategicNarrative:
-    "Post Q4'25 call (Feb 11 2026): Type B cyclical growth with execution-driven margin upside, not a structural compounder. " +
-    "FY25 actuals: Rev $13.2B (+12.5%, +3.9% organic), Adj EBITDA $881M (+8%), Adj EPS $2.51. " +
-    "2026 guidance: Adj EPS $2.85–$3.15 (+20% mid), EBITDA $930–970M, organic rev 4–5%, EBITDA→FCF conversion 30–40%. " +
-    "Key: guidance assumes flat volumes — conservative; upside if cycle recovers. " +
-    "Locked-in incremental revenue $774M (~6% gross growth), pipeline $2.5B. New business wins $1.1B in 2025. " +
-    "Wincanton synergy: ~$20M YoY benefit in 2026, $60M run-rate by end-2026/into 2027. " +
-    "Buybacks: $200M in H1'25 at avg $37.34 — normal capital allocation, not the EPS story. " +
-    "Moat: moderate/operational (long contracts, switching costs, scale + automation) but no pricing power vs DHL/DSV/Kuehne+Nagel. " +
-    "At $65.6 stock trades near bull fair value on 2026E ($69), not base ($57). " +
-    "Entry zones: ideal $50–56, normal $56–60. Hold $60–75. Trim $70–75, hard trim $80+. " +
-    "12–18mo targets via 2027E EPS $3.47: Bear $55, Base $62–70, Bull $76. " +
-    "Probability of 15%+ CAGR: ~35–45% (improved post-call with guidance clarity + synergy runway). " +
-    "Thesis: execution + margin expansion + Wincanton synergy. Not a secular megatrend bet.",
+    "GXO is a cyclical logistics operator playing an execution + margin expansion story — not a secular megatrend bet. " +
+    "FY26 guide: adj EPS +20% mid ($2.85-$3.15), organic 4-5% on flat volume assumptions (conservative), Wincanton synergy ramping to $60M run-rate by end-2026. " +
+    "The problem: at $65.6 the stock trades near bull fair value ($69), not base ($57) — pricing in execution that hasn't fully materialized yet. " +
+    "If Wincanton synergies deliver + cycle recovers + margin expands toward 5% EBIT, this is a 15%+ compounder. If volumes stay flat, it's 8% dead money with no pricing power vs DHL/DSV. " +
+    "35-45% probability of 15%+ CAGR — ideal entry $50-56 where risk/reward flips.",
 
   epsCagr: [5, 11, 16],
   exitPE: [16, 19, 22],

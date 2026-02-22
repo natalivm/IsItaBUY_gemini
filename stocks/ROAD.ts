@@ -22,23 +22,11 @@ export const ROAD = defineStock({
   rsRating: 88,
   aiImpact: 'NEUTRAL',
   strategicNarrative:
-    "Type B — Cyclical Growth, but the best type: in the right cycle it looks like a compounder. " +
-    "Q1 FY26 (Feb 5 2026 call) confirms compounding-through-M&A thesis: revenue +44% YoY (3.5% organic, ~40.6% acquisitive), " +
-    "adj EBITDA +63% YoY, record Q1 EBITDA margin 13.9%, backlog $3.09B with 80-85% next-12-month coverage. " +
-    "CFO $82.6M (vs $40.7M YoY), management guides 75-85% EBITDA-to-CFO conversion for FY26. " +
-    "Road 2030 target: >$6B revenue, 17% EBITDA margin, >$1B EBITDA — effectively doubling the business. " +
-    "M&A pipeline 'most active in 25 years'; Houston platform build-out (series of tuck-ins + HMA plants) " +
-    "creates local operational moat via vertical integration. Greenfield HMA in Georgia + more FY26-27. " +
-    "Leverage 3.18x, targeting ~2.5x by late 2026; GMJ acquisition funded without new long-term debt. " +
-    "Public cycle supportive: +10-15% contract award growth expected FY26, 5-year reauthorization expected by Sep 30 " +
-    "with 'significant increase' in formula funding to states. " +
-    "Moat is operational (integration competence + HMA vertical + local relationships + Sunbelt scale), not structural monopoly. " +
-    "No recurring revenue, no buybacks — growth from M&A + margin + operating leverage + mix. " +
-    "RS 88 = constructive leader, not extreme momentum. Forward P/E ~44x — stretched but supported by backlog visibility. " +
-    "Organic growth can float quarterly (Q1 only 3.5% vs 7-8% FY guide), operating leverage amplifies both ways. " +
-    "Probability of 15%+ CAGR: ~40-50% (upgraded post-call due to backlog + M&A pipeline + Road 2030 visibility). " +
-    "Key risks: P/E compression (at 25x = -45% downside), M&A integration execution, infrastructure budget cuts, margin stagnation. " +
-    "This is a bet on execution + infra cycle (Sunbelt + reshoring + data centers as commercial driver), not eternal moat.",
+    "Construction Partners is a compounding-through-M&A infrastructure play — revenue +44% YoY, record EBITDA margins, $3.09B backlog with 80-85% coverage, and Road 2030 targeting >$6B revenue / 17% EBITDA margin (doubling the business). " +
+    "M&A pipeline is 'most active in 25 years' with Houston platform build-out creating local operational moats via HMA vertical integration. " +
+    "The problem: at ~44x forward P/E, the stock prices in near-perfect execution while organic growth floats quarterly (Q1 only 3.5% vs 7-8% guide) and operating leverage amplifies both ways. " +
+    "If infra cycle extends (Sunbelt + reshoring + data centers) and Road 2030 delivers, this looks like a compounder. If P/E compresses to 25x, it's -45% downside regardless of EPS growth. " +
+    "40-50% probability of 15%+ CAGR — a bet on execution + infra cycle, not eternal moat.",
 
   // ── EPS/PE Scenarios (updated post Q1 FY26 call) ──
   epsCagr: [10, 16, 21],       // bear 8-12% mid / base 15-17% mid / bull 20-22% mid

@@ -17,7 +17,11 @@ export const SPOT = defineStock({
   costDebt: 0.042,
   rsRating: 14,
   aiImpact: 'DISRUPTION_RISK',
-  strategicNarrative: "At $496: Spotify is a legitimate ~12% CAGR cash compounder — market-beating, but not enough margin of safety for a full-conviction position. The FCF story (CAGR ~20%, margin 17%→23%) is real, but you're paying ~35x for it. At $400–420 it becomes a comfortable accumulate (implied P/FCF ~28x fwd, CAGR 14–15% at 25x exit). Below $380 it's aggressive buy territory — 15%+ returns even with conservative multiple. Risk: if SPOT converges to Netflix-like 20–25x FCF as it matures, $496 delivers only ~7%. RS 14 confirms the market isn't in a hurry to reprice higher.",
+  strategicNarrative:
+    "Spotify is a legitimate ~12% CAGR cash compounder — FCF margin expanding 17% to 23%, personalization moat deepening, and pricing power proven across multiple raises. " +
+    "The problem: at ~35x P/FCF you're paying for the compounding already, and RS 14 confirms the market isn't in a hurry to reprice higher. " +
+    "If premium personalization + pricing power + ads scaling sustain 20%+ FCF CAGR, the 35x is justified. If SPOT converges to Netflix-like 20-25x as it matures, current price delivers only ~7%. " +
+    "Entry improves at $400-420 (14-15% CAGR) and becomes aggressive buy below $380. Market-beating but not asymmetric at current levels.",
 
   revGrowth: [
     [0.10, 0.10, 0.09, 0.07, 0.07],

@@ -17,7 +17,11 @@ export const UBER = defineStock({
   costDebt: 0.065,
   rsRating: 16,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Broken technicals. RS 16 signals that institutions have aggressively rotated out of UBER as the AV promise meets regulatory and execution friction. While the 'platform-as-a-service' AV potential is theoretically huge, the tape suggests big money is parked elsewhere for now. Heavy distribution phase.",
+  strategicNarrative:
+    "Uber is a global mobility + delivery platform with $43.5B revenue, 11% FCF margins, and the theoretical optionality of becoming the platform-as-a-service layer for autonomous vehicles. " +
+    "The problem: RS 16 signals aggressive institutional rotation out as AV promise meets regulatory friction and Waymo/Tesla competition threatens the core ride-hailing moat. " +
+    "If Uber becomes the demand aggregator for AVs (fleet management, routing, insurance, demand matching), the platform value compounds far beyond current pricing. If AVs disintermediate Uber, the moat erodes. " +
+    "Heavy distribution phase — wait for RS recovery above 40 before building a position. The AV optionality is real but the tape says institutions aren't paying for it yet.",
 
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],
