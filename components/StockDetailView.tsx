@@ -84,11 +84,11 @@ const StockDetailView: React.FC<Props> = ({
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Target</span>
-                    <span className="text-3xl font-black" style={{ color: tc }}>{usd(currentProjection.pricePerShare!)}</span>
+                    <span className="text-3xl font-black" style={{ color: tc }}>{usd(currentProjection.pricePerShare)}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">WACC</span>
-                    <span className="text-3xl font-black text-white">{currentProjection.w ? pctFmt(currentProjection.w) : 'N/A'}</span>
+                    <span className="text-3xl font-black text-white">{pctFmt(currentProjection.w)}</span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">RS Rating</span>

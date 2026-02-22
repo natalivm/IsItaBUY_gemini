@@ -74,9 +74,12 @@ export interface SimpleStockInput {
   /** Scenario descriptions */
   desc: Trio<string>;
 
+  /** Optional thesis per scenario */
+  thesis?: Trio<string>;
+
   // ── Optional overrides (sensible defaults applied) ──
 
-  /** Terminal growth rate. Default: [0.02, 0.025, 0.03] */
+  /** Terminal growth rate. Default: [0.015, 0.025, 0.03] */
   termGrowth?: Trio<number>;
 
   /** WACC adjustment. Default: [0.01, 0, -0.005] */
@@ -146,10 +149,10 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     modelType = 'DCF_ADVANCED',
 
     // Scenarios
-    revGrowth, fcfMargin, exitMultiple, desc,
+    revGrowth, fcfMargin, exitMultiple, desc, thesis,
 
     // Defaults
-    termGrowth = [0.02, 0.025, 0.03],
+    termGrowth = [0.015, 0.025, 0.03],
     waccAdj = [0.01, 0, -0.005],
     bbRate = [0.005, 0.015, 0.03],
     ebitdaProxy = [0.15, 0.22, 0.35],
@@ -216,6 +219,7 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
       exitMultiple: toRecord(exitMultiple),
       waccAdj: toRecord(waccAdj),
       desc: toRecord(desc),
+      ...(thesis ? { thesis: toRecord(thesis) } : {}),
       drivers,
       ...(epsCagr ? { epsCagr: toRecord(epsCagr) } : {}),
       ...(exitPE ? { exitPE: toRecord(exitPE) } : {}),

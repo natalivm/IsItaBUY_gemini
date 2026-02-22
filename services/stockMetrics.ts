@@ -13,8 +13,8 @@ export function computeStockMetrics(
   currentProjection: ProjectionData,
   allProjections: Record<ScenarioType, ProjectionData>,
 ): StockMetrics {
-  const baseTarget = allProjections.base.pricePerShare!;
-  const bullTarget = allProjections.bull.pricePerShare!;
+  const baseTarget = allProjections.base.pricePerShare;
+  const bullTarget = allProjections.bull.pricePerShare;
   const momentumUpside = (baseTarget / tickerDef.currentPrice - 1) * 100;
 
   const baseCagr = currentProjection.cagrs[4];

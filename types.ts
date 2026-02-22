@@ -87,8 +87,8 @@ export interface ProjectionData {
   cumReturns: number[];
   fcfYield: number[];
   config: ScenarioConfig;
-  w?: number;
-  pricePerShare?: number;
-  mosPrice?: number;
-  mosUpside?: number;
+  w: number;
+  pricePerShare: number;
+  mosPrice: number;
+  mosUpside: number;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { TrendingUp, ShieldCheck, Zap, ArrowLeft } from 'lucide-react';
 import { TickerDefinition, ProjectionData } from '../types';
-import { cn } from '../utils';
+import { cn, rsRatingStyle } from '../utils';
 import { usd } from '../services/stockMetrics';
 
 interface Props {
@@ -49,9 +49,7 @@ const StockPageHeader: React.FC<Props> = ({
             </h1>
             <span className={cn(
               "text-base font-black border rounded px-2 py-1 mb-1 flex-shrink-0",
-              tickerDef.rsRating >= 80 ? 'text-green-400 border-green-700' :
-              tickerDef.rsRating >= 40 ? 'text-white border-slate-600' :
-              'text-red-400 border-red-800'
+              rsRatingStyle(tickerDef.rsRating)
             )}>RS {tickerDef.rsRating}</span>
           </div>
 
@@ -59,7 +57,7 @@ const StockPageHeader: React.FC<Props> = ({
             {[
               { label: 'SPOT', value: usd(tickerDef.currentPrice), icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
               { label: 'RATING', value: activeStockData?.label || 'HOLD', icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
-              { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare!), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+              { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
             ].map((m, i) => (
               <div
                 key={i}
