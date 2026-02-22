@@ -21,11 +21,11 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">
-          <Target className="w-3.5 h-3.5 text-slate-500" />
-          <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">5Y Base Target</span>
+          <Target className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">5Y Base Target</span>
         </div>
         <div className="text-3xl font-black text-white">{usd(baseTarget)}</div>
-        <div className="text-xs text-slate-500 mt-3 flex items-center gap-1.5">
+        <div className="text-sm text-slate-400 mt-3 flex items-center gap-1.5">
           Bull Target: <span className="text-amber-500 font-bold">{usd(bullTarget)}</span>
         </div>
       </motion.div>
@@ -38,13 +38,13 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">
-          <Rocket className="w-3.5 h-3.5 text-slate-500" />
-          <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Momentum Upside</span>
+          <Rocket className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Momentum Upside</span>
         </div>
         <div className="text-3xl font-black" style={{ color: momentumUpside >= 0 ? '#22c55e' : '#ef4444' }}>
           {momentumUpside >= 0 ? '+' : ''}{momentumUpside.toFixed(1)}%
         </div>
-        <div className="text-xs text-slate-500 mt-3">
+        <div className="text-sm text-slate-400 mt-3">
           Est. Time to Target: <span className="text-slate-300 font-bold">~{Math.max(0.5, timeToTarget).toFixed(1)}Y</span>
         </div>
       </motion.div>
@@ -57,8 +57,8 @@ const StockMetricCards: React.FC<Props> = ({ metrics, themeColor: tc }) => {
       >
         <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl" style={{ background: tc }} />
         <div className="flex items-center gap-2 mb-3">
-          <Activity className="w-3.5 h-3.5 text-slate-500" />
-          <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Prob of Acceleration</span>
+          <Activity className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">Prob of Acceleration</span>
         </div>
         <div className="text-3xl font-black" style={{ color: tc }}>{probAcceleration}%</div>
         <div className="mt-3 w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">

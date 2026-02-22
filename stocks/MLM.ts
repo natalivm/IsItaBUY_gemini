@@ -63,20 +63,17 @@ export const MLM = defineStock({
   bullMaOptVal: false,                       // Not an M&A-driven story at this stage
 
   desc: [
-    'Construction cycle turns down despite IIJA tailwinds. Housing stays weak, volume growth stalls. ' +
-      'Margin normalization from peak — gross margin drifts from 34% toward 28-30%. ' +
-      'P/E compresses to historical trough ~20x. EPS CAGR ~5%, 2031E EPS ~$24 × 20x = ~$480. ' +
-      'CAGR ~-5% to 0% from $686. Stress: P/E 22x × EPS $21 = $462 (downside ~-33%).',
-    'Moderate infrastructure recovery supported by IIJA (50% funds unspent). Volume +1-3% per guide, ' +
-      'pricing ~5% with positive price/cost spread. Data center + energy provides incremental demand. ' +
-      'Capex -29% drives FCF normalization. EBITDA toward $2.49B guide. ' +
-      'EPS CAGR ~10%, 2031E EPS ~$30 × 24x = ~$720. CAGR ~1-2% from $686. ' +
-      'Market already prices this scenario. For 15% CAGR need entry ~$420-480.',
-    'Infrastructure supercycle: IIJA spending extends, data centers grow ~60% sustained for years, ' +
-      'energy capex massive. Network optimization delivers COGS upside beyond guidance. ' +
-      'Pricing power + volume + capex discipline drive margin expansion. ' +
-      'EPS CAGR ~14%, 2031E EPS ~$36 × 28x = ~$1,008. CAGR ~8-10% from $686. ' +
-      'Even bull case barely reaches 12% CAGR. 15%+ needs entry below ~$550.',
+    'The construction cycle turns down despite infrastructure bill tailwinds. Housing stays weak and volume growth stalls. ' +
+      'Margins normalize from peak levels with gross margin drifting from 34% toward the 28-30% range. ' +
+      'The multiple compresses to its historical trough around 20x. Earnings grow at only about 5% annually, ' +
+      'resulting in negative to flat returns from current entry. In a stress scenario, downside reaches roughly -33%.',
+    'A moderate infrastructure recovery unfolds, supported by the infrastructure bill with 50% of funds still unspent. ' +
+      'Volume grows 1-3% per guidance with pricing around 5% and a positive price-to-cost spread. Data center and energy projects provide incremental demand. ' +
+      'Capital expenditure declining 29% drives free cash flow normalization. Earnings grow at roughly 10% annually, ' +
+      'but the market already prices this scenario, leaving only 1-2% annualized stock returns from current entry.',
+    'An infrastructure supercycle plays out as government spending extends, data center construction grows at 60% sustained for years, and energy capex runs at high levels. ' +
+      'Network optimization delivers cost savings beyond guidance. Pricing power, volume growth, and capital discipline all drive margin expansion. ' +
+      'Earnings compound at roughly 14% annually, delivering 8-10% annualized stock returns. Even in this optimistic scenario, 15%+ returns would require a lower entry price.',
   ],
 
   thesis: [

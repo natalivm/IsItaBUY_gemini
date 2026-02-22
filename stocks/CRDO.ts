@@ -39,19 +39,15 @@ export const CRDO = defineStock({
   ],
   exitMultiple: [12, 16, 19],
   desc: [
-    'AI capex cools after binding 12–36mo visibility expires. Concentrated customer pauses (top 4 = 93% rev). ' +
-      'Multiple compresses first — then estimate cuts follow. High beta on downside. ' +
-      'Binding visibility delays pain but doesn\'t prevent it. EPS CAGR 10%, exit P/E 18x. ' +
-      'FY31E EPS ~$5.02 × 18x = $90 target. CAGR from $124 ≈ −6.1%.',
-    'Core grows, new pillars slow to ramp. 12–36mo binding visibility supports FY26–FY27, but new logos slow. ' +
-      'GM normalizes to 63–65% as mgmt guided. CPO threat fades but microLED/ALC timeline unclear. ' +
-      'EPS CAGR 18%, exit P/E 25x. FY31E EPS ~$7.14 × 25x = $178 target. ' +
-      'CAGR from $124 ≈ 7.6%. Hurdle missed, not a disaster.',
-    'AEC+IC core holds; ZeroFlap reliability = sticky moat (GPU→first-switch link, no redundancy). ' +
-      'Zero-Flap optics gains FY27 traction. Weaver/OmniConnect ramps FY28 at $1,000+ content per GPU — ' +
-      'transforms revenue scale. CPO skepticism validated; microLED bridge extends AEC relevance. ' +
-      'AI capex = decade+ megatrend per mgmt. 12–36mo binding visibility de-risks near-term. ' +
-      'EPS CAGR 25%, exit P/E 30x. FY31E EPS ~$9.52 × 30x = $286 target. CAGR from $124 ≈ 18.2%.',
+    'AI capex cools after the 12-36 month binding visibility window expires. The top four customers represent 93% of revenue, ' +
+      'so any pause in spending hits hard. The multiple compresses first, then estimate cuts follow. ' +
+      'The binding visibility delays the pain but does not prevent it. Earnings growth slows to 10% and the stock delivers negative returns from current levels.',
+    'The core business grows steadily but new product pillars are slow to ramp. Binding customer visibility supports near-term results, though new customer wins come slower than hoped. ' +
+      'Gross margins normalize to the 63-65% range as management guided. The co-packaged optics threat fades but the timeline for next-generation solutions remains unclear. ' +
+      'Earnings grow at roughly 18% annually, delivering around 7-8% annualized stock returns. Below the 15% hurdle, but not a disaster.',
+    'The core active electrical cable and IC business holds strong, with ZeroFlap reliability creating a sticky moat on GPU-to-switch links where there is no redundancy fallback. ' +
+      'Zero-Flap optics gains traction by fiscal 2027, and the Weaver and OmniConnect platforms ramp in fiscal 2028 with over $1,000 in content per GPU, transforming the revenue scale. ' +
+      'AI infrastructure spending proves to be a decade-long megatrend. Earnings compound at 25% annually, delivering roughly 18% annualized stock returns.',
   ],
 
   epsCagr: [10, 18, 25],

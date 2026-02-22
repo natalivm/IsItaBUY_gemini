@@ -39,23 +39,17 @@ export const KKR = defineStock({
   ],
   exitMultiple: [10, 14, 18],
   desc: [
-    'Post-2028 DE growth slows to +6%/yr. Exit market stays weak, carry remains depressed. ' +
-    'DE 2030E ~$11.10/share × 12x exit = target ~$133. Dividends add ~$4.50 cumulative. ' +
-    'IRR ~6.6%/yr from $100.5. Not catastrophic — strong balance sheet, no bankruptcy risk — ' +
-    'but significantly below cost of capital. Stress test: 0% DE growth post-2028 at 15x still gives $148 (IRR 8.8%). ' +
-    'Downside is bounded but upside is capped. Dead money scenario.',
-    'Normalized cycle: AUM growth resumes, moderate exits, carry partially returns. ' +
-    'DE path: $6.74 -> $8.16 -> $9.88 (TIKR visible), then +12%/yr post-2028. DE 2030E ~$12.39. ' +
-    'Exit multiple 15x on DE -> target ~$186. Dividends add ~$4.50 cumulative. ' +
-    'IRR ~13.8%/yr from $100.5. Solid but just under 15% threshold. ' +
-    'Feb 2026 call supports this: mgmt fees +22-24%, FRE margin high, insurance accrued income as 2027-28 catalyst. ' +
-    'No heroic assumptions — just normalization of capital markets.',
-    'Full cycle recovery + structural fee growth. Insurance integration and private wealth channel accelerate. ' +
-    'DE path: $6.74 -> $8.16 -> $9.88, then +16%/yr. DE 2030E ~$13.29. ' +
-    'Exit multiple 17x on DE -> target ~$226. Dividends add ~$4.50 cumulative. ' +
-    'IRR ~18.2%/yr from $100.5. Requires: (1) AUM growth sustained, (2) exit market normalization, ' +
-    '(3) carry return, (4) insurance accrued income materializes. ' +
-    'Earnings call visibility ($900M monetizations) supports but doesn\'t guarantee this path.',
+    'Distributable earnings growth slows to about 6% per year after 2028. Exit markets stay weak and carried interest remains depressed. ' +
+      'Returns come in around 6-7% annualized from current entry including dividends. Not catastrophic given the strong balance sheet and no bankruptcy risk, ' +
+      'but significantly below cost of capital. The downside is bounded but upside is capped. A dead money scenario.',
+    'The capital markets cycle normalizes with AUM growth resuming, moderate exits returning, and carried interest partially recovering. ' +
+      'Distributable earnings grow from $6.74 toward $12+ per share by 2030. Management fees grow 22-24% with high fee-related earnings margins, ' +
+      'and insurance accrued income emerges as a catalyst for 2027-2028. Returns come in around 13-14% annualized from current entry. ' +
+      'Solid but just under the 15% threshold. No heroic assumptions required — just normalization of capital markets.',
+    'A full cycle recovery combines with structural fee growth. Insurance integration and private wealth distribution channels accelerate beyond expectations. ' +
+      'Distributable earnings grow at 16%+ annually post-2028, reaching over $13 per share by 2030. ' +
+      'Returns reach roughly 18% annualized from current entry. Requires sustained AUM growth, exit market normalization, ' +
+      'carry recovery, and insurance accrued income materializing — ambitious but supported by management visibility.',
   ],
 
   epsCagr: [10, 13, 15],

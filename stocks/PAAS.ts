@@ -47,16 +47,17 @@ export const PAAS = defineStock({
   exitMultiple: [5, 7, 10],
 
   desc: [
-    'Silver correction to $25-28. Operating leverage works in reverse: revenue -15-20%, EBIT drops 30-50%. ' +
-      'AISC margin compresses, FCF normalizes from $1.2B to $300-400M. Juanicipio grades decline as expected, Escobal stays suspended. ' +
-      'Fully unhedged = maximum downside. EPS CAGR -10%, exit P/E 14x. Bear target ~$32. Downside ~50%.',
-    'Silver $30-32 range. Record FCF normalizes from $1.2B to ~$900M. Juanicipio contributes at declining grades. ' +
-      'Skarn Phase 1 launches with moderate value-add. Escobal remains optionality only. ' +
-      '+14% silver production growth in 2026 supports near-term, then flattens. ' +
-      'EPS CAGR 8%, exit P/E 17x. Base target ~$97. CAGR ~8-10%.',
-    'Silver bull market $35-40+. Fully unhedged exposure amplifies gains. Juanicipio + Skarn deliver strong FCF. ' +
-      'Possible Escobal restart adds +$0.8-1.3 EPS uplift (+25-30%). Total FCF >$2B at peak. ' +
-      'EPS CAGR 18%, exit P/E 22x. Bull target ~$196. CAGR ~22-25%. This is the 2.5-3x scenario.',
+    'Silver corrects to the $25-28 range. Operating leverage works in reverse as revenue drops 15-20% and operating income falls 30-50%. ' +
+      'All-in sustaining cost margins compress, and free cash flow normalizes from the record $1.2B down to $300-400M. ' +
+      'Juanicipio grades decline as expected and Escobal stays suspended. Being fully unhedged means maximum downside exposure, with the stock potentially losing roughly 50%.',
+    'Silver stabilizes in the $30-32 range. Record free cash flow normalizes from $1.2B to around $900M as prices settle. ' +
+      'Juanicipio continues contributing at declining grades, and Skarn Phase 1 launches with moderate value. Escobal remains optionality only. ' +
+      'Silver production growth of 14% in 2026 supports near-term results before flattening out. ' +
+      'Earnings grow at roughly 8% annually, delivering 8-10% annualized stock returns.',
+    'A silver bull market pushes prices to $35-40 or higher. The fully unhedged exposure amplifies gains across the portfolio. ' +
+      'Juanicipio and Skarn deliver strong free cash flow, and a possible Escobal restart adds significant earnings uplift of 25-30%. ' +
+      'Total free cash flow exceeds $2B at peak. Earnings compound at 18% annually, delivering 22-25% annualized returns. ' +
+      'This is the 2.5-3x multi-bagger scenario.',
   ],
 
   thesis: [

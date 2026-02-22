@@ -39,18 +39,17 @@ export const APP = defineStock({
   ],
   exitMultiple: [16, 22, 28],
   desc: [
-    'Ad budgets cut + Meta/no-ID competition erodes share. Revenue growth drops to low-teens. ' +
-      'Operating leverage works in reverse at 82-84% EBITDA — any revenue miss hits EPS hard. ' +
-      'Self-serve rollout disappoints, e-comm vertical fails to scale. P/E compresses to 18x. ' +
-      'EPS CAGR ~20%. FY30E EPS ~$24 × 18x = $436. CAGR from $418 ≈ 1%.',
-    'Q1 guide validates sustained engine. Revenue CAGR ~18%, EBITDA margin holds 80%+. ' +
-      'Self-serve GA drives broadening. CAC/LTV 30-day payback scales. Buybacks 1-2%/yr. ' +
-      'P/E compresses from 43x to 22x through earnings growth — returns come from EPS, not multiple. ' +
-      'EPS CAGR ~31%. FY30E EPS ~$38 × 22x = $836. CAGR from $418 ≈ 15%.',
-    'Self-serve + e-comm + GenAI creative tools unlock TAM expansion. Revenue sustains 25%+ CAGR. ' +
-      'Conversion rate moves from ~1% toward 5% via advertiser diversity. MAX becomes default auction layer. ' +
-      'Massive FCF funds buybacks + optionality. Market re-rates from cyclical to structural. ' +
-      'EPS CAGR ~37%. FY30E EPS ~$47 × 25x = $1175. CAGR from $418 ≈ 23%.',
+    'Advertising budgets get cut and competition from Meta erodes market share. Revenue growth drops to the low teens. ' +
+      'At 82-84% EBITDA margins, there is no room to expand so any revenue miss flows straight to the bottom line. ' +
+      'The self-serve rollout disappoints and the e-commerce vertical fails to scale. The multiple compresses to 18x, leaving near-flat returns from current entry.',
+    'Q1 guidance validates the sustained growth engine. Revenue compounds at roughly 18% with EBITDA margins holding above 80%. ' +
+      'The self-serve platform drives advertiser broadening, with customer acquisition payback scaling efficiently. Buybacks add 1-2% annually. ' +
+      'The P/E naturally compresses from 43x to 22x through earnings growth, meaning returns are driven by EPS expansion rather than multiple expansion. ' +
+      'Earnings grow at roughly 31% annually, delivering around 15% annualized stock returns.',
+    'Self-serve, e-commerce, and GenAI creative tools unlock a meaningful expansion of the addressable market. Revenue sustains 25%+ growth. ' +
+      'Advertiser diversity improves conversion rates significantly, and MAX becomes the default auction layer for mobile monetization. ' +
+      'Massive free cash flow funds aggressive buybacks. The market re-rates the business from cyclical to structural, ' +
+      'with earnings compounding at roughly 37% annually and delivering over 20% annualized returns.',
   ],
   thesis: [
     'Ad cycle turns down — macro cuts budgets. Meta captures no-ID traffic, TikTok takes share. ' +

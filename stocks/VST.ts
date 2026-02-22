@@ -44,9 +44,12 @@ export const VST = defineStock({
   prob: [15, 50, 35],
 
   desc: [
-    'High rates persist + power price crash. EPS CAGR 5%, exit P/E 14x (lower-rate floor). 5yr EPS ~$11.2 × 14 = $157. CAGR from $171 ≈ −2%.',
-    'Lower rates + normalizing power prices (regime 2). EPS CAGR 10%, exit P/E 17x (60/40 blend of 16x/18x). 5yr EPS ~$14.2 × 17 = $241. CAGR from $171 ≈ 7%.',
-    'Lower rates + tight power markets + PPA expansion. EPS CAGR 15%, exit P/E 20x. 5yr EPS ~$17.7 × 20 = $354. CAGR from $171 ≈ 16%.',
+    'Interest rates stay high and power prices crash. Earnings grow at only 5% annually with the multiple settling at 14x as the rate floor provides some support. ' +
+      'Returns come in around -2% annualized from current entry as the macro environment works against the thesis.',
+    'Interest rates come down and power prices normalize to a sustainable range. Earnings grow at 10% annually with a 17x exit multiple. ' +
+      'Buybacks continue to be a core earnings driver. Returns come in around 7% annualized from current entry — decent capital return story but below the 15% threshold.',
+    'Lower rates combine with tight power markets and expanding power purchase agreements. Earnings compound at 15% annually as nuclear and generation assets benefit from sustained demand. ' +
+      'The market re-rates to 20x on improved visibility. This is the only path to 15%+ returns, requiring both macro tailwinds and execution.',
   ],
 
   bullMaOptVal: 171.00 * 339.0 * 0.07,

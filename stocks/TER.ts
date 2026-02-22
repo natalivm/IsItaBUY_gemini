@@ -44,18 +44,15 @@ export const TER = defineStock({
   ],
   exitMultiple: [10, 15, 20],
   desc: [
-    'AI capex cycle turns. Semi test demand normalises. Robotics (UR/MiR) still subscale. ' +
-      'P/E compresses to 20x as market re-rates TER as mid-cycle industrial. ' +
-      'EPS CAGR 5%: $6.3 × 1.05^5 ≈ $8.0. Target: $8.0 × 20 = $160. ' +
-      'CAGR from $325 ≈ −13%. Probability: 25%.',
-    'Normal semiconductor cycle continues. AI capex grows but decelerates. ' +
-      'Test complexity (3nm/2nm, chiplets, HBM) supports volume. P/E normalises to 30x. ' +
-      'EPS CAGR 15%: $6.3 × 1.15^5 ≈ $12.7. Target: $12.7 × 30 = $381. ' +
-      'CAGR from $325 ≈ 3–4%. Probability: 45%.',
-    'AI capex supercycle extends 5 years. TER captures outsized share of test complexity. ' +
-      'Robotics inflects meaningfully. Market sustains premium (but below current 52x). ' +
-      'EPS CAGR 20%: $6.3 × 1.20^5 ≈ $15.7. Target: $15.7 × 40 = $628. ' +
-      'CAGR from $325 ≈ 14–15%. Probability: 30%.',
+    'The AI capex cycle turns and semiconductor test demand normalizes. Robotics through Universal Robots and MiR remains subscale. ' +
+      'The market re-rates Teradyne as a mid-cycle industrial at 20x. Earnings grow at only 5% annually, ' +
+      'resulting in roughly -13% annualized returns from current entry as the premium valuation compresses.',
+    'A normal semiconductor cycle continues with AI capex growing but decelerating. ' +
+      'Test complexity at advanced nodes, chiplets, and high-bandwidth memory supports volume. The multiple normalizes to 30x. ' +
+      'Earnings compound at 15% annually, but from the current elevated valuation stock returns come in at only 3-4% annualized.',
+    'The AI capex supercycle extends for five years and Teradyne captures an outsized share of the test complexity opportunity. ' +
+      'The robotics business inflects meaningfully, adding a second growth engine. The market sustains a premium multiple, though below the current 52x. ' +
+      'Earnings compound at 20% annually, delivering 14-15% annualized stock returns. This is the only scenario that approaches the 15% hurdle.',
   ],
 
   bbRate: [0.01, 0.02, 0.03],

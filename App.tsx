@@ -96,17 +96,17 @@ const TagFilterBar: React.FC<{
           key={tag}
           onClick={() => onToggle(isActive ? null : tag)}
           className={cn(
-            "flex items-center gap-2 px-3 py-1.5 rounded-full border text-[10px] font-black uppercase tracking-widest transition-all duration-200",
+            "flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-black uppercase tracking-widest transition-all duration-200",
             isActive
               ? `${activeBorder} ${activeBg} ${color}`
-              : "border-slate-700/60 text-slate-500 hover:border-slate-500 hover:text-slate-400"
+              : "border-slate-700/60 text-slate-400 hover:border-slate-500 hover:text-slate-300"
           )}
         >
           <span className={cn("w-1.5 h-1.5 rounded-full flex-shrink-0", isActive ? dot : 'bg-slate-600')}></span>
           {label}
           <span className={cn(
-            "font-mono text-[9px] px-1.5 py-0.5 rounded",
-            isActive ? `${activeBg} ${color}` : 'bg-slate-800 text-slate-500'
+            "font-mono text-[11px] px-1.5 py-0.5 rounded",
+            isActive ? `${activeBg} ${color}` : 'bg-slate-800 text-slate-400'
           )}>
             {count}
           </span>
@@ -116,9 +116,9 @@ const TagFilterBar: React.FC<{
     {activeTagFilter && (
       <button
         onClick={() => onToggle(null)}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700/60 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-slate-300 hover:border-slate-500 transition-all duration-200"
+        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-700/60 text-xs font-black uppercase tracking-widest text-slate-400 hover:text-slate-300 hover:border-slate-500 transition-all duration-200"
       >
-        <span className="text-[10px]">&#x2715;</span> CLEAR
+        <span className="text-xs">&#x2715;</span> CLEAR
       </button>
     )}
   </div>
@@ -157,8 +157,8 @@ const StockRow: React.FC<{
       "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
       rsRatingStyle(tickerDef.rsRating)
     )}>RS {tickerDef.rsRating}</span>
-    <span className="text-sm font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
-    <span className="text-[11px] font-medium text-slate-500 truncate">{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
+    <span className="text-sm font-bold text-slate-300 mono">{stock.fairPriceRange}</span>
+    <span className="text-sm font-medium text-slate-400 truncate">{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
   </motion.button>
 );
 
@@ -284,10 +284,10 @@ const App: React.FC = () => {
                   return (
                     <div key={groupKey}>
                       <div className={cn("flex items-center gap-3 px-4 py-3 mt-6 first:mt-0 border-l-2", meta.border, meta.bg)}>
-                        <span className={cn("text-[11px] font-black uppercase tracking-[0.2em]", meta.accent)}>{meta.label}</span>
-                        <span className={cn("text-[10px] font-bold mono px-1.5 py-0.5 rounded bg-white/5", meta.accent)}>{stocks.length}</span>
+                        <span className={cn("text-xs font-black uppercase tracking-[0.2em]", meta.accent)}>{meta.label}</span>
+                        <span className={cn("text-xs font-bold mono px-1.5 py-0.5 rounded bg-white/5", meta.accent)}>{stocks.length}</span>
                         <span className="flex-1 h-px bg-slate-700/40"></span>
-                        <span className="text-[10px] text-slate-500 tracking-wide">{meta.desc}</span>
+                        <span className="text-xs text-slate-400 tracking-wide">{meta.desc}</span>
                       </div>
                       {stocks.map(stock => {
                         const idx = globalIdx++;
