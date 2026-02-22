@@ -19,7 +19,7 @@ export const RBRK = defineStock({
   enhancementLabel: 'Agentic AI Cloud',
   rsRating: 10,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Post-earnings upgrade: B-type business (cyclical growth with strong structural tailwind). Subscription ARR $1.35B (+34% YoY), NRR >120%, record FCF $77M/quarter. Platform expanding — security modules drive >40% NRR (was 32%), Identity ~$20M ARR in 3 quarters with 40% net-new customers. Cloud ARR ~87% of subscription (+53% YoY). Key risk: FY27 reported revenue under pressure from material rights accounting headwind (normalized growth healthier than GAAP). RS 10 signals no institutional momentum — not a momentum story. 40–50% probability of 15%+ CAGR over 5 years. Bet on execution + cyber resilience structural trend; AI agents are optionality, not core thesis.",
+  strategicNarrative: "Post-earnings upgrade: B-type business (cyclical growth with strong structural tailwind). Subscription ARR $1.35B (+34% YoY), NRR >120%, record FCF $77M/quarter. Platform expanding — security modules drive >40% NRR (was 32%), Identity ~$20M ARR in 3 quarters with 40% net-new customers. Cloud ARR ~87% of subscription (+53% YoY). Moat is platform-shaped: high switching costs (resilience + identity + telemetry), outcome-driven value prop (clean recovery + compliance + identity remediation), regulatory tailwind (DORA/NIS2/SEC disclosure). Not 'unique formula' — moat is in integrated execution. Stock hypersensitive to two variables: (1) ARR sustainability >20%, (2) market willingness to pay >25x FCF. Prob-weighted nominal CAGR ~14.5%, risk-adjusted ~11–12% after path risk (50% chance of early compression to ~$27). FY27 material rights headwind creates headline slowdown risk. RS 10 = no institutional momentum. Best entry likely after compression event. Bet on execution + cyber resilience structural trend; AI agents are optionality, not core thesis.",
 
   // Revenue growth: starts elevated (ARR +34% momentum) then decelerates
   // Bear CAGR ~12%, Base ~18%, Bull ~24%
@@ -54,6 +54,7 @@ export const RBRK = defineStock({
     'Platform expansion (Identity net-new buyers, security modules >40% NRR) drives 15%+ CAGR even without multiple expansion. FCF inflection is the catalyst.',
   ],
 
+  prob: [0.25, 0.45, 0.30],
   bbRate: [0.005, 0.01, 0.015],
   bullMaOptVal: true,
 });
