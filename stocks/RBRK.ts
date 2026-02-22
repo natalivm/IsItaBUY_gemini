@@ -6,8 +6,8 @@ export const RBRK = defineStock({
   sector: 'Data Security',
   themeColor: '#22d3ee',
   currentPrice: 50.20,
-  fairPriceRange: '$40 - $85',
-  shares0: 200.0,
+  fairPriceRange: '$35 - $100',
+  shares0: 201.0,
   rev25: 1281,
   fcfMargin25: 0.155,
   taxRate: 0.20,
@@ -17,22 +17,43 @@ export const RBRK = defineStock({
   unitLabel: 'ARR',
   unit25: 1350,
   enhancementLabel: 'Agentic AI Cloud',
-  rsRating: 12,
+  rsRating: 10,
   aiImpact: 'TAILWIND',
-  strategicNarrative: "Complete institutional rejection. RS 12 signals that the market has abandoned the Rubrik story despite its 'Agent Cloud' potential. Cyber resilience is critical, but the technicals suggest the stock is a falling knife. Accumulation is non-existent.",
+  strategicNarrative: "Post-earnings upgrade: B-type business (cyclical growth with strong structural tailwind). Subscription ARR $1.35B (+34% YoY), NRR >120%, record FCF $77M/quarter. Platform expanding — security modules drive >40% NRR (was 32%), Identity ~$20M ARR in 3 quarters with 40% net-new customers. Cloud ARR ~87% of subscription (+53% YoY). Key risk: FY27 reported revenue under pressure from material rights accounting headwind (normalized growth healthier than GAAP). RS 10 signals no institutional momentum — not a momentum story. 40–50% probability of 15%+ CAGR over 5 years. Bet on execution + cyber resilience structural trend; AI agents are optionality, not core thesis.",
 
+  // Revenue growth: starts elevated (ARR +34% momentum) then decelerates
+  // Bear CAGR ~12%, Base ~18%, Bull ~24%
   revGrowth: [
-    [0.06, 0.05, 0.05, 0.04, 0.04],
-    [0.12, 0.11, 0.10, 0.09, 0.08],
-    [0.16, 0.15, 0.14, 0.13, 0.12],
-  ],
-  fcfMargin: [0.13175, 0.155, 0.17825],
-  exitMultiple: [12, 16, 19],
-  desc: [
-    'Economic headwinds leading to multiple compression and slower growth.',
-    'Market alignment with standard institutional growth expectations.',
-    'Category-defining growth powered by AI tailwinds and operating leverage.',
+    [0.16, 0.14, 0.12, 0.10, 0.08],      // Bear: NRR normalizes, net new ARR disappoints
+    [0.24, 0.21, 0.18, 0.15, 0.12],      // Base: ARR decelerates to low-20s then teens
+    [0.30, 0.27, 0.24, 0.21, 0.18],      // Bull: ARR sustains 25-30% then 20%+
   ],
 
-  bullMaOptVal: 54.55 * 200.0 * 0.07,
+  // FCF margin progression: currently ~15.5%, operating leverage drives expansion
+  // Non-GAAP gross margin already 83%, ARR contribution margin improved ~1400bps YoY
+  fcfMargin: [
+    [0.13, 0.13, 0.14, 0.14, 0.15],      // Bear: margin stalls at current levels
+    [0.155, 0.17, 0.19, 0.20, 0.22],      // Base: steady expansion to 22%
+    [0.16, 0.19, 0.22, 0.25, 0.28],      // Bull: best-in-class scaling to 28%
+  ],
+
+  // EBITDA exit multiples for quality security SaaS
+  exitMultiple: [15, 22, 30],
+
+  ebitdaProxy: [0.18, 0.26, 0.35],
+
+  desc: [
+    'NRR normalizes faster than expected; FY27 material-rights headwind triggers multiple compression; net new ARR lumpy and below consensus.',
+    'ARR decelerates to low-20s; NRR slides to ~112–115%; FY27 GAAP slowdown pressures multiple despite healthy underlying subscription business.',
+    'Subscription ARR sustains 25–30% growth; NRR holds >118%; Identity + security modules expand TAM into CISO/IAM budgets; FCF margin scales to best-in-class.',
+  ],
+
+  thesis: [
+    'Growth halving + multiple compression can deliver -30–50% downside even without business breakdown. FY27 accounting noise amplifies the sell-off.',
+    'Solid 8–12% stock CAGR — good business that may "tread water" as GAAP reported revenue creates headline risk the market punishes.',
+    'Platform expansion (Identity net-new buyers, security modules >40% NRR) drives 15%+ CAGR even without multiple expansion. FCF inflection is the catalyst.',
+  ],
+
+  bbRate: [0.005, 0.01, 0.015],
+  bullMaOptVal: true,
 });
