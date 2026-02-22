@@ -8,6 +8,45 @@ import StockDetailView from './components/StockDetailView';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from './utils';
 
+type StockGroup = 'PRIME_GROWTH' | 'TURBO_GROWTH' | 'WATCH_LIST';
+
+const GROUP_ORDER: StockGroup[] = ['PRIME_GROWTH', 'TURBO_GROWTH', 'WATCH_LIST'];
+
+const GROUP_META: Record<StockGroup, { label: string; accent: string; border: string; bg: string; desc: string }> = {
+  PRIME_GROWTH: {
+    label: 'PRIME GROWTH',
+    accent: 'text-emerald-400',
+    border: 'border-emerald-500/40',
+    bg: 'bg-emerald-500/5',
+    desc: 'Large Cap \u00b7 Strong Valuation \u00b7 High Momentum',
+  },
+  TURBO_GROWTH: {
+    label: 'TURBO GROWTH',
+    accent: 'text-fuchsia-400',
+    border: 'border-fuchsia-500/40',
+    bg: 'bg-fuchsia-500/5',
+    desc: 'Growth Cap \u00b7 Strong RS \u00b7 Compelling Value',
+  },
+  WATCH_LIST: {
+    label: 'WATCH LIST',
+    accent: 'text-slate-400',
+    border: 'border-slate-600/40',
+    bg: 'bg-slate-500/5',
+    desc: 'Monitoring \u00b7 Criteria Not Met',
+  },
+};
+
+function classifyStock(t: TickerDefinition, rating: string, rsRating: number): StockGroup {
+  const marketCapM = t.currentPrice * t.shares0; // shares0 already in millions
+  const isLargeCap = marketCapM >= 10_000; // >= $10B
+  const isStrongBuy = rating === 'STRONG BUY';
+  const hasGoodMomentum = rsRating >= 70;
+
+  if (isLargeCap && isStrongBuy && hasGoodMomentum) return 'PRIME_GROWTH';
+  if (!isLargeCap && isStrongBuy && hasGoodMomentum) return 'TURBO_GROWTH';
+  return 'WATCH_LIST';
+}
+
 const TAG_DEFS = [
   { tag: 'STRONG BUY', label: 'STRONG BUY', color: 'text-green-400', activeBorder: 'border-green-500', activeBg: 'bg-green-500/10', dot: 'bg-green-500' },
   { tag: 'HOLD',       label: 'HOLD',        color: 'text-blue-400',  activeBorder: 'border-blue-500',  activeBg: 'bg-blue-500/10',  dot: 'bg-blue-500'  },
@@ -46,7 +85,8 @@ const App: React.FC = () => {
     return Object.values(liveTickers).map((t: TickerDefinition) => {
       const proj = calculateProjection(t.ticker, ScenarioType.BASE, liveTickers, true);
       const rating = getInstitutionalRating(proj.pricePerShare!, t.currentPrice);
-      return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact };
+      const group = classifyStock(t, rating.label, t.rsRating);
+      return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact, group };
     }).sort((a, b) => a.ticker.localeCompare(b.ticker));
   }, [liveTickers]);
 
@@ -58,15 +98,17 @@ const App: React.FC = () => {
     return counts;
   }, [universeData]);
 
-  const sortedData = useMemo(() => {
-    if (!activeTagFilter) return universeData;
-    return [...universeData].sort((a, b) => {
-      const aMatch = a.label === activeTagFilter || a.aiImpact === activeTagFilter;
-      const bMatch = b.label === activeTagFilter || b.aiImpact === activeTagFilter;
-      if (aMatch && !bMatch) return -1;
-      if (!aMatch && bMatch) return 1;
-      return a.ticker.localeCompare(b.ticker);
-    });
+  const groupedData = useMemo(() => {
+    const filtered = activeTagFilter
+      ? universeData.filter(s => s.label === activeTagFilter || s.aiImpact === activeTagFilter)
+      : universeData;
+    const groups: Record<StockGroup, typeof universeData> = {
+      PRIME_GROWTH: [],
+      TURBO_GROWTH: [],
+      WATCH_LIST: [],
+    };
+    filtered.forEach(s => groups[s.group].push(s));
+    return groups;
   }, [universeData, activeTagFilter]);
 
   const investmentConclusion = useMemo(() => {
@@ -143,37 +185,54 @@ const App: React.FC = () => {
                 )}
               </div>
 
-              {/* Stock List */}
+              {/* Stock List – grouped */}
               <div className="space-y-0">
-              {sortedData.map((stock, idx) => {
-                const isTagMatch = activeTagFilter && (stock.label === activeTagFilter || stock.aiImpact === activeTagFilter);
-                return (
-                <motion.button
-                  key={stock.ticker}
-                  layout
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: idx * 0.02 }}
-                  onClick={() => setActiveTicker(stock.ticker)}
-                  className={cn(
-                    "w-full flex items-center gap-4 py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left",
-                    isTagMatch ? "bg-white/[0.03]" : ""
-                  )}
-                >
-                  <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
-                  <span className="text-2xl lg:text-3xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter w-28 flex-shrink-0">{stock.ticker}</span>
-                  <span className="text-base font-bold text-blue-400 mono w-24 flex-shrink-0">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
-                  <span className={cn("text-xs font-black uppercase tracking-widest w-28 flex-shrink-0", stock.color)}>{stock.label}</span>
-                  <span className={cn(
-                    "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
-                    liveTickers[stock.ticker].rsRating >= 80 ? 'text-green-400 border-green-700' :
-                    liveTickers[stock.ticker].rsRating >= 40 ? 'text-white border-slate-600' :
-                    'text-red-400 border-red-800'
-                  )}>RS {liveTickers[stock.ticker].rsRating}</span>
-                  <span className="text-sm font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
-                </motion.button>
-                );
-              })}
+              {(() => {
+                let globalIdx = 0;
+                return GROUP_ORDER.map(groupKey => {
+                  const stocks = groupedData[groupKey];
+                  if (stocks.length === 0) return null;
+                  const meta = GROUP_META[groupKey];
+                  return (
+                    <div key={groupKey}>
+                      {/* Group Divider */}
+                      <div className={cn("flex items-center gap-3 px-4 py-3 mt-6 first:mt-0 border-l-2", meta.border, meta.bg)}>
+                        <span className={cn("text-[11px] font-black uppercase tracking-[0.2em]", meta.accent)}>{meta.label}</span>
+                        <span className={cn("text-[10px] font-bold mono px-1.5 py-0.5 rounded bg-white/5", meta.accent)}>{stocks.length}</span>
+                        <span className="flex-1 h-px bg-slate-700/40"></span>
+                        <span className="text-[10px] text-slate-500 tracking-wide">{meta.desc}</span>
+                      </div>
+                      {/* Stocks in group */}
+                      {stocks.map(stock => {
+                        const idx = globalIdx++;
+                        return (
+                          <motion.button
+                            key={stock.ticker}
+                            layout
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ delay: idx * 0.02 }}
+                            onClick={() => setActiveTicker(stock.ticker)}
+                            className="w-full flex items-center gap-4 py-4 px-4 group transition-all duration-300 border-b border-slate-800/50 hover:bg-white/5 text-left"
+                          >
+                            <div className={cn("w-3 h-3 rounded-full flex-shrink-0", stock.dot)}></div>
+                            <span className="text-2xl lg:text-3xl font-black text-white group-hover:text-[#ff007f] transition-colors tracking-tighter w-28 flex-shrink-0">{stock.ticker}</span>
+                            <span className="text-base font-bold text-blue-400 mono w-24 flex-shrink-0">${liveTickers[stock.ticker].currentPrice.toFixed(2)}</span>
+                            <span className={cn("text-xs font-black uppercase tracking-widest w-28 flex-shrink-0", stock.color)}>{stock.label}</span>
+                            <span className={cn(
+                              "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
+                              liveTickers[stock.ticker].rsRating >= 80 ? 'text-green-400 border-green-700' :
+                              liveTickers[stock.ticker].rsRating >= 40 ? 'text-white border-slate-600' :
+                              'text-red-400 border-red-800'
+                            )}>RS {liveTickers[stock.ticker].rsRating}</span>
+                            <span className="text-sm font-bold text-slate-400 mono">{stock.fairPriceRange}</span>
+                          </motion.button>
+                        );
+                      })}
+                    </div>
+                  );
+                });
+              })()}
               </div>
             </div>
           </motion.div>
