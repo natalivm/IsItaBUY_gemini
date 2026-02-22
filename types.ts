@@ -6,6 +6,7 @@ export enum ScenarioType {
 }
 
 export type ValuationModelType = 'DCF_ADVANCED' | 'EPS_PE';
+export type RsTrend = 'rising' | 'falling' | 'flat';
 
 export interface ScenarioConfig {
   label: string;
@@ -59,6 +60,7 @@ export interface TickerDefinition {
   taxRate: number;
   modelType: ValuationModelType;
   rsRating: number;
+  rsTrend?: RsTrend;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
   strategicNarrative: string;
   cash?: number;

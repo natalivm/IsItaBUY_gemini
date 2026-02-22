@@ -75,6 +75,7 @@ export const TICKER = defineStock({
 
   // Display
   rsRating: 75,          // IBD Relative Strength 1-99
+  rsTrend: 'rising',     // 'rising' | 'falling' | 'flat' (default: 'flat')
   aiImpact: 'TAILWIND',  // 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL'
   strategicNarrative: 'Why this stock matters...',
   fairPriceRange: '$80 - $150',

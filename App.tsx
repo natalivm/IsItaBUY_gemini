@@ -21,14 +21,14 @@ const GROUP_META: Record<StockGroup, { label: string; accent: string; border: st
     accent: 'text-emerald-400',
     border: 'border-emerald-500/40',
     bg: 'bg-emerald-500/5',
-    desc: 'Large Cap \u00b7 Strong Valuation \u00b7 High Momentum',
+    desc: 'Large Cap \u00b7 Strong Valuation \u00b7 High or Rising Momentum',
   },
   TURBO_GROWTH: {
     label: 'TURBO GROWTH',
     accent: 'text-fuchsia-400',
     border: 'border-fuchsia-500/40',
     bg: 'bg-fuchsia-500/5',
-    desc: 'Growth Cap \u00b7 Strong RS \u00b7 Compelling Value',
+    desc: 'Growth Cap \u00b7 Compelling Value \u00b7 High or Rising RS',
   },
   WATCH_LIST: {
     label: 'WATCH LIST',
@@ -57,9 +57,10 @@ function classifyStock(t: TickerDefinition, rating: string, rsRating: number): S
   const isLargeCap = marketCapM >= 10_000;
   const isBuyOrAbove = rating === 'STRONG BUY' || rating === 'BUY';
   const hasGoodMomentum = rsRating >= 70;
+  const hasMidRsRising = rsRating >= 40 && t.rsTrend === 'rising';
 
-  if (isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'PRIME_GROWTH';
-  if (!isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'TURBO_GROWTH';
+  if (isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'PRIME_GROWTH';
+  if (!isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'TURBO_GROWTH';
   return 'WATCH_LIST';
 }
 
