@@ -50,6 +50,12 @@ export interface SimpleStockInput {
   /** RS trend direction. Default: 'flat' */
   rsTrend?: RsTrend;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
+  /**
+   * Alpha Strategic View: override the quantitative model rating when
+   * narrative assessment disagrees. The model rating is still shown as
+   * "Model: X" in the Investment Verdict for monitoring.
+   */
+  ratingOverride?: 'STRONG BUY' | 'BUY' | 'HOLD' | 'AVOID';
   strategicNarrative: string;
 
   // ── Model type (default: DCF_ADVANCED) ──
@@ -144,7 +150,7 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     ticker, name, sector, themeColor, currentPrice, shares0,
     rev25, fcfMargin25, taxRate, cash, debt, beta, costDebt,
     fairPriceRange, active = true,
-    rsRating, rsTrend = 'flat', aiImpact, strategicNarrative,
+    rsRating, rsTrend = 'flat', aiImpact, ratingOverride, strategicNarrative,
     modelType = 'DCF_ADVANCED',
 
     // Scenarios
@@ -203,6 +209,7 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     rsRating,
     rsTrend,
     aiImpact,
+    ratingOverride,
     strategicNarrative,
     baseEps,
     scenarios: {
