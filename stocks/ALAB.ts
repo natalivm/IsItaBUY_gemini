@@ -38,18 +38,17 @@ export const ALAB = defineStock({
   ],
   exitMultiple: [14, 20, 26],
   desc: [
-    'AI capex cycle peaks early, semiconductor downturn hits by 2028. Scorpio X ramp delayed or displaced by NVLink/ESUN. ' +
-      'Hyperscalers internalize connectivity solutions. OpEx step-up compresses margins without payback. ' +
-      'Operating leverage works in reverse — EPS drops 30-40%. P/E compresses to 20x. ' +
-      'EPS CAGR ~15%. FY30E EPS ~$3.70 × 20x = $74. CAGR from $130 ≈ negative.',
-    'Moderate AI capex sustains through 2028. Scorpio X ramps 2027 on schedule with 2-3 hyperscalers. ' +
-      'UALink adoption provides protocol diversification. EBIT margin expands to 45%. ' +
-      'Revenue decelerates naturally (37%→27%→10%→5%→-5%). ' +
-      'EPS CAGR ~27%. FY30E EPS ~$6.20 × 30x = $186. CAGR from $130 ≈ 7-8%.',
-    'AI supercycle extends. Scorpio X becomes standard scale-up switching layer across major hyperscalers. ' +
-      'Optical ramps 2028, UALink adoption accelerates. Company transitions from cyclical to architectural player. ' +
-      'EBIT margin reaches 50%. Multi-protocol optionality (CXL + UALink + NVLink Fusion) captures expanding TAM. ' +
-      'EPS CAGR ~35%. FY30E EPS ~$8.30 × 35x = $290. CAGR from $130 ≈ 17-18%.',
+    'The AI capex cycle peaks early and a semiconductor downturn hits by 2028. Scorpio X is delayed or displaced by competing solutions from NVLink and ESUN. ' +
+      'Hyperscalers begin internalizing their connectivity, and the operating expense step-up compresses margins without generating payback. ' +
+      'Operating leverage works in reverse with earnings falling 30-40%, and the multiple compresses to 20x as the growth premium evaporates.',
+    'AI infrastructure spending sustains at moderate levels through 2028. Scorpio X ramps on schedule in 2027 with two to three hyperscaler customers. ' +
+      'UALink adoption provides meaningful protocol diversification, and operating margins expand to around 45%. ' +
+      'Revenue growth decelerates naturally from the high-30s toward single digits as the business matures. ' +
+      'Earnings compound at roughly 27% annually, though from current valuation the stock return is more modest at 7-8% annualized.',
+    'The AI supercycle extends and Scorpio X becomes the standard scale-up switching layer across major hyperscalers. ' +
+      'Optical products ramp in 2028 and UALink adoption accelerates broadly. The company transitions from a cyclical play to an architectural infrastructure layer. ' +
+      'Operating margins reach 50% as multi-protocol optionality across CXL, UALink, and NVLink Fusion captures an expanding market. ' +
+      'Earnings grow at roughly 35% annually, delivering 17-18% annualized stock returns.',
   ],
   thesis: [
     'AI scale-up protocol shifts away from merchant silicon. NVLink/ESUN displaces PCIe/CXL path. ' +

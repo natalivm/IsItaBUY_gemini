@@ -39,8 +39,11 @@ export const FICO = defineStock({
   prob: [20, 50, 30],
 
   desc: [
-    'Mortgage cycle reversal and regulatory headwinds slow EPS growth to 11%; multiple compresses to 25x as cyclical tailwind fades. FY31E EPS ~$69 × 25x = $1,736. CAGR from $1,350 ≈ 5.2%.',
-    'Platform ARR and Scores pricing sustain ~15% revenue growth + margin expansion + buybacks = 19% EPS CAGR; exit at 30x. FY31E EPS ~$98 × 30x = $2,951. CAGR from $1,350 ≈ 16.9%.',
-    'Mortgage boom, platform NRR expansion, and AI-driven demand for decisioning analytics drive 20% EPS CAGR with multiple re-rating to 32x. FY31E EPS ~$103 × 32x = $3,282. CAGR from $1,350 ≈ 19.4%.',
+    'The mortgage cycle reverses and regulatory headwinds slow earnings growth to 11%. The multiple compresses to 25x as the cyclical tailwind fades. ' +
+      'Returns from current entry come in around 5% annualized — a deceleration but not a structural break.',
+    'Platform recurring revenue and Scores pricing power sustain roughly 15% revenue growth. Combined with margin expansion and buybacks, ' +
+      'earnings compound at about 19% annually. The market values FICO at 30x on exit, delivering approximately 17% annualized stock returns.',
+    'A mortgage boom, expanding platform net retention, and AI-driven demand for decisioning analytics push earnings growth to 20% annually. ' +
+      'The multiple re-rates to 32x as the market rewards the structural platform transition, delivering roughly 19% annualized stock returns.',
   ],
 });

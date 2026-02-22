@@ -45,15 +45,14 @@ export const WWD = defineStock({
   ],
   exitMultiple: [12, 17, 22],
   desc: [
-    'Q1 tailwinds (spare LRUs, China pull-forward) fade; EPS CAGR decelerates to 7%. ' +
-      'P/E compresses to 22x as market treats WWD as a cyclical rather than a compounder. ' +
-      'At $8.40 base EPS → FY31 EPS ~$11.78 × 22x = ~$259 target.',
-    'FY26 guide delivers at mid-point ($8.40 EPS). 12% EPS CAGR sustained via margin ' +
-      'leverage + pricing power. P/E settles to 30x as FCF conversion gradually improves. ' +
-      'FY31 EPS ~$14.80 × 30x = ~$444 target — modest upside from current levels.',
-    'Aero supercycle extends; aftermarket strength + industrial margin leverage drive 18% ' +
-      'EPS CAGR. Market rewards demonstrated execution with 40x P/E. ' +
-      'FY31 EPS ~$19.22 × 40x = ~$769 target — 15%+ CAGR achievable.',
+    'The Q1 tailwinds from spare parts and China pull-forward demand fade, and earnings growth decelerates to 7% annually. ' +
+      'The market re-rates Woodward from a compounder to a cyclical at 22x. The stock reprices meaningfully lower from current levels.',
+    'Fiscal 2026 guidance delivers at the mid-point. Earnings compound at 12% annually, sustained by margin leverage and pricing power. ' +
+      'The multiple settles to 30x as free cash flow conversion gradually improves. ' +
+      'Modest upside from current levels as the market already prices in solid execution.',
+    'The aerospace supercycle extends with aftermarket strength and industrial margin leverage driving 18% annual earnings growth. ' +
+      'The market rewards demonstrated execution with a 40x premium. This is the path to 15%+ annualized returns, ' +
+      'requiring sustained aerospace demand and continued margin expansion.',
   ],
 
   bbRate: [0.005, 0.02, 0.03],

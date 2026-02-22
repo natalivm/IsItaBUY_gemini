@@ -41,18 +41,18 @@ export const DUOL = defineStock({
   ],
   exitMultiple: [8, 18, 25],
   desc: [
-    'AI disruption materializes: free AI tutors (ChatGPT, T-Mobile translation, Apple/Meta hardware) erode demand. ' +
+    'AI disruption materializes as free AI tutors from ChatGPT, T-Mobile translation, and Apple and Meta hardware erode demand for dedicated language learning. ' +
       'Revenue growth collapses to single digits as users churn to free alternatives. ' +
-      'EPS CAGR 3%, exit P/E compresses to 12x (commoditized edtech). ' +
-      'FY31E EPS ~$4.64 × 12x = $56. CAGR ~-13%. Value trap despite fortress balance sheet.',
-    'Brand moat holds: 53% awareness + gamification + 90% organic growth resist AI substitution for casual learners. ' +
-      'Revenue 15–20% CAGR (decelerating but durable). Subject expansion (math, music, chess) adds TAM. ' +
-      '11.5M paid subs grow to 25M+. AI features (Video Call, Max) deepen engagement, not destroy it. ' +
-      'EPS CAGR 20%, exit P/E 25x. FY31E EPS ~$9.95 × 25x = $249. CAGR ~17%.',
-    'DUOL becomes THE AI-native education platform: language is the wedge, expands into math, literacy, test prep, corporate training. ' +
-      'AI integration creates better product (not commodity): 18x content acceleration, personalized tutoring at scale. ' +
-      '135M MAU → 300M+, 11.5M paid subs → 40M+. China (2nd largest market) drives international growth. ' +
-      'EPS CAGR 30%, exit P/E 32x. FY31E EPS ~$14.86 × 32x = $476. CAGR ~33%. Full sentiment reversal.',
+      'The multiple compresses to 12x as the market treats Duolingo as a commoditized edtech platform. ' +
+      'A value trap despite the fortress balance sheet, with earnings barely growing at 3% annually.',
+    'The brand moat holds with 53% unaided awareness, gamification stickiness, and 90% organic user acquisition resisting AI substitution for casual learners. ' +
+      'Revenue grows 15-20% annually as subject expansion into math, music, and chess adds to the addressable market. ' +
+      'Paid subscribers grow from 11.5 million to over 25 million. AI features like Video Call and Max deepen engagement rather than destroying it. ' +
+      'Earnings compound at 20% annually, delivering roughly 17% annualized stock returns.',
+    'Duolingo becomes the definitive AI-native education platform, using language learning as a wedge to expand into math, literacy, test prep, and corporate training. ' +
+      'AI integration creates a better product rather than commoditizing it, with 18x content acceleration and personalized tutoring at scale. ' +
+      'Monthly active users grow from 135 million to over 300 million, and paid subscribers scale from 11.5 million to 40 million or more. ' +
+      'Earnings compound at 30% annually in a full sentiment reversal, delivering over 30% annualized stock returns.',
   ],
 
   termGrowth: [0.01, 0.025, 0.035],

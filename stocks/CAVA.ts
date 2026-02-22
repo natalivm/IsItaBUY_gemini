@@ -42,21 +42,21 @@ export const CAVA = defineStock({
   ],
   exitMultiple: [15, 25, 35],
   desc: [
-    'Revenue growth halves to ~10% as macro/discounting persists and younger 25–35 cohort pulls back. ' +
-      'EBIT margin stagnates — reinvestments (AGM pay, ops, tech) eat leverage gains. SSS goes persistently negative on traffic. ' +
-      'Unit growth slows below mid-teens as white space proves less productive. AUV/new-unit productivity drops. ' +
-      'EPS CAGR ~13%, exit P/E compresses to 25x on valuation reset. FY30E EPS ~$0.98 × 25x = ~$24. CAGR ~-19%. ' +
-      'Classic "good company, bad stock" — operational moat insufficient to sustain premium multiple in a discount-intensive environment.',
-    'Unit growth ~16% sustains high-teens top-line. SSS low-to-mid single digits (traffic + mix, very modest pricing in 2026). ' +
-      'EBIT margin expands to ~7–8% via operational leverage, but management reinvests selectively (labor, tech, loyalty). ' +
-      'AUV holds >$3M for new cohorts. Loyalty deepens (+36% members), digital accuracy improves via KDS/TurboChef rollout. ' +
-      'EPS CAGR ~27%, exit P/E 35x. FY30E EPS ~$1.75 × 35x = ~$61. CAGR ~-3%. ' +
-      'Solid execution but fwd P/E ~130x already prices in most of the growth. Valuation is the ceiling, not fundamentals.',
-    'Full execution + macro normalization: 16%+ unit growth sustained, SSS inflects to mid-single digits as consumer spending recovers. ' +
-      'EBIT margin reaches 10%+, FCF engine scales ($170M+ by 2029). Mediterranean category expands TAM. ' +
-      'Salmon and new proteins drive traffic, loyalty program becomes real CRM engine, upper-funnel marketing unlocks with restaurant density. ' +
-      'EPS CAGR ~37%, exit P/E 50x (market re-rates for proven restaurant scaler on path to 1000+ units). ' +
-      'FY30E EPS ~$2.56 × 50x = ~$128. CAGR ~13%. Additional upside if multiple expansion beyond 50x on compounder re-classification.',
+    'Revenue growth slows to around 10% as the macro environment stays tough and the younger 25-35 demographic pulls back on dining. ' +
+      'Margins stagnate because reinvestments in labor, operations, and tech consume any operating leverage gains. Same-store traffic turns persistently negative. ' +
+      'Unit growth falls below mid-teens as new locations prove less productive than expected. ' +
+      'With earnings growing at roughly 13% and the multiple compressing to 25x, the stock reprices sharply lower from today\'s elevated valuation. ' +
+      'A classic case of a good company at the wrong price — operational quality alone can\'t sustain a premium multiple in a discount-driven market.',
+    'Unit expansion continues at around 16%, driving high-teens revenue growth. Same-store sales rise low-to-mid single digits on a mix of traffic and menu optimization. ' +
+      'Margins expand to the 7-8% range through operating leverage, though management reinvests selectively in technology, labor, and the loyalty program. ' +
+      'Average unit volumes hold above $3M for new restaurants, and the loyalty base keeps deepening. ' +
+      'Earnings grow at roughly 27%, but at a forward P/E near 130x, most of that growth is already priced in. ' +
+      'The business executes well, but valuation acts as a ceiling rather than a catalyst.',
+    'Full execution meets a normalizing macro backdrop: unit growth stays above 16%, same-store sales inflect to mid-single digits as consumer spending recovers. ' +
+      'Margins reach 10%+ and the free cash flow engine scales meaningfully. The Mediterranean fast-casual category expands its addressable market. ' +
+      'Menu innovation with new proteins drives traffic, the loyalty program becomes a real retention engine, and restaurant density unlocks national marketing. ' +
+      'The market re-rates the stock as a proven restaurant compounder on the path to 1,000+ units, pushing the multiple to 50x. ' +
+      'This is the scenario where CAVA becomes the next generational restaurant growth story.',
   ],
   thesis: [
     'Valuation + macro double hit. At current ~130x fwd P/E, any SSS disappointment or traffic decline triggers severe derating. ' +

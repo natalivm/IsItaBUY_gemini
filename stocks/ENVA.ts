@@ -42,9 +42,9 @@ export const ENVA = defineStock({
   bullMaOptVal: 149.28 * 24.8 * 0.05,   // Grasshopper optionality premium ~5% of mkt cap
 
   desc: [
-    'Recession + unemployment shock → charge-offs spike (consumer NCO 16%→20%+), origination freeze, multiple compression. CFPB regulatory overhang.',
-    'Mgmt ≥20% EPS guide met; Grasshopper closes 2H 2026 with partial synergy ramp; SMB mix continues improving; CoF declining; buybacks accretive.',
-    'Full Grasshopper realization ($125–$220M synergies), bank charter P/E re-rate, BaaS revenue layer, SMB dominance at record portfolio. EPS path: $15.5→$18.45→$22+',
+    'A recession and unemployment shock push consumer charge-offs above 20%, freezing origination volumes and compressing the valuation multiple. Regulatory overhang from CFPB adds further pressure, and the leverage that fueled growth starts working in reverse.',
+    'Management delivers on the 20%+ EPS growth guide. The Grasshopper Bank acquisition closes in the second half of 2026 with synergies beginning to ramp. The SMB mix shift continues improving credit quality, cost of funds declines, and share buybacks add to per-share earnings growth.',
+    'Grasshopper Bank fully delivers $125-220M in synergies, the national bank charter triggers a P/E re-rating from subprime lender to fintech bank. A new banking-as-a-service revenue layer emerges, and the SMB portfolio reaches record levels. Earnings accelerate from $15.50 toward $22+ per share.',
   ],
 
   driverOverrides: [

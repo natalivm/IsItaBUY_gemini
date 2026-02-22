@@ -42,15 +42,15 @@ export const APH = defineStock({
   ],
   exitMultiple: [12, 16, 20],
   desc: [
-    'AI cycle fades, auto/industrial weak, margin compression from 26.2% to 22.5%. ' +
-      'EPS CAGR ~1%, exit P/E compresses to 22x (historical trough). ' +
-      'FY30E EPS ~$3.51 × 22x = $77 target. CAGR from $148 ≈ −12%.',
-    'AI datacom sustains, stable margins near 26%, moderate re-rating. ' +
-      'CCS integration on track. EPS CAGR ~10%, exit P/E 30x. ' +
-      'FY30E EPS ~$5.38 × 30x = $161 target. CAGR from $148 ≈ 1.8%.',
-    'AI supercycle extends + defense tailwind, margin expansion to 28.5%. ' +
-      'EPS CAGR ~18%, exit P/E sustains at 38x on premium compounder status. ' +
-      'FY30E EPS ~$7.64 × 38x = $290 target. CAGR from $148 ≈ 14.5%.',
+    'The AI cycle fades while automotive and industrial end-markets remain weak, compressing margins from 26% down to around 22%. ' +
+      'Earnings growth stalls at roughly 1% annually and the multiple compresses to 22x, its historical trough. ' +
+      'At current entry price, this scenario results in meaningful negative returns.',
+    'AI datacom demand sustains, margins hold steady near 26%, and the CCS acquisition integrates on schedule. ' +
+      'Earnings grow at roughly 10% annually with a moderate re-rating to 30x. ' +
+      'A solid execution path, though returns from current valuation remain modest at under 2% annualized.',
+    'The AI supercycle extends with an additional defense tailwind, pushing margins toward 28.5%. ' +
+      'Earnings compound at roughly 18% annually and the market sustains a 38x premium for compounder status. ' +
+      'This is the path to approximately 14-15% annualized returns from current levels.',
   ],
 
   termGrowth: [0.02, 0.025, 0.03],

@@ -48,19 +48,16 @@ export const EME = defineStock({
   bullMaOptVal: 811.44 * 44.7 * 0.04,
 
   desc: [
-    'DC slows (50% drop = ~-12.5% rev). Variable union labor absorbs some pain, but margin drifts to ~8–8.5%. ' +
-      'Market re-rates EME as ordinary industrial: 18x exit. ' +
-      'EPS CAGR ~7%, 2030E EPS ~$35.6 × 18x = ~$641. CAGR ~-4.7%. ' +
-      'Downside driven by multiple compression, not bankruptcy risk. Managed but painful.',
-    'DC normalizes but holds. Organic high-single / low-double. Margin in 9–9.4% band (productivity-backed, not just demand). ' +
-      'Capital allocation 50/50 reinvestment vs returns. 24x exit — quality cyclical, not compounder. ' +
-      'EPS CAGR ~13%, 2030E EPS ~$46.8 × 24x = ~$1,123. CAGR ~6.7%. ' +
-      'Good company, not cheap entry at current price. Entry ~$560 needed for 15% CAGR.',
-    'AI DC supercycle extends to 2031 (Baird visibility signal). Organic sustains low-double. ' +
-      'Productivity moat (prefab/VDC/BIM: rev growth 3x headcount) drives margin toward 10%+. ' +
-      'M&A flawless. Hyperscalers deepen partnership. 28x exit — market pays premium for execution + visibility. ' +
-      'EPS CAGR ~17%, 2030E EPS ~$55.7 × 28x = ~$1,560. CAGR ~13.9%. ' +
-      'Even bull at 24x exit gives only ~10.4%. 15%+ needs entry ~$665 or sustained 28x.',
+    'Data center demand drops sharply, cutting about 12% of revenue. Variable union labor absorbs some of the pain, but margins drift down to the 8-8.5% range. ' +
+      'The market re-rates EMCOR as an ordinary industrial at 18x. Earnings still grow at about 7% annually, but the multiple compression drives roughly -5% annualized stock returns. ' +
+      'The downside is driven by valuation reset, not bankruptcy risk. Managed but painful.',
+    'Data center demand normalizes but holds at healthy levels. Organic growth runs in the high-single to low-double digits, backed by real productivity gains rather than just demand. ' +
+      'Capital allocation splits evenly between reinvestment and shareholder returns. The market values EMCOR as a quality cyclical at 24x. ' +
+      'Earnings grow at roughly 13% annually, delivering about 6-7% annualized stock returns. A good company, but not a cheap entry at current price.',
+    'The AI data center supercycle extends through 2031 with organic growth sustained in the low-double digits. ' +
+      'The productivity moat from prefabrication and BIM technology, where revenue growth runs 3x headcount growth, pushes margins toward 10%+. ' +
+      'Acquisitions execute flawlessly and hyperscaler partnerships deepen. The market pays a 28x premium for execution and visibility. ' +
+      'Earnings compound at roughly 17% annually, delivering about 14% annualized stock returns.',
   ],
 
   driverOverrides: [

@@ -51,22 +51,19 @@ export const ROAD = defineStock({
   bullMaOptVal: 131.9 * 56.5 * 0.05, // Higher M&A optionality — 'most active pipeline in 25 years'
 
   desc: [
-    'M&A integration stumbles or cycle turns. Award growth stalls, organic drops to 3-4%. ' +
-      'Leverage stays elevated (>3x), limiting M&A capacity. EBITDA margin stagnates at ~14-15%, ' +
-      'falling short of Road 2030 targets. Market re-rates as ordinary construction: 22-25x exit. ' +
-      'EPS CAGR ~10%, FY30E EPS ~$3.6 × 23x = ~$82. ' +
-      'Stress: at 25x on FY26E EPS $2.90 = $72 (downside ~45%). CAGR ~-5% to 0%.',
-    'Road 2030 broadly on track. M&A pipeline active, organic 7-8%, backlog coverage remains 80%+. ' +
-      'EBITDA margin reaches ~15-16% (FY26 guide confirmed). Deleveraging to 2.5x by late 2026. ' +
-      'Reauthorization provides 5-year visibility for DOT/state funding. Market values as quality cyclical: 28-32x. ' +
-      'EPS CAGR ~16%, FY30E EPS ~$4.6 × 30x = ~$139. CAGR ~1-3% from $131.9 entry. ' +
-      'For 15% CAGR: need entry ~$85-95 or bull scenario.',
-    'Infrastructure supercycle: reauthorization + Sunbelt migration + reshoring + data center commercial demand. ' +
-      'M&A pipeline fully deployed — Houston platform, greenfield HMA plants, geographic expansion. ' +
-      'Road 2030 achieved or exceeded: >$6B rev, 17% EBITDA margin, >$1B EBITDA. ' +
-      'Leverage managed, execution flawless. Market rewards with premium: 35-38x. ' +
-      'EPS CAGR ~21%, FY30E EPS ~$5.7 × 36x = ~$205. CAGR ~9-12% from $131.9. ' +
-      'Best outcome needs sustained award growth + integration discipline + margin expansion to 17%.',
+    'M&A integration stumbles or the infrastructure cycle turns. Award growth stalls and organic growth drops to 3-4%. ' +
+      'Leverage stays elevated above 3x, limiting further acquisition capacity. EBITDA margins stagnate in the 14-15% range, ' +
+      'falling short of Road 2030 targets. The market re-rates the stock as ordinary construction at 22-25x. ' +
+      'Earnings grow at roughly 10% but returns are negative to flat from current entry. In a stress scenario, downside reaches about 45%.',
+    'Road 2030 is broadly on track with an active M&A pipeline, 7-8% organic growth, and backlog coverage above 80%. ' +
+      'EBITDA margins reach the 15-16% range as fiscal 2026 guidance confirms. Leverage comes down to 2.5x by late 2026. ' +
+      'Highway reauthorization provides five-year visibility for federal and state funding. The market values the business as a quality cyclical at 28-32x. ' +
+      'Earnings compound at roughly 16% annually, though returns from current entry are modest at 1-3% annualized.',
+    'An infrastructure supercycle unfolds driven by highway reauthorization, Sunbelt migration, reshoring, and data center commercial demand. ' +
+      'The M&A pipeline is fully deployed with the Houston platform, greenfield plants, and geographic expansion all contributing. ' +
+      'Road 2030 targets are achieved or exceeded with over $6B in revenue and 17% EBITDA margins. ' +
+      'The market rewards execution with a 35-38x premium. Earnings compound at roughly 21% annually, ' +
+      'delivering 9-12% annualized returns from current entry.',
   ],
 
   thesis: [

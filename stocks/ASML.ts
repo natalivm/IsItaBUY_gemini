@@ -43,18 +43,18 @@ export const ASML = defineStock({
   ],
   exitMultiple: [20, 25, 30],
   desc: [
-    'Capex pause at TSMC/Intel, fab readiness delays persist, AI capex moderates. ' +
-      'Margin pressure from dry DUV / EUV 3600 mix does not resolve by 2027. ' +
-      'EPS CAGR 10%, exit P/E compresses to 25x (historical floor). ' +
-      'FY32E EPS ~$72.8 × 25x = $1,820. CAGR ~4%. Dead money at current valuation.',
-    'Normal semi cycle: AI/datacenter demand sustains, EUV dominance continues, High-NA ramps. ' +
-      'Installed base + upgrades grow steadily. 2026 margin dip recovers 2027+ as mix improves. ' +
-      'Buybacks add +1-2% EPS CAGR tailwind (€12B program through 2028). ' +
-      'EPS CAGR 18%, exit P/E 30x. FY32E EPS ~$103 × 30x = $3,090. CAGR ~16%.',
-    'AI capex supercycle: massive advanced node buildout (2nm/A14), High-NA fully adopted post-Intel qualification. ' +
-      'DRAM EUV intensity accelerates (HBM/DDR tight, single EUV replaces multi-pattern DUV). ' +
-      'Metrology/inspection grows significantly. €12B buyback accelerates EPS. ' +
-      'EPS CAGR 22%, exit P/E 35x. FY32E EPS ~$122 × 35x = $4,270. CAGR ~24%.',
+    'Capital spending pauses at TSMC and Intel as fab readiness delays persist and AI capex moderates. ' +
+      'Margin pressure from the dry DUV and EUV 3600 product mix does not resolve by 2027. ' +
+      'Earnings grow at 10% annually but the multiple compresses to its historical floor of 25x. ' +
+      'At current valuation this translates to only about 4% annualized returns — essentially dead money.',
+    'A normal semiconductor cycle plays out with AI and datacenter demand sustaining EUV dominance. High-NA ramps on schedule. ' +
+      'The installed base plus upgrades grow steadily, and the 2026 margin dip recovers by 2027 as the product mix improves. ' +
+      'The 12 billion euro buyback program adds 1-2% to annual earnings growth through 2028. ' +
+      'Earnings compound at 18% annually with a 30x exit multiple, delivering around 16% annualized returns.',
+    'An AI capex supercycle drives massive advanced node buildout at 2nm and below, with High-NA fully adopted after Intel qualification. ' +
+      'DRAM EUV intensity accelerates as memory markets tighten and single EUV exposures replace multi-pattern DUV. ' +
+      'Metrology and inspection revenues grow significantly, and the buyback program accelerates earnings per share. ' +
+      'Earnings compound at 22% annually with a 35x premium multiple, delivering roughly 24% annualized returns.',
   ],
 
   ebitdaProxy: [0.35, 0.45, 0.55],

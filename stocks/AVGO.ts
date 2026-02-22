@@ -32,9 +32,12 @@ export const AVGO = defineStock({
   ],
   exitMultiple: [16, 23, 26],
   desc: [
-    'AI capex cycle slows, margins compress under system-level sales mix shift, VMware churn accelerates — multiple compression overwhelms earnings growth.',
-    'Street EPS CAGR of 22.8% delivers on $73B backlog — VMware recurring revenue stabilizes margins, custom AI ASIC ramps at Google and Meta, P/E naturally compresses 32x→18x through FY28 earnings growth.',
-    'AI ASIC share gains accelerate well beyond Google/Meta into new hyperscalers, VMware cross-sell exceeds targets, FCF compounding justifies sustained premium multiple.',
+    'The AI capex cycle slows, margins compress as the sales mix shifts toward lower-margin system-level products, and VMware churn accelerates. ' +
+      'Multiple compression overwhelms whatever earnings growth remains.',
+    'Street consensus of 22.8% earnings growth delivers on the $73B backlog. VMware recurring revenue stabilizes margins while custom AI ASICs ramp at Google and Meta. ' +
+      'The P/E naturally compresses from 32x toward 18x through earnings growth alone — returns are driven by fundamental execution, not multiple expansion.',
+    'AI ASIC share gains accelerate well beyond Google and Meta into new hyperscaler customers. VMware cross-selling exceeds targets and free cash flow compounding ' +
+      'justifies a sustained premium multiple. This is the scenario where Broadcom becomes the dominant AI infrastructure platform.',
   ],
 
   termGrowth: [0.020, 0.030, 0.035],

@@ -43,15 +43,13 @@ export const GXO = defineStock({
   ],
   exitMultiple: [12, 16, 19],
   desc: [
-    'Volume pressure, slow new business ramp, retention challenges. Margins stuck at ~4% EBIT. ' +
-      'EPS CAGR 5%, exit P/E compresses to 16x (historical stress zone). ' +
-      'FY31E EPS ~$3.83 × 16x = $61. CAGR ~-1% to 0%. Essentially dead money.',
-    'Guidance-like execution: organic 4–5%, margin expansion to ~5% EBIT via Wincanton synergy + productivity. ' +
-      'EPS CAGR 11%, exit P/E 19x. ' +
-      'FY31E EPS ~$5.06 × 19x = $96. CAGR ~8%. Decent but not 15%+ without multiple expansion.',
-    'Full execution: margin catch-up, Wincanton $60M synergy, pipeline conversion, cycle recovery. ' +
-      'EPS CAGR 16%, exit P/E 22x (maintained on improved profitability). ' +
-      'FY31E EPS ~$6.30 × 22x = $139. CAGR ~16%. Requires strong execution + normal macro.',
+    'Volume pressure persists with a slow new business ramp and retention challenges. Margins remain stuck around 4% EBIT. ' +
+      'Earnings grow at only 5% annually and the multiple compresses to 16x, its historical stress zone. Essentially dead money from current entry.',
+    'Guidance-level execution plays out with 4-5% organic growth and margin expansion toward 5% EBIT, driven by Wincanton synergies and productivity improvements. ' +
+      'Earnings grow at roughly 11% annually with a 19x exit multiple. Returns come in around 8% annualized — decent but below the 15% hurdle without multiple expansion.',
+    'Full execution across the board: margin catch-up, $60M in Wincanton synergies, strong pipeline conversion, and a cyclical recovery. ' +
+      'Earnings compound at 16% annually with the market maintaining a 22x multiple on improved profitability. ' +
+      'Delivers roughly 16% annualized returns, but requires strong execution and a normal macro environment.',
   ],
 
   ebitdaProxy: [0.08, 0.12, 0.15],
