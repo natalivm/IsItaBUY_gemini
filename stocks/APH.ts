@@ -15,11 +15,8 @@ export const APH = defineStock({
   debt: 18700,
   beta: 1.25,
   costDebt: 0.055,
-  unitLabel: 'Orders ($B)',
-  unit25: 25.4,
   modelType: 'EPS_PE',
   baseEps: 3.34,
-  enhancementLabel: 'CCS Acquisition + AI Datacom Acceleration',
   rsRating: 91,
   aiImpact: 'TAILWIND',
   strategicNarrative:

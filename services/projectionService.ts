@@ -130,7 +130,6 @@ function buildProjectionData(params: {
     fcf: fcfs,
     eps,
     price,
-    priceEnhanced: price,
     cagrs: Array(HORIZON).fill(cagrValue),
     cumReturns: Array(HORIZON).fill(cumReturnValue),
     fcfYield: fcfs.map((f, i) => (f / shareHistory[i]) / (pricePerShare * FCF_YIELD_PRICE_DISCOUNT) * 100),

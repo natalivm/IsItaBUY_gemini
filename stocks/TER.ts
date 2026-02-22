@@ -15,11 +15,8 @@ export const TER = defineStock({
   debt: 100,
   beta: 1.35,
   costDebt: 0.045,
-  unitLabel: 'Test Systems',
-  unit25: 1.0,
   modelType: 'EPS_PE',
   baseEps: 6.3,            // Forward EPS 2026E
-  enhancementLabel: 'AI Test Complexity + Robotics Optionality',
   rsRating: 98,
   aiImpact: 'TAILWIND',
   strategicNarrative:

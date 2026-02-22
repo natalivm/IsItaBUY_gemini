@@ -15,8 +15,6 @@ export const MELI = defineStock({
   debt: 5800,
   beta: 1.35,
   costDebt: 0.065,
-  unitLabel: 'Unique Buyers (M)',
-  unit25: 110,
   modelType: 'EPS_PE',
   baseEps: 40.41,
   rsRating: 22,

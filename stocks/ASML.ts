@@ -15,11 +15,8 @@ export const ASML = defineStock({
   debt: 5000,
   beta: 1.15,
   costDebt: 0.025,
-  unitLabel: 'EUV Systems',
-  unit25: 85,
   modelType: 'EPS_PE',
   baseEps: 45.21,
-  enhancementLabel: 'EUV Monopoly + High-NA Qualification + €12B Buyback',
   rsRating: 96,
   aiImpact: 'TAILWIND',
   strategicNarrative:

@@ -1,4 +1,4 @@
-import { StockDefinition, ScenarioType } from '../types';
+import { StockDefinition, ScenarioType, RsTrend } from '../types';
 
 /**
  * Simplified stock input format.
@@ -46,10 +46,9 @@ export interface SimpleStockInput {
   // ── Display ──
   fairPriceRange?: string;
   active?: boolean;
-  unitLabel: string;
-  unit25: number;
-  enhancementLabel?: string;
   rsRating: number;
+  /** RS trend direction. Default: 'flat' */
+  rsTrend?: RsTrend;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
   strategicNarrative: string;
 
@@ -144,8 +143,8 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     // Identity & financials
     ticker, name, sector, themeColor, currentPrice, shares0,
     rev25, fcfMargin25, taxRate, cash, debt, beta, costDebt,
-    fairPriceRange, active = true, unitLabel, unit25,
-    enhancementLabel, rsRating, aiImpact, strategicNarrative,
+    fairPriceRange, active = true,
+    rsRating, rsTrend = 'flat', aiImpact, strategicNarrative,
     modelType = 'DCF_ADVANCED',
 
     // Scenarios
@@ -200,11 +199,9 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     debt,
     beta,
     costDebt,
-    unitLabel,
-    unit25,
     modelType,
-    enhancementLabel,
     rsRating,
+    rsTrend,
     aiImpact,
     strategicNarrative,
     baseEps,

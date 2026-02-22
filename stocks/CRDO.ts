@@ -15,11 +15,8 @@ export const CRDO = defineStock({
   debt: 22,
   beta: 2.58,
   costDebt: 0.05,
-  unitLabel: 'AEC Shipments',
-  unit25: 1.2,
   modelType: 'EPS_PE',
   baseEps: 3.12,
-  enhancementLabel: 'AEC + Zero-Flap Optics + ALC/Weaver Ramp',
   rsRating: 88,
   aiImpact: 'TAILWIND',
   strategicNarrative:

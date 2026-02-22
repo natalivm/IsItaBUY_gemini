@@ -21,14 +21,14 @@ const GROUP_META: Record<StockGroup, { label: string; accent: string; border: st
     accent: 'text-emerald-400',
     border: 'border-emerald-500/40',
     bg: 'bg-emerald-500/5',
-    desc: 'Large Cap \u00b7 Strong Valuation \u00b7 High Momentum',
+    desc: 'Large Cap \u00b7 Strong Valuation \u00b7 High or Rising Momentum',
   },
   TURBO_GROWTH: {
     label: 'TURBO GROWTH',
     accent: 'text-fuchsia-400',
     border: 'border-fuchsia-500/40',
     bg: 'bg-fuchsia-500/5',
-    desc: 'Growth Cap \u00b7 Strong RS \u00b7 Compelling Value',
+    desc: 'Growth Cap \u00b7 Compelling Value \u00b7 High or Rising RS',
   },
   WATCH_LIST: {
     label: 'WATCH LIST',
@@ -57,9 +57,10 @@ function classifyStock(t: TickerDefinition, rating: string, rsRating: number): S
   const isLargeCap = marketCapM >= 10_000;
   const isBuyOrAbove = rating === 'STRONG BUY' || rating === 'BUY';
   const hasGoodMomentum = rsRating >= 70;
+  const hasMidRsRising = rsRating >= 40 && t.rsTrend === 'rising';
 
-  if (isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'PRIME_GROWTH';
-  if (!isLargeCap && isBuyOrAbove && hasGoodMomentum) return 'TURBO_GROWTH';
+  if (isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'PRIME_GROWTH';
+  if (!isLargeCap && isBuyOrAbove && (hasGoodMomentum || hasMidRsRising)) return 'TURBO_GROWTH';
   return 'WATCH_LIST';
 }
 
@@ -70,7 +71,7 @@ const LoadingSplash: React.FC = () => (
     key="loader"
     exit={{ opacity: 0 }}
     transition={{ duration: 0.15 }}
-    className="min-h-screen bg-[#0a1128] flex flex-col items-center justify-center p-12 lg:p-24 overflow-hidden"
+    className="min-h-screen bg-surface-deep flex flex-col items-center justify-center p-12 lg:p-24 overflow-hidden"
   >
     <div className="absolute inset-0 opacity-10 pointer-events-none">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#ff007f_0%,transparent_60%)]"></div>
@@ -166,47 +167,58 @@ const App: React.FC = () => {
   const [activeTicker, setActiveTicker] = useState<string>('home');
   const [isLoading, setIsLoading] = useState(true);
   const [activeTagFilter, setActiveTagFilter] = useState<string | null>(null);
+  const [livePrices, setLivePrices] = useState<Record<string, number>>({});
+
+  // Merge static TICKERS with live prices so all downstream consumers
+  // react to price updates without mutating module-level state.
+  const tickers = useMemo(() => {
+    if (Object.keys(livePrices).length === 0) return TICKERS;
+    const merged: Record<string, TickerDefinition> = {};
+    for (const id of Object.keys(TICKERS)) {
+      merged[id] = typeof livePrices[id] === 'number'
+        ? { ...TICKERS[id], currentPrice: livePrices[id] }
+        : TICKERS[id];
+    }
+    return merged;
+  }, [livePrices]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), SPLASH_DURATION_MS);
 
-    // Fetch live prices from Yahoo Finance and update ONLY currentPrice.
+    // Fetch live prices from Yahoo Finance — only currentPrice is updated.
     // rsRating, strategicNarrative, and all other fields are preserved
     // exactly as defined in the stock data files.
     const tickerIds = Object.keys(TICKERS);
-    fetchLivePrices(tickerIds).then(livePrices => {
-      if (Object.keys(livePrices).length === 0) return;
-      for (const id of tickerIds) {
-        if (typeof livePrices[id] === 'number') {
-          TICKERS[id] = { ...TICKERS[id], currentPrice: livePrices[id] };
-        }
+    fetchLivePrices(tickerIds).then(prices => {
+      if (Object.keys(prices).length > 0) {
+        setLivePrices(prices);
       }
     });
 
     return () => clearTimeout(timer);
   }, []);
 
-  const tickerDef = activeTicker !== 'home' ? TICKERS[activeTicker] : null;
+  const tickerDef = activeTicker !== 'home' ? tickers[activeTicker] : null;
 
   const allProjections = useMemo(() => {
     if (!tickerDef) return null;
     return {
-      [ScenarioType.BEAR]: calculateProjection(activeTicker, ScenarioType.BEAR, TICKERS, true),
-      [ScenarioType.BASE]: calculateProjection(activeTicker, ScenarioType.BASE, TICKERS, true),
-      [ScenarioType.BULL]: calculateProjection(activeTicker, ScenarioType.BULL, TICKERS, true),
+      [ScenarioType.BEAR]: calculateProjection(activeTicker, ScenarioType.BEAR, tickers, true),
+      [ScenarioType.BASE]: calculateProjection(activeTicker, ScenarioType.BASE, tickers, true),
+      [ScenarioType.BULL]: calculateProjection(activeTicker, ScenarioType.BULL, tickers, true),
     };
-  }, [activeTicker, tickerDef]);
+  }, [activeTicker, tickerDef, tickers]);
 
   const currentProjection = allProjections ? allProjections[ScenarioType.BASE] : null;
 
   const universeData = useMemo(() => {
-    return Object.values(TICKERS).map((t: TickerDefinition) => {
-      const proj = calculateProjection(t.ticker, ScenarioType.BASE, TICKERS, true);
+    return Object.values(tickers).map((t: TickerDefinition) => {
+      const proj = calculateProjection(t.ticker, ScenarioType.BASE, tickers, true);
       const rating = getInstitutionalRating(proj.pricePerShare, t.currentPrice);
       const group = classifyStock(t, rating.label, t.rsRating);
       return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact, group };
     }).sort((a, b) => a.ticker.localeCompare(b.ticker));
-  }, []);
+  }, [tickers]);
 
   const tagCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -252,7 +264,7 @@ const App: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="min-h-screen bg-[#0d1630] overflow-y-auto px-4 lg:px-24 pt-20 pb-24 scrollbar-hide"
+            className="min-h-screen bg-surface-card overflow-y-auto px-4 lg:px-24 pt-20 pb-24 scrollbar-hide"
           >
             <div className="max-w-4xl mx-auto mb-12">
               <TagFilterBar
@@ -282,7 +294,7 @@ const App: React.FC = () => {
                           <StockRow
                             key={stock.ticker}
                             stock={stock}
-                            tickerDef={TICKERS[stock.ticker]}
+                            tickerDef={tickers[stock.ticker]}
                             animationIndex={idx}
                             onSelect={setActiveTicker}
                           />

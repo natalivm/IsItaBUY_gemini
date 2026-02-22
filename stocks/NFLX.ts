@@ -15,9 +15,6 @@ export const NFLX = defineStock({
   debt: 14000,
   beta: 1.10,
   costDebt: 0.052,
-  unitLabel: 'Subscribers',
-  unit25: 325,
-  enhancementLabel: 'Ad-Tier Scaling',
   rsRating: 13,
   aiImpact: 'TAILWIND',
   strategicNarrative:

@@ -15,11 +15,8 @@ export const DUOL = defineStock({
   debt: 0,
   beta: 0.85,
   costDebt: 0,
-  unitLabel: 'DAUs (M)',
-  unit25: 50,
   modelType: 'EPS_PE',
   baseEps: 4.00,
-  enhancementLabel: 'Gamification Moat × AI Subject Expansion',
   rsRating: 4,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative:

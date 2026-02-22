@@ -6,7 +6,7 @@ A React + TypeScript stock valuation app that calculates intrinsic fair value us
 
 ## Tech Stack
 
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Motion (framer-motion), Recharts
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4, Motion (framer-motion)
 - **Deployment**: Vercel (SPA + serverless functions in `api/`)
 - **Package manager**: npm
 - **No backend/database** — all stock data is static TypeScript files
@@ -42,7 +42,7 @@ npm run lint      # Type-check (tsc --noEmit)
 ├── App.tsx                 # Main app (home list + stock detail routing)
 ├── constants.ts            # Builds TICKERS/CONFIGS from stock files
 ├── types.ts                # Core TypeScript interfaces
-├── utils.ts                # Utility functions (cn, rsRatingStyle)
+├── utils.ts                # Utility functions (cn, rsRatingStyle, rsRatingColor)
 └── vercel.json             # Vercel SPA rewrite + API routing
 ```
 
@@ -74,9 +74,8 @@ export const TICKER = defineStock({
   costDebt: 0.05,        // optional
 
   // Display
-  unitLabel: 'Revenue Per Share',
-  unit25: 10,
   rsRating: 75,          // IBD Relative Strength 1-99
+  rsTrend: 'rising',     // 'rising' | 'falling' | 'flat' (default: 'flat')
   aiImpact: 'TAILWIND',  // 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL'
   strategicNarrative: 'Why this stock matters...',
   fairPriceRange: '$80 - $150',
@@ -130,7 +129,7 @@ export const TICKER = defineStock({
    - `DCF_ADVANCED` (default): Uses revGrowth, fcfMargin, exitMultiple, termGrowth
    - `EPS_PE`: Uses baseEps, epsCagr, exitPE, prob
 6. **RS Rating tiers**: <15 very low, 15-39 low, 40-79 neutral, 80-90 strong, >90 overextended
-7. **Investment verdicts**: STRONG BUY / HOLD / AVOID — determined by base-case price vs current price
+7. **Investment verdicts**: STRONG BUY / BUY / HOLD / AVOID — determined by base-case upside (>30%, >15%, near fair value, overvalued)
 8. **Live prices**: Fetched from Yahoo Finance via `/api/prices` serverless proxy on page load; falls back to static `currentPrice` on failure
 
 ## Vercel Deployment
@@ -144,7 +143,11 @@ export const TICKER = defineStock({
 ## Style Guide
 
 - Tailwind CSS v4 (imported via `@tailwindcss/vite` plugin, no `tailwind.config`)
-- Dark theme: base bg `#0a1128` / `#0d1630`, text `slate-300/400/500`
+- Dark theme backgrounds use CSS theme variables defined in `index.css`:
+  - `bg-surface-deep` (`#0a1128`) — page-level backgrounds
+  - `bg-surface-card` (`#0d1630`) — cards and panels (supports opacity: `bg-surface-card/80`)
+- Text colors: `slate-300/400/500`
 - Theme color per stock (used for accents): `tickerDef.themeColor`
 - Animation: `motion/react` (framer-motion v12+)
-- Utility: `cn()` from `utils.ts` (clsx + tailwind-merge)
+- Utilities from `utils.ts`: `cn()` (clsx + tailwind-merge), `rsRatingStyle()`, `rsRatingColor()`
+- Formatting helpers from `services/stockMetrics.ts`: `usd()`, `pctFmt()`

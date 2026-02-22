@@ -1,8 +1,23 @@
+import type { IncomingMessage, ServerResponse } from 'http';
+
+interface VercelRequest extends IncomingMessage {
+  query: Record<string, string | string[] | undefined>;
+}
+
+interface VercelResponse extends ServerResponse {
+  status(code: number): VercelResponse;
+  json(body: unknown): void;
+}
+
+interface YahooQuote {
+  symbol?: string;
+  regularMarketPrice?: number;
+}
 
 // Vercel serverless function — proxies Yahoo Finance quote requests
 // to avoid CORS restrictions in the browser.
-export default async function handler(req: any, res: any) {
-  const { symbols } = req.query as { symbols?: string };
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const symbols = req.query.symbols as string | undefined;
 
   if (!symbols) {
     return res.status(400).json({ error: 'symbols parameter is required' });
@@ -21,8 +36,8 @@ export default async function handler(req: any, res: any) {
       return res.status(502).json({ error: 'Yahoo Finance request failed', status: response.status });
     }
 
-    const data = await response.json();
-    const results: any[] = data?.quoteResponse?.result ?? [];
+    const data: { quoteResponse?: { result?: YahooQuote[] } } = await response.json();
+    const results = data?.quoteResponse?.result ?? [];
 
     const prices: Record<string, number> = {};
     for (const quote of results) {

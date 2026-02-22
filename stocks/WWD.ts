@@ -15,11 +15,8 @@ export const WWD = defineStock({
   debt: 550,
   beta: 1.18,
   costDebt: 0.052,
-  unitLabel: 'Actuation Systems',
-  unit25: 1.0,
   modelType: 'EPS_PE',
   baseEps: 8.4,         // FY26 mid-guide EPS
-  enhancementLabel: 'Aero Aftermarket + Industrial Margin Expansion',
   rsRating: 95,
   aiImpact: 'TAILWIND',
   strategicNarrative:

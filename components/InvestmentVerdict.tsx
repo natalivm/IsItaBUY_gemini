@@ -4,6 +4,13 @@ import { TickerDefinition, ProjectionData, ScenarioType } from '../types';
 import { StockMetrics, usd, pctFmt } from '../services/stockMetrics';
 import { cn } from '../utils';
 
+const VERDICT_DISPLAY: Record<string, { text: string; color: string; subtextColor: string }> = {
+  'STRONG BUY': { text: 'YES', color: 'text-green-400', subtextColor: 'text-green-500/70' },
+  'BUY':        { text: 'YES', color: 'text-emerald-400', subtextColor: 'text-emerald-500/70' },
+  'AVOID':      { text: 'NO',  color: 'text-red-400', subtextColor: 'text-red-500/70' },
+  'HOLD':       { text: 'HOLD', color: 'text-blue-400', subtextColor: 'text-blue-500/70' },
+};
+
 interface Props {
   tickerDef: TickerDefinition;
   allProjections: Record<ScenarioType, ProjectionData>;
@@ -130,7 +137,7 @@ const InvestmentVerdict: React.FC<Props> = ({
       initial={{ y: 30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.5 }}
-      className="mt-16 p-8 rounded-2xl border border-slate-800 bg-[#0d1630]/80 shadow-2xl relative overflow-hidden"
+      className="mt-16 p-8 rounded-2xl border border-slate-800 bg-surface-card/80 shadow-2xl relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl" style={{ background: tc }} />
 
@@ -142,27 +149,19 @@ const InvestmentVerdict: React.FC<Props> = ({
       <div className="flex flex-col lg:flex-row gap-8 items-start lg:items-center">
         <div className="flex flex-col gap-2 shrink-0">
           <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Is it a Buy?</span>
-          <div className={cn(
-            "text-6xl lg:text-7xl font-black tracking-tighter leading-none",
-            activeStockData?.label === 'STRONG BUY' ? 'text-green-400' :
-            activeStockData?.label === 'BUY' ? 'text-emerald-400' :
-            activeStockData?.label === 'AVOID' ? 'text-red-400' :
-            'text-blue-400'
-          )}>
-            {activeStockData?.label === 'STRONG BUY' ? 'YES' :
-             activeStockData?.label === 'BUY' ? 'YES' :
-             activeStockData?.label === 'AVOID' ? 'NO' :
-             'HOLD'}
-          </div>
-          <div className={cn(
-            "text-[10px] font-black uppercase tracking-widest mt-1",
-            activeStockData?.label === 'STRONG BUY' ? 'text-green-500/70' :
-            activeStockData?.label === 'BUY' ? 'text-emerald-500/70' :
-            activeStockData?.label === 'AVOID' ? 'text-red-500/70' :
-            'text-blue-500/70'
-          )}>
-            {activeStockData?.label || 'HOLD'}
-          </div>
+          {(() => {
+            const v = VERDICT_DISPLAY[activeStockData?.label || 'HOLD'] || VERDICT_DISPLAY['HOLD'];
+            return (
+              <>
+                <div className={cn("text-6xl lg:text-7xl font-black tracking-tighter leading-none", v.color)}>
+                  {v.text}
+                </div>
+                <div className={cn("text-[10px] font-black uppercase tracking-widest mt-1", v.subtextColor)}>
+                  {activeStockData?.label || 'HOLD'}
+                </div>
+              </>
+            );
+          })()}
         </div>
 
         <div className="w-px h-20 bg-slate-800 hidden lg:block" />

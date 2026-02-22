@@ -6,6 +6,7 @@ export enum ScenarioType {
 }
 
 export type ValuationModelType = 'DCF_ADVANCED' | 'EPS_PE';
+export type RsTrend = 'rising' | 'falling' | 'flat';
 
 export interface ScenarioConfig {
   label: string;
@@ -57,11 +58,9 @@ export interface TickerDefinition {
   rev25: number;
   fcfMargin25: number;
   taxRate: number;
-  unitLabel: string;
-  unit25: number;
   modelType: ValuationModelType;
-  enhancementLabel?: string;
   rsRating: number;
+  rsTrend?: RsTrend;
   aiImpact: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
   strategicNarrative: string;
   cash?: number;
@@ -82,7 +81,6 @@ export interface ProjectionData {
   shares: number[];
   eps: number[];
   price: number[];
-  priceEnhanced: number[];
   cagrs: number[];
   cumReturns: number[];
   fcfYield: number[];

@@ -16,10 +16,7 @@ export const EME = defineStock({
   beta: 1.08,
   costDebt: 0.052,
   baseEps: 25.4,            // 2025E EPS midpoint guidance ($25.0–25.75)
-  unitLabel: 'RPO ($B)',
-  unit25: 12.6,             // Record RPO $12.6B (+29% YoY), 80% DC-driven organic
   modelType: 'EPS_PE',
-  enhancementLabel: 'DC Buildout + Productivity Moat + M&A',
   rsRating: 93,
   aiImpact: 'TAILWIND',
   strategicNarrative:

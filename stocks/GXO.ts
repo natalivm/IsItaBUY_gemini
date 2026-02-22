@@ -15,11 +15,8 @@ export const GXO = defineStock({
   debt: 2246,
   beta: 1.15,
   costDebt: 0.055,
-  unitLabel: 'Sites',
-  unit25: 970,
   modelType: 'EPS_PE',
   baseEps: 3.00,
-  enhancementLabel: 'Wincanton Synergy + Margin Expansion',
   rsRating: 91,
   aiImpact: 'TAILWIND',
   strategicNarrative:

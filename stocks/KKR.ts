@@ -16,10 +16,7 @@ export const KKR = defineStock({
   beta: 1.55,
   costDebt: 0.052,
   baseEps: 6.74,
-  unitLabel: 'DE Per Share',
-  unit25: 5.57,
   modelType: 'EPS_PE',
-  enhancementLabel: 'Cycle Recovery + Fee Growth + Insurance',
   rsRating: 16,
   aiImpact: 'TAILWIND',
   strategicNarrative:

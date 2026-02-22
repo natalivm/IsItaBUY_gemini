@@ -2,6 +2,7 @@
 import React from 'react';
 import { ProjectionData, ValuationModelType } from '../types';
 import { getInstitutionalRating } from '../services/projectionService';
+import { usd, pctFmt } from '../services/stockMetrics';
 
 interface Props {
   data: ProjectionData;
@@ -17,7 +18,7 @@ const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice, modelType })
   const rating = getInstitutionalRating(pricePerShare, currentPrice);
 
   return (
-    <div className="bg-[#0d1630]/60 border border-slate-800 rounded-xl p-6 shadow-xl transition-all hover:border-slate-700">
+    <div className="bg-surface-card/60 border border-slate-800 rounded-xl p-6 shadow-xl transition-all hover:border-slate-700">
       <h3 className="text-lg font-black mb-1" style={{ color: config.color }}>
         {config.label}
       </h3>
@@ -28,11 +29,11 @@ const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice, modelType })
       <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-8">
         <div className="flex flex-col">
           <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{isEpsPe ? 'EPS×PE Value:' : 'DCF Value:'}</span>
-          <span className="text-base font-black text-white">${pricePerShare.toFixed(2)}</span>
+          <span className="text-base font-black text-white">{usd(pricePerShare)}</span>
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">MoS (25%):</span>
-          <span className="text-base font-black text-slate-300">${mosPrice.toFixed(2)}</span>
+          <span className="text-base font-black text-slate-300">{usd(mosPrice)}</span>
         </div>
         {isEpsPe ? (
           <>
@@ -49,11 +50,11 @@ const ScenarioMetricsCard: React.FC<Props> = ({ data, currentPrice, modelType })
           <>
             <div className="flex flex-col">
               <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">WACC:</span>
-              <span className="text-base font-black text-slate-300">{(w * 100).toFixed(1)}%</span>
+              <span className="text-base font-black text-slate-300">{pctFmt(w)}</span>
             </div>
             <div className="flex flex-col">
               <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Terminal g:</span>
-              <span className="text-base font-black text-slate-300">{(config.termGrowth! * 100).toFixed(1)}%</span>
+              <span className="text-base font-black text-slate-300">{pctFmt(config.termGrowth!)}</span>
             </div>
           </>
         )}
