@@ -5,7 +5,7 @@ export const ENVA = defineStock({
   name: 'Enova International',
   sector: 'FinTech / Lending',
   themeColor: '#3b82f6',
-  currentPrice: 149.29,
+  currentPrice: 136,
   fairPriceRange: '$160 - $250',
   shares0: 24.8,
   rev25: 3200,           // FY2025 net revenue ~$3.2B (Q4'25: $839M × annualized); was stale at 1830
@@ -39,7 +39,7 @@ export const ENVA = defineStock({
   waccAdj: [0.015, 0, -0.005],
   bbRate: [0.003, 0.015, 0.025],
   ebitdaProxy: [0.12, 0.22, 0.35],
-  bullMaOptVal: 149.28 * 24.8 * 0.05,   // Grasshopper optionality premium ~5% of mkt cap
+  bullMaOptVal: 136 * 24.8 * 0.05,   // Grasshopper optionality premium ~5% of mkt cap
 
   desc: [
     'A recession and unemployment shock push consumer charge-offs above 20%, freezing origination volumes and compressing the valuation multiple. Regulatory overhang from CFPB adds further pressure, and the leverage that fueled growth starts working in reverse.',
