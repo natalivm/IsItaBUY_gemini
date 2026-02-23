@@ -5,20 +5,20 @@ export const MNST = defineStock({
   name: 'Monster Beverage Corp',
   sector: 'Consumer Staples / Beverages',
   themeColor: '#22c55e',
-  currentPrice: 82.01,
+  currentPrice: 80.00,
   fairPriceRange: '$60 - $100',
   shares0: 967,
-  rev25: 7700,
+  rev25: 8200,
   fcfMargin25: 0.215,
   taxRate: 0.22,
   cash: 2000,
   debt: 750,
   beta: 0.85,
   costDebt: 0.04,
-  rsRating: 84,
+  rsRating: 85,
   aiImpact: 'NEUTRAL',
   ratingOverride: 'HOLD',
-  strategicNarrative: "Monster is a rare, high-quality structural compounder with 56% gross margins, 31.5% EBIT margins, and 21.5% FCF margins. International diversification (APAC $33B retail value, 158 countries, 925M cases), strengthening Coke relationship, zero-sugar tailwinds, and foodservice expansion (70% vs 98% penetration gap) all reduce structural risk. However, at 41x forward P/E on a 12-13% EPS grower, you're paying compounder prices without compounder-grade growth. The debate is purely about entry valuation — business quality is not in question. Risk/reward becomes materially better on a pullback to the high $70s or low $70s.",
+  strategicNarrative: "Monster is a rare, high-quality structural compounder. Q3 2025 confirmed the margin recovery thesis: record quarterly net sales of $2.20B (+16.8%), operating income +40.7%, net income +41.4%, with EBITDA margins recovering sharply from 26.8% in 2024 toward a street-projected 31.9% in 2025. Business quality is not in question — 56% gross margins, 21.5% FCF margins, Coke relationship deepening, and international runway (APAC $33B TAM, 158 countries). Analyst targets cluster $79–$98 (JP Morgan $79, Morgan Stanley $96, HSBC $98), and the stock's 64% run from its 52-week low reflects the market pricing in the bull case. At $80, MNST trades at ~41x forward P/E on a 12-13% EPS grower — you're paying compounder prices for above-average but not elite growth. Q4 2025 earnings (Feb 26) are a near-term binary: sustained margin expansion and constructive guidance could push toward $95–100; any guidance disappointment has $60–70 to fall through. HOLD with a materially better entry near $72–76.",
 
   revGrowth: [
     [0.07, 0.07, 0.06, 0.06, 0.05],
@@ -37,15 +37,15 @@ export const MNST = defineStock({
     'International runway accelerates (APAC $33B TAM), foodservice penetration expands, zero-sugar margins lift profitability. 16% EPS CAGR with P/E sustaining at 35x on premium compounder status.',
   ],
   thesis: [
-    'Growth ceiling hit. At 41x forward P/E, any miss triggers derating. GLP-1 behavioral shift and functional beverage competition erode category growth.',
-    'Business keeps getting stronger but valuation remains the limiter. 12-13% EPS growth at 30x exit P/E delivers mid-to-high single digit returns.',
-    'Structural compounder with under-modeled levers: foodservice (70% vs 98% penetration), EM affordable engine, and Coke relationship deepening. Premium multiple justified.',
+    'Q4 2025 (Feb 26) is the first gating test after a 64% run from lows. Soft guidance or margin stall triggers derating from 41x fwd P/E — $60–70 is realistic downside. GLP-1 behavioral shift and functional beverage competition remain structural overhangs.',
+    'Margin recovery from 26.8% to ~31.9% EBITDA is the key inflection the market is rewarding. At 41x fwd P/E on 12-13% EPS growth, valuation remains the limiter. Q4 earnings confirm or deny the story — constructive print extends re-rating; miss compresses multiple. Base: mid-to-high single digit returns as P/E normalizes toward 30x.',
+    'Structural compounder with under-modeled levers: foodservice (70% vs 98% penetration), EM affordable engine, and Coke relationship deepening. Sustained margin expansion to 35%+ EBITDA and 16% EPS CAGR justify analyst targets of $96–98. Premium multiple sustained.',
   ],
 
   termGrowth: [0.02, 0.025, 0.03],
 
   bbRate: [0.01, 0.02, 0.03],
-  ebitdaProxy: [0.28, 0.315, 0.38],
+  ebitdaProxy: [0.28, 0.32, 0.38],
   bullMaOptVal: 83.6 * 967 * 0.05,
 
   driverOverrides: [
