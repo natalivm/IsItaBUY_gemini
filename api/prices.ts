@@ -1,12 +1,18 @@
 import type { IncomingMessage, ServerResponse } from 'http';
 
+// Mirrors the @vercel/node runtime types (without requiring the package).
+// See: https://github.com/vercel/vercel/blob/main/packages/node/src/types.ts
 interface VercelRequest extends IncomingMessage {
   query: Record<string, string | string[] | undefined>;
+  cookies: Partial<Record<string, string>>;
+  body: unknown;
 }
 
 interface VercelResponse extends ServerResponse {
   status(code: number): VercelResponse;
-  json(body: unknown): void;
+  json(body: unknown): VercelResponse;
+  send(body: unknown): VercelResponse;
+  redirect(statusOrUrl: string | number, url?: string): VercelResponse;
 }
 
 interface YahooQuote {
