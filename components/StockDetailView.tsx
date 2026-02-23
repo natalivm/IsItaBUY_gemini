@@ -127,9 +127,13 @@ const StockDetailView: React.FC<Props> = ({
                       <LayoutDashboard className="w-3 h-3" />
                       Alpha Strategic View
                     </h3>
-                    <p className="text-base text-slate-200 font-medium leading-relaxed italic">
-                      "{tickerDef.strategicNarrative}"
-                    </p>
+                    <div className="space-y-3">
+                      {tickerDef.strategicNarrative.split('\n\n').map((para, i, arr) => (
+                        <p key={i} className="text-base text-slate-200 font-medium leading-relaxed italic">
+                          {i === 0 ? '\u201c' : ''}{para}{i === arr.length - 1 ? '\u201d' : ''}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
