@@ -5,30 +5,31 @@ export const APP = defineStock({
   name: 'AppLovin Corporation',
   sector: 'Ad-Tech / AI Monetization',
   themeColor: '#f97316',
-  currentPrice: 383,
+  currentPrice: 391,
   fairPriceRange: '$310 - $836',
   shares0: 340,
   rev25: 5480,
   fcfMargin25: 0.72,
-  taxRate: 0.15,
-  cash: 3000,
+  taxRate: 0.127,
+  cash: 2500,
   debt: 3500,
-  beta: 1.80,
+  beta: 2.22,
   costDebt: 0.05,
   modelType: 'EPS_PE',
   baseEps: 9.75,
-  rsRating: 26,
+  // RS 19 (3-mo RS 4, 6-mo RS 7) — off 47% from 52-wk high, Acc/Dis D-, heavy institutional distribution
+  rsRating: 19,
   rsTrend: 'falling',
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "AppLovin is the highest-margin ad-tech engine in the market — 84% EBITDA margin, 95% incremental flow-through, $4B FCF. " +
     "Post-earnings: CAC/LTV 30-day breakeven + self-serve GA 1H'26 + GenAI creative tools signal a scalable growth loop beyond gaming. " +
-    "The problem: margin expansion is exhausted at 82-84% EBITDA, so from here growth = revenue growth, and RS 26 says institutions aren't buying yet. " +
+    "The problem: margin expansion is exhausted at 82-84% EBITDA, so from here growth = revenue growth, and RS 19 says institutions aren't buying yet. " +
     "If self-serve + e-comm broaden the advertiser base, this is a 15%+ compounder. If ad cycle breaks, the leverage that created 84% margins works in brutal reverse. " +
     "60-65% probability of 15%+ CAGR — strong execution story, cyclical and priced for it.",
 
 
-  analystConsensus: { rating: 'Strong Buy', targetLow: 500, targetMedian: 735, targetHigh: 860, numAnalysts: 18 },
+  analystConsensus: { rating: 'Strong Buy', targetLow: 465, targetMedian: 705, targetHigh: 860, numAnalysts: 26 },
   revGrowth: [
     [0.20, 0.12, 0.10, 0.10, 0.08],
     [0.25, 0.18, 0.16, 0.15, 0.14],
@@ -56,7 +57,7 @@ export const APP = defineStock({
   thesis: [
     'Ad cycle turns down — macro cuts budgets. Meta captures no-ID traffic, TikTok takes share. ' +
       'Margin at 82-84% EBITDA has zero room to expand — revenue miss flows straight to EPS. ' +
-      '"Black box" narrative keeps institutional discount. RS 26 signals distribution. ' +
+      '"Black box" narrative keeps institutional discount. RS 19 + Acc/Dis D- signals heavy distribution. ' +
       'Self-serve qualified leads → go-live at 57% shows conversion bottleneck (lack of creatives for format).',
     'Q1 guide (+5-7% QoQ despite seasonality) validates growth engine intact. ' +
       'Self-serve GA 1H26 broadens advertiser base. CAC/LTV 30-day breakeven = scalable growth loop. ' +
