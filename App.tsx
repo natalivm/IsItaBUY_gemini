@@ -41,7 +41,7 @@ const App: React.FC = () => {
   const universeData = useMemo(() => {
     return Object.values(tickers).map((t: TickerDefinition) => {
       const proj = calculateProjection(t.ticker, ScenarioType.BASE, tickers, true);
-      const rating = getInstitutionalRating(proj.pricePerShare, t.currentPrice, t.ratingOverride);
+      const rating = getInstitutionalRating(proj.pricePerShare, t.currentPrice, t.ratingOverride, { rsRating: t.rsRating, aiImpact: t.aiImpact });
       const group = classifyStock(t, rating.label, t.rsRating);
 
       return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact, group };

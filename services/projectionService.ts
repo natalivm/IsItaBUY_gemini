@@ -33,9 +33,12 @@ const EBITDA_MARGIN_FALLBACK_MULT = 1.5;
 const MOS_DISCOUNT = 0.75;
 
 // Rating thresholds (percentage-based)
-const STRONG_BUY_UPSIDE = 0.30;   // >30% upside
-const BUY_UPSIDE = 0.15;          // >15% upside
-const AVOID_DOWNSIDE_RATIO = 0.96; // <96% of spot = overvalued
+const STRONG_BUY_UPSIDE = 0.30;        // >30% upside → automatic STRONG BUY
+const STRONG_BUY_SOFT_UPSIDE = 0.25;   // 25-30% upside → STRONG BUY if quality signals present
+const BUY_UPSIDE = 0.15;               // >15% upside → automatic BUY
+const BUY_SOFT_UPSIDE = 0.12;          // 12-15% upside → BUY if quality signals present
+const AVOID_DOWNSIDE_RATIO = 0.96;     // <96% of spot = overvalued
+const RS_QUALITY_THRESHOLD = 80;       // RS rating considered "high"
 
 const ZERO_ARRAY: number[] = [0, 0, 0, 0, 0];
 
@@ -46,16 +49,31 @@ function ratingResult(key: RatingKey) {
   return { label: key, status: r.status, color: r.color, dot: r.glowDot };
 }
 
-export const getInstitutionalRating = (target: number, spot: number, ratingOverride?: string) => {
+/** Optional quality signals that can soften rating thresholds */
+export interface QualitySignals {
+  rsRating?: number;
+  aiImpact?: 'TAILWIND' | 'DISRUPTION_RISK' | 'NEUTRAL';
+}
+
+function hasQualityBoost(signals?: QualitySignals): boolean {
+  if (!signals) return false;
+  return (signals.rsRating !== undefined && signals.rsRating >= RS_QUALITY_THRESHOLD)
+    || signals.aiImpact === 'TAILWIND';
+}
+
+export const getInstitutionalRating = (target: number, spot: number, ratingOverride?: string, signals?: QualitySignals) => {
   if (ratingOverride && ratingOverride in RATING_DEFS) {
     return ratingResult(ratingOverride as RatingKey);
   }
 
   const upsidePct = (target - spot) / spot;
   const downsideRatio = target / spot;
+  const boosted = hasQualityBoost(signals);
 
   if (upsidePct > STRONG_BUY_UPSIDE) return ratingResult('STRONG BUY');
+  if (boosted && upsidePct > STRONG_BUY_SOFT_UPSIDE) return ratingResult('STRONG BUY');
   if (upsidePct > BUY_UPSIDE) return ratingResult('BUY');
+  if (boosted && upsidePct > BUY_SOFT_UPSIDE) return ratingResult('BUY');
   if (downsideRatio < AVOID_DOWNSIDE_RATIO) return ratingResult('AVOID');
   return ratingResult('HOLD');
 };
