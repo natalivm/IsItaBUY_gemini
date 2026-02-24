@@ -29,6 +29,8 @@ export const DUOL = defineStock({
   exitPE: [12, 25, 32],
   prob: [35, 40, 25],
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 160, targetMedian: 250, targetHigh: 347, numAnalysts: 17 },
   revGrowth: [
     [0.10, 0.05, 0.03, 0.02, 0.02],
     [0.25, 0.22, 0.18, 0.15, 0.12],

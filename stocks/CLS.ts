@@ -24,6 +24,8 @@ export const CLS = defineStock({
     "If the AI infrastructure supercycle extends and margins normalize post-CapEx, this re-rates as a structural AI beneficiary. If CapEx cycle moderates, EMS multiples revert to 10-15x. " +
     "RS 94 confirms momentum, but the risk/reward is asymmetric to the downside at current levels.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 330, targetMedian: 387, targetHigh: 440, numAnalysts: 8 },
   revGrowth: [
     [0.30, 0.15, 0.05, 0.03, 0.02],
     [0.37, 0.35, 0.15, 0.10, 0.08],

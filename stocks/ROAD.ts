@@ -34,6 +34,8 @@ export const ROAD = defineStock({
   prob: [20, 50, 30],          // upgraded: ~40-50% prob of 15%+ CAGR (base+bull)
 
   // ── DCF backup scenarios ──
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 110, targetMedian: 123, targetHigh: 150, numAnalysts: 5 },
   revGrowth: [
     [0.30, 0.08, 0.04, 0.02, 0.01],   // Bear: M&A rollover fades, cycle slows, organic 3-4%
     [0.38, 0.15, 0.10, 0.08, 0.07],   // Base: M&A continues, organic 7-8%, Road 2030 on track

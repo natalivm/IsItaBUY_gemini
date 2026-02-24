@@ -21,6 +21,8 @@ export const MELI = defineStock({
   aiImpact: 'TAILWIND',
   strategicNarrative: "LATAM e-commerce and fintech compounder in deliberate margin-investment mode. RS 22 reflects market skepticism over Q3'25 EPS miss (-11.2%), but FCF beat +116% signals the cash machine is intact. Structural moat is infrastructure-grade — logistics, payments, lending, and marketplace flywheel with 100M annual buyers and 61M fintech MAU. Qualified buy for long-horizon investors willing to hold through EPS volatility.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 2600, targetMedian: 2881, targetHigh: 3500, numAnalysts: 17 },
   revGrowth: [
     [0.30, 0.22, 0.18, 0.15, 0.12],
     [0.397, 0.34, 0.29, 0.276, 0.256],

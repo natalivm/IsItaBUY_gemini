@@ -19,6 +19,8 @@ export const AGCO = defineStock({
   aiImpact: 'TAILWIND',
   strategicNarrative: "Higher-quality cyclical, not a compounder. Post-Citi: base case is flat at $138 over 5 years. Structural floor genuinely higher than 2016 (~7.7% vs 3–4% op margin), but NA remains loss-making and PTx is sub-10% of revenue. RS 85 signals cycle-turn momentum. Core bet: 2025/26 is the trough and 2027–2029 normalises. 15% CAGR probability ~35% — a timing bet, not a structural compounder.",
 
+
+  analystConsensus: { rating: 'Hold', targetLow: 93, targetMedian: 123, targetHigh: 138, numAnalysts: 12 },
   revGrowth: [
     [-0.02, -0.01, 0.01, 0.02, 0.02],
     [-0.01, 0.00, 0.01, 0.02, 0.03],

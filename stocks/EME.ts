@@ -31,6 +31,8 @@ export const EME = defineStock({
   exitPE: [18, 24, 28],        // bear: ordinary industrial; base: quality cyclical; bull: premium for DC visibility
   prob: [25, 50, 25],
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 675, targetMedian: 759, targetHigh: 900, numAnalysts: 12 },
   revGrowth: [
     [0.08, 0.05, 0.03, -0.02, 0.03],
     [0.14, 0.10, 0.09, 0.08, 0.07],

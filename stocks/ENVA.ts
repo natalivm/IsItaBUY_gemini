@@ -24,6 +24,8 @@ export const ENVA = defineStock({
     "If charter + deposit funding materialize, this re-rates from subprime lender to fintech bank. If recession hits first, charge-offs spike and the leverage works against you.",
 
   // ── Scenarios ──
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 165, targetMedian: 188, targetHigh: 210, numAnalysts: 6 },
   revGrowth: [
     [0.08, 0.06, 0.05, 0.04, 0.03],     // BEAR: recession + charge-off spike
     [0.15, 0.13, 0.12, 0.10, 0.08],     // BASE: ~15% rev growth (mgmt guide)

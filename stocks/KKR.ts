@@ -27,6 +27,8 @@ export const KKR = defineStock({
     "If exit markets normalize and insurance/private wealth channels accelerate, IRR reaches 18%+. If carry stays depressed, it's 7% dead money with a soft moat. " +
     "30-35% probability of 15%+ CAGR — a cycle bet on capital markets recovery, not a structural compounder.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 112, targetMedian: 153, targetHigh: 187, numAnalysts: 15 },
   revGrowth: [
     [0.06, 0.04, 0.02, 0.00, 0.00],
     [0.15, 0.12, 0.10, 0.09, 0.08],

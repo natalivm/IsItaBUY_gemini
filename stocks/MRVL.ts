@@ -20,6 +20,8 @@ export const MRVL = defineStock({
   ratingOverride: 'BUY',
   strategicNarrative: "Type B — cyclical growth on AI capex wave. Post-Barclays (Dec 2025): mgmt frames AI as 10–15yr cycle with ups/downs, record bookings Q2→Q3→Q4 accelerating. Three engines: (1) optics/interconnect — 80–90% intra-DC traffic migration from copper, TAM from near-zero; (2) switching — $300M FY26 → $500M+ FY27, 51.2T ramp + 100T intro + scale-up UALink sampling 2H FY27; (3) custom XPU + attach (NIC+CXL) — FY27 base +20%, FY28 re-acceleration via new XPU customer + attach doubling. Moat moderate (design-win concentration). EBIT margin 29%→36%. Probability of 15%+ CAGR: ~60–65% (up from 55–60% pre-Barclays). Key risk: spending pause in FY27H2/FY28H1 hits MRVL harder than AVGO. MRVL beats AVGO only if FY28 re-accelerates + attach scales + P/E holds ≥22x.",
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 67, targetMedian: 119, targetHigh: 156, numAnalysts: 31 },
   revGrowth: [
     [0.20, 0.05, 0.05, 0.05, 0.05],
     [0.42, 0.22, 0.30, 0.10, 0.08],

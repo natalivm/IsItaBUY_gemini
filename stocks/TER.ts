@@ -32,6 +32,8 @@ export const TER = defineStock({
   exitPE: [20, 30, 40],
   prob: [25, 45, 30],
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 170, targetMedian: 292, targetHigh: 400, numAnalysts: 18 },
   revGrowth: [
     [0.05, 0.04, 0.04, 0.05, 0.05],
     [0.15, 0.14, 0.13, 0.12, 0.12],

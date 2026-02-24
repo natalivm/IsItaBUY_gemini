@@ -34,6 +34,8 @@ export const PAAS = defineStock({
   exitPE: [14, 17, 22],
   prob: [30, 40, 30],
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 54, targetMedian: 67, targetHigh: 88, numAnalysts: 5 },
   revGrowth: [
     [-0.10, -0.08, 0.00, 0.02, 0.02],
     [0.08, 0.06, 0.05, 0.04, 0.04],

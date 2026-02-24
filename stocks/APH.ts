@@ -30,6 +30,8 @@ export const APH = defineStock({
   exitPE: [22, 30, 38],
   prob: [25, 50, 25],
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 135, targetMedian: 173, targetHigh: 210, numAnalysts: 12 },
   revGrowth: [
     [0.21, 0.03, 0.03, 0.03, 0.03],
     [0.27, 0.08, 0.08, 0.08, 0.08],

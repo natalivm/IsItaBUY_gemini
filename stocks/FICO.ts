@@ -21,6 +21,8 @@ export const FICO = defineStock({
   aiImpact: 'NEUTRAL',
   strategicNarrative: "Structural compounder with cyclical tailwind. Q1 FY26 delivered best Scores quarter on record (+29% to $305M), Platform ARR +33%, NRR 122%, ACV bookings +36%, and mortgage revenue +60% — broad-based beat validating the platform transition. RS 17 reflects technical weakness amid broader market rotation, but fundamental/technical divergence creates asymmetric entry for conviction holders. Prob-weighted 5yr target ~$2,807 → 15.8% CAGR at $1,350 entry. Key risks: mortgage cycle reversal, regulatory changes, pricing pressure.",
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 1600, targetMedian: 2063, targetHigh: 2661, numAnalysts: 12 },
   revGrowth: [
     [0.10, 0.09, 0.08, 0.07, 0.06],
     [0.15, 0.14, 0.13, 0.12, 0.11],

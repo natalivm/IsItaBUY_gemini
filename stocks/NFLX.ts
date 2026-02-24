@@ -27,6 +27,8 @@ export const NFLX = defineStock({
 
   // 2026E guide: ~$51B (+14% YoY). Drivers: membership + pricing + ads.
   // Ads ~$3B in 2026 (~6% of revenue). Content amortization +~10% YoY.
+
+  analystConsensus: { rating: 'Buy', targetLow: 94, targetMedian: 119, targetHigh: 151, numAnalysts: 34 },
   revGrowth: [
     [0.07, 0.06, 0.05, 0.05, 0.04], // Bear: revenue growth halved from guide, ads cyclical hit
     [0.14, 0.12, 0.10, 0.09, 0.08], // Base: 2026 guide $51B, then natural deceleration

@@ -33,6 +33,8 @@ export const AMAT = defineStock({
   exitPE: [17, 23, 29],
   prob: [30, 45, 25],
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 380, targetMedian: 428, targetHigh: 470, numAnalysts: 27 },
   revGrowth: [
     [0.04, 0.02, 0.03, 0.04, 0.04],  // bear: cycle breaks early, ICAPS/NAND drag
     [0.12, 0.11, 0.09, 0.08, 0.07],  // base: CY26-27 strong, normalization after

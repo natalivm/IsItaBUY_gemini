@@ -26,6 +26,8 @@ export const ALAB = defineStock({
     "If Scorpio X becomes standard in 2–3 hyperscalers, this transitions from cycle play to architectural moat (type B → A). If not, it's another AI silicon story with a semiconductor downturn ahead. " +
     "35–40% probability of 15%+ CAGR — a tactical bet on AI infrastructure positioning, not a compounder.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 80, targetMedian: 192, targetHigh: 225, numAnalysts: 16 },
   revGrowth: [
     [0.25, 0.10, 0.02, -0.08, -0.15],
     [0.37, 0.27, 0.10, 0.05, -0.05],

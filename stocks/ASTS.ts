@@ -23,6 +23,8 @@ export const ASTS = defineStock({
     "If 45+ sats achieve continuous coverage by YE26 and margins inflect toward 74% GM at scale, this is a space-infrastructure monopoly. " +
     "If deployment delays or unit economics don't validate, ~3%/yr dilution erodes the thesis. RS 97 confirms conviction — but this is execution-or-bust.",
 
+
+  analystConsensus: { rating: 'Hold', targetLow: 30, targetMedian: 61, targetHigh: 137, numAnalysts: 7 },
   revGrowth: [
     [2.50, 2.00, 1.30, 0.80, 0.40],
     [3.17, 2.60, 1.67, 1.00, 0.50],

@@ -8,6 +8,16 @@ export enum ScenarioType {
 export type ValuationModelType = 'DCF_ADVANCED' | 'EPS_PE';
 export type RsTrend = 'rising' | 'falling' | 'flat';
 
+export type AnalystRating = 'Strong Buy' | 'Buy' | 'Hold' | 'Sell' | 'Strong Sell';
+
+export interface AnalystConsensus {
+  rating: AnalystRating;
+  targetLow: number;
+  targetMedian: number;
+  targetHigh: number;
+  numAnalysts: number;
+}
+
 export interface ScenarioConfig {
   label: string;
   color: string;
@@ -70,6 +80,8 @@ export interface TickerDefinition {
   costDebt?: number;
   // EPS_PE model fields
   baseEps?: number;
+  // Analyst consensus
+  analystConsensus?: AnalystConsensus;
 }
 
 export interface ProjectionData {

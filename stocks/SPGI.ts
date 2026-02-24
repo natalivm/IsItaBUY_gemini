@@ -24,6 +24,8 @@ export const SPGI = defineStock({
     "If AI margin uplift + Mobility spin + index tailwinds compound, this is a 16-18% compounder. If credit cycle slows issuance, EPS growth halves and you own a 2-4% CAGR at current price. " +
     "35-40% probability of 15%+ CAGR — the highest-quality compounder in the portfolio, waiting for a better entry.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 480, targetMedian: 623, targetHigh: 698, numAnalysts: 26 },
   revGrowth: [
     [0.04, 0.04, 0.04, 0.04, 0.04],
     [0.075, 0.08, 0.08, 0.08, 0.07],

@@ -31,6 +31,8 @@ export const GXO = defineStock({
   exitPE: [16, 19, 22],
   prob: [25, 45, 30],
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 58, targetMedian: 70, targetHigh: 82, numAnalysts: 13 },
   revGrowth: [
     [0.025, 0.025, 0.02, 0.02, 0.02],
     [0.05, 0.05, 0.05, 0.05, 0.05],

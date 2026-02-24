@@ -20,6 +20,8 @@ export const DE = defineStock({
   ratingOverride: 'HOLD',
   strategicNarrative: "High-quality cyclical growth with real moat (precision ag, switching costs, #1 brand). RS 87 confirms strong institutional momentum. However, P/E ~35x on declining EPS (FY25: 18.50, FY26E: 17.83) is expensive for a cyclical. EBIT margin at ~15.5% vs peak >20%. Only ~20-25% probability of 15%+ CAGR from current price. This is a bet on agro-cycle recovery and tech transformation, not a structural compounder entry.",
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 458, targetMedian: 575, targetHigh: 793, numAnalysts: 18 },
   revGrowth: [
     [0.03, 0.04, 0.04, 0.03, 0.03],
     [0.06, 0.09, 0.08, 0.07, 0.07],

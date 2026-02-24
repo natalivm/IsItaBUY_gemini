@@ -20,6 +20,8 @@ export const SMWB = defineStock({
   ratingOverride: 'AVOID',
   strategicNarrative: "Terminal technical weakness. RS 3 signals total institutional abandonment. The existential threat to web traffic measurement in an LLM-first world is a heavy anchor. Avoid at all costs despite the low P/S ratio.",
 
+
+  analystConsensus: { rating: 'Hold', targetLow: 4, targetMedian: 8, targetHigh: 10, numAnalysts: 11 },
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],
     [0.12, 0.11, 0.10, 0.09, 0.08],

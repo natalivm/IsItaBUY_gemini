@@ -27,6 +27,8 @@ export const CRDO = defineStock({
     "If AEC longevity holds (CPO skepticism + microLED bridge) and Weaver ramps, this is an AI infrastructure compounder. If customer pauses or dilution accelerates, high beta works in reverse. " +
     "Position becomes compelling at $97-100 where prob-weighted return crosses 15%.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 72, targetMedian: 193, targetHigh: 260, numAnalysts: 16 },
   revGrowth: [
     [1.20, 0.20, 0.12, 0.10, 0.08],
     [1.50, 0.35, 0.25, 0.18, 0.15],

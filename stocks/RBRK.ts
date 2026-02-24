@@ -25,6 +25,8 @@ export const RBRK = defineStock({
 
   // Revenue growth: starts elevated (ARR +34% momentum) then decelerates
   // Bear CAGR ~12%, Base ~18%, Bull ~24%
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 97, targetMedian: 107, targetHigh: 130, numAnalysts: 18 },
   revGrowth: [
     [0.16, 0.14, 0.12, 0.10, 0.08],      // Bear: NRR normalizes, net new ARR disappoints
     [0.24, 0.21, 0.18, 0.15, 0.12],      // Base: ARR decelerates to low-20s then teens

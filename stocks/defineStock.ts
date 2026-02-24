@@ -1,4 +1,4 @@
-import { StockDefinition, ScenarioType, RsTrend } from '../types';
+import { StockDefinition, ScenarioType, RsTrend, AnalystConsensus } from '../types';
 
 /**
  * Simplified stock input format.
@@ -116,6 +116,9 @@ export interface SimpleStockInput {
   epsCagr?: Trio<number>;
   exitPE?: Trio<number>;
   prob?: Trio<number>;
+
+  // ── Analyst consensus (optional) ──
+  analystConsensus?: AnalystConsensus;
 }
 
 // Standard driver templates (identical across almost all stocks)
@@ -166,6 +169,9 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
 
     // EPS_PE
     baseEps, epsCagr, exitPE, prob,
+
+    // Analyst consensus
+    analystConsensus,
   } = input;
 
   // Build drivers for each scenario
@@ -212,6 +218,7 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     ratingOverride,
     strategicNarrative,
     baseEps,
+    analystConsensus,
     scenarios: {
       revGrowth: toRecord(revGrowth),
       fcfMargin: toRecord([

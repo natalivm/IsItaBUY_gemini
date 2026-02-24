@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { TickerDefinition, ProjectionData, ScenarioType } from '../types';
+import { TickerDefinition, ProjectionData, ScenarioType, AnalystRating } from '../types';
 import { StockMetrics, usd, pctFmt } from '../services/stockMetrics';
 import { getInstitutionalRating } from '../services/projectionService';
 import { RATING_DEFS, RatingKey } from '../constants';
@@ -192,6 +192,83 @@ const InvestmentVerdict: React.FC<Props> = ({
           {narrativeOverride || defaultNarrative}
         </p>
       </div>
+
+      {tickerDef.analystConsensus && (() => {
+        const ac = tickerDef.analystConsensus;
+        const ourLabel = activeStockData?.label || 'HOLD';
+
+        const analystColor: Record<AnalystRating, string> = {
+          'Strong Buy': 'text-green-400',
+          'Buy': 'text-emerald-400',
+          'Hold': 'text-blue-400',
+          'Sell': 'text-orange-400',
+          'Strong Sell': 'text-red-400',
+        };
+
+        const analystBg: Record<AnalystRating, string> = {
+          'Strong Buy': 'bg-green-400/10 border-green-400/30',
+          'Buy': 'bg-emerald-400/10 border-emerald-400/30',
+          'Hold': 'bg-blue-400/10 border-blue-400/30',
+          'Sell': 'bg-orange-400/10 border-orange-400/30',
+          'Strong Sell': 'bg-red-400/10 border-red-400/30',
+        };
+
+        // Map both systems to a 1-5 scale for agreement comparison
+        const ourScale: Record<string, number> = { 'STRONG BUY': 5, 'BUY': 4, 'HOLD': 3, 'AVOID': 1 };
+        const analystScale: Record<AnalystRating, number> = {
+          'Strong Buy': 5, 'Buy': 4, 'Hold': 3, 'Sell': 2, 'Strong Sell': 1,
+        };
+        const diff = Math.abs((ourScale[ourLabel] || 3) - analystScale[ac.rating]);
+        const agreement = diff === 0 ? 'Aligned' : diff === 1 ? 'Close' : 'Divergent';
+        const agreementColor = diff === 0 ? 'text-green-400' : diff === 1 ? 'text-yellow-400' : 'text-red-400';
+
+        const spotMedianUpside = ((ac.targetMedian - tickerDef.currentPrice) / tickerDef.currentPrice * 100).toFixed(1);
+
+        return (
+          <div className="mt-6 pt-6 border-t border-slate-800/80">
+            <div className="text-xs font-black text-slate-500 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
+              <span className="w-5 h-[2px] bg-slate-600" />
+              Wall Street Consensus
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              {/* Analyst rating badge */}
+              <div className={cn("px-4 py-2 rounded-lg border text-sm font-black", analystBg[ac.rating])}>
+                <span className={analystColor[ac.rating]}>{ac.rating}</span>
+                <span className="text-slate-500 font-medium ml-2">({ac.numAnalysts} analysts)</span>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-8 bg-slate-800 hidden sm:block" />
+
+              {/* Target range */}
+              <div className="flex gap-5 text-sm">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Low</span>
+                  <span className="text-slate-400 font-semibold">{usd(ac.targetLow)}</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Median</span>
+                  <span className="text-white font-black">{usd(ac.targetMedian)}</span>
+                  <span className="text-[10px] text-slate-500">{Number(spotMedianUpside) >= 0 ? '+' : ''}{spotMedianUpside}%</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">High</span>
+                  <span className="text-slate-400 font-semibold">{usd(ac.targetHigh)}</span>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px h-8 bg-slate-800 hidden sm:block" />
+
+              {/* Agreement indicator */}
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">vs Our Model</span>
+                <span className={cn("text-sm font-black", agreementColor)}>{agreement}</span>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </motion.div>
   );
 };

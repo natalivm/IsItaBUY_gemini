@@ -20,6 +20,8 @@ export const CEG = defineStock({
   ratingOverride: 'BUY',
   strategicNarrative: "Post-Nov 7 earnings: thesis upgraded from 'Cyclical Generator' to 'Cyclical Growth with rising structural visibility.' Three self-help MW levers — 850 MW of uprates (Byron/Braidwood 2026, LaSalle/Limerick/Calvert Cliffs 2027–28), 1,635 MW of restarts (Crane 2028–29, TMI 2029+), and ~1,000 MW ELCC demand response scaling — materially reduce reliance on merchant power prices. Base EPS CAGR upgraded to 10–12% (was 8–10%); P(15%+ CAGR) raised to 40–45% from 30–35%. Calpine acquisition (Q4 close, DOJ pending) adds coast-to-coast gas/power diversification; February 2026 combined guidance is the next catalyst. Nuclear capacity factor 96.8%. Execution slippage (hyperscaler PPA delays, uprate timelines, Calpine integration) is now the primary near-term risk. Entry matters: conviction size below $260, starter $260–295. RS 22 — tape not yet confirming.",
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 347, targetMedian: 403, targetHigh: 462, numAnalysts: 14 },
   revGrowth: [
     [0.03, 0.03, 0.04, 0.04, 0.03],
     [0.10, 0.10, 0.10, 0.09, 0.08],

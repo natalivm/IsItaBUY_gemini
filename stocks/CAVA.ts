@@ -31,6 +31,8 @@ export const CAVA = defineStock({
   exitPE: [25, 35, 50],
   prob: [30, 40, 30],
 
+
+  analystConsensus: { rating: 'Buy', targetLow: 51, targetMedian: 77, targetHigh: 120, numAnalysts: 15 },
   revGrowth: [
     [0.12, 0.10, 0.08, 0.07, 0.06],
     [0.18, 0.15, 0.12, 0.10, 0.09],

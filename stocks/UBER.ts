@@ -23,6 +23,8 @@ export const UBER = defineStock({
     "If Uber becomes the demand aggregator for AVs (fleet management, routing, insurance, demand matching), the platform value compounds far beyond current pricing. If AVs disintermediate Uber, the moat erodes. " +
     "Heavy distribution phase — wait for RS recovery above 40 before building a position. The AV optionality is real but the tape says institutions aren't paying for it yet.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 72, targetMedian: 107, targetHigh: 150, numAnalysts: 33 },
   revGrowth: [
     [0.06, 0.05, 0.05, 0.04, 0.04],
     [0.12, 0.11, 0.10, 0.09, 0.08],

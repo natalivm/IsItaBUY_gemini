@@ -20,6 +20,8 @@ export const NVDA = defineStock({
   ratingOverride: 'HOLD',
   strategicNarrative: "NVDA is a structural AI infrastructure monopolist priced near perfection. Both EPS and FCF models converge on 18–22% expected CAGR over 5 years. Q3 FY26 revenue hit $57B (+62% YoY), data center $51.2B (+66% YoY). $0.5T Blackwell+Rubin visibility, 41% FCF margin on $77.3B TTM, and 75% gross margins with CUDA ecosystem lock-in. The stress floor (~$179 at 25× FY27E EPS) sits near current price — P/E compression risk is largely absorbed, all upside is EPS execution. Content/GW rising each generation from Hopper ($22.5B) → Blackwell ($30B) → Rubin ($40B est) signals structural pricing power.",
 
+
+  analystConsensus: { rating: 'Strong Buy', targetLow: 140, targetMedian: 254, targetHigh: 352, numAnalysts: 37 },
   revGrowth: [
     [0.25, 0.08, 0.05, 0.03, 0.02],
     [0.48, 0.22, 0.16, 0.12, 0.09],
