@@ -23,8 +23,6 @@ npm run lint      # Type-check (tsc --noEmit)
 ## Project Structure
 
 ```
-├── api/                    # Vercel serverless functions (Node.js runtime)
-│   └── prices.ts           # Yahoo Finance price proxy
 ├── components/             # React components
 │   ├── StockDetailView.tsx  # Full stock analysis page
 │   ├── InvestmentVerdict.tsx # Buy/Hold/Avoid verdict with RS-aware narratives
@@ -33,8 +31,7 @@ npm run lint      # Type-check (tsc --noEmit)
 │   └── ScenarioMetricsCard.tsx
 ├── services/
 │   ├── projectionService.ts # DCF & EPS/PE valuation engine
-│   ├── stockMetrics.ts      # Derived metrics (momentum, acceleration, etc.)
-│   └── yahooFinanceService.ts # Live price fetcher (calls /api/prices)
+│   └── stockMetrics.ts      # Derived metrics (momentum, acceleration, etc.)
 ├── stocks/                 # Stock definition files (one per ticker)
 │   ├── defineStock.ts       # Helper: SimpleStockInput → StockDefinition
 │   ├── index.ts             # Auto-discovers all stock files via import.meta.glob
@@ -133,7 +130,7 @@ export const TICKER = defineStock({
    - `EPS_PE`: Uses baseEps, epsCagr, exitPE, prob
 6. **RS Rating tiers**: <15 very low, 15-39 low, 40-79 neutral, 80-90 strong, >90 overextended
 7. **Investment verdicts**: STRONG BUY / BUY / HOLD / AVOID — determined by base-case upside (>30%, >15%, near fair value, overvalued)
-8. **Live prices**: Fetched from Yahoo Finance via `/api/prices` serverless proxy on page load; falls back to static `currentPrice` on failure
+8. **Prices**: Static `currentPrice` in each stock file — updated manually by request (no live price fetching)
 9. **`prob` and `epsCagr` must be integer percentages**: Use `[25, 50, 25]` not `[0.25, 0.50, 0.25]`. The model divides by 100 internally.
 
 ## Alpha Strategic View
@@ -161,8 +158,7 @@ The narrative assessment in `strategicNarrative` is the **authoritative rating**
 - **Framework**: Vite (auto-detected by Vercel)
 - **Build command**: `vite build` (default)
 - **Output directory**: `dist` (default)
-- **API functions**: Files in `api/` directory use Node.js runtime with `(req, res)` signature
-- **SPA routing**: `vercel.json` rewrites all non-API routes to `index.html`
+- **SPA routing**: `vercel.json` rewrites all routes to `index.html`
 
 ## Style Guide
 

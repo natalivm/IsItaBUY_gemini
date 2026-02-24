@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { ScenarioType, TickerDefinition } from './types';
 import { calculateProjection, getInstitutionalRating } from './services/projectionService';
 import { TICKERS } from './constants';
@@ -7,7 +7,6 @@ import StockDetailView from './components/StockDetailView';
 
 import { motion, AnimatePresence } from 'motion/react';
 import { cn, rsRatingStyle } from './utils';
-import { fetchLivePrices } from './services/yahooFinanceService';
 
 // ── Types & Constants ──
 
@@ -44,11 +43,6 @@ const GROUP_META: Record<StockGroup, { label: string; accent: string; border: st
     bg: 'bg-red-950/10',
     desc: 'Avoid \u00b7 Low Momentum \u00b7 Unfavorable Risk/Reward',
   },
-};
-
-// Rating upgrade/downgrade detection: higher rank = better rating
-const RATING_RANK: Record<string, number> = {
-  'STRONG BUY': 4, 'BUY': 3, 'HOLD': 2, 'AVOID': 1,
 };
 
 const TAG_DEFS = [
@@ -139,43 +133,6 @@ const TagFilterBar: React.FC<{
   </div>
 );
 
-const PriceStatusBar: React.FC<{
-  lastUpdated: Date | null;
-  isFetching: boolean;
-}> = ({ lastUpdated, isFetching }) => {
-  const [timeAgo, setTimeAgo] = useState('');
-
-  useEffect(() => {
-    const update = () => {
-      if (!lastUpdated) { setTimeAgo(''); return; }
-      const secs = Math.floor((Date.now() - lastUpdated.getTime()) / 1000);
-      if (secs < 5) setTimeAgo('just now');
-      else if (secs < 60) setTimeAgo(`${secs}s ago`);
-      else setTimeAgo(`${Math.floor(secs / 60)}m ago`);
-    };
-    update();
-    const id = setInterval(update, 5000);
-    return () => clearInterval(id);
-  }, [lastUpdated]);
-
-  if (!lastUpdated && !isFetching) return null;
-
-  return (
-    <div className="flex items-center gap-2 mb-3 text-xs font-bold tracking-wide">
-      <span className={cn(
-        "w-1.5 h-1.5 rounded-full flex-shrink-0 animate-pulse",
-        isFetching ? "bg-amber-400" : "bg-emerald-400"
-      )} />
-      <span className={isFetching ? "text-amber-400" : "text-emerald-400"}>
-        {isFetching ? 'UPDATING PRICES' : 'LIVE PRICES'}
-      </span>
-      {lastUpdated && !isFetching && (
-        <span className="text-slate-500">· {timeAgo}</span>
-      )}
-    </div>
-  );
-};
-
 interface StockRowData {
   ticker: string;
   fairPriceRange: string;
@@ -184,8 +141,6 @@ interface StockRowData {
   dot: string;
   aiImpact: string;
   group: StockGroup;
-  prevRating?: string;
-  priceChangePct?: number;
 }
 
 const StockRow: React.FC<{
@@ -221,17 +176,6 @@ const StockRow: React.FC<{
       <span className={cn("text-base font-bold mono w-24 flex-shrink-0", isGraveyard ? "text-blue-400/40" : "text-blue-400")}>${tickerDef.currentPrice.toFixed(2)}</span>
       <div className="flex flex-col w-28 flex-shrink-0">
         <span className={cn("text-xs font-black uppercase tracking-widest", stock.color)}>{stock.label}</span>
-        {stock.prevRating && (() => {
-          const isUpgrade = (RATING_RANK[stock.label] ?? 2) > (RATING_RANK[stock.prevRating!] ?? 2);
-          return (
-            <span className={cn(
-              "text-[9px] font-black uppercase tracking-wider",
-              isUpgrade ? "text-emerald-400/70" : "text-amber-400/70"
-            )}>
-              {isUpgrade ? '↑' : '↓'} was {stock.prevRating}
-            </span>
-          );
-        })()}
       </div>
       <span className={cn(
         "text-sm font-bold mono border rounded px-1.5 py-0.5 flex-shrink-0",
@@ -249,57 +193,13 @@ const App: React.FC = () => {
   const [activeTicker, setActiveTicker] = useState<string>('home');
   const [isLoading, setIsLoading] = useState(true);
   const [activeTagFilter, setActiveTagFilter] = useState<string | null>(null);
-  const [livePrices, setLivePrices] = useState<Record<string, number>>({});
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [isFetchingPrices, setIsFetchingPrices] = useState(false);
 
-  // Merge static TICKERS with live prices so all downstream consumers
-  // react to price updates without mutating module-level state.
-  const tickers = useMemo(() => {
-    if (Object.keys(livePrices).length === 0) return TICKERS;
-    const merged: Record<string, TickerDefinition> = {};
-    for (const id of Object.keys(TICKERS)) {
-      merged[id] = typeof livePrices[id] === 'number'
-        ? { ...TICKERS[id], currentPrice: livePrices[id] }
-        : TICKERS[id];
-    }
-    return merged;
-  }, [livePrices]);
-
-  // Fetches live prices from Yahoo Finance and updates state.
-  // Only currentPrice is updated — rsRating, narratives, and all other
-  // fields remain as defined in the stock data files.
-  const refreshPrices = useCallback(async () => {
-    setIsFetchingPrices(true);
-    const prices = await fetchLivePrices(Object.keys(TICKERS));
-    if (Object.keys(prices).length > 0) {
-      setLivePrices(prices);
-      setLastUpdated(new Date());
-    }
-    setIsFetchingPrices(false);
-  }, []);
+  const tickers = TICKERS;
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), SPLASH_DURATION_MS);
-
-    // Initial fetch on mount
-    refreshPrices();
-
-    // Re-fetch every 60 seconds to keep prices current
-    const priceInterval = setInterval(refreshPrices, 60_000);
-
-    // Re-fetch when the tab regains focus after being away
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible') refreshPrices();
-    };
-    document.addEventListener('visibilitychange', onVisibilityChange);
-
-    return () => {
-      clearTimeout(timer);
-      clearInterval(priceInterval);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-    };
-  }, [refreshPrices]);
+    return () => clearTimeout(timer);
+  }, []);
 
   const tickerDef = activeTicker !== 'home' ? tickers[activeTicker] : null;
 
@@ -320,21 +220,7 @@ const App: React.FC = () => {
       const rating = getInstitutionalRating(proj.pricePerShare, t.currentPrice, t.ratingOverride);
       const group = classifyStock(t, rating.label, t.rsRating);
 
-      // Detect if the live price has shifted the rating vs. the static baseline.
-      // When no live prices are loaded, tickers === TICKERS so this is always false.
-      const staticDef = TICKERS[t.ticker];
-      let prevRating: string | undefined;
-      let priceChangePct: number | undefined;
-      if (t.currentPrice !== staticDef.currentPrice) {
-        const baseProj = calculateProjection(t.ticker, ScenarioType.BASE, TICKERS, true);
-        const baseRating = getInstitutionalRating(baseProj.pricePerShare, staticDef.currentPrice, staticDef.ratingOverride);
-        if (baseRating.label !== rating.label) {
-          prevRating = baseRating.label;
-        }
-        priceChangePct = ((t.currentPrice - staticDef.currentPrice) / staticDef.currentPrice) * 100;
-      }
-
-      return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact, group, prevRating, priceChangePct };
+      return { ticker: t.ticker, fairPriceRange: t.fairPriceRange || 'N/A', active: t.active, ...rating, aiImpact: t.aiImpact, group };
     }).sort((a, b) => a.ticker.localeCompare(b.ticker));
   }, [tickers]);
 
@@ -386,7 +272,6 @@ const App: React.FC = () => {
             className="min-h-screen bg-surface-card overflow-y-auto px-4 lg:px-24 pt-20 pb-24 scrollbar-hide"
           >
             <div className="max-w-4xl mx-auto mb-12">
-              <PriceStatusBar lastUpdated={lastUpdated} isFetching={isFetchingPrices} />
               <TagFilterBar
                 activeTagFilter={activeTagFilter}
                 tagCounts={tagCounts}
