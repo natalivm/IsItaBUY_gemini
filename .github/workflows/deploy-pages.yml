@@ -35,8 +35,10 @@ jobs:
 
       - run: npm run build -- --base /${{ github.event.repository.name }}/
 
-      - name: SPA routing fallback
-        run: cp dist/index.html dist/404.html
+      - name: SPA routing fallback & GitHub Pages config
+        run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - uses: actions/configure-pages@v4
 
