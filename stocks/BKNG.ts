@@ -49,15 +49,15 @@ export const BKNG = defineStock({
   exitMultiple: [12, 16, 18],
 
   desc: [
-    'Travel macro recession forces discretionary pullback — "thoughtful spending" translates to real demand compression across EU and US leisure segments. Revenue growth decelerates to 4-5% as room night growth stalls. ' +
-      'EU regulatory pressure on OTA commissions plus early LLM-driven disintermediation erode take rate at the margins. FCF margins hold at ~33-34% on Transformation Program savings but cycle pressure caps expansion. ' +
-      'Reduced buybacks (~2% net share reduction) limit per-share compounding. Market re-rates to 12x EV/EBITDA as cyclical trough multiple. DCF fair value ~$4,500 — roughly flat from current levels.',
-    'Company executes on Q4\'25 algo targets: ~9% constant-currency top line (8% algo + 100 bps), mid-teens EPS growth, +50 bps annual FCF margin expansion — self-funded by $550M Transformation Program run-rate savings. ' +
-      'Capital return stays disciplined: ~90% of FCF returned via buybacks, driving ~4% annual net share reduction. FCF margins expand from 34% to 36% over five years on merchant mix shift and payment processing scale. ' +
-      'P/E stays compressed at ~16x (vs. 16-30x historical range) but FCF compounds at ~10% CAGR. DCF fair value ~$7,700 — upside driven by earnings growth and share count reduction, not multiple expansion.',
-    'Travel cycle extends beyond expectations — connected trip and GenAI-powered personalization drive above-algo room night growth. Merchant-of-record mix shift plus payments integration expand take rate and FCF margins to 39% by Year 5. ' +
-      'Aggressive capital return (~5% net share reduction) accelerates per-share value creation. LLM integration becomes a paid traffic channel (like Google was) rather than a disintermediation threat — Booking\'s supply depth, regulatory compliance, and payment infrastructure form an insurmountable bottom-of-funnel moat. ' +
-      'P/E normalizes from 16x toward 18x as market recognizes the structural compounder. DCF fair value ~$10,300.',
+    'People cut back on travel due to a recession. Booking\'s revenue only grows 4-5% a year — basically treading water. ' +
+      'New EU regulations squeeze the fees Booking charges hotels, and AI chatbots start stealing some customers who used to search on Booking.com. ' +
+      'The company still generates solid cash (~33-34% of revenue), but Wall Street loses confidence and the stock gets cheap. Fair value ~$4,500 — barely above today\'s price, so you\'d earn roughly ~2% per year.',
+    'Booking hits the targets management laid out: ~9% annual revenue growth, profits growing mid-teens, and the company keeps buying back ~4% of its own shares every year (making each remaining share worth more). ' +
+      'They\'re funding growth by cutting $550M in internal costs, not by spending more. Cash generation improves from 34% to 36% of revenue over five years as they earn more from payments processing. ' +
+      'The stock isn\'t expensive today at ~16x earnings (it historically trades at 16-30x). Fair value ~$7,700 — nearly double today\'s price, a ~14% annual return driven by the business actually growing, not by hype.',
+    'Travel demand stays strong longer than expected and Booking\'s AI-powered personalization helps them win even more bookings. They earn more per transaction as they handle payments directly instead of just connecting buyers and sellers. ' +
+      'The company aggressively buys back ~5% of shares per year, turbocharging per-share growth. AI chatbots turn out to be a new advertising channel for Booking (like Google search ads were) rather than a threat — ' +
+      'because when you actually want to book and pay, you still need Booking\'s hotel network, payment system, and customer support. Fair value ~$10,300 — more than 2.5x today\'s price.',
   ],
 
   thesis: [
