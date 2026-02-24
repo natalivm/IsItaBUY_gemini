@@ -38,6 +38,7 @@ export const PANW = defineStock({
     'Agentic AI security becomes enterprise standard; 4-pillar platform drives consolidation wins at scale; NGS ARR $20B FY2030 target achieved early.',
   ],
 
+  ebitdaProxy: [0.28, 0.35, 0.42],
   bbRate: [0.005, 0.015, 0.02],
   bullMaOptVal: 149.0 * 770.0 * 0.07,
 });

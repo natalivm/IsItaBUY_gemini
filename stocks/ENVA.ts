@@ -15,6 +15,8 @@ export const ENVA = defineStock({
   debt: 3950,
   beta: 1.49,
   costDebt: 0.083,      // Q4'25 cost of funds 8.3% (down from 8.6% prior quarter); was stale at 0.072
+  modelType: 'EPS_PE',
+  baseEps: 11.52,       // FY2025 adj EPS; DCF distorted by $3.95B securitization debt treated as corporate leverage
   rsRating: 88,
   aiImpact: 'TAILWIND',
   strategicNarrative:
@@ -24,6 +26,10 @@ export const ENVA = defineStock({
     "If charter + deposit funding materialize, this re-rates from subprime lender to fintech bank. If recession hits first, charge-offs spike and the leverage works against you.",
 
   // ── Scenarios ──
+
+  epsCagr: [8, 15, 22],
+  exitPE: [7, 10, 14],
+  prob: [25, 50, 25],
 
   analystConsensus: { rating: 'Strong Buy', targetLow: 165, targetMedian: 188, targetHigh: 210, numAnalysts: 6 },
   revGrowth: [

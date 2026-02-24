@@ -15,6 +15,7 @@ export const NFLX = defineStock({
   debt: 14000,
   beta: 1.10,
   costDebt: 0.052,
+  modelType: 'EPS_PE',
   rsRating: 13,
   aiImpact: 'TAILWIND',
   ratingOverride: 'HOLD',
