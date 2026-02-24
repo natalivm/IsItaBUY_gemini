@@ -5,7 +5,7 @@ export const MRVL = defineStock({
   name: 'Marvell Technology',
   sector: 'Semiconductors',
   themeColor: '#22d3ee',
-  currentPrice: 79.50,
+  currentPrice: 79,
   fairPriceRange: '$90 - $160',
   shares0: 870,
   rev25: 5770,

@@ -5,7 +5,7 @@ export const PAAS = defineStock({
   name: 'Pan American Silver Corp',
   sector: 'Precious Metals Mining · Silver & Gold',
   themeColor: '#94A3B8',
-  currentPrice: 64.6,
+  currentPrice: 62,
   fairPriceRange: '$32 - $196',
   shares0: 422.6,
   rev25: 3620,

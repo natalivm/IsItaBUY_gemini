@@ -5,7 +5,7 @@ export const CAVA = defineStock({
   name: 'CAVA Group, Inc.',
   sector: 'Restaurants · Fast-Casual · Mediterranean',
   themeColor: '#c8553d',
-  currentPrice: 69.90,
+  currentPrice: 68.44,
   fairPriceRange: '$25 - $128',
   shares0: 116,
   rev25: 1421,

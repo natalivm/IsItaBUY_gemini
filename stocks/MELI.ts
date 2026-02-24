@@ -5,7 +5,7 @@ export const MELI = defineStock({
   name: 'MercadoLibre',
   sector: 'E-Commerce / Fintech',
   themeColor: '#f59e0b',
-  currentPrice: 2035,
+  currentPrice: 1864,
   fairPriceRange: '$2,100 - $3,800',
   shares0: 50.4,
   rev25: 28500,

@@ -5,7 +5,7 @@ export const PINS = defineStock({
   name: 'Pinterest',
   sector: 'Social Commerce',
   themeColor: '#e60023',
-  currentPrice: 17.77,
+  currentPrice: 17,
   fairPriceRange: '$15 - $32',
   shares0: 676.0,
   rev25: 4222,

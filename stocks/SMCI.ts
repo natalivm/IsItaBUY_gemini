@@ -5,7 +5,7 @@ export const SMCI = defineStock({
   name: 'Super Micro Computer, Inc.',
   sector: 'AI Infrastructure / Servers',
   themeColor: '#eab308',
-  currentPrice: 32.30,
+  currentPrice: 31,
   fairPriceRange: '$22 - $65',
   shares0: 700,
   rev25: 23500,
