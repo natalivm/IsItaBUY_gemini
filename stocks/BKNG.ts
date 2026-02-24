@@ -49,9 +49,15 @@ export const BKNG = defineStock({
   exitMultiple: [12, 16, 18],
 
   desc: [
-    'Travel macro recession + discretionary pullback. Revenue 4-5%, margins stable ~34%, reduced buybacks. DCF fair value ~$4,500. CAGR ~2%.',
-    'Algo execution: 9% CC top line, +50 bps FCF margin/yr, ~4% net share reduction. FCF CAGR ~10%. DCF fair value ~$7,700. CAGR ~14%.',
-    'Above-algo growth, margin expansion to 39% FCF, ~5% net share reduction. FCF CAGR ~13%. DCF fair value ~$10,300. CAGR ~21%.',
+    'People cut back on travel due to a recession. Booking\'s revenue only grows 4-5% a year — basically treading water. ' +
+      'New EU regulations squeeze the fees Booking charges hotels, and AI chatbots start stealing some customers who used to search on Booking.com. ' +
+      'The company still generates solid cash (~33-34% of revenue), but Wall Street loses confidence and the stock gets cheap. Fair value ~$4,500 — barely above today\'s price, so you\'d earn roughly ~2% per year.',
+    'Booking hits the targets management laid out: ~9% annual revenue growth, profits growing mid-teens, and the company keeps buying back ~4% of its own shares every year (making each remaining share worth more). ' +
+      'They\'re funding growth by cutting $550M in internal costs, not by spending more. Cash generation improves from 34% to 36% of revenue over five years as they earn more from payments processing. ' +
+      'The stock isn\'t expensive today at ~16x earnings (it historically trades at 16-30x). Fair value ~$7,700 — nearly double today\'s price, a ~14% annual return driven by the business actually growing, not by hype.',
+    'Travel demand stays strong longer than expected and Booking\'s AI-powered personalization helps them win even more bookings. They earn more per transaction as they handle payments directly instead of just connecting buyers and sellers. ' +
+      'The company aggressively buys back ~5% of shares per year, turbocharging per-share growth. AI chatbots turn out to be a new advertising channel for Booking (like Google search ads were) rather than a threat — ' +
+      'because when you actually want to book and pay, you still need Booking\'s hotel network, payment system, and customer support. Fair value ~$10,300 — more than 2.5x today\'s price.',
   ],
 
   thesis: [
