@@ -29,9 +29,12 @@ export const PINS = defineStock({
   fcfMargin: [0.25245, 0.297, 0.34155],
   exitMultiple: [12, 16, 19],
   desc: [
-    'Economic headwinds leading to multiple compression and slower growth.',
-    'Market alignment with standard institutional growth expectations.',
-    'Category-defining growth powered by AI tailwinds and operating leverage.',
+    'GenAI-powered search (Google SGE, Perplexity) erodes Pinterest\'s visual discovery moat — users bypass visual search for LLM-generated recommendations. Advertiser ROAS deteriorates as engagement declines. ' +
+      'Revenue growth falls to mid-single digits. FCF margins compress to ~25% on defensive R&D spend. Multiple compresses to 12x as market prices in structural decline.',
+    'Pinterest defends its visual discovery niche alongside GenAI search — advertisers value high-intent shopping signals that LLMs can\'t replicate. Revenue grows at high-single to low-double digits. ' +
+      'FCF margins expand to ~30% on ad tech maturation. Multiple settles at 16x reflecting an uncertainty discount. Zero debt and $2.5B cash provide optionality.',
+    'Pinterest integrates GenAI into its discovery platform, enhancing personalization and advertiser targeting. Social commerce conversions accelerate as the platform becomes the default visual shopping layer. ' +
+      'Revenue sustains low-teens growth. FCF margins expand to ~34% on operating leverage. Market re-rates to 19x as a GenAI-enhanced commerce platform.',
   ],
 
   bullMaOptVal: 15.42 * 676.0 * 0.07,
