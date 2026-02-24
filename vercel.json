@@ -1,6 +1,12 @@
 
 {
   "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "master": true,
+      "main": true
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
