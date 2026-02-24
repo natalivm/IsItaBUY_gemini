@@ -25,6 +25,12 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (activeTicker !== 'home') {
+      window.scrollTo(0, 0);
+    }
+  }, [activeTicker]);
+
   const tickerDef = activeTicker !== 'home' ? tickers[activeTicker] : null;
 
   const allProjections = useMemo(() => {
