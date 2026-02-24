@@ -37,7 +37,7 @@ export const NU = defineStock({
   // Classification upgraded: B (Cyclical Growth) trending toward A (Structural
   // Compounder). Probability of 15%+ CAGR: ~70% (up from 60-65% pre-call).
   // ─────────────────────────────────────────────────────────────────────────
-  strategicNarrative: "Type B → trending A: Cyclical growth compounder with deepening structural AI edge. Q3 2025 call materially reinforces the thesis. Operational: 127M customers (83%+ active), revenue >$4B (record), net income $783M, ROE 31% (record), cost-to-income 27.7-28%, credit book $30.4B (+42% YoY FX-neutral). Credit quality: risk-adjusted NIM expanded 9.2% → 9.9%, 15-90 NPL 4.2%, coverage robust. Key structural upgrade: nuFormer AI credit model (330M params, 600B tokens trained, 3x vs prior ML) — not yet applied to acquisition, lending, Mexico, or Colombia. Improvement runway is still early. Mexico second S-curve: 13M customers, ARPAC $12.5 (near Brazil levels), 80% revolvers, LDR only 15%, cost-to-serve ~$1. CEO confirmed Mexico is profitable but choosing to reinvest — intentional, not struggling. Revenue CAGR 3yr ~50%; EBIT margin 19% (2023) → 24% (2024) → 29% (2026E). EPS: $0.40 (2024A) → $0.59 (2025E) → $0.84 (2026E) → $1.11 (2027E) → ~$2.00 (2030E base). Forward P/E 2026 ~19x, 2027 ~14-15x — multiple de-risks each year. This is not hype or financial engineering: pure revenue growth + operational leverage + AI-enhanced underwriting. Probability of 15%+ CAGR (5yr): ~70%. Risks: Brazil macro, SELIC, credit cycle turn, Mexico interchange cap regulation, AI rollout execution.",
+  strategicNarrative: "Type B trending A: LatAm digital banking compounder with structural AI edge. Q3 2025 inflection — 127M customers (83%+ active), ROE 31%, cost-to-income sub-28%, risk-adjusted NIM expanding. nuFormer AI credit model (330M params, 3x prior ML) is early innings — not yet deployed to Mexico, lending, or acquisition. Mexico second S-curve: 13M customers, ARPAC near Brazil levels, LDR only 15%. Pure revenue growth + operational leverage + AI-enhanced underwriting. Risks: Brazil macro, SELIC, credit cycle turn, Mexico regulation.",
 
 
   analystConsensus: { rating: 'Strong Buy', targetLow: 16, targetMedian: 19, targetHigh: 22, numAnalysts: 9 },
@@ -54,11 +54,6 @@ export const NU = defineStock({
   exitMultiple: [12, 18, 24],
 
   desc: [
-    'Brazil macro deteriorates + Mexico interchange cap hits. Delinquency spike, credit growth stalls, NIM compresses without risk-adjusted offset. EPS 2030E ~$1.40, exit P/E 15x → Target ~$21. CAGR ~5-6%. Prob ~20%.',
-    'Controlled cycle, execution holds. Risk-adjusted NIM stays elevated, Mexico LDR scales from 15%, nuFormer rolls out gradually. EPS 2030E ~$1.95-2.05, exit P/E 20x → Target ~$40. CAGR ~19-22%. Prob ~45%.',
-    'nuFormer AI edge compounds — lowers cost of risk structurally across cards, lending, Mexico, Colombia. ARPU inflects, Mexico S-curve accelerates. EPS 2030E ~$2.40, exit P/E 25x → Target ~$60. CAGR 30%+. Prob ~35%.',
-  ],
-  thesis: [
     'Delinquency rates spike past 7-8% tolerance on Brazil macro shock. Unlike Q3 2025, risk-adjusted NIM stops expanding as provisioning surges. Mexico interchange cap regulation compounds the margin hit. Multiple re-rates to traditional bank comps (10-15x P/E) as growth premium fully evaporates.',
     'NU executes on the digital banking penetration playbook with Q3 2025 momentum intact. nuFormer rolls out to lending and Mexico improving risk-adjusted returns moderately. Mexico LDR scales from 15% as credit products deepen. Cost-to-income stays sub-28%. Sustainable 19-22% EPS compounding.',
     'nuFormer AI credit model proves transformative across all products and geographies — structurally reducing cost of risk while expanding addressable credit. Mexico and Colombia become meaningful P&L contributors. ARPAC lifts materially across 130M+ customers. ROE sustains 30%+, institutional demand intensifies, P/E re-rates toward premium EM fintech comps. This scenario makes NU a type A structural compounder.',
