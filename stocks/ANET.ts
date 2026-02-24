@@ -33,9 +33,12 @@ export const ANET = defineStock({
   ],
   exitMultiple: [18, 28, 32],
   desc: [
-    'Growth halves, memory/silicon squeeze margins, acceptance deferrals shift revenue. AI capex normalises. Market re-rates to 25x P/E.',
-    'AI networking stays production-scale. Revenue decelerates naturally (law of large numbers). Margins stabilise/recover. P/E compresses from ~49x to 30x.',
-    'AI supercycle extends. Scale-up/ESUN production in 2027, 1.6T ramps. New 10% customers. Margins recover as software/CloudVision scales.',
+    'AI capex cycle peaks in 2026 and hyperscaler networking spend normalizes. Revenue growth decelerates from 25% to high-single digits by FY30 as the law of large numbers limits expansion. ' +
+      'Component cost pressures squeeze FCF margins from 46% toward 44%. Market re-rates from ~49x to 18x as growth premium evaporates — Arista treated as a mature networking vendor.',
+    'AI networking demand stays production-scale — FY26 $11.25B revenue (+25% YoY) validates with AI networking at $3.25B. Growth decelerates naturally to mid-teens as campus diversification and EOS platform stickiness ' +
+      'sustain above-market expansion. FCF margins hold at ~47% on CloudVision software mix shift. P/E compresses from ~49x to 28x through earnings growth. Zero-debt fortress funds buybacks.',
+    'AI supercycle extends into 2028+ — 800G/1.6T ethernet ramps drive content expansion per cluster, ESUN (Ethernet Switching for Unstructured Networks) opens new hyperscaler workloads. ' +
+      'Revenue sustains 20%+ growth as new 10% customers emerge beyond the current hyperscaler base. CloudVision software scales FCF margins to 48%. Market maintains premium 32x on structural AI infrastructure compounder.',
   ],
 
   termGrowth: [0.02, 0.03, 0.035],

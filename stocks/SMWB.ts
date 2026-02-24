@@ -30,9 +30,12 @@ export const SMWB = defineStock({
   fcfMargin: [0.068, 0.08, 0.092],
   exitMultiple: [12, 16, 19],
   desc: [
-    'Economic headwinds leading to multiple compression and slower growth.',
-    'Market alignment with standard institutional growth expectations.',
-    'Category-defining growth powered by AI tailwinds and operating leverage.',
+    'LLM-first browsing (ChatGPT, Perplexity) fundamentally undermines web traffic measurement — the core data asset loses relevance as user behavior shifts away from traditional URLs. ' +
+      'Enterprise churn accelerates. Revenue growth stalls at mid-single digits. Thin ~6.8% FCF margins leave no room for reinvestment. Multiple compresses to 12x on terminal decline narrative. RS 3 confirms total institutional abandonment.',
+    'Web analytics remains relevant for enterprise SEO and competitive intelligence despite LLM disruption. Similarweb pivots toward AI-augmented insights as a complementary data layer. ' +
+      'Revenue grows at high-single to low-double digits. FCF margins inch to ~8% but remain thin. Valued at 16x as a small-cap data vendor with niche utility but no structural moat.',
+    'Enterprise demand for competitive intelligence proves resilient — LLM traffic data becomes a new premium product line. Revenue sustains low-teens growth on successful pivot. ' +
+      'FCF margins expand to ~9%. Market re-rates to 19x. Even in bull case, thin margins and small scale cap the absolute upside.',
   ],
 
   bullMaOptVal: 3.98 * 83.5 * 0.07,
