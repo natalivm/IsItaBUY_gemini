@@ -17,9 +17,9 @@ export const CAVA = defineStock({
   costDebt: 0,
   modelType: 'EPS_PE',
   baseEps: 0.54,
-  rsRating: 57,
+  rsRating: 32,
+  rsTrend: 'falling',
   aiImpact: 'NEUTRAL',
-  ratingOverride: 'AVOID',
   strategicNarrative:
     "Downgraded to AVOID after Q4 FY2025 showed weakening same-store economics: SSS decelerated to just +0.5% (full year +4%), " +
     "RLP margin compressed to 21.4% with food costs +50bps (tariffs) and other opex +60bps (delivery mix, KDS costs). " +
