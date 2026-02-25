@@ -19,13 +19,13 @@ export const CAVA = defineStock({
   baseEps: 0.53,
   rsRating: 57,
   aiImpact: 'NEUTRAL',
-  ratingOverride: 'HOLD',
+  ratingOverride: 'AVOID',
   strategicNarrative:
-    "CAVA is a unit-expansion growth story in fast-casual — 415 restaurants scaling as the 'Mediterranean Chipotle' with high AUV and strong new-unit productivity. " +
-    "The problem: at ~130x forward P/E, the stock prices in near-perfect execution while SSS is softening (+1.9%, traffic flat) and the moat is operational, not structural. " +
-    "If mid-teens unit growth sustains + SSS accelerates + margins expand to 10%+ EBIT, this becomes a restaurant compounder. " +
-    "If macro pressures traffic, the multiple has enormous room to compress (P/E to 25x = -50%). " +
-    "40-50% probability of 15%+ CAGR — good business, expensive entry. Buy only on weakness or traffic acceleration.",
+    "Downgraded to AVOID after latest report showed weakening fundamentals: SSS decelerating, traffic turning negative, and margin pressure from rising labor and food costs. " +
+    "At ~130x forward P/E the stock still prices in flawless execution that is no longer materializing. " +
+    "Unit growth alone cannot sustain the valuation when same-store economics are deteriorating. " +
+    "Risk/reward is unfavorable — even modest multiple compression to 40-50x implies significant downside. " +
+    "Revisit only if SSS traffic inflects positive, margins stabilize, and the multiple resets to a more reasonable level.",
 
   epsCagr: [13, 27, 37],
   exitPE: [25, 35, 50],
