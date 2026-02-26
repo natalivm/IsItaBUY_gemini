@@ -5,62 +5,65 @@ export const DUOL = defineStock({
   name: 'Duolingo',
   sector: 'EdTech · Language Learning · AI Platform',
   themeColor: '#58cc02',
-  currentPrice: 112.90,
-  fairPriceRange: '$54 - $439',
+  currentPrice: 91.63,
+  updatedOn: '26/02',
+  fairPriceRange: '$52 - $311',
   shares0: 46.23,
-  rev25: 1030,
-  fcfMargin25: 0.34,
+  rev25: 1040,
+  fcfMargin25: 0.35,
   taxRate: 0.15,
-  cash: 976,
+  cash: 1040,
   debt: 0,
   beta: 0.85,
   costDebt: 0,
   modelType: 'EPS_PE',
-  baseEps: 4.00,
+  baseEps: 3.40,
   rsRating: 4,
   aiImpact: 'DISRUPTION_RISK',
   strategicNarrative:
-    "Extreme contrarian setup — stock -79% from ATH, RS 4, yet fundamentals are strong: $1B+ revenue (+37%), 50.5M DAU, 11.5M paid subs, 53% unaided brand awareness (24pts ahead of #2), EV/FCF 12x, fortress balance sheet ($1.1B cash, zero debt). " +
-    "The market is pricing existential AI disruption (real-time translation from T-Mobile/Apple/Meta, LLM tutors) — but DUOL is itself AI-first: 18x content acceleration, Video Call, Max tier growing at 2x bookings. " +
-    "The fork is binary: Nokia (disrupted, moat erodes, P/E compresses to 12x) or Netflix (AI-native adaptation, subject expansion into math/chess/test prep, 135M MAU becomes 300M+). " +
-    "50-60% probability of 15%+ CAGR — cheap if the brand moat holds, value trap if AI commoditizes the core product.",
+    "Post-earnings WAIT — 2025 was elite ($1.04B revenue +39%, 52.7M DAUs +30%, $360M FCF, $1.04B cash, zero debt) but that's not the story anymore. " +
+    "Management is deliberately stepping off the gas: 2026 guides only 15-18% revenue growth with EBITDA margins compressing from 29.5% to ~25% as they spend ~$50M reducing friction to chase 100M DAUs by 2028. " +
+    "Key nuance: $414M reported 2025 net income includes a $256.7M one-time tax benefit — recurring EPS is ~$3.40. " +
+    "At $91.63 (down 79% from ATH), EV/FCF is ~9x on 2025 actuals — priced for zero growth. " +
+    "Near-term: expect analyst estimate cuts, multiple compression, and continued volatility as the market digests a growth-to-reinvestment narrative shift. " +
+    "The binary bet: 100M DAUs by 2028 unlocks a monetization base that justifies massive re-rating — or the strategy fails and slow growth + declining margins gets punished hard. " +
+    "AI disruption risk is real but DUOL is also AI-first (Video Call, Max tier, 18x content acceleration). WAIT for 2026 guidance stabilization or first evidence of DAU re-acceleration before adding aggressively.",
 
-  epsCagr: [3, 20, 30],
-  exitPE: [12, 25, 32],
+  ratingOverride: 'AVOID',
+
+  epsCagr: [5, 15, 25],
+  exitPE: [12, 22, 30],
   prob: [35, 40, 25],
-
 
   analystConsensus: { rating: 'Buy', targetLow: 160, targetMedian: 250, targetHigh: 347, numAnalysts: 17 },
   revGrowth: [
-    [0.10, 0.05, 0.03, 0.02, 0.02],
-    [0.25, 0.22, 0.18, 0.15, 0.12],
-    [0.30, 0.28, 0.25, 0.22, 0.20],
+    [0.15, 0.10, 0.06, 0.04, 0.02],
+    [0.16, 0.20, 0.22, 0.18, 0.15],
+    [0.18, 0.25, 0.28, 0.25, 0.22],
   ],
   fcfMargin: [
-    [0.25, 0.22, 0.20, 0.18, 0.16],
-    [0.34, 0.35, 0.36, 0.37, 0.38],
-    [0.35, 0.37, 0.39, 0.41, 0.43],
+    [0.22, 0.20, 0.18, 0.16, 0.14],
+    [0.22, 0.26, 0.30, 0.33, 0.35],
+    [0.24, 0.28, 0.33, 0.37, 0.40],
   ],
   exitMultiple: [8, 18, 25],
   desc: [
-    'AI disruption materializes as free AI tutors from ChatGPT, T-Mobile translation, and Apple and Meta hardware erode demand for dedicated language learning. ' +
-      'Revenue growth collapses to single digits as users churn to free alternatives. ' +
-      'The multiple compresses to 12x as the market treats Duolingo as a commoditized edtech platform. ' +
-      'A value trap despite the fortress balance sheet, with earnings barely growing at 3% annually.',
-    'The brand moat holds with 53% unaided awareness, gamification stickiness, and 90% organic user acquisition resisting AI substitution for casual learners. ' +
-      'Revenue grows 15-20% annually as subject expansion into math, music, and chess adds to the addressable market. ' +
-      'Paid subscribers grow from 11.5 million to over 25 million. AI features like Video Call and Max deepen engagement rather than destroying it. ' +
-      'Earnings compound at 20% annually, delivering roughly 17% annualized stock returns.',
-    'Duolingo becomes the definitive AI-native education platform, using language learning as a wedge to expand into math, literacy, test prep, and corporate training. ' +
-      'AI integration creates a better product rather than commoditizing it, with 18x content acceleration and personalized tutoring at scale. ' +
-      'Monthly active users grow from 135 million to over 300 million, and paid subscribers scale from 11.5 million to 40 million or more. ' +
-      'Earnings compound at 30% annually in a full sentiment reversal, delivering over 30% annualized stock returns.',
+    'Strategic reset fails: reinvestment does not reignite DAU growth and the 100M DAU target slips well beyond 2028. ' +
+      'AI-native tutors from ChatGPT, Apple, and Meta accelerate substitution of casual learners. ' +
+      'Revenue growth stalls at mid-single digits as even the guided 15-18% 2026 target is missed. ' +
+      'Margins stay compressed with no payoff, and the stock re-rates to 12x on deteriorating earnings power.',
+    'The deliberate 2026 slowdown proves temporary. Reduced friction and the expanded free tier drive DAU re-acceleration in 2027-2028, with 100M DAUs on schedule. ' +
+      'Paid subscriber conversion improves on the larger base, earnings compound at 15% annually from the recurring $3.40 base, and the multiple re-expands as growth reignites. ' +
+      'A patient 3-5 year hold from current depressed levels delivers solid returns.',
+    'Duolingo hits 100M DAUs ahead of schedule, unlocking a massive monetization base as ARPU recovers post-friction-removal. ' +
+      'Subject expansion into math, test prep, and corporate training adds premium revenue streams, while Max tier and Video Call prove AI is a tailwind not a threat. ' +
+      'Platform re-rating as a dominant AI-native education company drives 30x earnings multiples and 25% EPS compounding.',
   ],
 
   termGrowth: [0.01, 0.025, 0.035],
   waccAdj: [0.015, 0, -0.01],
   ebitdaProxy: [0.10, 0.25, 0.35],
-  bullMaOptVal: 112.90 * 46.23 * 0.10,
+  bullMaOptVal: 91.63 * 46.23 * 0.10,
 
   driverOverrides: [
     {

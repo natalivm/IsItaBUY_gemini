@@ -53,9 +53,9 @@ const StockPageHeader: React.FC<Props> = ({
 
           <div className="flex flex-wrap gap-3">
             {[
-              { label: 'SPOT', value: usd(tickerDef.currentPrice), icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
-              { label: 'RATING', value: activeStockData?.label || 'HOLD', icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400' },
-              { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white' },
+              { label: 'SPOT', value: usd(tickerDef.currentPrice), icon: <TrendingUp className="w-4 h-4 text-amber-500" />, valueClass: 'text-white', subValue: tickerDef.updatedOn ? `upd ${tickerDef.updatedOn}` : undefined },
+              { label: 'RATING', value: activeStockData?.label || 'HOLD', icon: <ShieldCheck className="w-4 h-4 text-amber-500" />, valueClass: activeStockData?.color || 'text-blue-400', subValue: undefined },
+              { label: 'FAIR VALUE', value: usd(currentProjection.pricePerShare), icon: <Zap className="w-4 h-4 text-amber-500" />, valueClass: 'text-white', subValue: undefined },
             ].map((m, i) => (
               <div
                 key={i}
@@ -66,6 +66,7 @@ const StockPageHeader: React.FC<Props> = ({
                 <div className="flex flex-col">
                   <span className="text-amber-500 font-black text-xs uppercase tracking-widest leading-none mb-1">{m.label}</span>
                   <span className={cn("text-lg font-bold leading-none", m.valueClass)}>{m.value}</span>
+                  {m.subValue && <span className="text-slate-500 text-[10px] font-medium mt-0.5 leading-none">{m.subValue}</span>}
                 </div>
               </div>
             ))}
