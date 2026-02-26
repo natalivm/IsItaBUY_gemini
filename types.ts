@@ -82,6 +82,8 @@ export interface TickerDefinition {
   baseEps?: number;
   // Analyst consensus
   analystConsensus?: AnalystConsensus;
+  /** Date of last manual data refresh, e.g. '26/02' */
+  updatedOn?: string;
 }
 
 export interface ProjectionData {

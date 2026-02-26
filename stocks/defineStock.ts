@@ -119,6 +119,9 @@ export interface SimpleStockInput {
 
   // ── Analyst consensus (optional) ──
   analystConsensus?: AnalystConsensus;
+
+  /** Date of last manual data refresh, e.g. '26/02' */
+  updatedOn?: string;
 }
 
 // Standard driver templates (identical across almost all stocks)
@@ -172,6 +175,9 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
 
     // Analyst consensus
     analystConsensus,
+
+    // Updated date
+    updatedOn,
   } = input;
 
   // Build drivers for each scenario
@@ -219,6 +225,7 @@ export function defineStock(input: SimpleStockInput): StockDefinition {
     strategicNarrative,
     baseEps,
     analystConsensus,
+    updatedOn,
     scenarios: {
       revGrowth: toRecord(revGrowth),
       fcfMargin: toRecord([

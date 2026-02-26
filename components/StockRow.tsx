@@ -56,6 +56,11 @@ const StockRow: React.FC<Props> = ({ stock, tickerDef, animationIndex, onSelect 
       )}>RS {tickerDef.rsRating}</span>
       <span className={cn("text-sm font-bold mono", isGraveyard ? "text-slate-300/40" : "text-slate-300")}>{stock.fairPriceRange}</span>
       <span className={cn("text-sm font-medium truncate", isGraveyard ? "text-slate-400/40" : "text-slate-400")}>{tickerDef.sector.split(/\s[·\/]\s/)[0]}</span>
+      {tickerDef.updatedOn && (
+        <span className="text-xs font-medium text-slate-500 border border-slate-700 rounded px-1.5 py-0.5 flex-shrink-0 ml-auto">
+          upd {tickerDef.updatedOn}
+        </span>
+      )}
     </motion.button>
   );
 };
