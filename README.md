@@ -18,3 +18,9 @@ View your app in AI Studio: https://ai.studio/apps/a59a5a5b-a572-4e3a-8672-80935
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## GitHub Pages Deployment
+
+The app is deployed at `https://natalivm.github.io/IsItaBUY_gemini/`.
+
+`vite.config.ts` sets `base: '/IsItaBUY_gemini/'` for non-Vercel environments, and the deploy workflow passes `--base /IsItaBUY_gemini/` at build time. Asset paths in `index.html` use relative paths (`./index.css`, `./index.tsx`) so they resolve correctly under the subpath on GitHub Pages and in local dev.
