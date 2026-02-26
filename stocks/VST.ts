@@ -6,7 +6,7 @@ export const VST = defineStock({
   sector: 'Utilities / Power',
   themeColor: '#facc15',
   currentPrice: 171,
-  fairPriceRange: '$157 - $354',
+  fairPriceRange: '$179 - $402',
   shares0: 339.0,
   rev25: 19600,
   fcfMargin25: 0.157,
@@ -16,15 +16,16 @@ export const VST = defineStock({
   beta: 1.43,
   costDebt: 0.056,
   modelType: 'EPS_PE',
-  baseEps: 8.81,
-  rsRating: 46,
+  baseEps: 10.0,
+  rsRating: 48,
   rsTrend: 'rising',
   aiImpact: 'TAILWIND',
-  ratingOverride: 'HOLD',
-  strategicNarrative: "Cyclical growth (Type B) with capital-return + contracting overlay. Nov-2025 call raised visibility: 2025E Adj EBITDA $5.7–5.9B, 2026E $6.8–7.6B, 60%+ EBITDA→FCF conversion. Comanche Peak 20yr PPA + 70% hedged 2027 generation reduce near-term vol, but economics remain power-cycle dependent. Buybacks are a core EPS driver (−30% shares since 2021, ~$1.3B/yr capital return).\n\nLower rates regime (most likely path): raises P/E floor to 14–17x and reduces downside, but power price normalization caps EPS growth at 8–10% — this is an 8% story, not 15%. Bull requires both lower rates + tight power markets for 20x+ re-rating.\n\nProb-weighted 5yr CAGR ~8.5% at $171 — improved from 6.7% on rate outlook, still below 15% threshold. Verdict: WAIT / HOLD — mid-cycle energy infrastructure with good capital return but no structural moat.",
+  ratingOverride: 'BUY',
+  updatedOn: '26/02',
+  strategicNarrative: "Q4 2025 record year: $5.912B adj EBITDA ($4.29B gen + $1.62B retail), $3.592B adj FCF — both above guidance midpoints. 2026E confirmed at $6.8–7.6B EBITDA. Step-change in contracted revenue: 3.8 GW nuclear PPAs signed (Amazon 20yr/1,200MW Comanche Peak; Meta 20yr/2,609MW PJM operating + uprates). ~50% of adj EBITDA from contracted/retail stable sources by 2027. Cogentrix (5,500MW modern gas, ~$730/kW net of tax) adds mid-single-digit AFCF/share accretion in 2027. Management projects >$12.5 AFCF/share 2026 → ~$16 (Cogentrix + Meta operating PPAs + $5B buybacks) → $22–25 long-term as all remaining cash deployed through 2030.\n\nStructural shift underway: from pure merchant power to hybrid contracted + merchant. $10B+ cash through 2027; $3B+ available for allocation after growth and returns. Target net debt/EBITDA ~2.3x by 2027. Buybacks accelerated Jan–Feb on price weakness; $1.8B authorization remaining.\n\nRisk: ~50% earnings still market-price dependent; Cogentrix integration; nuclear uprate capex majority post-2028; stock hit $90 in 2025 before recovering. Data center load impact on markets not meaningful until late 2027/early 2028. At $171, trading at ~14x 2026 AFCF guidance — contracted earnings derisk and buyback support the floor. Verdict: BUY — improved earnings quality and signed long-term contracts make prior HOLD too conservative.",
 
 
-  analystConsensus: { rating: 'Strong Buy', targetLow: 217, targetMedian: 238, targetHigh: 293, numAnalysts: 10 },
+  analystConsensus: { rating: 'Buy', targetLow: 97, targetMedian: 230, targetHigh: 293, numAnalysts: 10 },
   revGrowth: [
     [0.08, 0.06, 0.05, 0.04, 0.04],
     [0.17, 0.12, 0.09, 0.07, 0.06],
@@ -38,17 +39,19 @@ export const VST = defineStock({
   exitMultiple: [10, 13, 16],
   bbRate: [0.015, 0.022, 0.03],
 
-  epsCagr: [5, 10, 15],
+  epsCagr: [5, 12, 18],
   exitPE: [14, 17, 20],
-  prob: [15, 50, 35],
+  prob: [15, 45, 40],
 
   desc: [
-    'Interest rates stay high and power prices crash. Earnings grow at only 5% annually with the multiple settling at 14x as the rate floor provides some support. ' +
-      'Returns come in around -2% annualized from current entry as the macro environment works against the thesis.',
-    'Interest rates come down and power prices normalize to a sustainable range. Earnings grow at 10% annually with a 17x exit multiple. ' +
-      'Buybacks continue to be a core earnings driver. Returns come in around 7% annualized from current entry — decent capital return story but below the 15% threshold.',
-    'Lower rates combine with tight power markets and expanding power purchase agreements. Earnings compound at 15% annually as nuclear and generation assets benefit from sustained demand. ' +
-      'The market re-rates to 20x on improved visibility. This is the only path to 15%+ returns, requiring both macro tailwinds and execution.',
+    'Power prices crash and Cogentrix integration disappoints. Contracted nuclear PPAs provide a floor, but ~50% merchant exposure bleeds earnings. ' +
+      'Earnings grow at only 5% annually with multiple compressing to 14x. Returns come in flat-to-negative from current entry.',
+    'Power prices normalize in a stable range. Cogentrix closes on schedule with mid-single-digit AFCF accretion. ' +
+      'Meta and Amazon PPAs ramp as planned, pushing ~50% of EBITDA into contracted/stable sources. Earnings compound at 12% with 17x exit on improved visibility. ' +
+      'Buybacks at ~$1B/yr continue to be a core per-share driver. Returns come in around 12–14% annualized — approaching but not exceeding the 15% threshold.',
+    'Tight power markets amplify contracted earnings through 2027–28 data center ramp. All remaining PPAs (Beaver Valley, Comanche Peak uprate) get signed. ' +
+      'Cogentrix delivers high-single-digit accretion. Cash deployed to buybacks drives AFCF/share toward $22–25 by 2030 as guided. ' +
+      'Market re-rates to 20x on contracted earnings quality. This is the $400+ path, and it now looks achievable given signed deal flow.',
   ],
 
   bullMaOptVal: 171.00 * 339.0 * 0.07,
