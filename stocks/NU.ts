@@ -17,7 +17,7 @@ export const NU = defineStock({
   debt: 3200,
   beta: 1.55,
   costDebt: 0.07,      // EM premium
-  rsRating: 88,
+  rsRating: 77,
   rsTrend: 'rising',
   aiImpact: 'TAILWIND',  // nuFormer: in production for credit decisioning Brazil; expanding to lending + Mexico credit cards 2026
   modelType: 'EPS_PE',
