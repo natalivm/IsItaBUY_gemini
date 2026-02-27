@@ -31,7 +31,7 @@ export const KLAC = defineStock({
 
   epsCagr: [10, 18, 22],
   exitPE: [25, 32, 40],
-  prob: [25, 50, 25],
+  prob: [20, 50, 30],
 
   analystConsensus: { rating: 'Buy', targetLow: 1200, targetMedian: 1600, targetHigh: 2000, numAnalysts: 20 },
   revGrowth: [
