@@ -18,6 +18,30 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* iOS safe areas for notch & home indicator */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* iOS standalone mode — fill status bar area with app background */
+@media all and (display-mode: standalone) {
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Prevent overscroll bounce in standalone mode */
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
+  body {
+    overflow: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .mono {

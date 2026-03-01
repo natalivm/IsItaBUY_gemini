@@ -8,6 +8,7 @@ import StockDetailView from './components/StockDetailView';
 import LoadingSplash from './components/LoadingSplash';
 import TagFilterBar from './components/TagFilterBar';
 import StockRow from './components/StockRow';
+import InstallPrompt from './components/InstallPrompt';
 
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -89,60 +90,63 @@ const App: React.FC = () => {
 
   if (activeTicker === 'home') {
     return (
-      <AnimatePresence mode="wait">
-        {isLoading ? (
-          <LoadingSplash />
-        ) : (
-          <motion.div
-            key="list"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="min-h-screen bg-surface-card overflow-y-auto px-4 lg:px-24 pt-20 pb-24 scrollbar-hide"
-          >
-            <div className="max-w-4xl mx-auto mb-12">
-              <TagFilterBar
-                activeTagFilter={activeTagFilter}
-                tagCounts={tagCounts}
-                onToggle={setActiveTagFilter}
-              />
+      <>
+        <AnimatePresence mode="wait">
+          {isLoading ? (
+            <LoadingSplash />
+          ) : (
+            <motion.div
+              key="list"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="min-h-screen bg-surface-card overflow-y-auto px-4 lg:px-24 pt-20 pb-24 scrollbar-hide"
+            >
+              <div className="max-w-4xl mx-auto mb-12">
+                <TagFilterBar
+                  activeTagFilter={activeTagFilter}
+                  tagCounts={tagCounts}
+                  onToggle={setActiveTagFilter}
+                />
 
-              <div className="space-y-0">
-              {(() => {
-                let globalIdx = 0;
-                return GROUP_ORDER.map(groupKey => {
-                  const stocks = groupedData[groupKey];
-                  if (stocks.length === 0) return null;
-                  const meta = GROUP_META[groupKey];
-                  return (
-                    <div key={groupKey}>
-                      <div className={cn("flex items-center gap-3 px-4 py-3 mt-6 first:mt-0 border-l-2", meta.border, meta.bg)}>
-                        <span className={cn("text-xs font-black uppercase tracking-[0.2em]", meta.accent)}>{meta.label}</span>
-                        <span className={cn("text-xs font-bold mono px-1.5 py-0.5 rounded bg-white/5", meta.accent)}>{stocks.length}</span>
-                        <span className="flex-1 h-px bg-slate-700/40"></span>
-                        <span className="text-xs text-slate-400 tracking-wide">{meta.desc}</span>
+                <div className="space-y-0">
+                {(() => {
+                  let globalIdx = 0;
+                  return GROUP_ORDER.map(groupKey => {
+                    const stocks = groupedData[groupKey];
+                    if (stocks.length === 0) return null;
+                    const meta = GROUP_META[groupKey];
+                    return (
+                      <div key={groupKey}>
+                        <div className={cn("flex items-center gap-3 px-4 py-3 mt-6 first:mt-0 border-l-2", meta.border, meta.bg)}>
+                          <span className={cn("text-xs font-black uppercase tracking-[0.2em]", meta.accent)}>{meta.label}</span>
+                          <span className={cn("text-xs font-bold mono px-1.5 py-0.5 rounded bg-white/5", meta.accent)}>{stocks.length}</span>
+                          <span className="flex-1 h-px bg-slate-700/40"></span>
+                          <span className="text-xs text-slate-400 tracking-wide">{meta.desc}</span>
+                        </div>
+                        {stocks.map(stock => {
+                          const idx = globalIdx++;
+                          return (
+                            <StockRow
+                              key={stock.ticker}
+                              stock={stock}
+                              tickerDef={tickers[stock.ticker]}
+                              animationIndex={idx}
+                              onSelect={setActiveTicker}
+                            />
+                          );
+                        })}
                       </div>
-                      {stocks.map(stock => {
-                        const idx = globalIdx++;
-                        return (
-                          <StockRow
-                            key={stock.ticker}
-                            stock={stock}
-                            tickerDef={tickers[stock.ticker]}
-                            animationIndex={idx}
-                            onSelect={setActiveTicker}
-                          />
-                        );
-                      })}
-                    </div>
-                  );
-                });
-              })()}
+                    );
+                  });
+                })()}
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <InstallPrompt />
+      </>
     );
   }
 
