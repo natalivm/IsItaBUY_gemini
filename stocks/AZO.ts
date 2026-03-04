@@ -20,38 +20,40 @@ export const AZO = defineStock({
   rsTrend: 'falling',
   aiImpact: 'NEUTRAL',
   strategicNarrative:
-    "AutoZone is the dominant US auto parts retailer with a deep operational moat — unmatched logistics network, SKU depth, and DIY + Pro customer base. " +
-    "Growth is steady but moderate: revenue at 6–7% CAGR, with EPS compounding at 12–14% powered by aggressive share buybacks and financial discipline. " +
-    "This is not a growth rocket — it's a mature cash machine optimized for capital return. At ~25x trailing P/E vs. 21–22x historical average, the stock prices in solid execution. " +
-    "Key risk is P/E compression to historical lows (17x), which implies ~30% downside. RS Rating 28 confirms weak relative performance — the market sees no near-term catalyst. " +
-    "Best suited as a steady 9–12% compounder; 15%+ returns require bull-case execution.",
+    "Q2 FY26 earnings reframe AZO: this is no longer just a mature cash machine — it's a structural compounder in an active investment phase. " +
+    "Sales +8.1%, commercial +9.8%, with 10 of 12 quarter weeks tracking ~12% before a weather-driven dip. Management guided top-line and EBIT to accelerate in FY27–28 as Mega-Hub density pays off. " +
+    "The $277M LIFO charge and $1.6B CapEx are FY26-specific — not structural margin degradation. Ex-LIFO EBIT grew +7.2%. " +
+    "FY26 is the investment year; FY27–28 are the operating leverage years. " +
+    "Key risks: over-investment diluting returns, commercial mix pressuring gross margin, Mexico weakness, traffic -3.6%. " +
+    "RS Rating 28 — the market isn't buying the acceleration story yet. Either early accumulation zone or value trap; breakout not confirmed.",
 
   epsCagr: [7, 12, 15],
-  exitPE: [18, 22, 25],
-  prob: [25, 50, 25],
+  exitPE: [18, 22, 24],
+  prob: [20, 45, 35],
 
   revGrowth: [
     [0.05, 0.04, 0.035, 0.03, 0.03],
-    [0.07, 0.065, 0.06, 0.06, 0.055],
-    [0.08, 0.075, 0.07, 0.07, 0.065],
+    [0.08, 0.075, 0.07, 0.065, 0.06],
+    [0.09, 0.085, 0.08, 0.075, 0.07],
   ],
   fcfMargin: [
-    [0.09, 0.085, 0.08, 0.08, 0.075],
-    [0.10, 0.105, 0.11, 0.115, 0.12],
-    [0.11, 0.115, 0.12, 0.125, 0.13],
+    [0.07, 0.075, 0.08, 0.08, 0.08],
+    [0.08, 0.09, 0.10, 0.11, 0.115],
+    [0.09, 0.10, 0.115, 0.125, 0.13],
   ],
   exitMultiple: [12, 15, 18],
   desc: [
-    'Consumer spending weakens, vehicle miles driven plateau. Revenue growth decelerates to low single digits as same-store sales stagnate. ' +
-      'Buyback pace slows as rising interest costs constrain debt-funded repurchases. EPS compounds at ~7%. P/E compresses to 18x — historical trough range.',
-    'Aging US auto fleet sustains steady demand. Revenue grows 6–7% on SSS + new store openings + Pro segment expansion. ' +
-      'Aggressive buybacks continue reducing share count ~4–5% annually, driving 12% EPS CAGR despite moderate revenue growth. P/E normalizes to 22x — historical median.',
-    'Pro segment accelerates, international expansion gains traction. Revenue growth sustains near 7–8%. ' +
-      'Buyback machine runs at full capacity — share count declines 5–6% per year. EPS compounds at 15%. Market maintains 25x premium on best-in-class capital allocator.',
+    'Investment cycle fails to generate expected returns. Over-expansion dilutes ROIC, commercial mix compresses margins structurally. ' +
+      'Traffic declines persist, macro pressure stalls SSS. LIFO headwinds extend beyond FY26. EPS compounds at ~7%. P/E compresses to 18x — historical trough.',
+    'FY26 investment phase completes on plan. Mega-Hub density drives operating leverage in FY27–28, EBIT accelerates as guided. ' +
+      'Commercial continues gaining share at +9–10% pace. LIFO normalizes. Ex-LIFO EPS trajectory of 12% CAGR holds through the cycle. P/E stabilizes at 22x — historical median.',
+    'Mega-Hub strategy beats expectations — store productivity ramps faster than modeled. Commercial accelerates to +12–15%, international gains traction. ' +
+      'FY27 EBIT inflection becomes visible to the market; RS re-rates sharply. 15% EPS CAGR sustained. Market assigns 24x on proven execution. Target ~$7,000–7,500.',
   ],
 
   termGrowth: [0.015, 0.02, 0.025],
-  bbRate: [0.03, 0.045, 0.055],
+  bbRate: [0.03, 0.04, 0.05],
   ebitdaProxy: [0.20, 0.22, 0.24],
   bullMaOptVal: false,
+  updatedOn: '04/03',
 });
