@@ -5,7 +5,7 @@ export const AZO = defineStock({
   name: 'AutoZone',
   sector: 'Specialty Retail',
   themeColor: '#e74c3c',
-  currentPrice: 3637,
+  currentPrice: 3650,
   shares0: 16.6,
   rev25: 17500,
   fcfMargin25: 0.10,
@@ -16,7 +16,7 @@ export const AZO = defineStock({
   costDebt: 0.045,
   modelType: 'EPS_PE',
   baseEps: 144.9,
-  rsRating: 28,
+  rsRating: 29,
   rsTrend: 'falling',
   aiImpact: 'NEUTRAL',
   strategicNarrative:
@@ -55,5 +55,5 @@ export const AZO = defineStock({
   bbRate: [0.03, 0.04, 0.05],
   ebitdaProxy: [0.20, 0.22, 0.24],
   bullMaOptVal: false,
-  updatedOn: '04/03',
+  updatedOn: '07/03',
 });

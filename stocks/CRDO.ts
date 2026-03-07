@@ -5,7 +5,8 @@ export const CRDO = defineStock({
   name: 'Credo Technology Group Holding',
   sector: 'Semiconductors · AI Interconnect',
   themeColor: '#d4af37',
-  currentPrice: 97.30,
+  updatedOn: '07/03',
+  currentPrice: 109,
   fairPriceRange: '$91 - $322',
   shares0: 197,
   rev25: 437,
@@ -17,8 +18,8 @@ export const CRDO = defineStock({
   costDebt: 0.05,
   modelType: 'EPS_PE',
   baseEps: 3.12,
-  rsRating: 33,
-  rsTrend: 'falling',
+  rsRating: 85,
+  rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Credo delivered a blowout Q3 FY26 — $407M revenue (+52% QoQ, +200% YoY), 68.6% gross margin, $209M non-GAAP net income. " +

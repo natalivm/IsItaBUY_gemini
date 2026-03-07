@@ -5,7 +5,8 @@ export const CLS = defineStock({
   name: 'Celestica Inc.',
   sector: 'EMS',
   themeColor: '#f97316',
-  currentPrice: 293,
+  updatedOn: '07/03',
+  currentPrice: 251,
   fairPriceRange: '$120 - $360',
   shares0: 117.9,
   rev25: 12400,
@@ -17,7 +18,7 @@ export const CLS = defineStock({
   costDebt: 0.05,
   modelType: 'EPS_PE',
   baseEps: 7.16,
-  rsRating: 94,
+  rsRating: 93,
   aiImpact: 'TAILWIND',
   ratingOverride: 'HOLD',
   strategicNarrative:

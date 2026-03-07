@@ -5,7 +5,8 @@ export const AGCO = defineStock({
   name: 'AGCO Corp',
   sector: 'Agriculture',
   themeColor: '#00d4aa',
-  currentPrice: 137.80,
+  updatedOn: '07/03',
+  currentPrice: 123.88,
   fairPriceRange: '$54 - $225',
   shares0: 72.4,
   rev25: 10080,
@@ -15,7 +16,7 @@ export const AGCO = defineStock({
   debt: 2800,
   beta: 1.16,
   costDebt: 0.06,
-  rsRating: 85,
+  rsRating: 82,
   aiImpact: 'TAILWIND',
   strategicNarrative: "Higher-quality cyclical, not a compounder. Post-Citi: base case is flat at $138 over 5 years. Structural floor genuinely higher than 2016 (~7.7% vs 3–4% op margin), but NA remains loss-making and PTx is sub-10% of revenue. RS 85 signals cycle-turn momentum. Core bet: 2025/26 is the trough and 2027–2029 normalises. 15% CAGR probability ~35% — a timing bet, not a structural compounder.",
 
@@ -40,7 +41,7 @@ export const AGCO = defineStock({
 
   termGrowth: [0.010, 0.025, 0.020],
   ebitdaProxy: [0.075, 0.10, 0.10],
-  bullMaOptVal: 137.80 * 72.4 * 0.07,
+  bullMaOptVal: 123.88 * 72.4 * 0.07,
 
   driverOverrides: [
     {
