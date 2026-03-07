@@ -5,6 +5,7 @@ export const AGCO = defineStock({
   name: 'AGCO Corp',
   sector: 'Agriculture',
   themeColor: '#00d4aa',
+  updatedOn: '07/03',
   currentPrice: 123.88,
   fairPriceRange: '$54 - $225',
   shares0: 72.4,

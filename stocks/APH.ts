@@ -5,6 +5,7 @@ export const APH = defineStock({
   name: 'Amphenol Corp',
   sector: 'Electronic Components · Interconnect',
   themeColor: '#38bdf8',
+  updatedOn: '07/03',
   currentPrice: 132,
   fairPriceRange: '$77 - $290',
   shares0: 1278,
