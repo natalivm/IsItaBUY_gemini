@@ -1,11 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const SMCI = defineStock({
+  updatedOn: '07/03',
   ticker: 'SMCI',
   name: 'Super Micro Computer, Inc.',
   sector: 'AI Infrastructure / Servers',
   themeColor: '#eab308',
-  currentPrice: 31,
+  currentPrice: 31.31,
   fairPriceRange: '$22 - $65',
   shares0: 700,
   rev25: 23500,
@@ -15,7 +16,7 @@ export const SMCI = defineStock({
   debt: 2100,
   beta: 1.85,
   costDebt: 0.055,
-  rsRating: 28,
+  rsRating: 19,
   aiImpact: 'TAILWIND',
   strategicNarrative: "SMCI is a high-volume, low-margin AI server assembler riding the GPU infrastructure wave. Revenue is hypergrowth (~$40B FY26E) but gross margins sit at 6.4% with 63% single-client concentration. The bull case requires margin recovery to 8%+ and client diversification. Post-earnings verdict: revenue story strong, quality story weak. This is a controlled cyclical bet, not a compounder.",
 
