@@ -1,11 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const RBRK = defineStock({
+  updatedOn: '07/03',
   ticker: 'RBRK',
   name: 'Rubrik',
   sector: 'Data Security',
   themeColor: '#22d3ee',
-  currentPrice: 47,
+  currentPrice: 57.15,
   fairPriceRange: '$35 - $100',
   shares0: 201.0,
   rev25: 1281,
@@ -14,7 +15,7 @@ export const RBRK = defineStock({
   cash: 1600,
   debt: 1100,
   beta: 1.25,
-  rsRating: 10,
+  rsRating: 13,
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Rubrik is a platform-shaped data security play — subscription ARR $1.35B (+34%), NRR >120%, record FCF, with security modules driving >40% NRR and Identity adding net-new CISO budget access. " +

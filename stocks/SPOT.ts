@@ -1,11 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const SPOT = defineStock({
+  updatedOn: '07/03',
   ticker: 'SPOT',
   name: 'Spotify Technology S.A.',
   sector: 'Interactive Media / Audio',
   themeColor: '#C5A572',
-  currentPrice: 538,
+  currentPrice: 566,
   fairPriceRange: '$430 - $660',
   shares0: 206,
   rev25: 17186,
@@ -15,7 +16,7 @@ export const SPOT = defineStock({
   debt: 3360,
   beta: 1.35,
   costDebt: 0.042,
-  rsRating: 19,
+  rsRating: 27,
   aiImpact: 'DISRUPTION_RISK',
   ratingOverride: 'HOLD',
   strategicNarrative: "At $496: Spotify is a legitimate ~12% CAGR cash compounder — market-beating, but not enough margin of safety for a full-conviction position. The FCF story (CAGR ~20%, margin 17%→23%) is real, but you're paying ~35x for it. At $400–420 it becomes a comfortable accumulate (implied P/FCF ~28x fwd, CAGR 14–15% at 25x exit). Below $380 it's aggressive buy territory — 15%+ returns even with conservative multiple. Risk: if SPOT converges to Netflix-like 20–25x FCF as it matures, $496 delivers only ~7%. RS 14 confirms the market isn't in a hurry to reprice higher.",

@@ -1,11 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const TER = defineStock({
+  updatedOn: '07/03',
   ticker: 'TER',
   name: 'Teradyne, Inc.',
   sector: 'Semiconductor Equipment · Test & Automation',
   themeColor: '#f59e0b',
-  currentPrice: 325,
+  currentPrice: 272,
   fairPriceRange: '$160 – $628',
   shares0: 160,            // ~160M diluted shares
   rev25: 2800,             // FY25 revenue base ($M)
@@ -17,13 +18,13 @@ export const TER = defineStock({
   costDebt: 0.045,
   modelType: 'EPS_PE',
   baseEps: 6.3,            // Forward EPS 2026E
-  rsRating: 98,
+  rsRating: 27,
   aiImpact: 'TAILWIND',
   ratingOverride: 'HOLD',
   strategicNarrative:
     "Teradyne is a deeply cyclical semi-equipment business priced as a quasi-compounder at 52-55x forward P/E — bull case requires AI capex to extend 5 full years while history says otherwise. " +
     "Test complexity (3nm/2nm, chiplets, HBM) provides structural volume support, and robotics (UR/MiR) is optionality if it ever inflects. " +
-    "The problem: prob-weighted 5yr target implies only ~4.2% CAGR — well below 15% hurdle. RS 98 confirms momentum, but momentum doesn't change mid-cycle economics. " +
+    "The problem: prob-weighted 5yr target implies only ~4.2% CAGR — well below 15% hurdle. RS 27 confirms momentum has broken down sharply, validating the cycle-turn concern. " +
     "If AI capex supercycle extends and robotics inflects, 15%+ is achievable. If cycle normalizes, P/E compresses to 20x and this is -13% from here. " +
     "A bet on AI-cycle continuation, not a structural compounder.",
 
