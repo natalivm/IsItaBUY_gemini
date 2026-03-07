@@ -5,7 +5,8 @@ export const CEG = defineStock({
   name: 'Constellation Energy',
   sector: 'Power',
   themeColor: '#3b82f6',
-  currentPrice: 293,
+  updatedOn: '07/03',
+  currentPrice: 319,
   fairPriceRange: '$200 - $540',
   shares0: 358,
   rev25: 25200,
@@ -17,7 +18,7 @@ export const CEG = defineStock({
   costDebt: 0.0525,
   modelType: 'EPS_PE',
   baseEps: 9.39,
-  rsRating: 22,
+  rsRating: 69,
   aiImpact: 'TAILWIND',
   ratingOverride: 'BUY',
   strategicNarrative:
