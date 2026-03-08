@@ -23,13 +23,16 @@ export const JPM = defineStock({
   aiImpact: 'NEUTRAL',
   ratingOverride: 'HOLD',
   strategicNarrative:
-    "Mature cash machine (Type D) — largest US bank with scale moat in deposits, payments, IB, and asset management. " +
-    "2025 actual: Revenue $182B, Net income $56B, EPS $20.02 (3y CAGR ~18%, boosted by rate cycle + buybacks). " +
-    "Forward consensus: EPS 2026E $21.9 → 2030E $29.8, implying ~7-8% CAGR — organic growth is single-digit. " +
-    "Historical 18% EPS CAGR was macro-driven (NIM expansion, credit cycle tailwind, buyback boost ~3%). " +
-    "P/E 13-14x is fair for a bank; typical range 10-15x. Stress test: P/E reverts to 10x → fair value ~$220 (-23%). " +
-    "RS 51 = underperforming market, below 50MA, near 200MA — distribution/sideways pattern. " +
-    "Probability of 15%+ CAGR: ~15-20%. Not a structural compounder — a macro + financial cycle bet. Expected return 6-9% long-term.",
+    "D+ quality financial ecosystem compounder — best bank in the world, but still a bank. " +
+    "2025 actual: Revenue $182B, Net income $56B, EPS $20.02. Forward: EPS 2026E $21.9 → 2030E $29.8 (~7-8% CAGR). " +
+    "CFO confirmed through-cycle ROTCE ≈ 17% (sometimes 20%+, sometimes below) — this caps long-term EPS growth at 7-9%. " +
+    "Incremental investments may yield ~14% ROE (below 17%), rational vs buybacks at 3x TBV but ROE won't expand. " +
+    "Structural tailwinds: markets wallet structurally larger post-COVID (more volatility, derivatives, hedging, financing); " +
+    "payments ($12T daily) + custody ($4.8T AUM) = stable but mid-single-digit growth. Private credit target $50B (ecosystem defense, not mega growth). " +
+    "AI: ~400 CIB projects, ~40% cost reduction in some ops, but 'cannot charge clients for AI advantage' — margin support, not revenue explosion. " +
+    "Tech spend $19.8B (+10% YoY), partly defensive. Card charge-offs ~3.4%, credit clean but late-cycle stress expected in private credit. " +
+    "Dimon: 'asset prices high increases risk, my anxiety is high.' Capital markets cycle (M&A boom possible but not guaranteed) is main upside catalyst. " +
+    "RS 51 falling, below 50MA. Prob 15%+ CAGR: ~20-25%. Realistic total return: earnings 7-9% + dividends/buybacks 3-4% = 10-13% long-term ceiling without multiple expansion.",
 
   analystConsensus: { rating: 'Buy', targetLow: 220, targetMedian: 300, targetHigh: 380, numAnalysts: 20 },
   revGrowth: [
@@ -44,20 +47,22 @@ export const JPM = defineStock({
   ],
   exitMultiple: [8, 11, 14],
   desc: [
-    'Interest rates fall, credit losses rise, EPS growth decelerates to ~3% CAGR. ' +
-      'EPS 2031 ~$25, exit P/E 10x. Target ~$250. Return ~-3% CAGR. ' +
-      'Macro headwinds compress earnings and multiple simultaneously.',
-    'Normalized growth: EPS CAGR ~8% driven by mid-single-digit revenue growth, stable ~30% margins, and buyback boost. ' +
-      'EPS 2031 ~$32, exit P/E 13x. Target ~$416. Return ~7.5% CAGR. ' +
-      'Solid but below 15% threshold — requires no heroic assumptions.',
-    'Full capital markets recovery + rate tailwind persists + buybacks accelerate. ' +
+    'Rates fall, credit cycle turns (private credit stress spreads broader), markets revenue declines. ' +
+      'Through-cycle ROTCE drops below 17%. EPS CAGR ~3%, EPS 2031 ~$25, exit P/E 10x. Target ~$250. Return ~-3% CAGR. ' +
+      'Dimon warning materialized: high asset prices + late-cycle stress compress earnings and multiple simultaneously.',
+    'Through-cycle ROTCE holds at ~17% as confirmed by CFO. EPS CAGR ~8% from mid-single-digit revenue growth, ' +
+      'stable ~30% margins, buyback boost ~3%. Markets wallet structurally larger but M&A/IPO cycles normalize, not boom. ' +
+      'AI delivers margin support (~40% cost reduction in select ops) but no revenue uplift. ' +
+      'EPS 2031 ~$32, exit P/E 13x. Target ~$416. Total return ~10-11% (7.5% price + dividends). Solid but below 15%.',
+    'Simultaneous M&A boom + IPO cycle + elevated volatility + private credit expansion + aggressive buybacks. ' +
+      'Sponsor exit pipeline ($40-50B organic capital deployment) fully activates. Markets revenue stays structurally elevated. ' +
       'EPS CAGR ~11%, EPS 2031 ~$37, exit P/E 15x. Target ~$555. Return ~14% CAGR. ' +
-      'Requires sustained macro tailwinds and capital markets normalization.',
+      'Requires sustained macro tailwinds — cycle peak scenario, not new normal.',
   ],
 
   epsCagr: [3, 8, 11],
   exitPE: [10, 13, 15],
-  prob: [25, 50, 25],
+  prob: [20, 55, 25],
 
   bbRate: [0.01, 0.02, 0.03],
   ebitdaProxy: [0.35, 0.46, 0.50],
