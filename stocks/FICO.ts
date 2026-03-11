@@ -7,7 +7,7 @@ export const FICO = defineStock({
   themeColor: '#2979ff',
   currentPrice: 1151,
   updatedOn: '11/03',
-  fairPriceRange: '$1,332 - $2,829',
+  fairPriceRange: '$1,100 - $2,200',
   shares0: 23.72,
   rev25: 1990,
   fcfMargin25: 0.371,
@@ -16,11 +16,9 @@ export const FICO = defineStock({
   debt: 4200,
   beta: 1.03,
   costDebt: 0.055,
-  modelType: 'EPS_PE',
-  baseEps: 41.22,
   rsRating: 15,
   aiImpact: 'NEUTRAL',
-  strategicNarrative: "Structural compounder facing first real competitive threat. VantageScore 4.0 backed by aggressive Experian/Equifax pricing and FHFA regulatory support challenges FICO's mortgage scoring monopoly — the key risk is pricing power erosion, not just cycle timing. Platform ARR +33% and NRR 122% provide diversification, but Scores still drives the majority of high-margin revenue. $1B debt offering adds leverage risk (debt now ~$4.2B). RS 15 signals severe technical deterioration. Prob-weighted 5yr target ~$2,070 → ~12% CAGR at $1,151 entry. Key risks: VantageScore adoption by GSEs, FHFA-mandated pricing caps, mortgage cycle reversal, elevated leverage.",
+  strategicNarrative: "Structural compounder facing first real competitive threat. VantageScore 4.0 backed by aggressive Experian/Equifax pricing and FHFA regulatory support challenges FICO's mortgage scoring monopoly — the key risk is pricing power erosion, not just cycle timing. Platform ARR +33% and NRR 122% provide diversification, but Scores still drives the majority of high-margin revenue. $1B debt offering adds leverage risk (debt now ~$4.2B). RS 15 signals severe technical deterioration. DCF approach anchors valuation to cash flow generation rather than multiple expansion. Key risks: VantageScore adoption by GSEs, FHFA-mandated pricing caps, mortgage cycle reversal, elevated leverage.",
 
 
   analystConsensus: { rating: 'Buy', targetLow: 1600, targetMedian: 2063, targetHigh: 2661, numAnalysts: 12 },
@@ -34,19 +32,19 @@ export const FICO = defineStock({
     [0.37, 0.37, 0.38, 0.38, 0.38],
     [0.38, 0.39, 0.40, 0.40, 0.40],
   ],
-  exitMultiple: [25, 30, 32],
+  exitMultiple: [20, 25, 30],
   bbRate: [0.005, 0.04, 0.02],
 
-  epsCagr: [8, 15, 17],
-  exitPE: [22, 27, 29],
+  termGrowth: [0.02, 0.03, 0.035],
+  ebitdaProxy: [0.48, 0.55, 0.60],
   prob: [30, 45, 25],
 
   desc: [
     'VantageScore gains meaningful GSE adoption, FHFA caps or pressures FICO pricing, and the mortgage cycle stalls. ' +
-      'Scores revenue growth decelerates sharply as lenders switch to cheaper alternatives. Earnings compound at ~8% with multiple compression to 22x.',
+      'Scores revenue growth decelerates sharply as lenders switch to cheaper alternatives. FCF margins compress to 33% with EBITDA exit at 20x.',
     'FICO retains dominant market share but pricing growth moderates under regulatory scrutiny. Platform ARR continues growing but cannot fully offset Scores deceleration. ' +
-      'Earnings compound at ~15% with a 27x exit multiple as the market prices in a less certain monopoly.',
+      'FCF margins expand modestly to 38% with EBITDA exit at 25x as the market prices in a less certain monopoly.',
     'VantageScore adoption stalls (data quality/lender inertia), FICO maintains pricing power, and a mortgage recovery boosts volumes. ' +
-      'Platform transition accelerates with AI-driven decisioning demand. Earnings grow ~17% annually with a 29x exit multiple.',
+      'Platform transition accelerates with AI-driven decisioning demand. FCF margins reach 40% with EBITDA exit at 30x.',
   ],
 });
