@@ -33,7 +33,7 @@ const StockDetailView: React.FC<Props> = ({
 }) => {
   const tc = tickerDef.themeColor;
   const containerRef = useRef<HTMLDivElement>(null);
-  useSwipeNavigation(containerRef, { onSwipeRight: onBack, onSwipeLeft: onNext });
+  useSwipeNavigation(containerRef, { onSwipeLeft: onBack, onSwipeRight: onNext });
 
   const metrics = useMemo(
     () => computeStockMetrics(tickerDef, currentProjection, allProjections),
