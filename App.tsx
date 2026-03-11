@@ -77,6 +77,14 @@ const App: React.FC = () => {
     return groups;
   }, [universeData, activeTagFilter]);
 
+  const flatTickerOrder = useMemo(() => {
+    const list: string[] = [];
+    GROUP_ORDER.forEach(groupKey => {
+      groupedData[groupKey].forEach(s => list.push(s.ticker));
+    });
+    return list;
+  }, [groupedData]);
+
   const investmentConclusion = useMemo(() => {
     if (!allProjections || !tickerDef) return null;
     const pwAvg = weightedScenarioAverage(
@@ -164,6 +172,11 @@ const App: React.FC = () => {
         investmentConclusion={investmentConclusion}
         activeStockData={activeStockData}
         onBack={() => setActiveTicker('home')}
+        onNext={() => {
+          const idx = flatTickerOrder.indexOf(activeTicker);
+          const next = flatTickerOrder[idx + 1] ?? flatTickerOrder[0];
+          setActiveTicker(next);
+        }}
       />
     </AnimatePresence>
   );
