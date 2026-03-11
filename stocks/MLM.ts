@@ -6,7 +6,7 @@ export const MLM = defineStock({
   name: 'Martin Marietta Materials',
   sector: 'Building Materials · Aggregates & Heavy Construction Materials',
   themeColor: '#5b7f3b',
-  currentPrice: 600.10,
+  currentPrice: 598,
   fairPriceRange: '$420 - $1120',
   shares0: 60.3,               // ~60.3M shares (market cap $41.4B / $686)
   rev25: 6150,                 // Revenue 2025A ($M)
@@ -20,7 +20,7 @@ export const MLM = defineStock({
   modelType: 'EPS_PE',
   baseEps: 18.77,              // Trailing EPS 2025A GAAP (down -42% from 2024A peak $32.41)
 
-  rsRating: 67,
+  rsRating: 60,
   aiImpact: 'NEUTRAL',
   strategicNarrative:
     "Type B — Cyclical Growth (confirmed post-earnings). Quality infrastructure player with real geographic + " +
