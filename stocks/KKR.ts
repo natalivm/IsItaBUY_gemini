@@ -6,7 +6,7 @@ export const KKR = defineStock({
   name: 'KKR & Co. Inc.',
   sector: 'Alternative Asset Mgmt',
   themeColor: '#7c3aed',
-  currentPrice: 91.25,
+  currentPrice: 87.13,
   fairPriceRange: '$100 - $186',
   shares0: 897,
   rev25: 7650,
@@ -18,7 +18,7 @@ export const KKR = defineStock({
   costDebt: 0.052,
   baseEps: 6.74,
   modelType: 'EPS_PE',
-  rsRating: 13,
+  rsRating: 10,
   aiImpact: 'TAILWIND',
   ratingOverride: 'HOLD',
   strategicNarrative:

@@ -6,7 +6,7 @@ export const SPGI = defineStock({
   name: 'S&P Global',
   sector: 'Financial Data',
   themeColor: '#c5a44e',
-  currentPrice: 454,
+  currentPrice: 429,
   fairPriceRange: '$470 - $1000',
   shares0: 298.8,
   rev25: 15340,
@@ -16,7 +16,7 @@ export const SPGI = defineStock({
   debt: 11400,
   beta: 0.9,
   costDebt: 0.05,
-  rsRating: 23,
+  rsRating: 21,
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "S&P Global is a structural compounder with a triple-layer moat — regulatory embedded (ratings/indices), workflow lock-in (CapIQ/Platts as system-of-record that LLMs work on top of, not replace), and data control (95% revenue tied to proprietary benchmarks). " +
