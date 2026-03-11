@@ -1,5 +1,5 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Info, LayoutDashboard } from 'lucide-react';
 import { TickerDefinition, ProjectionData, ScenarioType } from '../types';
@@ -10,6 +10,7 @@ import StockPageHeader from './StockPageHeader';
 import StockMetricCards from './StockMetricCards';
 import InvestmentVerdict from './InvestmentVerdict';
 import { cn, rsRatingColor } from '../utils';
+import { useSwipeNavigation } from '../hooks/useSwipeNavigation';
 
 interface Props {
   tickerDef: TickerDefinition;
@@ -18,6 +19,7 @@ interface Props {
   investmentConclusion: { pwAvg: number; cagr: number };
   activeStockData: { label: string; color?: string } | undefined;
   onBack: () => void;
+  onNext?: () => void;
 }
 
 const StockDetailView: React.FC<Props> = ({
@@ -26,9 +28,12 @@ const StockDetailView: React.FC<Props> = ({
   allProjections,
   investmentConclusion,
   activeStockData,
-  onBack
+  onBack,
+  onNext
 }) => {
   const tc = tickerDef.themeColor;
+  const containerRef = useRef<HTMLDivElement>(null);
+  useSwipeNavigation(containerRef, { onSwipeLeft: onBack, onSwipeRight: onNext });
 
   const metrics = useMemo(
     () => computeStockMetrics(tickerDef, currentProjection, allProjections),
@@ -37,6 +42,7 @@ const StockDetailView: React.FC<Props> = ({
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
