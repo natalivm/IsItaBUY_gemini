@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const MNST = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'MNST',
   name: 'Monster Beverage Corp',
   sector: 'Consumer Staples / Beverages',

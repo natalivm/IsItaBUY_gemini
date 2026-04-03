@@ -6,7 +6,7 @@ export const FLEX = defineStock({
   sector: 'Electronics Manufacturing Services (EMS)',
   themeColor: '#0072CE',
   currentPrice: 68,
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   fairPriceRange: '$45 - $128',
   shares0: 356,
   rev25: 25800,

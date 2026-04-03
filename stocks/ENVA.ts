@@ -5,7 +5,7 @@ export const ENVA = defineStock({
   name: 'Enova International',
   sector: 'FinTech / Lending',
   themeColor: '#3b82f6',
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   currentPrice: 136,
   fairPriceRange: '$160 - $250',
   shares0: 24.8,
