@@ -18,7 +18,7 @@ export const CRDO = defineStock({
   costDebt: 0.05,
   modelType: 'EPS_PE',
   baseEps: 3.12,
-  rsRating: 85,
+  rsRating: 69,
   rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative:

@@ -18,7 +18,7 @@ export const APP = defineStock({
   costDebt: 0.05,
   modelType: 'EPS_PE',
   baseEps: 9.75,
-  rsRating: 58,
+  rsRating: 21,
   rsTrend: 'rising',
   aiImpact: 'TAILWIND',
   strategicNarrative:

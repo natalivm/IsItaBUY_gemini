@@ -17,7 +17,7 @@ export const THM = defineStock({
   beta: 0.71,
   costDebt: 0.05,
 
-  rsRating: 99,
+  rsRating: 98,
   rsTrend: 'rising',
   aiImpact: 'NEUTRAL',
   ratingOverride: 'BUY',
