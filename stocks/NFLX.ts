@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const NFLX = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'NFLX',
   name: 'Netflix',
   sector: 'Entertainment',

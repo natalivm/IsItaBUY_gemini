@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const UBER = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'UBER',
   name: 'Uber Technologies',
   sector: 'Mobility',

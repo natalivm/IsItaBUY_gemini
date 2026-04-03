@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const SPGI = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'SPGI',
   name: 'S&P Global',
   sector: 'Financial Data',

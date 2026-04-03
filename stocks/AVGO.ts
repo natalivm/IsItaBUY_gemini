@@ -5,7 +5,7 @@ export const AVGO = defineStock({
   name: 'Broadcom Inc.',
   sector: 'Semiconductors / Enterprise Software',
   themeColor: '#7c4dff',
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   currentPrice: 308,
   fairPriceRange: '$330 - $540',
   shares0: 4700,

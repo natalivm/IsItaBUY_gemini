@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const LRCX = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'LRCX',
   name: 'Lam Research Corporation',
   sector: 'Semiconductor Equipment · Etch & Deposition',

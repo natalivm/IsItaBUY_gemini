@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const JPM = defineStock({
-  updatedOn: '08/03',
+  updatedOn: '04/03',
   ticker: 'JPM',
   name: 'JPMorgan Chase & Co.',
   sector: 'Diversified Banking',

@@ -6,7 +6,7 @@ export const ASTS = defineStock({
   sector: 'Space Technology',
   themeColor: '#38bdf8',
   currentPrice: 96,
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   fairPriceRange: '$20 - $250',
   shares0: 370,
   rev25: 71,

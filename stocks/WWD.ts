@@ -1,7 +1,7 @@
 import { defineStock } from './defineStock';
 
 export const WWD = defineStock({
-  updatedOn: '07/03',
+  updatedOn: '04/03',
   ticker: 'WWD',
   name: 'Woodward, Inc.',
   sector: 'Aerospace & Defense',
