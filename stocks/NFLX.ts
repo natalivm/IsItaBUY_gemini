@@ -17,7 +17,7 @@ export const NFLX = defineStock({
   beta: 1.10,
   costDebt: 0.052,
   modelType: 'EPS_PE',
-  rsRating: 28,
+  rsRating: 29,
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Netflix is a structural compounder — scale, brand, global distribution, and a nascent ads business doubling to ~$3B in 2026 give it compounding levers few media companies possess. " +
