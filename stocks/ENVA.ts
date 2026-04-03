@@ -6,7 +6,7 @@ export const ENVA = defineStock({
   sector: 'FinTech / Lending',
   themeColor: '#3b82f6',
   updatedOn: '07/03',
-  currentPrice: 139,
+  currentPrice: 136,
   fairPriceRange: '$160 - $250',
   shares0: 24.8,
   rev25: 3200,           // FY2025 net revenue ~$3.2B (Q4'25: $839M × annualized); was stale at 1830
@@ -18,7 +18,7 @@ export const ENVA = defineStock({
   costDebt: 0.083,      // Q4'25 cost of funds 8.3% (down from 8.6% prior quarter); was stale at 0.072
   modelType: 'EPS_PE',
   baseEps: 11.52,       // FY2025 adj EPS; DCF distorted by $3.95B securitization debt treated as corporate leverage
-  rsRating: 85,
+  rsRating: 74,
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "Enova is at an inflection point — the Grasshopper Bank deal ($125-$220M synergies, >25% EPS accretion, closing 2H 2026) transforms it from non-bank lender to bank holding company with national charter and deposit funding. " +
