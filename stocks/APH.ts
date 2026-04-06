@@ -6,7 +6,7 @@ export const APH = defineStock({
   sector: 'Electronic Components · Interconnect',
   themeColor: '#38bdf8',
   updatedOn: '04/03',
-  currentPrice: 128,
+  currentPrice: 126.49,
   fairPriceRange: '$77 - $290',
   shares0: 1278,
   rev25: 23100,

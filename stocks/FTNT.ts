@@ -5,7 +5,7 @@ export const FTNT = defineStock({
   name: 'Fortinet',
   sector: 'Cybersecurity',
   themeColor: '#06b6d4',
-  currentPrice: 82.53,
+  currentPrice: 82.29,
   updatedOn: '04/03',
   fairPriceRange: '$70 - $105',
   shares0: 743.6,
