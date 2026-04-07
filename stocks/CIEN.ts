@@ -1,12 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const CIEN = defineStock({
-  updatedOn: '04/06',
+  updatedOn: '04/07',
   ticker: 'CIEN',
   name: 'Ciena Corporation',
   sector: 'Optical Networking / Telecom Infrastructure',
   themeColor: '#0ea5e9',
-  currentPrice: 434.26,
+  currentPrice: 447.88,
   fairPriceRange: '$150 - $220',
   shares0: 141,
   rev25: 4770,
