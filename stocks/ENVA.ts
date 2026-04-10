@@ -6,7 +6,7 @@ export const ENVA = defineStock({
   sector: 'FinTech / Lending',
   themeColor: '#3b82f6',
   updatedOn: '04/10',
-  currentPrice: 143.5,
+  currentPrice: 144.95,
   fairPriceRange: '$160 - $250',
   shares0: 24.8,
   rev25: 3200,           // FY2025 net revenue ~$3.2B (Q4'25: $839M × annualized); was stale at 1830
