@@ -18,7 +18,7 @@ export const FICO = defineStock({
   costDebt: 0.055,
   rsRating: 11,
   rsTrend: 'falling',
-  ratingOverride: 'HOLD',
+  ratingOverride: 'OVERVALUED',
   aiImpact: 'NEUTRAL',
   strategicNarrative: "Structural compounder facing first real competitive threat. VantageScore 4.0 backed by aggressive Experian/Equifax pricing and FHFA regulatory support challenges FICO's mortgage scoring monopoly — the key risk is pricing power erosion, not just cycle timing. Platform ARR +33% and NRR 122% provide diversification, but Scores still drives the majority of high-margin revenue. $1B debt offering adds leverage risk (debt now ~$4.2B). RS 15 signals severe technical deterioration. DCF approach anchors valuation to cash flow generation rather than multiple expansion. Key risks: VantageScore adoption by GSEs, FHFA-mandated pricing caps, mortgage cycle reversal, elevated leverage.",
 
