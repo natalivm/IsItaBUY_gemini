@@ -16,7 +16,7 @@ export const RVLV = defineStock({
   beta: 1.60,
   modelType: 'EPS_PE',
   baseEps: 0.83,
-  rsRating: 58,
+  rsRating: 59,
   rsTrend: 'falling',
   aiImpact: 'POSITIVE',
   strategicNarrative:

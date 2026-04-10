@@ -17,8 +17,9 @@ export const CRWD = defineStock({
   costDebt: 0.04,
   modelType: 'EPS_PE',
   baseEps: 3.93,
-  rsRating: 23,
-  rsTrend: 'rising',
+  rsRating: 22,
+  rsTrend: 'falling',
+  ratingOverride: 'BUY',
   aiImpact: 'TAILWIND',
   strategicNarrative:
     "CrowdStrike is a structural compounder in cybersecurity — high switching costs, endpoint + XDR ecosystem lock-in, and AI-native threat detection create a durable moat with 78% gross margins. " +
