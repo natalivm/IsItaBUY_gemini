@@ -5,7 +5,7 @@ export const CRWD = defineStock({
   name: 'CrowdStrike Holdings',
   sector: 'Cybersecurity / Endpoint Security',
   themeColor: '#e33535',
-  currentPrice: 400.3,
+  currentPrice: 402.24,
   fairPriceRange: '$320 - $900',
   shares0: 248,
   rev25: 3950,

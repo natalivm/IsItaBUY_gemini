@@ -6,7 +6,7 @@ export const ORCL = defineStock({
   sector: 'Cloud / Enterprise Software',
   themeColor: '#c74634',
   updatedOn: '04/13',
-  currentPrice: 150.43,
+  currentPrice: 155.62,
   fairPriceRange: '$140 - $380',
   shares0: 2870,
   rev25: 57400,

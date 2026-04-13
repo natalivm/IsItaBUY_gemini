@@ -6,7 +6,7 @@ export const ANET = defineStock({
   sector: 'Cloud Networking',
   themeColor: '#6366f1',
   updatedOn: '04/13',
-  currentPrice: 149.23,
+  currentPrice: 152.02,
   fairPriceRange: '$145',
   shares0: 1275,
   rev25: 9006,
