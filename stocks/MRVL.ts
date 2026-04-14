@@ -1,12 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const MRVL = defineStock({
-  updatedOn: '04/13',
+  updatedOn: '04/14',
   ticker: 'MRVL',
   name: 'Marvell Technology',
   sector: 'Semiconductors',
   themeColor: '#22d3ee',
-  currentPrice: 131.3,
+  currentPrice: 133.83,
   fairPriceRange: '$80 - $140',
   shares0: 870,
   rev25: 8195,

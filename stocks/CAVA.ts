@@ -1,12 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const CAVA = defineStock({
-  updatedOn: '04/13',
+  updatedOn: '04/14',
   ticker: 'CAVA',
   name: 'CAVA Group, Inc.',
   sector: 'Restaurants · Fast-Casual · Mediterranean',
   themeColor: '#c8553d',
-  currentPrice: 84.21,
+  currentPrice: 88.18,
   fairPriceRange: '$25 - $128',
   shares0: 118,
   rev25: 1080,
