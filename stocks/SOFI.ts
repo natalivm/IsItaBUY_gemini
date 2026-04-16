@@ -1,12 +1,12 @@
 import { defineStock } from './defineStock';
 
 export const SOFI = defineStock({
-  updatedOn: '04/15',
+  updatedOn: '04/16',
   ticker: 'SOFI',
   name: 'SoFi Technologies',
   sector: 'FinTech / Digital Banking',
   themeColor: '#3b82f6',
-  currentPrice: 18.79,
+  currentPrice: 19.03,
   fairPriceRange: '$13 - $48',
   shares0: 1279,
   rev25: 3600,
