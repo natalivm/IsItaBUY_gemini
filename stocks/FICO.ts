@@ -6,32 +6,34 @@ export const FICO = defineStock({
   sector: 'Analytics',
   themeColor: '#2979ff',
   currentPrice: 1015,
-  updatedOn: '04/27',
+  updatedOn: '04/28',
   fairPriceRange: '$1,100 - $2,200',
   shares0: 23.72,
   rev25: 1990,
   fcfMargin25: 0.371,
   taxRate: 0.22,
   cash: 218,
-  debt: 4200,
+  debt: 3640,
   beta: 1.03,
   costDebt: 0.055,
   rsRating: 11,
   rsTrend: 'falling',
   aiImpact: 'NEUTRAL',
-  strategicNarrative: "Monopoly under siege — April 2026 crash (-40% from highs) signals market is repricing competitive and regulatory risk as real, not hypothetical. VantageScore 4.0 backed by aggressive Experian/Equifax pricing and FHFA regulatory support now actively threatens FICO's mortgage scoring monopoly. RS 9 reflects severe institutional distribution. Platform ARR +33% and NRR 122% provide diversification but Scores still drives majority of high-margin revenue. $4.2B debt with no near-term buyback capacity limits capital return. Technical picture broken across all timeframes — RSI 16 (hourly) suggests short-term bounce possible, but 50-day ($1,057) and 200-day ($1,730) MAs are far overhead. At $922, market prices in meaningful VantageScore adoption. Key question: is this capitulation or the start of a structural de-rating?",
+  strategicNarrative: "Q2 FY2026 (Mar quarter) materially refuted the bear thesis: Revenue $691.7M (+38.7% YoY), Adj. EPS $12.50 (+60.1%), Operating margin 58.2% (+893bps YoY), FCF $214.3M (+227% YoY). Mgmt raised FY26 guide to $2.45B revenue (from $2.35B) and Non-GAAP EPS $40.45 (from $38.17). Scores segment $475M (+60% YoY) — driven by +72% B2B growth on mortgage origination pricing power and volume recovery. So far, VantageScore competitive threat has not materialized in the numbers — FICO's pricing power survived the regulatory overhang. Caveats: Software grew only +7.4% (non-platform ARR -8% — legacy erosion); Scores now 68.7% of revenue (concentration risk on mortgage cycle); long-term debt rose to $3.64B (from $2.66B at FY25-end), deepening stockholders' deficit to -$2.10B as debt-funded shareholder returns continue. RS 11 still reflects severe institutional distribution coming into the print — re-rating potential if momentum reverses. At $1,015, market is paying ~25x revised FY26 Non-GAAP EPS — discount remains for VantageScore/regulatory tail risk. Risks: mortgage cycle reversal, FHFA pricing caps, VantageScore GSE adoption inflection, debt service burden.",
 
 
   analystConsensus: { rating: 'Buy', targetLow: 1600, targetMedian: 2063, targetHigh: 2661, numAnalysts: 12 },
+  // FY26 guide raised to $2.45B = +23% off rev25 $1,990. Year 1 in all cases reflects guide is largely locked in (Q2 +38.7% already booked).
   revGrowth: [
-    [0.07, 0.05, 0.04, 0.03, 0.02],
-    [0.15, 0.14, 0.13, 0.12, 0.11],
-    [0.18, 0.17, 0.16, 0.14, 0.13],
+    [0.20, 0.06, 0.04, 0.03, 0.02],   // Bear: meet most of FY26 guide, then mortgage cycle rolls + VantageScore wins
+    [0.23, 0.13, 0.11, 0.10, 0.09],   // Base: hit raised guide, normalize off mortgage cycle peak
+    [0.25, 0.17, 0.15, 0.13, 0.12],   // Bull: beat raised guide, mortgage cycle has further to run, Platform re-accel
   ],
+  // Q2 FY26 op margin 58.2% (+893bps), FCF tripled. Operating leverage demonstrated.
   fcfMargin: [
-    0.30,
-    [0.37, 0.37, 0.38, 0.38, 0.38],
-    [0.38, 0.39, 0.40, 0.40, 0.40],
+    0.32,
+    [0.40, 0.40, 0.40, 0.41, 0.41],
+    [0.41, 0.42, 0.42, 0.43, 0.43],
   ],
   exitMultiple: [17, 25, 30],
   bbRate: [0, 0.04, 0.02],
@@ -41,11 +43,14 @@ export const FICO = defineStock({
   prob: [40, 40, 20],
 
   desc: [
-    'VantageScore gains meaningful GSE adoption, FHFA mandates pricing caps, and the mortgage cycle stalls. ' +
-      'Scores revenue growth decelerates to mid-single digits as lenders switch to cheaper alternatives. $4.2B debt load forces cash toward debt service, eliminating buybacks. FCF margins compress to 30% with EBITDA exit at 17x as market de-rates the monopoly thesis.',
-    'FICO retains dominant market share but pricing growth moderates under regulatory scrutiny. Platform ARR continues growing but cannot fully offset Scores deceleration. ' +
-      'FCF margins expand modestly to 38% with EBITDA exit at 25x as the market prices in a less certain monopoly.',
-    'VantageScore adoption stalls (data quality/lender inertia), FICO maintains pricing power, and a mortgage recovery boosts volumes. ' +
-      'Platform transition accelerates with AI-driven decisioning demand. FCF margins reach 40% with EBITDA exit at 30x.',
+    'FY26 guide gets met (Q2 already locked it in), but the mortgage origination cycle peaks late-2026 and rolls over. VantageScore gains meaningful GSE adoption and FHFA mandates pricing caps. ' +
+      'Scores growth craters from +60% YoY to mid-single digits as lenders switch to cheaper alternatives. Software remains stuck at HSD with non-platform ARR continuing to erode. ' +
+      '$3.64B debt load and rising interest costs crowd out reinvestment. FCF margins compress to ~32% with EBITDA exit at 17x as market de-rates the monopoly thesis.',
+    'Q2 FY26 set the tone: revenue +38.7%, op margin +893bps, FCF tripled. Mgmt raised FY26 guide to $2.45B revenue and $40.45 Non-GAAP EPS. ' +
+      'Scores pricing power and mortgage volume recovery sustain through 2026, then normalize to LDD growth. Software stabilizes at ~10% as Platform offsets non-platform decline. ' +
+      'FCF margins hold at ~40% — operating leverage is structural, not cyclical. EBITDA exits at 25x as the market prices a discounted-but-still-dominant franchise.',
+    'Mortgage cycle has more room to run than consensus expects, and FICO\'s 72% B2B growth rate proves Scores pricing power is still inflecting. VantageScore threat fades to noise (data quality, lender inertia, GSE delays). ' +
+      'Platform ARR re-accelerates with AI-driven decisioning demand; non-platform erosion is fully absorbed. FCF margins reach 43% on continued operating leverage. ' +
+      'Multiple re-rates back toward 30x EBITDA as the bear case dissolves.',
   ],
 });
