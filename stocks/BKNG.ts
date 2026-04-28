@@ -6,7 +6,7 @@ export const BKNG = defineStock({
   sector: 'Online Travel / Marketplace',
   themeColor: '#003580',
   updatedOn: '04/28',
-  currentPrice: 177.12,
+  currentPrice: 173.38,
   fairPriceRange: '$180 - $268',
   // 25-for-1 forward split effective 04/06/2026: 30.6M × 25 = 765M shares
   shares0: 765,
