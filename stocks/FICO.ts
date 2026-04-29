@@ -12,9 +12,9 @@ export const FICO = defineStock({
   rev25: 1990,
   fcfMargin25: 0.371,
   taxRate: 0.22,
-  cash: 218,
+  cash: 162,
   debt: 3640,
-  beta: 1.03,
+  beta: 1.24,
   costDebt: 0.055,
   rsRating: 6,
   rsTrend: 'falling',
@@ -22,7 +22,7 @@ export const FICO = defineStock({
   strategicNarrative: "Q2 FY2026 (Mar quarter) materially refuted the bear thesis: Revenue $691.7M (+38.7% YoY), Adj. EPS $12.50 (+60.1%), Operating margin 58.2% (+893bps YoY), FCF $214.3M (+227% YoY). Mgmt raised FY26 guide to $2.45B revenue (from $2.35B) and Non-GAAP EPS $40.45 (from $38.17). Scores segment $475M (+60% YoY) — driven by +72% B2B growth on mortgage origination pricing power and volume recovery. So far, VantageScore competitive threat has not materialized in the numbers — FICO's pricing power survived the regulatory overhang. Caveats: Software grew only +7.4% (non-platform ARR -8% — legacy erosion); Scores now 68.7% of revenue (concentration risk on mortgage cycle); long-term debt rose to $3.64B (from $2.66B at FY25-end), deepening stockholders' deficit to -$2.10B as debt-funded shareholder returns continue. RS 6 still reflects severe institutional distribution coming into the print — re-rating potential if momentum reverses. At $1,015, market is paying ~25x revised FY26 Non-GAAP EPS — discount remains for VantageScore/regulatory tail risk. Risks: mortgage cycle reversal, FHFA pricing caps, VantageScore GSE adoption inflection, debt service burden.",
 
 
-  analystConsensus: { rating: 'Buy', targetLow: 1600, targetMedian: 2063, targetHigh: 2661, numAnalysts: 12 },
+  analystConsensus: { rating: 'Buy', targetLow: 1600, targetMedian: 1556, targetHigh: 2661, numAnalysts: 12 },
   // FY26 guide raised to $2.45B = +23% off rev25 $1,990. Year 1 in all cases reflects guide is largely locked in (Q2 +38.7% already booked).
   revGrowth: [
     [0.20, 0.06, 0.04, 0.03, 0.02],   // Bear: meet most of FY26 guide, then mortgage cycle rolls + VantageScore wins
