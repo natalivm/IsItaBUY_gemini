@@ -5,9 +5,9 @@ export const CACI = defineStock({
   name: 'CACI International Inc.',
   sector: 'Defense IT / National Security Services',
   themeColor: '#1d4ed8',
-  updatedOn: '09/04',
+  updatedOn: '09/08',
   lastReportTag: 'FY2025',
-  currentPrice: 623.61,
+  currentPrice: 625.31,
   fairPriceRange: '$400 - $840',
   shares0: 22.4,
   rev25: 9550,           // FY2026 guidance midpoint ($9,500–$9,600M, +11% YoY)
